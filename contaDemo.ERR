@@ -1,0 +1,101 @@
+Program c:\users\yec\documents\fox\contas\conta3\utilities\hdutil.prg has the following errors:
+    Unknown LAFILES - Undefined
+
+Visual Class Library c:\users\yec\documents\fox\contas\conta3\lib1.0\_conta.vcx has the following errors:
+    Unknown LAIDDET - Undefined
+
+Visual Class Library c:\users\yec\documents\fox\contas\conta3\lib1.0\_vars.vcx has the following errors:
+    Unknown GENCURVAL - Undefined
+    Unknown PRECIOPROM - Undefined
+    Report RQ - Undefined
+    Form FCEXISTENCIAS - Undefined
+    Unknown MENUS - Undefined
+    Unknown GETCHEQUERAACTIVA - Undefined
+    Unknown GENNUMDOC - Undefined
+    Unknown GENVALIDATEDET - Undefined
+    Unknown GENVALIDATE - Undefined
+    Report DV - Undefined
+    Unknown RETIVA - Undefined
+    Report OC - Undefined
+    Unknown SKIPPER - Undefined
+    Form PROVEEDORES - Undefined
+    Form FCPROV - Undefined
+    Form PROYECTOS - Undefined
+    Form FCPROY - Undefined
+    File BARRA.PNG - Undefined
+    Form INVENTARIO - Undefined
+    Form ARTICULOS - Undefined
+    Form CONTRIBUYENTES - Undefined
+    Report OG - Undefined
+    Form FCCATAL - Undefined
+    Visual Class Library FOXCHARTS - Undefined
+    Report QD - Undefined
+    Report CC - Undefined
+    Unknown CONVNUM - Undefined
+    Report CMB1 - Undefined
+    Report CH - Undefined
+    Unknown ATOTALDETALLE - Undefined
+    Unknown ATASAS - Undefined
+    Unknown LAMHOJACTOTAL - Undefined
+    Form OG - Undefined
+    Form OC - Undefined
+    Form OC_DV - Undefined
+    Form CAJA - Undefined
+    Form QUEDAN - Undefined
+    Form CHEQUE - Undefined
+    Form OTROSINGRESO - Undefined
+    Form PRESUPREP - Undefined
+    Form PRESUPVEH - Undefined
+    Form VENTA - Undefined
+    Form DEPOSITO - Undefined
+    Form RA - Undefined
+    Form FCMENU - Undefined
+    Unknown NUEVOID - Undefined
+    Unknown LAEQUIPOS - Undefined
+    Unknown LADATOSENVIAR - Undefined
+    Unknown TRANSFORM2MONEY - Undefined
+    Unknown GETAUTOCORRELACTIVO - Undefined
+    Unknown TCIDDOCORIGIN - Undefined
+    Unknown CONVNUM2 - Undefined
+    Unknown CONVNUM3FORCH - Undefined
+
+Visual Class Library c:\users\yec\documents\fox\contas\conta3\lib1.0\ycomapps.vcx has the following errors:
+    Unknown SKIPPER - Undefined
+    Form RA - Undefined
+    Unknown NUEVOID - Undefined
+    Form GRIDINVCAMBIARESTADO - Undefined
+    Form INVFAMCREATE - Undefined
+    Form OC_AJUSTE - Undefined
+    Form OC_EXTERIOR - Undefined
+    Form OC_SEL - Undefined
+    Report GRIDOC - Undefined
+    Proc./Func. INSERTGRIDFORMAT - Undefined
+    Unknown LAFILL - Undefined
+    Form GRIDPROYCAMBIARESTADO - Undefined
+
+Visual Class Library c:\users\yec\documents\fox\contas\conta3\lib1.0\ycomponents.vcx has the following errors:
+    Unknown GENNUMDOC - Undefined
+    Unknown SKIPPER - Undefined
+    Unknown NUEVOID - Undefined
+    Proc./Func. INSERTGRIDFORMAT - Undefined
+    Unknown LAFILL - Undefined
+
+Visual Class Library c:\users\yec\documents\fox\contas\conta3\lib1.0\yoapp.vcx has the following errors:
+    Unknown NUEVOID - Undefined
+    Form YAPPS - Undefined
+    Menu SGAAFMAN - Undefined
+    Unknown UNZIPQUICK - Undefined
+    Unknown LADISTINCARRAY - Undefined
+    Unknown ZIPFOLDERQUICK - Undefined
+    Unknown LADATOS2INSERT - Undefined
+
+Program c:\users\yec\documents\fox\contas\conta3\altertable2.prg has the following errors:
+    Unknown GENNUMDOC - Undefined
+    Form OG - Undefined
+    Unknown LAUNITS - Undefined
+    Unknown LADOCS - Undefined
+    Form FCCATAL2 - Undefined
+    Unknown LA - Undefined
+    Form HOJA - Undefined
+    Unknown LADUPLICATE - Undefined
+

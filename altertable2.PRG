@@ -1,0 +1,14237 @@
+
+**altertable2 se creo para realizar todos los cambios que afectan tablas 
+** Se agregó manejo de lotes de producccion imei y fecha de caducidad 
+**26/09/2014 INSERPARAMRDROPBOX SE INSERTARON PARAMETROS DE DROPBOX Y ACTUALIZAR ORDENES POR DEFAULT 
+**15/09/2014 SEP2014MODPROYMODULE CAMPOS ADICIONALES PARA TABLA PROYECTOS, PARA EL CUADRO DE COSTOS EN PROCESO ING PEÑA 
+**15/09/2014 SEP2014MODPROYMODULE CAMPOS ADICIONALES PARA TABLA PROYECTOS, PARA EL CUADRO DE COSTOS EN PROCESO ING PEÑA 
+**31/08/2014 AGO2014ADDRETACEO SE AGREGO CALCULO DE IMPUESTOS DE RETACEO EN EL DOCUMENTO OEC 
+**31/08/2014 AGO2014MODDOCUMENTOS SE MODIFICO TABLA DE DOCUMENTOS CON INTENCION DE QUE SE PUEDA OBTENER LA TABLA_M TABLA_D y IDCAMPO DE ELLA, LO USA LA GENERACION DEL DOCUMENTO OEC (ORDEN DE RETACEOS)
+**01/07/2014 JUL2014REPORTSNUEVOS REPORTES NUEVOS DE VENTAS E INVENTARIO 
+**30/06/2014 JUN2014INACTIVARPRODUCTOS INACTIVAR PRODUCTOS EN INVENTARIO 
+**30/06/2014 JUN2014ALTERGRDCCOLS ENSANCHAR CAMPO DE GRDCOLS POR QUE NO CABIAN NOMBRES LARGOS 
+**30/06/2014 JUN2014ADDLINEINVTB AGREGAR CAMPO LINE A INVENTARIO PARA QUE FUNCIONE CON GRIDINV 
+**01/06/2014 JUN2014MODTBDTUP ENSANCHAR DESCRICPION DE TABLA TBDTUP.DBF  PARA QUE EL VALOR DESCRIPC COINCIDA CON LA OTRA TABLA 
+**01/06/2014 JUN2014ADDFIELDSINC para sincronizacion de datos entre sucursales 
+**23/05/2014 MAY2014FIXINVTYPES se detecto que en el servidor de gama existian los campos de inventario pero arrebesados por lo que se creo este procedimieto pra dearlos bien, estos campos son los que se usan para el reporte analisis de inventario 
+**16/05/2014 MAY2014ADDFIELDSCLITB se agregaron campos a la tabla clientes de personeria y otros a tabla proveedores para dejarla igual que la de cliente 
+**16/05/2014 MAY2014INSREPORTCLI26   add report cli26 infored 
+**30/04/2014 ABR2014ADDLINEPROYTB ingresar line a proyectos.dbf para usar gridproy            
+**17/03/2014 MAR2014INSREPORT35 Ingresar reporte de analisi de inventario                            
+**17/03/2014 MAR2014CREATETBMANAHEMOVINV crear manejo de movimientos de inventario                           
+**17/03/2014 MAR2014FIXTBSINV borra los productos de inventario que no tienen padre en la familia 
+**28/02/2014 ENE2014ADDUCOSTINV Se agrego ultimo costo 
+**23/01/2014 ENE2014CLOSEPROYSLESSTHAN2012 Se agrego para cerrar proyectos que no tiene fecha de finalizacion 
+**15/01/2014 ADDFIELDSPROYENE2014 se agregaron nuevos campos a proyectos para el nuevo form, campos de auditoria y campos de contabilidad 
+**14/01/2014 ADDFIELDSINVUBIQUITY agregar campos de ubicacion 
+**13/01/2014 ADDFIELDSCATACONFIGENE2014 add tbs cataconfig
+**09/01/2014 FIXFAMILIASINV arreglar familias en el inventario solo en Gt
+**02/01/2014 ENE2014_ADDREPORTS_NEW_INV agrega reportes nuevos solcitados por SLT 
+**20/12/2013 DIC2013ADDMANAGECODS Se agregó manejo de lotes de producccion imei y fecha de caducidad 
+**09/12/2013 DIC2013ADDTBTBS Se agrego esta tabla para tener un listado de las tablas que e van añadiendo al sistema 
+**27/11/2013 NOV2013ADDTBCOSTOSV2 agregar campo de actualizacion a sistema de planilla y viejo a tabla proyectos
+*************Se comienza el manejo de tablas movs las cuales recibiran los movimientos de los documentos, los documentos seran satelites que almacenarn un mov(maestro) central 
+*************Esto agilizará la creación de reportes, y mantendrá centralizado el calculo y manejo de saldos (una sola forma de calcular saldos)
+**26/11/2013 NOV2013ADDACTUALIZAPROYS agregar campo de actualizacion a sistema de planilla y viejo a tabla proyectos
+**27/09/2013 SEP2013FIXFACTWITH3DECIMAL Arreglar facturas que tiene 3 decimales pasarlas a dos decimales 
+**30/08/2013 AGO_2013_ADD_STOTAL_OTRING se agregaron tasas  y totales a otring para cambiar su uso y poderlo adecura al query_docs 
+**30/08/2013 Ago2013_CREATEDWMYSQL crear el procedimiento para mandar informacion de bases de datos 
+**30/08/2113 AGO2013_LOOK_WITHOUT procedimiento para poder verificar cuales documentos no tienen abonos o cargos 
+**30/08/2013 AGO2013_MOD_ESTADO_OG se cambio estado a ordenes de gasto 
+**16/08/2013 AGO2013_MOD_ANCHO_DET_FACT se modificaron los anchos del detalle de las facturas, en tablas facturaslines,vndepot y genvn.prg 
+**16/07/2013 JUL2013_ADD_TP_PR se agregaron 4 decimales y manejo opcional de decimales 
+**10/06/2013 JUN2013_MOD_FACTURAS se agregaron 4 decimales y manejo opcional de decimales 
+**04/06/2013 JUN_MOD_OT_D_CANT agregar dos decimales a ot_D para calculo de precios 
+**15/05/2013 MAY13_MOD_TB_PARAM AGREGAR QUE SE PUEDE ASIGNAR LOS REPORTES A UN TIPO DE FORMATO ESPECIFICO
+**10/05/2013 may13_del_OpenStartup deshabilitar abrir al inicio del diccionario de datos 
+**26/04/2013 abr13_add_PROV33 Reporte de proveedores por depto
+**08/04/2013 abr13_MOD_sgaa para modificar tamaño de version en tabla .apd 
+**08/03/2013 MAR13_MOD_OT Se modifico tabla ot para agregar cambios solicitado por creativa 
+**28/02/2013 FEB13_MOD_CLCALL_D se modifico llamadas para incluir cambios solicitados por gama auto 
+**18/12/2012 DIC2012_ADD_CHANGES_OTS Se agregaron datos de planilla
+**05/12/2012 DIC2012_ADD_PLIES Se agregaron items para ingresos y egresos 
+**03/12/2012 DIC2012_ADD_ADDSITEMS Se agregaron items para planilla de acuerdo a lo estipulado en documentos.docx
+**02/12/2012 DIC2012_ADD_CHANGES_PLNA se agregaron cambios en el las tablas de planillas 
+**27/11/2012 NOV2012_DOCNUM se agrego tabla   para manejo de correlativos de documentos  
+**14/11/2012 OCTADDPERMIFILTERUSR se agregaron permisos para filtrar usuarios en los formularios 
+**06/11/2012 Oct12AddInvVenta se agregaron los datos de inventario adicionales como precio de venta 
+**05/11/2012 SE AGREGARON LAS ORDENES DE TRABAJO 
+**30/10/2012 OctAddFieldsVehiculos Se añadieron los campos siguientes al vale y se ensancho el de vehiculos 
+**26/10/2012 SE AGREGARON RESTRICCIONES A DOCUMENTOS APLICADOS 
+**25/10/2012 addDetLines se agregaron las lineas a la tablas pendientes 
+**24/10/2012 OCTNULLADDTBCOSTOS VALORES NULL ALOWED EN TBCOSTOS.DBF EN CAMPO COSTO3 (Esto es para cuando el campo )
+**16/10/2012 SE TABLA PARA MANEJO DE ANCHOS DE GRID 
+**16/10/2012 SE AGREGO REORTE DE ORDENES DE COMPRAS POR PROYECTO INV23
+**14/10/2012 SE AGREGO MODULO DE ADMINISTRACION DE MINISTERIOS 
+**10/10/2012 SE AGREGO REPORTE DE FACTURAS PENDIENTES DE COBRO 
+**09/10/2012 SE AGREGO TABLA VNDEPOT PARA DEPOSITAR VN Y VNDET JUNTOS YA QUE PERDIA BANDA DE DETALLE
+**01/10/2012 SEPCLASIF2 ADD BRG Y TELEFONICA 
+**24/09/2012 SEPADDPARAMETROS agregar campos a parametros 
+**24/09/2012 TOTALIZAR CC, DOCPROV, CARGOSBANCO, ABONOSBANCO
+**23/09/2012 PERMISOS PARA CAMBIOS DE FECHA EN TODOS LOS DOCUMENTOS 
+**18/09/2012 SEPMODFACTCONTRATO3 AGREGAR CAMPO FXSC A CONTRATOS servira para DECIR QUE SE FACTURARA SUCUSARLES SEPARADAS 
+**17/09/2012 SE AGREGARON CAMPOS DE RESUMEN A CNCTR Y CNCTR_D 
+**14/09/2012 SE AGREGO DIRECCION A FACTURAS PARA QUE PONGA LA DE LA SUCURSAL EN VEZ LA DEL CLIENTE 
+**14/09/2012 SE AGREGO TABLA PARA CONTROL DE FACTURACION DE MANTTOS 
+**12/09/2012 SE AGREGO SEPMODFACTCONTRATO2 PARA AGREGAR MONTO A LAS SUCURSALES Y A LOS EQUIPOS 
+**07/09/2012 SEPclasiF se agregaron tablas de control de clasifcados 
+**07/09/2012 se empezo a llevar versiones dentro del archivo 
+***********************************************************************
+**A PARTIR DE 27 DE MARZO SE LLEVA EL CONTROL EN ORDEN INVERSO 
+**31/10/2014 OCT2014MODDESCRIPCARGOS MODIFICAR EL ANCHO DEL CAMPO DESCRIPCION 
+**31/10/2014 OCT2014ADDESTADOMECA MODIFICAR EL ESTADO DE TANLA MGRUPO_MECA Y CREAR INDICE DE BODEGA EN TABLAS DE INVENTARIO
+**31/10/2014 OCT2014APLICARDOCSINV SOLO SI ES GAMA AUTO APLICAR TODAS LAS ORDENES DE COPRA Y REQUISICIONES DE UNA VEZ 
+**30/11/2014 INSERPARAMCONTACLIENTECTA  EL PARAMETRO DE CUENTA CONTABLE DE CLIENTES PARA CREAR LAS PARTIDAS AUTOMATICAMENTE 
+**30/11/2014 INSERPARAMCHNEGOCIABLE PARAMETRO DE CHEQUE NEGOCIABLE 
+**31/01/2015 ENE2015ADDLINECLIETB ADD LINE IN CLIENTES PARA CAMBIAR FORMULARIO DE CREACION DE CLIENTES 
+**31/01/2015 ENE2015ADDFLDSAUDIT ADD CAMPOS A CLIENTES PARA MANEJO DE AUDITORIA 
+**31/01/2015 ENE2015ADDOCRC AGREGAR TABLA DE MANEJO DE RECETAS QUIMICAS 
+**28/02/2015 FEB2015ADDLP AGREGAR LISTAS DE PRECIOS 
+**28/02/2015 INSERPARAMNUMPATRONAL AGREGAR PLANILLA DEL ISSS Y RAMETTROS PARA GENERAR REPORTE QUE LO SUBE 
+**20/03/2015 MAR2015ADITIONAL_OCRC_LP CREANDO INDICES PARA TABLAS DE LISTAS DE PRECIOS Y ORDENES DE PRODUCCION, A PARTIR DE AQUI TODO LLEVA INDICE 
+**20/03/2015 mar2015_20removetable SACAR TABLA GRDCOLS DE LA BASE DE DATOS PARA PODERLA SUSTIRUIR DESDE LA MATRIZ
+**27/03/2015 UPDATETABLES_ALL TODOS LOS COMANDO DE ACTUALIZACION DEJARLOS JUNTOS PARA QUE YA NO ESTROBEN SI ESTAN SUELTOS 
+**27/03/2015 MAR201527_ADD_RTC_TABLES SE AGREGO LOS RETACEOS AL SISTEMA, NO EL DE MASTERPARTS SINO EL DE QUIMCOL Y QUE SERVIRA PARA TODAS LAS EMPRESAS, EL DE MASTERPARTS ES MAS UNA SOLICITUD DE PEDIDOS
+
+
+*DO INSERTPROCTBSRCDTUP WITH "MAR2016ADDCANTEQENCONTRATO","add cantidad a mcontrato_eq"
+*DO INSERTPROCTBSRCDTUP WITH "sep2016addclasifmcontrato","add clasif a mcontrato.dbf"
+
+
+DO INSERTPROCTBSRCDTUP WITH "ABR2017EDITFIELDSVNDEPOT2","Estandarizar el ancho de los campos"
+
+**01 MAY 2016 CORREGIR PROBLEMA DE OTS NO LAS PODIA GUARDAR POR QUE NO EXISTIA EL CAMPO IVA 
+**Es necesario borrar antes la tabla ot 
+*DO OctaddOT IN ALTERTABLE2 
+*DO DIC2012_ADD_CHANGES_OTS IN ALTERTABLE2 
+*DO MAR13_MOD_OT IN ALTERTABLE2 
+*DO JUN_MOD_OT_D_CANT IN ALTERTABLE2 
+**01 MAY 2016 CORREGIR PROBLEMA DE OTS NO LAS PODIA GUARDAR POR QUE NO EXISTIA EL CAMPO IVA 
+
+
+
+*DO INSERTPROCTBSRCDTUP WITH "Feb2016AddTableLp_C","Tabla lp_C, multiples clientes x lprec"
+*DO INSERTPROCTBSRCDTUP WITH "ENE2017ADDFIELDSPLIE","AGREGA CAMPOS A PLPLNA_E"
+*DO INSERTPROCTBSRCDTUP WITH "ENE2017ADDFIELDSUELDOB","AGREGA CAMPOS SUELDO_B"
+
+
+*!*	PROCEDURE
+*!*		DO PrepararEntorno
+*!*		TRY 		
+*!*			gbVentanaComandosExecuteSuccesful=.t.
+*!*			gcVentanaComandosExecuteResult="Se crearon todos los paises y sus localidades"
+*!*			
+*!*		CATCH TO err 
+*!*			lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+*!*							" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+*!*							" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+*!*							" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+*!*							" Mensaje: "+TRANSFORM(err.Message)
+*!*							
+*!*			MESSAGEBOX(lcErrorMessage,16,"Error")
+*!*			
+*!*			gbVentanaComandosExecuteSuccesful=.f.
+*!*			gcVentanaComandosExecuteResult=lcErrorMessage
+
+*!*		FINALLY
+
+*!*		ENDTRY
+*!*	
+PROCEDURE ABR2017EDITFIELDSVNDEPOT2
+LPARAMETERS tbShowDialogues
+
+	CLOSE TABLES ALL 
+	LCTB="VNDEPOT"
+	LCFLD="CANTIDAD"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="VNDEPOT"
+	LCFLD="PRECIO"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+	CLOSE TABLES ALL 
+	LCTB="VNDEPOT"
+	LCFLD="VENTASAFECTAS"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+	CLOSE TABLES ALL 
+	LCTB="VNDEPOT"
+	LCFLD="VENTASEXENTAS"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+	
+ENDPROC 
+
+PROCEDURE ABR2017EDITFIELDSVNDEPOT
+LPARAMETERS tbShowDialogues
+	CLOSE TABLES ALL 
+	LCTB="VNDEPOT"
+	LCFLD="PROYNOMB"
+	LNPRECISION="C(90)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="VNDEPOT"
+	LCFLD="GIRO"
+	LNPRECISION="C(90)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="VNDEPOT"
+	LCFLD="CLIENTE"
+	LNPRECISION="C(90)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="NOMBRE"
+	LNPRECISION="C(90)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PERSONNATURALES"
+	LCFLD="NOMBRE"
+	LNPRECISION="C(90)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PERSONNATURALES"
+	LCFLD="APELLIDOS"
+	LNPRECISION="C(90)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	
+ENDPROC 
+
+
+
+PROCEDURE ABR2017ADDFIELDACTIVOPLNA_E
+LPARAMETERS tbShowDialogues
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_E"
+	LCFLD="ACTIVO"
+	LNPRECISION="L"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+ENDPROC 
+
+PROCEDURE ABR2017ADDCOLORBOTONLINES
+	&&insertando los colores de los botones para agregar linea 
+	
+	INSERTCOLORS("BotonAddLineBackColor","default",RGB(159,225,142))
+	INSERTCOLORS("BotonAddLineForeColor","default",RGB(0,128,0))
+
+	INSERTCOLORS("BotonDelLineBackColor","default",RGB(224,160,139 ))
+	INSERTCOLORS("BotonDelLineForeColor","default",RGB(255,0,0 ))
+	
+ENDPROC 
+
+PROCEDURE ABR2017ADDPLLNASPARAMS
+	DO inserparam with "SUELDOMIN","02","300","PLANILLA"
+	DO inserparam with "SUELDOMAXISSS","02","1000","PLANILLA"
+	DO inserparam with "SUELDOMAXAFP","02","6319.02","PLANILLA"
+ENDPROC 
+
+
+
+PROCEDURE ENE2017ADDFIELDSUELDOB
+LPARAMETERS tbShowDialogues
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_D"
+	LCFLD="SUELDOB"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+ENDPROC 
+
+PROCEDURE AddParamOgSaveConfigCtas
+	
+	IF MESSAGEBOX("Desear activar guardar configuracion de ctas en ordenes de gastos",36,"Seleccione opcion")=6
+		lcRespuesta="SI"
+	ELSE
+		lcRespuesta="NO"
+	ENDIF 
+	
+	DO inserparam with "OGSAVECONFIGCTAS","02",lcRespuesta,"OG"
+	
+
+ENDPROC 
+
+PROCEDURE AddParamDvFactorProy
+	&&2 devolucion por proyecto: ejecuta formulario ventadvfnr	
+	&&3 devolucion por cliente de proyecto: ejecuta formulario ventadvfnrbycliente
+	
+	IF MESSAGEBOX("Desear realizar devoluciones por cliente de proyectos",36,"Seleccione opcion")=6
+		lcRespuesta="3"
+	ELSE
+		lcRespuesta="2"
+	ENDIF 
+	DO inserparam with "DVFACTORPROY","02",lcRespuesta,"INVENTARIO"
+	
+ENDPROC 
+
+PROCEDURE ENE2017ADDFIELDSPLIE
+LPARAMETERS tbShowDialogues
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_E"
+	LCFLD="VALORCAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_E"
+	LCFLD="DIASP"
+	LNPRECISION="I"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_D"
+	LCFLD="SUELDON"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+ENDPROC 
+
+
+PROCEDURE DIC2016UPPERPLIE
+LPARAMETERS tbShowDialogues
+	REPLACE ALL DESCRIP WITH UPPER(DESCRIP) IN PLIE
+
+
+ENDPROC 
+
+PROCEDURE CONTAADDTABLEPARAMETROS
+LPARAMETERS tbShowDialogues
+
+IF DIRECTORY("CONTA/DATA")
+	MESSAGEBOX("Actualización solo aplicable en contaportable",16,"Solo conta",1)
+ELSE
+	DO PrepararEntorno
+	TRY 	
+	
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se crearon todos los paises y sus localidades"
+
+	CLOSE TABLES ALL 
+	LCTB="TBDTUP"
+	LCFLD="PROC"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+
+		CLOSE TABLES ALL 
+		lcTablaM="PARAMETROS"
+		IF DIRECTORY("DATA")
+			CD DATA
+		ENDIF
+	
+		IF !FILE("GAMADATA.dbc")
+			MESSAGEBOX("Base de Datos GamaData creada con exito",16,"resultado",1 )
+			CREATE DATABASE GAMADATA
+		ENDIF 
+		
+		OPEN DATABASE GAMADATA
+
+		lcTable=lcTablaM
+		IF FILE(lcTable+".dbf")=.f.
+			
+			
+			CREATE TABLE (lcTablaM)(;
+			IDPARAMETRO C(30),;
+			TIPO C(10) ,;
+			VALOR C(60) ,;
+			USUARIO C(10) ,;
+			FRXFILE C(10) ,;
+			CLASIF C(30))
+
+
+			INDEX on TIPO   TAG TIPO
+			INDEX on VALOR  TAG VALOR 
+			INDEX on USUARIO   TAG USUARIO
+			INDEX on FRXFILE TAG FRXFILE
+			INDEX on CLASIF TAG CLASIF
+			**TABLA PARAMETROS
+		ELSE 
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					DROP TABLE (lcTable) recycle
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 			
+		ENDIF &&fin tabla tiempo 
+	**tiempos 
+		IF !DIRECTORY("DATA")
+			CD ..
+		ENDIF
+		
+	
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+		
+ENDIF 
+ENDPROC 
+
+
+PROCEDURE OCT2016ADDPLNARENTATABLA
+LPARAMETERS tbShowDialogues
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agrego tabla renta"
+		
+	**tiempos 
+		CLOSE TABLES ALL 
+		lcTablaM="PLTBRENTA"
+		IF DIRECTORY("DATA")
+			CD DATA
+		ENDIF
+		
+		lcTable=lcTablaM
+		IF FILE(lcTable+".dbf")=.f.
+
+			CREATE TABLE (lcTablaM)(;
+				line i AUTOINC ,;
+				TIPO  c(20),;
+				LI N(10,2),;
+				LF N(10,2),;
+				BASE N(10,2),;
+				PORC N(10,2),;
+				SOBRE N(10,2);
+				)
+			
+			INDEX on TIPO   TAG TIPO
+			INDEX on line TAG line 
+			**tiempo 
+		ELSE 
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					DROP TABLE (lcTable) recycle
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+			
+		ENDIF &&fin tabla tiempo 
+	**tiempos 
+		IF !DIRECTORY("DATA")
+			CD ..
+		ENDIF
+
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+
+	
+	IF FILE("data/PLTBRENTA.dbf")
+	**ingresando los valores de la tabla de la renta 
+		lcRentaQ=	"QUINCENA:0.00	:236.00		:0.00	:0.00	:0.00,"+;
+					"QUINCENA:236.01	:447.62			:8.83	:0.10	:236,"+;
+					"QUINCENA:447.63	:1019.05		:30		:0.20	:447.62,"+;
+					"QUINCENA:1019.06:999999999.99	:144.28	:0.30	:1019.05,"
+
+
+		lcRentaM=	"MENSUAL:0.00	:472.00			:0.00	:0.00	:0.00,"+;
+					"MENSUAL:472.01	:895.24			:17.67	:0.10	:472,"+;
+					"MENSUAL:895.25	:2038.10		:60		:0.20	:895.24,"+;
+					"MENSUAL:2038.11:999999999.99	:288.57	:0.30	:2038.10,"
+
+
+		lcRentaS=	"SEMANAL:0.01	:118.00			:0.00	:0.00	:0.00,"+;
+					"SEMANAL:118.01	:223.81			:4.42	:0.10	:118,"+;
+					"SEMANAL:223.82	:509.52			:15		:0.20	:223.81,"+;
+					"SEMANAL:509.53:999999999.99	:72.14	:0.30	:509.52"
+
+		lcRenta=lcRentaQ+lcRentaM+lcRentaS
+
+
+		DELETE FROM (lcTablaM)
+		
+		LOCAL ARRAY laTbRenta(1)
+		ArrayFromList2(@laTbRenta,lcRenta)
+		FOR lnTbRenta=1 TO ALEN(laTbRenta,1)
+
+			lcTipo=laTbRenta(lnTbRenta,1)
+			lnLi=VAL(laTbRenta(lnTbRenta,2))
+			lnLf=VAL(laTbRenta(lnTbRenta,3))
+			lnBase=VAL(laTbRenta(lnTbRenta,4))
+			lnPorc=VAL(laTbRenta(lnTbRenta,5))
+			lnSobre=VAL(laTbRenta(lnTbRenta,6))
+
+
+			INSERT INTO (lcTablaM)(tipo	,li		,lf		,base	,porc	,sobre);
+				VALUES	(lcTipo	,lnLi	,lnLf	,lnBase	,lnPorc	,lnSobre)
+			
+		ENDFOR 
+	ENDIF 
+ENDPROC 
+
+
+PROCEDURE OCT2016SETELEMENTS
+	DELETE FROM plie_d 
+	DELETE FROM plie
+	DO DIC2012_ADD_PLIES 
+ENDPROC 	
+
+PROCEDURE OCT2016ADDFIELDPLPIE_D
+	CLOSE TABLES ALL 
+	LCTB="PLIE_D"
+	LCFLD="AFP"
+	LNPRECISION="L"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLIE_D"
+	LCFLD="ISSS"
+	LNPRECISION="L"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLIE_D"
+	LCFLD="RENTA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLIE_D"
+	LCFLD="DIVBASE"
+	LNPRECISION="I"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLIE_D"
+	LCFLD="HORAS"
+	LNPRECISION="I"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+******************
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_E"
+	LCFLD="AFP"
+	LNPRECISION="L"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_E"
+	LCFLD="ISSS"
+	LNPRECISION="L"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_E"
+	LCFLD="RENTA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_E"
+	LCFLD="IDIE"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_E"
+	LCFLD="DIVBASE"
+	LNPRECISION="I"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_E"
+	LCFLD="HORAS"
+	LNPRECISION="I"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+*****************
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_D"
+	LCFLD="DIVBASE"
+	LNPRECISION="I"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_D"
+	LCFLD="HORAS"
+	LNPRECISION="I"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_D"
+	LCFLD="IDPER"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+ENDPROC 
+
+
+PROCEDURE OCT2016FIXPLANILLATABLES
+&&copiar a planilla
+	CLOSE TABLES ALL 
+	IF VARTYPE(GCRVIEJOPLNA)="U"
+		&&ESTAMOS EN SISTEMA DE PLANILLA 
+		USE PLANILLA EXCLUSIVE 
+		
+	ELSE
+		&&NO ESTAMOS EN SISTEMA DE PLANILLA 
+		IF !EMPTY(GCRVIEJOPLNA)
+			IF directory(GCRVIEJOPLNA)
+				USE GCRVIEJOPLNA+"PLANILLA.dbf" EXCLUSIVE 
+				INDEX on numero TAG numero UNIQUE FOR !DELETED() 
+
+			ELSE 
+				MESSAGEBOX("Directorio: "+GCRVIEJOPLNA+" no existe",16,"Info:")
+			ENDIF 
+		ELSE
+			MESSAGEBOX("Parametro de directorio viejo esta vacio",16,"Info:")
+		ENDIF 
+	ENDIF 
+	
+	CLOSE TABLES ALL 	
+ENDPROC 
+
+
+PROCEDURE OCT2016INFOAPPFIXCTASINGRESO
+	UPDATE INFOAPP SET DSC="Cuenta de Ingresos" WHERE IDINFO="0000000005"
+ENDPROC 
+
+
+
+PROCEDURE AddParamInvPutCostItemCero
+	IF MESSAGEBOX("Desea activar Poner costo a cero ",36,"Seleccione opcion")=6
+		lcRespuesta="SI"
+	ELSE
+		lcRespuesta="NO"
+	ENDIF 
+	DO inserparam with "INVPUTCOSTITEMCERO","02",lcRespuesta,"INVENTARIO"
+	
+ENDPROC 
+
+
+PROCEDURE SEP2016ADDPERMISOCONSULTADOCS
+
+	DO AddAcceso2 WITH "APLICQ_DOC","A-01","Consultar Documentos aplicados",.t.
+ENDPROC 
+
+PROCEDURE sep2016addSkipperReports
+LPARAMETERS tbShowDialogues
+		CLOSE TABLES ALL 
+		LCTB="REPORTS"
+		LCFLD="SKIPPER"
+		LNPRECISION="N(16)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+		CLOSE TABLES ALL 
+		LCTB="REPORTS"
+		LCFLD="BOOKMARK"
+		LNPRECISION="L"
+		LCTYPEOPERATION="DROP"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+		CLOSE TABLES ALL 
+		LCTB="REPORTS"
+		LCFLD="USER"
+		LNPRECISION="C(10)"
+		LCTYPEOPERATION="DROP"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+		
+	CLOSE TABLES ALL 
+	lcidreport="BOOKMARK"
+	lcdescrip="Reportes Favoritos"
+	lcdescrip2="Puede seleccionar una lista de reportes favoritos para tenerlos a la mano"
+	lcimage="Report_Favorite_32.bmp"
+	lctp="main"
+	lctpllama="bookmark"
+	lnSkipper=0
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama,lnSkipper
+
+	MESSAGEBOX(	"Para esta actualización deberá copiar los siguientes iconos al folder ico: "+CHR(13)+;
+				"favorites-icon_32.bmp"+CHR(13)+"Report_Favorite_32.bmp",16,"Iconos",1)
+	
+	
+	CLOSE TABLES ALL 
+	DO AddAcceso2 WITH '610','A-01','REPORTES FAVORITOS',.T.	
+	DO AddAcceso2 WITH '611','A-01','REPORTES DE INVENTARIO',.T.
+	DO AddAcceso2 WITH '612','A-01','REPORTES DE PROVEEDORES',.T.
+	DO AddAcceso2 WITH '613','A-01','REPORTES DE CLIENTES',.T.
+	DO AddAcceso2 WITH '614','A-01','REPORTES DE BANCOS',.T.
+	DO AddAcceso2 WITH '615','A-01','REPORTE DE GASTOS',.T.
+	DO AddAcceso2 WITH '616','A-01','REPORTES DE PROYECTOS',.T.
+	DO AddAcceso2 WITH '617','A-01','Estadisticas de Venta',.T.
+	DO AddAcceso2 WITH '618','A-01','Reportes de Mantto',.T.
+	DO AddAcceso2 WITH '619','A-01','Reportes de Impuestos',.T.
+	
+	UPDATE REPORTS SET SKIPPER=610 WHERE IDREPORT='BOOKMARK'
+	UPDATE REPORTS SET SKIPPER=611 WHERE IDREPORT='INV'
+	UPDATE REPORTS SET SKIPPER=612 WHERE IDREPORT='PROV'
+	UPDATE REPORTS SET SKIPPER=613 WHERE IDREPORT='CLI'
+	UPDATE REPORTS SET SKIPPER=614 WHERE IDREPORT='BAN'
+	UPDATE REPORTS SET SKIPPER=615 WHERE IDREPORT='GAS'
+	UPDATE REPORTS SET SKIPPER=616 WHERE IDREPORT='PRO'
+	UPDATE REPORTS SET SKIPPER=617 WHERE IDREPORT='VN1'
+	UPDATE REPORTS SET SKIPPER=618 WHERE IDREPORT='MNT'
+	UPDATE REPORTS SET SKIPPER=619 WHERE IDREPORT='IVA'
+
+	
+		CLOSE TABLES ALL 
+		lcTablaM="REPORTS_D"
+		IF DIRECTORY("DATA")
+			CD DATA
+		ENDIF
+		
+		lcTable=lcTablaM
+		IF FILE(lcTable+".dbf")=.f.
+
+			CREATE TABLE (lcTablaM)(;
+				line i AUTOINC ,;
+				idreport  c(10),;
+				user c(10),;
+				bookmark L;
+				)
+			
+			INDEX on idreport   TAG idplna 
+			INDEX on line TAG line 
+			**tiempo 
+		ELSE 
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					DROP TABLE (lcTable) recycle
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+			
+		ENDIF &&fin tabla tiempo 
+	**tiempos 
+		IF !DIRECTORY("DATA")
+			CD ..
+		ENDIF
+
+
+ENDPROC 
+
+PROCEDURE sep2016addclasifmcontrato
+		CLOSE TABLES ALL 
+		LCTB="MCONTRATO"
+		LCFLD="CLASIF"
+		LNPRECISION="C(80)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+ENDPROC 
+
+PROCEDURE AGO2016ADDPLPLNA_E
+LPARAMETERS tbShowDialogues
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agrego tabla plplna_e"
+		
+	**tiempos 
+		CLOSE TABLES ALL 
+		lcTablaM="PLPLNA_E"
+		IF DIRECTORY("DATA")
+			CD DATA
+		ENDIF
+		
+		lcTable=lcTablaM
+		IF FILE(lcTable+".dbf")=.f.
+
+			CREATE TABLE (lcTablaM)(;
+				line i AUTOINC ,;
+				idplna  c(10),;
+				idper c(10),;
+				descrip c(60),;
+				valor n(10,2),;
+				tp i,;
+				sr i;
+				)
+			
+			INDEX on idplna   TAG idplna 
+			INDEX on line TAG line 
+			**tiempo 
+		ELSE 
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					DROP TABLE (lcTable) recycle
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+			
+		ENDIF &&fin tabla tiempo 
+	**tiempos 
+		IF !DIRECTORY("DATA")
+			CD ..
+		ENDIF
+
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+
+ENDPROC 
+
+PROCEDURE JUN2016ADDFECPLPER_D
+LPARAMETERS tbShowDialogues
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agregó fecha"
+
+		CLOSE TABLES ALL 
+		LCTB="PLPER_D"
+		LCFLD="FECHA"
+		LNPRECISION="D"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+		
+
+		CLOSE TABLES ALL 
+		LCTB="PLPER_D"
+		LCFLD="FECHA2"
+		LNPRECISION="D"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+
+		CLOSE TABLES ALL 
+		LCTB="PLIE_D"
+		LCFLD="SR"
+		LNPRECISION="I"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+		
+		**cambios en plna_d 
+		LOCAL lcList AS String 
+		lcList=	"SUELDO| N(10,2);"+;
+			"HEX| N(10,2);"+;
+			"SALEX| N(10,2);"+;
+			"AFP| N(10,2);"+;
+			"SEG| N(10,2);"+;
+			"RENTA| N(10,2);"+;			
+			"OTRDESC| N(10,2);"+;
+			"OTRING| N(10,2);"+;
+			"OTRING| N(10,2);"+;
+			"DTRAB| i;"+;
+			"DINCAP| i;"+;
+			"DINCAP2| i;"+;
+			"DSGOZE| i"
+			
+			
+			
+	LOCAL ARRAY LAUNITS(1)
+	ArrayFromList2(@LAUNITS,lcList,";","|")
+	FOR LNUNIT=1 TO ALEN(LAUNITS,1)
+		lcCampo=LAUNITS(LNUNIT,1)
+		lcPrecision=LAUNITS(LNUNIT,2)
+		WAIT lcCampo+" "+lcPrecision WINDOW NOWAIT 
+		CLOSE TABLES ALL 
+		LCTB="PLPLNA_D"
+		LCFLD=lcCampo
+		LNPRECISION=lcPrecision
+		LCTYPEOPERATION="UPD"
+		
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION					
+				
+	ENDFOR 
+
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+	
+ENDPROC 
+
+PROCEDURE addlineTablasPlanillas
+LPARAMETERS tbShowDialogues
+DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agrego campo line a plper "
+		
+		
+		CLOSE TABLES ALL 
+		DO AddDetLine WITH "PLPER"
+		CLOSE TABLES ALL 
+		DO AddDetLine WITH "PLPER_ELEM"
+		CLOSE TABLES ALL 
+		DO AddDetLine WITH "PLPLNA"
+		CLOSE TABLES ALL 
+		DO AddDetLine WITH "PLVOUCH"
+		CLOSE TABLES ALL 
+		DO AddDetLine WITH "PLIE"
+		CLOSE TABLES ALL 
+				
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+	
+ENDPROC 
+
+
+PROCEDURE JUN2016ADDFIELDPROV
+LPARAMETERS tbShowDialogues
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agrego tipo de retencion a rentas"
+		
+		CLOSE TABLES ALL 
+		LCTB="PROVEEDORES"
+		LCFLD="ABORRADO_USR"
+		LNPRECISION="c(10)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+		CLOSE TABLES ALL 
+		LCTB="PROVEEDORES"
+		LCFLD="ACREADO_FEC"
+		LNPRECISION="T"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+		CLOSE TABLES ALL 
+		LCTB="PROVEEDORES"
+		LCFLD="ACREADO_USR"
+		LNPRECISION="C(10)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+		CLOSE TABLES ALL 
+		LCTB="PROVEEDORES"
+		LCFLD="AMOD_FEC"
+		LNPRECISION="T"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+		CLOSE TABLES ALL 
+		LCTB="PROVEEDORES"
+		LCFLD="AMOD_USR"
+		LNPRECISION="C(10)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+		CLOSE TABLES ALL 
+		LCTB="PROVEEDORES"
+		LCFLD="AMOD_USR"
+		LNPRECISION="C(10)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+
+
+ENDPROC 
+
+PROCEDURE CNCONTAADDPARAMS2
+	&&Procedimiento conta 
+
+	DO INSERPARAMCONTA WITH "0000000018","Firma Reportes Rep LEgal:",2,""
+	DO INSERPARAMCONTA WITH "0000000019","Tipo de Reporte Mayor:",5,"2"
+	DO INSERPARAMCONTA WITH "0000000020","Imprimir Fecha y Hora:",5,"SI"
+ENDPROC 
+
+
+PROCEDURE JUN2016ADDTPRT
+LPARAMETERS tbShowDialogues
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agrego tipo de retencion a rentas"
+		
+		
+		CLOSE TABLES ALL 
+		LCTB="RETENCIONESRENTA"
+		LCFLD="IDRENTA_TP"
+		LNPRECISION="c(10)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+
+
+		CLOSE TABLES ALL 
+		
+		lcTablaM="RENTA_TP"
+		
+		IF DIRECTORY("DATA")
+			CD DATA
+		ENDIF
+
+
+
+**Tabla para manejo de los nombres de campos de los equipos
+
+		lcTable=lcTablaM
+		IF FILE(lcTable+".dbf")=.f.
+			CREATE TABLE (lcTable)(; 
+				LINE I AUTOINC ,;
+				IDRENTA_TP 	C(10),;
+				DESCRIP C(80),;
+				TRENTA	n(10,2))
+			
+			INDEX ON IDRENTA_TP TAG IDRENTA_TP
+			INDEX ON LINE  TAG LINE 
+			
+			MESSAGEBOX("Tabla "+lcTable +" Creada Con exito",64,"Resultado",2)
+			lbContinue=.t.
+			
+			DO configapp 
+			INSERT INTO (lcTable) (idrenta_tp, descrip,trenta ) values("0000000001","Renta Eventuales",gRENTA)
+			INSERT INTO (lcTable) (idrenta_tp, descrip,trenta ) values("0000000002","Renta servicios de carácter permanente",000.000)
+			
+		ELSE
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					DROP TABLE (lcTable) recycle
+
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ENDIF
+
+		IF DIRECTORY("DATA")
+			CD DATA
+		ENDIF
+
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+
+	
+ENDPROC 
+PROCEDURE JUN2016REPORRENTA 
+	lcidreport="IVA"
+	lcdescrip="Reportes de Impuestos"
+	lcdescrip2="Reportes de renta iva y otros reportes de impuestos"
+	lcimage="RENTA.bmp"
+	lctp="main"
+	lctpllama="iva"
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+
+	lcidreport="IVA3"
+	lcdescrip="Reportes de Renta"
+	lcdescrip2="Reportes de Renta"
+	lcimage="FolderYellow_48.bmp"
+	lctp="iva"
+	lctpllama="iva3"
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+	
+	lcidreport="IVA31"
+	lcdescrip="Reportes de Renta"
+	lcdescrip2="Retenciones efectuadas"
+	lcimage="REPORT_48.bmp"
+	lctp="iva3"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama	
+ENDPROC 
+
+
+PROCEDURE JUN2016REPORVENTASCONCEPTO
+	lcidreport="CLI34"
+	lcdescrip="Conceptos en facturas"
+	lcdescrip2="Consolidación de conceptos de facturados"
+	lcimage="REPORT_48.bmp"
+	lctp="cli3"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama	
+ENDPROC 
+
+
+
+PROCEDURE addlineproveedores 
+DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agrego campo line a proveedores, y campo exento"
+		
+		
+		CLOSE TABLES ALL 
+		LCTB="PROVEEDORES"
+		LCFLD="EXENTO"
+		LNPRECISION="L"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+		DO AddDetLine WITH "PROVEEDORES"
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+	
+ENDPROC 
+
+
+
+PROCEDURE MAY2016ADDDOCNUMVENTAS
+	
+	DO UPDATETBDOCUMENTOSWITHTB WITH "08","FACTURAS","DETALLEFACTURAS","IDVENTA"
+
+	
+	DO 	INSERTDOCNUM WITH "08" 
+	
+	IF !USED("vndepot")
+		USE vndepot IN 0 	
+	ENDIF 
+	
+	SELECT vndepot 
+	
+	IF !FILE("DATA\VNDEPOTNR.dbf")
+		COPY TO "DATA\VNDEPOTNR.dbf" DATABASE "DATA\CLIPROV" 
+		MESSAGEBOX("Tabla vndepotnr.dbf yha sido creada con exito",16,"Tabla creada",1)
+	ELSE 
+		MESSAGEBOX("Tabla vndepotnr.dbf ya existe ",16,"Existencia de tabla",1)
+		
+	ENDIF 
+	USE 	
+ENDPROC 
+
+PROCEDURE ABR2016ADDCLIENTERAS
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agrego Campo Cantidad a EQS EN CONTRATO"
+		
+		
+		CLOSE TABLES ALL 
+		LCTB="REQUISICIONES"
+		LCFLD="IDCLIENTE"
+		LNPRECISION="C(10)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+ENDPROC 
+
+
+PROCEDURE ABR2016MODCNCONTRATO
+
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agrego Campo Cantidad a EQS EN CONTRATO"
+		
+		
+		CLOSE TABLES ALL 
+		LCTB="MCONTRATO"
+		LCFLD="CLASIF"
+		LNPRECISION="C(80)"
+		LCTYPEOPERATION="DEL"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+		
+		CLOSE TABLES ALL 
+		LCTB="MCONTRATO"
+		LCFLD="DESCRIP2"
+		LNPRECISION="C(80)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+		
+		CLOSE TABLES ALL 
+		LCTB="MCONTRATO"
+		LCFLD="IDPROY"
+		LNPRECISION="C(10)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+
+
+
+ENDPROC 
+
+
+PROCEDURE ABR2016ENSANCHARDESCRIPPROY
+
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agrego Campo idcliente a requisiciones"
+		
+		
+		CLOSE TABLES ALL 
+		LCTB="PROYECTOS"
+		LCFLD="NOMBRE"
+		LNPRECISION="C(80)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+		
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+
+
+
+ENDPROC 
+
+PROCEDURE MAR2016ADDCANTEQENCONTRATO
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agrego Campo Cantidad a EQS EN CONTRATO"
+		
+		
+		CLOSE TABLES ALL 
+		LCTB="MCONTRATO_EQ"
+		LCFLD="CANTIDAD"
+		LNPRECISION="N(10,2)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+		
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+		
+
+ENDPROC 
+
+
+PROCEDURE MAR2016ADDFIELDEFECTIVO
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agrego campo cliente a tabla efectivo"
+		
+		CLOSE TABLES ALL 
+		LCTB="EFECTIVO"
+		LCFLD="CLIENTE"
+		LNPRECISION="C(15)"
+		LCTYPEOPERATION="UPD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+				
+
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+ENDPROC 
+
+PROCEDURE mar2016CreateTableEfectivo
+LPARAMETERS tbShowDialogues
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se arego tabla efectivo"
+		
+	**EFECTIVO
+		CLOSE TABLES ALL 
+		lcTablaM="EFECTIVO"
+		IF DIRECTORY("DATA")
+			CD DATA
+		ENDIF
+		lcTable=lcTablaM
+		IF FILE(lcTable+".dbf")=.f.
+
+			CREATE TABLE (lcTablaM)(;
+				line i AUTOINC ,;
+				idnum c(10),;
+				fecha d,;
+				codigo c(15),;
+				descrip c(50),;
+				descrip2 c(50),;
+				monto N(12,2),;
+				referencia C(20),;
+				cliente C(15))
+			
+			INDEX on idnum  TAG idnum 
+			INDEX on line TAG line 
+			INDEX on fecha  TAG fecha 
+			INDEX on codigo  TAG codigo
+			INDEX on referencia TAG referencia
+			**tiempo 
+		ELSE 
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					DROP TABLE (lcTable) recycle
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+			
+		ENDIF &&fin tabla tiempo 
+	**EFECTIVO
+
+		IF !DIRECTORY("DATA")
+			CD ..
+		ENDIF
+
+		CLOSE TABLES ALL 
+			
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+	
+		IF !DIRECTORY("DATA")
+			CD ..
+		ENDIF
+		
+	ENDTRY
+
+ENDPROC 
+
+
+
+PROCEDURE mar2016CreateTablasTime
+LPARAMETERS tbShowDialogues
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se arego tabla tiempo t_clie y t_act"
+		
+	**tiempos 
+		CLOSE TABLES ALL 
+		lcTablaM="tiempo"
+		IF DIRECTORY("DATA")
+			CD DATA
+		ENDIF
+		lcTable=lcTablaM
+		IF FILE(lcTable+".dbf")=.f.
+
+			CREATE TABLE (lcTablaM)(;
+				line i AUTOINC ,;
+				idnum c(10),;
+				fecha d,;
+				codigo c(15),;
+				descrip c(50),;
+				descrip2 c(50),;
+				monto N(12,2),;
+				referencia C(20))
+			
+			INDEX on idnum  TAG idnum 
+			INDEX on line TAG line 
+			INDEX on fecha  TAG fecha 
+			INDEX on codigo  TAG codigo
+			INDEX on referencia TAG referencia
+			**tiempo 
+		ELSE 
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					DROP TABLE (lcTable) recycle
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+			
+		ENDIF &&fin tabla tiempo 
+	**tiempos 
+
+	**actividad
+		CLOSE TABLES ALL 
+		lcTablaM="t_act"
+		lcTable=lcTablaM
+		IF FILE(lcTable+".dbf")=.f.
+
+			**tiempo clientes 
+			CREATE TABLE (lcTable)(;
+				actividad  c(15),;
+				descrip c(40);
+				)
+			INDEX on actividad TAG actividad
+			INDEX on descrip TAG descrip
+				
+		ELSE
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					DROP TABLE (lcTable) recycle
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ENDIF 
+	**actividad		
+	**cliente
+		CLOSE TABLES ALL 
+		lcTablaM="t_clie"
+		lcTable=lcTablaM
+		IF FILE(lcTable+".dbf")=.f.
+	
+			CREATE TABLE (lcTable)(;
+				cliente  c(15),;
+				descrip c(40);
+				)
+				
+			INDEX on cliente TAG cliente
+			INDEX on descrip TAG descrip
+			
+		ELSE 
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					DROP TABLE (lcTable) recycle
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ENDIF 
+	**cliente
+
+		IF !DIRECTORY("DATA")
+			CD ..
+		ENDIF
+
+		CLOSE TABLES ALL 
+			
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+	
+		IF !DIRECTORY("DATA")
+			CD ..
+		ENDIF
+		
+	ENDTRY
+
+ENDPROC 
+
+PROCEDURE 	MAR2016ADDLINEEQUIPOS
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+
+		gcVentanaComandosExecuteResult="Se agregaron las lineas a la tabla de equipos"
+	
+		DO AddDetLine WITH "EQUIPOS"
+		CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+
+ENDPROC 
+
+PROCEDURE MAR2016DESCRIPFIELDSEQUIPOS
+ 	LPARAMETERS tbShowDialogues
+
+		
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se crearon todos las tablas EQ_F Y EQ_TP"
+	
+		CLOSE TABLES ALL 
+		
+		lcTablaM="EQ_F"
+		
+		IF DIRECTORY("DATA")
+			CD DATA
+		ENDIF
+
+
+
+**Tabla para manejo de los nombres de campos de los equipos
+
+		lcTable=lcTablaM
+		IF FILE(lcTable+".dbf")=.f.
+			CREATE TABLE (lcTable)(; 
+				LINE I AUTOINC ,;
+				IDEQ_f 	C(50),;
+				FIELD1	C(50),;
+				FIELD2	C(50),;
+				FIELD3	C(50),;
+				FIELD4	C(50),;
+				FIELD5	C(50),;
+				FIELD6	C(50),;
+				FIELD7	C(50),;
+				FIELD8	C(50),;
+				FIELD9	C(50),;
+				FIELD10	C(50),;
+				OBS 	C(80),;
+				Activo L)
+			
+			INDEX ON FIELD1  TAG FIELD1
+			INDEX ON IDEQ_F TAG IDEQ_F FOR !DELETED()	CANDIDATE  
+			INDEX ON FIELD2  TAG FIELD2
+			INDEX ON FIELD3  TAG FIELD3
+			INDEX ON FIELD4  TAG FIELD4		
+			INDEX ON FIELD5  TAG FIELD5
+			INDEX ON FIELD6  TAG FIELD6
+			INDEX ON FIELD7  TAG FIELD7
+			INDEX ON FIELD8  TAG FIELD8
+			INDEX ON FIELD9  TAG FIELD9
+			INDEX ON FIELD10  TAG FIELD10
+			
+			MESSAGEBOX("Tabla "+lcTable +" Creada Con exito",64,"Resultado",2)
+			lbContinue=.t.
+		ELSE
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					DROP TABLE (lcTable) recycle
+
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ENDIF
+
+			IF DIRECTORY("DATA")
+			CD DATA
+		ENDIF
+
+
+
+	**Tabla para tipos de equipos 
+
+		lcTable="EQ_TP"
+		IF FILE(lcTable+".dbf")=.f.
+			CREATE TABLE (lcTable)(; 
+				LINE I AUTOINC ,;
+				IDEQ_TP	C(10),;
+				DESCRIP C(50))
+			
+
+			INDEX ON IDEQ_TP TAG IDEQ_TP FOR !DELETED()	CANDIDATE  
+			INDEX ON DESCRIP  TAG DESCRIP
+			
+			MESSAGEBOX("Tabla "+lcTable +" Creada Con exito",64,"Resultado",2)
+			lbContinue=.t.
+		ELSE
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					DROP TABLE (lcTable) recycle
+
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ENDIF	
+
+		CD .. 
+
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+		IF !DIRECTORY("DATA")
+			CD..
+		ENDIF
+	ENDTRY
+	
+
+ENDPROC 
+
+PROCEDURE Feb2016SuprInvFields
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="FACTCONV"
+	LNPRECISION="N(17,8)"
+	LCTYPEOPERATION="DROP"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="REALUNIT"
+	LNPRECISION="N(17,8)"
+	LCTYPEOPERATION="DROP"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+
+ENDPROC 
+PROCEDURE Feb2016AddTableLp_C
+LPARAMETERS tbShowDialogues
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agregaron todos los campos de factor de conversion correctamente"
+		
+		**CREAR TABLA DE CONVERSION DE UNIDADES
+		lcTable="LP_C"
+		IF DIRECTORY("DATA")
+			CD DATA 
+		ENDIF 
+		
+		IF FILE(lcTable+".dbf")=.f.
+			CREATE TABLE (lcTable)(; 
+				LINE i AUTOINC ,;
+				IDLP C(10),;
+				IDCLIENTE C(10))
+				
+			INDEX ON LINE TAG LINE
+			INDEX ON IDLP TAG IDLP 
+			INDEX ON IDCLIENTE TAG IDCLIENTE
+			
+			MESSAGEBOX("Tabla "+lcTable +" Creada Con exito",64+0,"Tabla:",1500)
+			lbContinue=.t.
+		ELSE
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					
+					DROP TABLE (lcTable) recycle
+					
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ENDIF
+		
+		CLOSE TABLES ALL 
+		IF !DIRECTORY("DATA")
+			CD..
+		ENDIF 
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+		
+
+
+
+ENDPROC 
+
+PROCEDURE AddParamFactVerifUcosto
+	DO inserparam with "FACTVERIFUCOSTO","01","NO","FACTURACION"
+ENDPROC 
+
+PROCEDURE FEB2016MODCLIENTESNAME
+	
+	CLOSE TABLES ALL 
+	LCTB="CLIENTES"
+	LCFLD="NOMBRE"
+	LNPRECISION="C(90)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+ENDPROC 
+
+PROCEDURE AddFieldInvFactorConversion
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se crearon todos los paises y sus localidades"
+		
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="FACTCONV"
+	LNPRECISION="N(17,8)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+		
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="REALUNIT"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+ENDPROC 
+
+PROCEDURE FEB2016INVUNITTABLE
+LPARAMETERS tbShowDialogues
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agregaron todos los campos de factor de conversion correctamente"
+		
+			
+		**REAR TABLA DE CONVERSION DE UNIDADES
+		lcTable="INVUNIT"
+		IF DIRECTORY("DATA")
+			CD DATA 
+		ENDIF 
+		IF FILE(lcTable+".dbf")=.f.
+			CREATE TABLE (lcTable)(; 
+				UNIDAD C(15),;
+				DESCRIP C(40),;
+				TP I,;
+				FACTCONV N(17,8),;
+				PATRON C(15),;
+				CLASIF C(15),;
+				LINE I AUTOINC)
+			
+			INDEX ON LINE TAG LINE
+			INDEX ON UNIDAD  TAG UNIDAD FOR !DELETED() AND !EMPTY(UNIDAD) CANDIDATE  
+			INDEX ON PATRON TAG PATRON 
+
+			
+			
+			MESSAGEBOX("Tabla "+lcTable +" Creada Con exito",64+0,"Tabla:",1500)
+			lbContinue=.t.
+		ELSE
+			IF !tbShowDialogues
+				IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+					
+					DROP TABLE (lcTable) recycle
+					
+					lbContinue=.f.
+				ELSE 
+					lbContinue=.T.
+				ENDIF 
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ENDIF
+		CLOSE TABLES ALL 
+		IF !DIRECTORY("DATA")
+			CD..
+		ENDIF 
+
+**INGRESANDO LAS UNIDADES A LA TABLA 
+IF 	FILE("invunit.dbf")
+	LOCAL lcList AS String 
+	lcList=	"Kg:KILOGRAMO 	:0:1        :KILOGRAMO:PESO,"+;
+			"Lb:LIBRA		:0:1  		:LIBRA:PESO,"+;
+			"Oz:ONZA 		:1:0.06249995:LIBRA	:PESO,"+;
+			"m:METRO		:0:1		 :METRO	:LONGITUD,"+;
+			"Km:KILOMETRO	:1:100		 :METRO	:LONGITUD,"+;
+			"u:UNIDAD		:0:1		 :UNIDAD:CANTIDAD,"+;
+			"md:MEDIO		:1:0.5		 :UNIDAD:CANTIDAD,"+;
+			"L:LITRO		:0:1		 :LITRO	:CAPACIDAD,"+;
+			"ml:MILILITRO	:1:0.001	 :LITRO :CAPACIDAD"
+			
+			
+	LOCAL LAUNITS
+	ArrayFromList2(@LAUNITS,lcList)
+	FOR LNUNIT=1 TO ALEN(LAUNITS,1)
+		
+		LCUNIDAD=LAUNITS(LNUNIT,1)
+		LCDESCRIP=LAUNITS(LNUNIT,2)
+		LNTP=VAL(LAUNITS(LNUNIT,3))
+		LNFACTORCONV=VAL(LAUNITS(LNUNIT,4))
+		LCPATRON=LAUNITS(LNUNIT,5)
+		LCCLASIF=LAUNITS(LNUNIT,6)
+		
+		RELEASE LAUNIT 
+		MESSAGEBOX(LCUNIDAD)
+		SELECT UNIDAD FROM INVUNIT WHERE UPPER(UNIDAD )==UPPER(LCUNIDAD) INTO ARRAY LAUNIT
+
+		IF VARTYPE(LAUNIT)="U"
+			INSER INTO INVUNIT(;
+				UNIDAD,;
+				DESCRIP,;
+				TP,;
+				FACTCONV,;
+				PATRON,;
+				CLASIF);
+			VALUES (;
+				LCUNIDAD,;
+				LCDESCRIP,;
+				LNTP,;
+				LNFACTORCONV,;
+				LCPATRON,;
+				LCCLASIF)
+		ELSE	
+			UPDATE INVUNIT;
+			SET;
+				UNIDAD=LCUNIDAD,;
+				DESCRIP=LCDESCRIP,;
+				TP=LNTP,;
+				FACTCONV=LNFACTORCONV,;
+				PATRON=LCPATRON,;
+				CLASIF=LCCLASIF;
+			WHERE ;
+				UNIDAD==LCUNIDAD						
+		ENDIF 
+		
+	ENDFOR 
+ENDIF 
+**INGRESANDO LAS UNIDADES 
+			
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+		
+
+ENDPROC 
+
+PROCEDURE MENUENE2016QUITDUPLICATES
+	SELECT CODIGO,IDCARGO, MAX(NOMBRE) AS NOMBRE  FROM MENUS WHERE !EMPTY(codigo) GROUP BY 1,2 ORDER BY 2 INTO CURSOR MENUSTEMP
+	DELETE FROM MENUS 
+	WAIT "Ingresando los datos"  WINDOW NOWAIT 
+	INSERT INTO MENUS (CODIGO,IDCARGO,NOMBRE) SELECT CODIGO,IDCARGO, NOMBRE FROM MENUSTEMP
+	MESSAGEBOX("Eliminados los duplicados de Menus.dbf")
+	
+
+	SELECT idmenu,MAX(descripcion) AS descripcion  FROM MENUSTRU WHERE !EMPTY(idmenu) GROUP BY 1 ORDER BY 1 INTO CURSOR MENUSTRUTEMP
+	DELETE FROM MENUSTRU 
+	WAIT "Ingresando los datos"  WINDOW NOWAIT 
+	INSERT INTO MENUSTRU (idmenu,descripcion) SELECT idmenu,descripcion FROM MENUSTRUTEMP
+	MESSAGEBOX("Eliminados los duplicados de Menustru.dbf")
+ENDPROC 
+
+
+PROCEDURE ENE2016ADDCLASIFCARGOS
+	CLOSE TABLES ALL 
+	LCTB="CARGOS"
+	LCFLD="CLASIF"
+	LNPRECISION="C(40)"
+	LCTYPEOPERATION="UPD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	USE cargos IN 0 
+	SELECT CARGOS 
+	SCAN 	
+		lcClasif=""
+		lcFirstLetter=SUBSTR(idcargo,1,1)
+		DO CASE
+		CASE lcFirstLetter="A"
+			lcClasif="Administradores"
+		CASE lcFirstLetter="O"
+			lcClasif="Operadores"
+		CASE lcFirstLetter="C"
+			lcClasif="Contadores"		
+		CASE lcFirstLetter="F"
+			lcClasif="Facturadores"		
+		OTHERWISE
+			lcClasif="Otros"		
+		ENDCASE
+
+		replace clasif WITH lcClasif
+	ENDSCAN
+
+	CLOSE TABLES ALL 
+	
+	
+ENDPROC 
+
+PROCEDURE ADDLINEMENU 
+	DO AddDetLine WITH "MENUS"
+	DO AddDetLine WITH "CARGOS"
+	DO AddDetLine WITH "MENUSTRU"
+ENDPROC 
+
+PROCEDURE SHOWTABLESGAASUSR
+		SELECT ;
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,15,10),'',.T.) AS iduser,;
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,25,20),'',.T.) AS nombre,;
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,113,10),'',.T.) AS cargo,;			
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,85,10),'',.T.) AS pwd,;
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,95,10),'',.T.) AS pwdDate,;			
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,105,3),'',.T.) AS pwdPer,;			
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,108,1),'',.T.) AS TempPwd,;
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,109,1),'',.T.) AS PwdForAccess,;
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,109,1),'',.T.) AS PwdForAccess;
+		FROM;
+			SGAASUSR
+ENDPROC 
+
+
+PROCEDURE DIC2015TRANSLATEUSER
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se transfirió los datos con normalidad"
+		DELETE FROM users 
+		
+		
+		SELECT ;
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,15,10),'',.T.) AS usr,;
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,25,20),'',.T.) AS nombre,;
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,113,10),'',.T.) AS cargo,;			
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,85,10),'',.T.) AS pwd,;
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,45,20),'',.T.) AS MiddleName,;
+			_SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,65,20),'',.T.) AS LastName;		
+		FROM;
+			SGAASUSR;
+		INTO ARRAY  ;
+			laUsuarios2pass
+		
+		IF !VARTYPE(laUsuarios2pass)="U"
+		
+			FOR lnUser=1 TO ALEN(laUsuarios2pass,1)
+				RELEASE laUsr,laIdUserMax
+				
+				SELECT VAL(MAX(iduser)) FROM users INTO ARRAY laIdUserMax
+				IF ISNULL(laIdUserMax)
+					laIdUserMax=0
+				ENDIF 
+				
+				lcIdUser=PADL(TRANSFORM(laIdUserMax+1),10,"0")
+				lcUsr=laUsuarios2pass(lnUser,1)
+				lcNombre=laUsuarios2pass(lnUser,2)
+				lcCargo=laUsuarios2pass(lnUser,3)
+				lcPWD=laUsuarios2pass(lnUser,4)
+				lcApellido=ALLTRIM(laUsuarios2pass(lnUser,6))+" "+ALLTRIM(laUsuarios2pass(lnUser,5))
+				SELECT USR FROM users WHERE ALLTRIM(UPPER(usr))==ALLTRIM(UPPER(lcUsr)) INTO ARRAY laUsr
+				
+				IF VARTYPE(laUsr)="U"
+					
+					INSER INTO USERS(;
+						IDUSER,;
+						NOMBRE,;
+						PWD,;
+						USR,;
+						IDCARGO,;
+						APELLIDO);
+					VALUES (;
+						lcIDUSER,;
+						lcNOMBRE,;
+						lcPWD,;
+						lcUsr,;
+						lcCargo,;
+						lcApellido)
+				ELSE
+					UPDATE ;
+						USERS ;
+					SET ; 
+						NOMBRE=lcNombre,;
+						PWD=lcPWD,;
+						USR=lcUsr,;
+						IDCARGO=lcCargo,;
+						APELLIDO=lcApellido;
+					WHERE ;
+						ALLTRIM(UPPER(USR))==ALLTRIM(UPPER(laUsr))
+						
+				ENDIF  
+				
+				
+				SELECT IDCARGO FROM CARGOS WHERE ALLTRIM(IDCARGO)=ALLTRIM(lcCargo) INTO ARRAY LACARGO
+				IF VARTYPE(LACARGO)="U"
+					IF ALLTRIM(lcCargo)="A-01"
+						lcNombre="Admin"
+					ENDIF 
+					lcFirstLetter=UPPER(SUBSTR(ALLTRIM(lcCargo),1,1))
+					DO CASE
+					CASE lcFirstLetter="A"
+						lcClasif="Administradores"
+					CASE lcFirstLetter="C"
+						lcClasif="Contadores"
+					CASE lcFirstLetter="O"
+						lcClasif="Operadores"
+					OTHERWISE
+						lcClasif="Otros"
+					ENDCASE
+					
+					INSERT INTO cargos (idcargo, DESCRIPCIO, CLASIF ) VALUES (lcCargo,lcNombre,lcClasif)
+					
+				ENDIF 
+				
+			ENDFOR 
+			
+			**5 de noviembre 2016 eliminar los usuarios que no esten en la tabla SGAASUSR
+				DELETE FROM USERS WHERE usr NOT in (SELECT _SCREEN.oApp.oSec.StringDecrypt(SUBSTR(sgaasusr.encrypted,15,10),'',.T.) AS usr FROM	SGAASUSR)
+			**5 de noviembre 2016 eliminar los usuarios que no esten en la tabla SGAASUSR
+			
+		ENDIF 
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+		
+
+ENDPROC 
+
+
+
+PROCEDURE addIdCargotoUsersTable
+LPARAMETERS tbShowDialogues
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se agregó el campo cargo a la tabla users"
+		
+		CLOSE TABLES ALL 
+		LCTB="USERS"
+		LCFLD="IDCARGO"
+		LNPRECISION="C(10)"
+		LCTYPEOPERATION="ADD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+		
+		**generando el cursor de usuarios para pasarlo a la nueva tabla 
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+ENDPROC 
+
+
+
+PROCEDURE DIC2015FIXPROVSCONTA
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se corrigieron las cuentas de proveedores que generaban mal la pda "
+		
+		**ACTUALIZANDO LOS PROVEEDORES QUE ESTAN EN GENCATACONFIG EN LA TABLA C1
+		DO PrepararEntorno
+
+		IF !USED("CATACONFIG")
+			USE CATACONFIG
+		ENDIF
+		
+		GO TOP IN CATACONFIG 
+		DO WHILE !EOF("CATACONFIG")
+
+			lcCon1=ALLTRIM(CATACONFIG.con1)
+			lcCon3=ALLTRIM(CATACONFIG.con3)
+			lcResultado=ALLTRIM(CATACONFIG.Resultado)
+			WAIT "Validando "+ lcResultado WINDOW NOWAIT 
+			lbInsert=.f.
+	**		Ingresar solo si cumple dos condiciones
+	*		El primer parametro es igual a 06
+			IF lcCon1="06"
+				lbInsert=.t.
+			ELSE 
+				lbInsert=.f.
+			ENDIF 
+
+	**		El segundo parametro debe ser un proveedor valido
+			IF !EMPTY(lcCon3)
+				RELEASE laProvNomb
+				SELECT nombre  FROM proveedores WHERE ALLTRIM(idprov)==ALLTRIM(lcCon3) INTO ARRAY laProvNomb
+				IF !VARTYPE(laProvNomb)="U"
+					lbInsert=.t.
+				ELSE 
+					lbInsert=.f.
+				ENDIF 
+			ELSE 
+				lbInsert=.f.
+			ENDIF 
+			
+			IF lbInsert
+	**		ingresar al c1 
+				IF VARTYPE(gcRuta2ContaPortable)="U"
+					DO configapp
+				ENDIF 
+				WAIT "Ingresando el resultado: "+lcResultado WINDOW NOWAIT 
+				lcRuteC1=gcRuta2ContaPortable+"C1.DBF"
+				UPDATE (lcRuteC1) SET codproy=lcCon3 WHERE ALLTRIM(codigo)==ALLTRIM(lcResultado)
+			ENDIF 			
+			SKIP 1 IN cataconfig 
+			
+		ENDDO
+		
+		**ACTUALIZANDO LOS PROVEEDORES QUE ESTAN EN GENCATACONFIG EN LA TABLA C1
+
+		**BORRANDO LOS CATACONFIG DEL 06 
+		DELETE FROM cataconfig WHERE ALLTRIM(con1)=="06" AND !EMPTY(con3)
+		**BORRANDO LOS CATACONFIG DEL 06 		
+		
+
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY	
+
+ENDPROC 
+
+
+PROCEDURE DIC2015FIXTABLEUSER
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se arreglo la tabla de usuarios"
+		
+		**arreglando los campos de la tabla user 
+
+			CLOSE TABLES ALL 
+			LCTB="USERS"
+			LCFLD="NOMBRE"
+			LNPRECISION="c(80)"
+			LCTYPEOPERATION="UPD"
+			DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+			CLOSE TABLES ALL 
+			LCTB="USERS"
+			LCFLD="APELLIDO"
+			LNPRECISION="c(80)"
+			LCTYPEOPERATION="UPD"
+			DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+			CLOSE TABLES ALL 
+			LCTB="USERS"
+			LCFLD="PWD"
+			LNPRECISION="c(60)"
+			LCTYPEOPERATION="UPD"
+			DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+			CLOSE TABLES ALL 
+			LCTB="USERS"
+			LCFLD="USR"
+			LNPRECISION="c(15)"
+			LCTYPEOPERATION="UPD"
+			DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+		**arreglando los campos de la tabla user 
+		
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+		
+
+ENDPROC 
+
+
+PROCEDURE ENSURENOMBREHAVEFIELDS
+*EJECUTAR EN CONTA 
+	**asegurando que los campos esten homogeneos CON CONTA 
+	
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="ID"
+	LNPRECISION="c(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="NOMBRE"
+	LNPRECISION="C(150)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="RUTA"
+	LNPRECISION="C(250)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="LINE"
+	LNPRECISION="I AUTOINC"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+**ALTER
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="ID"
+	LNPRECISION="c(10)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="NOMBRE"
+	LNPRECISION="C(150)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="RUTA"
+	LNPRECISION="C(250)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="LINE"
+	LNPRECISION="I AUTOINC"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+ENDPROC 
+
+
+
+
+PROCEDURE NOV2015CREATETABLECOLORS
+lparameters tbShowDialogues
+	DO PrepararEntorno
+	TRY 		
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se crearon todas las tablas sin problema"
+		
+	IF DIRECTORY("DATA")
+		CD DATA
+	ENDIF
+
+**TABLA DE COLORS PARA PERSONALIZAR SISTEMA
+
+	lcTable="Colors"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			NOMBRE C(25),;
+			GRUPO C(60),;
+			valor I,;
+			LINE I AUTOINC)
+		
+		INDEX ON LINE TAG LINE
+		INDEX ON NOMBRE  TAG NOMBRE FOR !DELETED() AND !EMPTY(NOMBRE) CANDIDATE  
+		INDEX ON GRUPO TAG GRUPO
+		INDEX ON VALOR TAG VALOR 
+
+
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito",64+0,"Tabla:",1500)
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				
+				DROP TABLE (lcTable) recycle
+				
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+	CLOSE TABLES ALL 
+	CD..
+	IF FILE(lcTable+".dbf")
+		INSERTCOLORS("PrimarioDebil","default",RGB(158,158,158))
+		INSERTCOLORS("PrimarioFuerte","default",RGB(0,0,0))
+
+		INSERTCOLORS("SecundarioDebil","default",RGB(139,180,209))
+		INSERTCOLORS("SecundarioFuerte","default",RGB(0,138,204))
+
+		INSERTCOLORS("TerciarioDebil","default",RGB(255,192,136))
+		INSERTCOLORS("TerciarioFuerte","default",RGB(255,155,60))
+	ENDIF 	
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+ENDPROC 
+
+PROCEDURE NOV2015_ADDREPORTS
+
+	lcidreport="INV36"
+	lcdescrip="Resumen de Movimientos"
+	lcdescrip2="Moviemientos resumidos de reportes "
+	lcimage="REPORT_48.bmp"
+	lctp="inv3"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+
+ENDPROC 
+
+
+
+PROCEDURE Nov2015ModInvPrecRef
+	
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="PRECIOREF"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="PRECVTA"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+ENDPROC 
+
+PROCEDURE Nov2015UpdateIndexConta
+	&&Procedimiento conta 
+	DO PrepararEntorno
+	TRY 
+		WAIT "Generando respaldo de seguridad de base de datos " WINDOW NOWAIT 
+		DO BackupBds IN cleanbd 
+		CLOSE TABLES ALL 	
+		**18 nov 2015 asegurando que la tabla c2 tenga todos los campos(en versiones viejitas del sistema no tienen todos los campos )
+		DO ensurec2havefields 
+		**18 nov 2015 asegurando que la tabla c2 tenga todos los campos(en versiones viejitas del sistema no tienen todos los campos )
+				
+		USE c1 EXCLUSIVE
+		INDEX ON codigo TAG codigo FOR !DELETED() AND !EMPTY(codigo) CANDIDATE
+		INDEX ON line  TAG line 
+		INDEX ON codproy TAG codproy
+		REINDEX 
+		USE 
+		
+		USE c2 EXCLUSIVE
+		INDEX ON descrip TAG descrip 
+		INDEX ON descrip2 TAG descrip2
+		INDEX ON proyecto TAG proyecto
+		INDEX ON registro TAG registro
+		INDEX ON idproy TAG idproy
+		INDEX ON idnum TAG idnum 
+		INDEX ON iddepto TAG iddepto 
+		INDEX ON idcliprov TAG idcliprov 
+		INDEX ON line TAG line
+		INDEX ON id TAG id 
+		REINDEX 
+		USE 
+	
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Todos los cambios hechos sin problemas"
+	
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+
+	FINALLY
+
+	ENDTRY
+ENDPROC 
+
+PROCEDURE AddParamFactFastPrintClose
+	DO inserparam with "FACTFASTPRINTCLOSE","01","NO","FACTURACION" 
+ENDPROC 
+
+
+PROCEDURE addTablesUserNombre
+	&&Procedimiento conta 
+LPARAMETERS tbShowDialogues
+
+	IF DIRECTORY("DATA")
+		CD DATA
+	ENDIF
+
+**TABLA DE USUARIOS PARA ELMINAR EL PROMATRIX
+
+	lcTable="Users"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			IDUSER C(10),;
+			NOMBRE C(15),;
+			APELLIDO C(60),;
+			PWD C(60),;
+			LINE I AUTOINC)
+		
+		INDEX ON LINE TAG LINE
+		INDEX ON IDUSER TAG IDUSER FOR !DELETED() AND !EMPTY(IDUSER) CANDIDATE  
+		INDEX ON NOMBRE TAG NOMBRE
+		INDEX ON APELLIDO TAG APELLIDO
+		INDEX ON PWD TAG PWD
+
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+**TABLA PARA EL NOMBRE DE LA APP Y LA INFORMACION GENERAL
+	lcTable="NOMBRE"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			ID C(10),;
+			NOMBRE C(150),;
+			RUTA C(250),;
+			LINE I AUTOINC)
+		
+		INDEX ON LINE TAG LINE
+		INDEX ON ID TAG IDAPP FOR !DELETED() AND !EMPTY(IDAPP) CANDIDATE  
+		INDEX ON NOMBRE TAG NOMBRE
+		
+
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+	CLOSE TABLES ALL 
+	CD..
+	
+	**asegurando que los campos esten homogeneos CON CONTA 
+	
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="ID"
+	LNPRECISION="c(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="NOMBRE"
+	LNPRECISION="C(150)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="RUTA"
+	LNPRECISION="C(250)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="LINE"
+	LNPRECISION="I AUTOINC"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+**ALTER
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="ID"
+	LNPRECISION="c(10)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="NOMBRE"
+	LNPRECISION="C(150)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="RUTA"
+	LNPRECISION="C(250)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="NOMBRE"
+	LCFLD="LINE"
+	LNPRECISION="I AUTOINC"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+
+
+
+
+	
+ENDPROC 
+
+PROCEDURE addParamReportBehaviorGeneral
+	lcMsgBox="Activar Comportamiento avanzado de reportes (reportbehavior=90)?"
+	lcCaptioMsgBox="Comportamiento de Reportes avanzado"
+	IF MESSAGEBOX(lcMsgBox,36,lcCaptioMsgBox)=6
+		lcValorParam="90"
+	ELSE 
+		lcValorParam="80"
+	ENDIF 
+	DO inserparam with "REPORTBEHAVIORGENERAL","02",lcValorParam,"REPORTES"
+	
+ENDPROC 
+
+
+
+PROCEDURE FIXDOCUMENTOSTB
+	LPARAMETERS tbShowDialogues
+*!*		**CERRAR TABLAS SI ESTAN EN USO 
+	LOCAL lcList AS String 
+	lcList=	"02:ORDENCOMPRA:DETALLEORDEN:NORDEN,"+;
+			"0204:OCRC_M:OCRC_D:IDOCRC,"+;
+			"03:CARGOSBANCO:DETALLECARGOSBANCO:IDCARGO,"+;
+			"04:CARGOSBANCO:DETALLECARGOSBANCO:IDCARGO,"+;
+			"05:CARGOSBANCO:DETALLECARGOSBANCO:IDCARGO,"+;
+			"06:DOCPROV:DETALLEDOCPROV:IDDOCPROV,"+;
+			"07:CC:DETALLECC:IDCC,"+;
+			"08:FACTURAS:DETALLEFACTURAS:IDVENTA,"+;
+			"09:FACTURAS:DETALLEFACTURAS:NUMERO,"+;
+			"10:FACTURAS:DETALLEFACTURAS:NUMERO,"+;
+			"11:FACTURAS:DETALLEFACTURAS:NUMERO,"+;
+			"12:FACTURAS:DETALLEFACTURAS:NUMERO,"+;
+			"13:FACTURAS:DETALLEFACTURAS:NUMERO,"+;
+			"14:FACTURAS:DETALLEFACTURAS:NUMERO,"+;
+			"16:ABONOSBANCO:DETALLEABONOSBANCO:IDABONO,"+;
+			"17:ABONOSBANCO:DETALLEABONOSBANCO:IDABONO,"+;
+			"18:ABONOSBANCO:DETALLEABONOSBANCO:IDABONO,"+;
+			"19:RETENCIONESRENTA:N/A :IDRENTA,"+;
+			"20:OTRING:OTRING:IDOTRING,"+;
+			"22:RFACT:RFACT_D:IDRF,"+;
+			"25:ORDENESDEGASTOS:DETALLEGASTO:NOGASTO,"+;
+			"26:PROV:PROV_D:IDPV,"+;
+			"2701:CLCALL:CLCALL_D:IDCALL,"+;
+			"2702:CLCLASIF:CLCLASIF_D:IDCALL,"+;
+			"31:PRESUPUESTOS:DETALLEPRESUPUESTO:IDPRESUP,"+;
+			"32:PRESUPUESTOS:DETALLEPRESUPUESTO:IDPRESUP,"+;
+			"33:PRESUPUESTOS:DETALLEPRESUPUESTO:IDPRESUP,"+;
+			"34:PRESUPUESTOS:DETALLEPRESUPUESTO:IDPRESUP,"+;
+			"36:FORMAPAGOPRESUP: N/A :IDFPAGO,"+;
+			"37:VEHICULOS:N/A :IDVEHICULO,"+;
+			"38:VEHICULORECEP:N/A :IDVEHRECEP,"+;
+			"39:LP_M:LP_D :IDLP,"+;
+			"41:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;			
+			"42:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"43:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"44:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"451:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"452:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"453:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"454:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"455:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"456:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"461:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"462:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"463:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"464:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"465:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"466:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"467:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"468:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"469:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"471:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"472:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"473:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"48:ORDENESDEGASTO:DETALLEGASTO:NOGASTO,"+;
+			"4901:PLPER:PLPER_D:IDPERSON,"+;
+			"4902:PLVOUCH:PLVOUCH_D:IDVOUCHER,"+;
+			"4903:PLPLNA:PLPLNA_D:IDPLNA,"+;
+			"4904:PLIE:PLIE_D:IDIE,"+;			
+			"4905:PLPER_ELEM:N/A:IDELEMENT,"+;			
+			"4911:MNPER:MNPER_D:IDMNPER,"+;			
+			"51:ORDENCOMPRA:DETALLEORDEN:NORDEN,"+;			
+			"52:ORDENCOMPRA:DETALLEORDEN:NORDEN,"+;			
+			"53:ORDENCOMPRA:DETALLEORDEN:NORDEN,"+;
+			"541:AFACTIVOS:AFACTIVOS_D:IDAF,"+;			
+			"542:AFCLASIF:N/A:IDCLASIF,"+;	
+			"543:AFUBICAS:N/A:IDUBICA,"+;
+			"55:ORDENCOMPRA:DETALLEORDEN:NORDEN,"+;
+			"5501:OEC_M:OEC_D:IDOEC,"+;	
+			"5502:OEC_R:OEC_D:IDOECREF,"+;			
+			"56:OAGEN:OAGEN_D:IDOAGEN,"+;
+			"56:OAGEN:OAGEN_D:IDOAGEN,"+;			
+			"61:CVEHICULOS:N/A :IDVEHICULO,"+;		
+			"62:CVALES:CVALES_DET :IDVALE,"+;					
+			"63:CFACTURAS:CFACTURAS:IDFACTURA,"+;
+			"64:CLIQUIDACIONES:CLIQUIDACIONES_DET:IDLIQUID,"+;	
+			"65:CCUOTAS:N/A :IDCUOTA,"+;
+			"66:CGASOLINERAS:N/A :IDGASOL,"+;
+			"67:CINSUMOS:N/A :IDINSUMO,"+;
+			"68:CIMPUESTOS:N/A :IDIMPUESTO,"+;	
+			"70:CMOTORISTA:N/A :IDMOTORISTA,"+;
+			"81:MCONTRATO:N/A :IDCONTRATO,"+;
+			"8101:CNCTR:CNCTR_D:IDCNC,"+;
+			"82:MSUCURSAL:N/A :IDSUCURSAL,"+;
+			"83:EQUIPOS:N/A :IDEQUIPO,"+;
+			"84:MMECA:N/A :IDMECA,"+;			
+			"85:MGRUPO:N/A :IDGRUPO,"+;
+			"86:MRUTAS:N/A :IDRUTA,"+;			
+			"87:MPROGRA_CLD:MPROGRA :IDPROGRA,"+;
+			"88:MHOJA:MHOJA_D :IDHOJA,"+;
+			"90:PARTIDA:PARTIDA_DET:IDPART,"+;
+			"99:FACTURAS:DETALLEFACTURAS:NUMERO2"			
+			
+	LOCAL LADOCS
+	ArrayFromList2(@LADOCS,lcList)
+	FOR LNDOC=1 TO ALEN(LADOCS,1)
+		MESSAGEBOX( "IDDOC:"+LADOCS(LNDOC,1)+CHR(13)+;
+					" MAESTRO:"+LADOCS(LNDOC,2)+CHR(13)+;
+					" DETALLE:"+LADOCS(LNDOC,3)+CHR(13)+;
+					" IDCAMPO:"+LADOCS(LNDOC,4),16,"fix documentos.dbf",500)
+					
+		DO UPDATETBDOCUMENTOSWITHTB WITH LADOCS(LNDOC,1),LADOCS(LNDOC,2),LADOCS(LNDOC,3),LADOCS(LNDOC,4)
+		**DO INSERTDOCNUM WITH LADOCS(LNDOC,1)	
+	ENDFOR 
+	
+	CLOSE TABLES ALL 
+
+	DO configapp 
+	DO INSERTDOCNUM WITH '02'
+	DO INSERTDOCNUM WITH '0203'
+	DO INSERTDOCNUM WITH '0204'
+	DO INSERTDOCNUM WITH '06'
+	DO INSERTDOCNUM WITH '07'
+	DO INSERTDOCNUM WITH '16'
+	DO INSERTDOCNUM WITH '17'
+	DO INSERTDOCNUM WITH '18'
+	DO INSERTDOCNUM WITH '19'
+	DO INSERTDOCNUM WITH '20'
+	DO INSERTDOCNUM WITH '21'
+	DO INSERTDOCNUM WITH '22'
+	DO INSERTDOCNUM WITH '25'
+	DO INSERTDOCNUM WITH '26'
+	DO INSERTDOCNUM WITH '2701'
+	DO INSERTDOCNUM WITH '2702'
+	DO INSERTDOCNUM WITH '31'
+	DO INSERTDOCNUM WITH '32'
+	DO INSERTDOCNUM WITH '33'
+	DO INSERTDOCNUM WITH '34'
+	DO INSERTDOCNUM WITH '36'
+	DO INSERTDOCNUM WITH '37'
+	DO INSERTDOCNUM WITH '38'
+	DO INSERTDOCNUM WITH '39'
+	DO INSERTDOCNUM WITH '41'
+	DO INSERTDOCNUM WITH '42'
+	DO INSERTDOCNUM WITH '43'
+	DO INSERTDOCNUM WITH '44'
+	DO INSERTDOCNUM WITH '451'
+	DO INSERTDOCNUM WITH '452'
+	DO INSERTDOCNUM WITH '453'
+	DO INSERTDOCNUM WITH '454'
+	DO INSERTDOCNUM WITH '455'
+	DO INSERTDOCNUM WITH '456'
+	DO INSERTDOCNUM WITH '461'
+	DO INSERTDOCNUM WITH '462'
+	DO INSERTDOCNUM WITH '463'
+	DO INSERTDOCNUM WITH '464'
+	DO INSERTDOCNUM WITH '465'
+	DO INSERTDOCNUM WITH '466'
+	DO INSERTDOCNUM WITH '467'
+	DO INSERTDOCNUM WITH '468'
+	DO INSERTDOCNUM WITH '469'
+	DO INSERTDOCNUM WITH '471'
+	DO INSERTDOCNUM WITH '472'
+	DO INSERTDOCNUM WITH '473'
+	DO INSERTDOCNUM WITH '48'
+	DO INSERTDOCNUM WITH '4901'
+	DO INSERTDOCNUM WITH '4902'
+	DO INSERTDOCNUM WITH '4903'
+	DO INSERTDOCNUM WITH '4904'
+	DO INSERTDOCNUM WITH '4905'
+	DO INSERTDOCNUM WITH '4911'
+	DO INSERTDOCNUM WITH '51'
+	DO INSERTDOCNUM WITH '52'
+	DO INSERTDOCNUM WITH '53'
+	DO INSERTDOCNUM WITH '541'
+	DO INSERTDOCNUM WITH '542'
+	DO INSERTDOCNUM WITH '543'
+	DO INSERTDOCNUM WITH '55'
+	DO INSERTDOCNUM WITH '5501'
+	DO INSERTDOCNUM WITH '5502'
+	DO INSERTDOCNUM WITH '56'
+	DO INSERTDOCNUM WITH '61'
+	DO INSERTDOCNUM WITH '62'
+	DO INSERTDOCNUM WITH '63'
+	DO INSERTDOCNUM WITH '64'
+	DO INSERTDOCNUM WITH '65'
+	DO INSERTDOCNUM WITH '66'
+	DO INSERTDOCNUM WITH '67'
+	DO INSERTDOCNUM WITH '68'
+	DO INSERTDOCNUM WITH '69'
+	DO INSERTDOCNUM WITH '70'
+	DO INSERTDOCNUM WITH '81'
+	DO INSERTDOCNUM WITH '8101'
+	DO INSERTDOCNUM WITH '82'
+	DO INSERTDOCNUM WITH '83'
+	DO INSERTDOCNUM WITH '84'
+	DO INSERTDOCNUM WITH '85'
+	DO INSERTDOCNUM WITH '86'
+	DO INSERTDOCNUM WITH '87'
+	DO INSERTDOCNUM WITH '88'
+	DO INSERTDOCNUM WITH '90'
+	DO INSERTDOCNUM WITH '99'
+	
+ENDPROC 
+
+
+PROCEDURE CNCONTAADDPARAMS
+	&&Procedimiento conta 
+
+	DO INSERPARAMCONTA WITH "0000000014","Firma Reportes Hecho:"	,2,""
+	DO INSERPARAMCONTA WITH "0000000015","Firma Reportes Revisado:"	,2,""
+	DO INSERPARAMCONTA WITH "0000000016","Firma Reportes Auditado:"	,2,""
+	DO INSERPARAMCONTA WITH "0000000017","Tipo de Pda:"	,5,"2"
+ENDPROC 
+
+PROCEDURE FIXOCFIELDNORDEN
+	
+	DO PrepararEntorno
+	TRY 
+		CLOSE TABLES ALL 
+		
+		USE ORDENCOMPRA  EXCLUSIVE
+		WAIT "Generando respaldo de seguridad ordencompra.dbf" WINDOW NOWAIT 
+		COPY TO FULLPATH("")+STRTRAN(STRTRAN(ttoc(DATEtime())+"_"+ALIAS(),"/","_"),":","_")
+		ALTER TABLE ORDENCOMPRA ALTER COLUMN NORDEN C(10) DEFAULT ""
+		INDEX ON NORDEN TAG NORDEN FOR !DELETED() AND !EMPTY(NORDEN) CANDIDATE  
+		REINDEX 
+		USE 
+		
+		USE REQUISICIONES  EXCLUSIVE
+		WAIT "Generando respaldo de seguridad requisiciones.dbf" WINDOW NOWAIT 
+		COPY TO FULLPATH("")+STRTRAN(STRTRAN(ttoc(DATEtime())+"_"+ALIAS(),"/","_"),":","_")		
+		ALTER TABLE REQUISICIONES ALTER COLUMN NREQUISICION C(10) DEFAULT ""
+		INDEX ON NREQUISICION TAG NREQUISIC FOR !DELETED() AND !EMPTY(NREQUISICION) CANDIDATE  
+		REINDEX 
+		USE 
+
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Todos los cambios hechos sin problemas"
+
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+
+
+
+ENDPROC 
+
+PROCEDURE addParamFactOrClient
+	lcMsgBox="Activar Nombre de Factura para cliente en lugar del de contribuyente"
+	lcCaptioMsgBox="Nombre de cliente en Facturación"
+	IF MESSAGEBOX(lcMsgBox,36,lcCaptioMsgBox)=6
+		lcValorParam="2"
+	ELSE 
+		lcValorParam="1"
+	ENDIF 
+	DO inserparam with "TPNOMBREINFACT","02",lcValorParam,"FACTURACION"
+ENDPROC 
+
+
+
+PROCEDURE SEPMODCONTAC2
+	&&Procedimiento conta 
+
+	CLOSE TABLES ALL 
+	LCTB="C2_M"
+	LCFLD="ID"
+	LNPRECISION="C(17)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="C2"
+	LCFLD="ID"
+	LNPRECISION="C(17)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	DO JUN2015C2CONTA
+ENDPROC 
+
+
+PROCEDURE addParamReportsIvaFCF
+	lcMsgBox="Seleccione el Libro de FCF"
+	lcCaptioMsgBox="Libro de FCF"
+	MESSAGEBOX(lcMsgBox,48,lcCaptioMsgBox)
+	lcGetFileMsg="LFCF"
+	lcFile =juststem(GETFILE("frx",lcGetFileMsg,lcGetFileMsg,1,"Ventas"))
+	IF !EMPTY(lcFile )
+		DO inserparam with "REPORTIVAFCF","01",lcFile,"GENERAL"
+		lcMsgBox="Reporte de Libro seleccionado es:"+lcFile
+		MESSAGEBOX(lcMsgBox,48,lcCaptioMsgBox)
+	ELSE 
+		lcMsgBox="No seleccionó ningún archivo"+CHR(13)+"Se ingresara el valor por default"
+		MESSAGEBOX(lcMsgBox,48,lcCaptioMsgBox)
+		DO inserparam with "REPORTIVAFCF","01","IVA11","GENERAL"
+	ENDIF 
+ENDPROC 
+
+PROCEDURE addParamReportsIvaCCF
+	lcMsgBox="Seleccione el Libro de CCF"
+	lcCaptioMsgBox="Libro de CCF"
+	MESSAGEBOX(lcMsgBox,48,lcCaptioMsgBox)
+	lcGetFileMsg="LCCF"
+	lcFile =juststem(GETFILE("frx",lcGetFileMsg,lcGetFileMsg,1,"Ventas"))
+	IF !EMPTY(lcFile )
+		DO inserparam with "REPORTIVACCF","01",lcFile,"GENERAL"
+		lcMsgBox="Reporte de Libro seleccionado es:"+lcFile
+		MESSAGEBOX(lcMsgBox,48,lcCaptioMsgBox)
+	ELSE 
+		lcMsgBox="No seleccionó ningún archivo"
+		MESSAGEBOX(lcMsgBox,48,lcCaptioMsgBox)
+		DO inserparam with "REPORTIVACCF","01","IVA12","GENERAL"
+	ENDIF 
+ENDPROC 
+
+PROCEDURE addParamReportsIvaCompra
+	lcMsgBox="Seleccione el Libro de compras de IVA"
+	lcCaptioMsgBox="Libro de compra"
+	MESSAGEBOX(lcMsgBox,48,lcCaptioMsgBox)
+	lcGetFileMsg="Lcompra"
+	lcFile =juststem(GETFILE("frx",lcGetFileMsg,lcGetFileMsg,1,"Compras"))
+	IF !EMPTY(lcFile )
+		DO inserparam with "REPORTIVACOMPRA","01",lcFile,"REPORTES"
+		lcMsgBox="Reporte de Libro seleccionado es:"+lcFile
+		MESSAGEBOX(lcMsgBox,48,lcCaptioMsgBox)
+	ELSE 
+		lcMsgBox="No seleccionó ningún archivo"
+		MESSAGEBOX(lcMsgBox,48,lcCaptioMsgBox)
+		DO inserparam with "REPORTIVACOMPRA","01","IVA13","REPORTES"
+	ENDIF 
+ENDPROC 
+
+PROCEDURE addParamRelaxModeClie
+	
+	lcMsgBox="Desea activar el modo relajado de creacion de clientes"
+	IF MESSAGEBOX(lcMsgBox,36,"Establecer Modo relajado de creación de clientes")=6
+		lcRespuesta="SI"	
+	ELSE
+		lcRespuesta="NO"	
+	ENDIF 
+	DO inserparam with "RELAXMODECLIE","01",lcRespuesta,"GENERAL"
+	
+ENDPROC 
+
+
+PROCEDURE addParamRtcConta
+**parametros generales 
+	lcCodigo=""
+	lcIddoc="0203"
+	**párametros de  busqueda en el cataconfig
+	lcCon1=lcIddoc
+	lcCon2=""
+	lcCon3=""
+	lcCon4=""	
+	lcCon5=""
+	**párametros de  busqueda en el cataconfig	
+**parametros generales 	
+	SELECT nombre  FROM documentos WHERE iddoc=lcIddoc INTO ARRAY laDocName
+IF !VARTYPE(laDocName)="U"
+	**nombre del documento que se va ingresar
+	lcDocumentoName=UPPER(laDocName)
+	**nombre del documento que se va ingresar
+	
+	**inicializando mensajes de los messagebox
+	lcMsgbox=	"A continuacion se le preguntara la cuenta base para contabilizar los:"+CHR(13)+;
+				lcDocumentoName+CHR(13)+;
+				"Desea continuar y elegir dicha cuenta"
+				
+	lcMsgBoxAbort="Operación abortada"				
+	**inicializando mensajes de los messagebox
+	
+	IF 	MESSAGEBOX(lcMsgbox,36,"Seleccione cta")=6
+	
+		SELECT resultado FROM cataconfig ;
+		WHERE ;
+			IIF(EMPTY(lcCon1),EMPTY(con1), con1=lcCon1) AND;
+			IIF(EMPTY(lcCon2),EMPTY(con2), con2=lcCon2) AND;
+			IIF(EMPTY(lcCon3),EMPTY(con3), con3=lcCon3) AND;
+			IIF(EMPTY(lcCon4),EMPTY(con4), con4=lcCon4) AND ;
+			IIF(EMPTY(lcCon5),EMPTY(con5), con5=lcCon5);
+		INTO ARRAY ;
+			laResultadoCta
+		
+		**si ya existe actualiza la cuenta 	
+		IF !VARTYPE(laResultadoCta)="U"
+			lcMsgBox="Ya existe una cuenta base para "+lcDocumentoName+": "+laResultadoCta+CHR(13)+"Desea actualizarla"
+			IF MESSAGEBOX(lcMsgBox,36,"Aviso") =6
+				DO FORM fccatal2 TO lcCodigo 
+				IF !EMPTY(lcCodigo)
+					lcMsgBox="La cuenta seleccionada es la siguiente: "+lcCodigo+CHR(13)+" desea establecerala como cuenta base?"
+					IF MESSAGEBOX(lcMsgBox,36,"Pregunta")=6
+						UPDATE cataconfig SET resultado=lccodigo ;
+						WHERE ;
+							IIF(EMPTY(lcCon1),EMPTY(con1), con1=lcCon1) AND;
+							IIF(EMPTY(lcCon2),EMPTY(con2), con2=lcCon2) AND;
+							IIF(EMPTY(lcCon3),EMPTY(con3), con3=lcCon3) AND;
+							IIF(EMPTY(lcCon4),EMPTY(con4), con4=lcCon4) AND ;
+							IIF(EMPTY(lcCon5),EMPTY(con5), con5=lcCon5)
+							
+							*con1=lcCon1 AND con2="02" AND EMPTY(con3) AND EMPTY(con4) AND EMPTY(con5)
+					ELSE 
+						MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")						
+					ENDIF 
+				ELSE
+					MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+				ENDIF 
+			ELSE 
+				MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+			ENDIF 
+		**sino existe la ingresa como nueva 
+		ELSE			
+			DO FORM fccatal2 TO lcCodigo 
+			IF !EMPTY(lcCodigo)
+				lcMsgBox="La cuenta seleccionada es la siguiente: "+lcCodigo+CHR(13)+" desea continuar?"
+				IF MESSAGEBOX(lcMsgBox,36,"Pregunta")=6
+					INSERT INTO cataconfig 	(con1,con2,con3,con4,con5,resultado,precedencia) ;
+					VALUES 					(lcCon1,lcCon2,lcCon3,lcCon4,lcCon5,lcCodigo,"1")
+				ELSE
+					MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+				ENDIF 
+			ELSE
+				MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+			ENDIF 
+		ENDIF 
+	ELSE 
+		MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")			
+	ENDIF 
+ELSE 
+	MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")						
+ENDIF &&!VARTYPE(laDocName)="U"
+
+ENDPROC 
+
+
+PROCEDURE addParamProvLocCta
+
+	lcMsgbox=	"A continuacion se le preguntara sobre la cuenta base para:"+;
+				"PROVEEDORES LOCALES "+CHR(13)+;
+				"Desea continuar y elegir dicha cuenta"
+	lcMsgBoxAbort="Operación abortada"				
+	IF 	MESSAGEBOX(lcMsgbox,36,"Seleccione cta")=6
+		lcCodigo=""
+		lcIddoc="06"
+
+		**BORRANDO LA CTA ORIGINAL DE PROVEEDORES 
+		DELETE FROM CATACONFIG WHERE con1=lcIddoc AND EMPTY(con2) AND EMPTY(con3) AND EMPTY(con4) AND EMPTY(con5)
+
+		SELECT resultado FROM cataconfig WHERE con1=lcIddoc AND con2="01" AND EMPTY(con3) AND EMPTY(con4) AND EMPTY(con5) INTO ARRAY laResultadoCta
+		IF !VARTYPE(laResultadoCta)="U"
+			lcMsgBox="Ya existe una cuenta base para PROVEEDORES LOCALES: "+laResultadoCta+CHR(13)+"Desea actualizarla"
+			IF MESSAGEBOX(lcMsgBox,36,"Aviso") =6
+				DO FORM fccatal2 TO lcCodigo 
+				IF !EMPTY(lcCodigo)
+					lcMsgBox="La cuenta seleccionada es la siguiente: "+lcCodigo+CHR(13)+" desea continuar?"
+					IF MESSAGEBOX(lcMsgBox,36,"Pregunta")=6
+						UPDATE cataconfig SET resultado=lccodigo WHERE con1=lcIddoc AND con2="01" AND EMPTY(con3) AND EMPTY(con4) AND EMPTY(con5)
+					ELSE 
+						MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")						
+					ENDIF 
+				ELSE
+					MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+				ENDIF 
+			ELSE 
+				MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+			ENDIF 
+		ELSE			
+			DO FORM fccatal2 TO lcCodigo 
+			IF !EMPTY(lcCodigo)
+				lcMsgBox="La cuenta seleccionada es la siguiente: "+lcCodigo+CHR(13)+" desea continuar?"
+				IF MESSAGEBOX(lcMsgBox,36,"Pregunta")=6
+					INSERT INTO cataconfig (con1,con2,resultado,precedencia) VALUES (lcIddoc,"01",lcCodigo,"1")
+				ELSE
+					MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+				ENDIF 
+			ELSE
+				MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+			ENDIF 
+		ENDIF 
+	ELSE 
+		MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")			
+	ENDIF 
+ENDPROC 
+
+
+
+PROCEDURE addParamProvExtCta
+
+	lcMsgbox=	"A continuacion se le preguntara sobre la cuenta base para:"+;
+				"PROVEEDORES DEL EXTERIOR "+;
+				"Desea continuar y elegir dicha cuenta"
+	lcMsgBoxAbort="Operación abortada"				
+	IF 	MESSAGEBOX(lcMsgbox,36,"Seleccione cta")=6
+		lcCodigo=""
+		lcIddoc="06"
+
+		SELECT resultado FROM cataconfig WHERE con1=lcIddoc AND con2="02" AND EMPTY(con3) AND EMPTY(con4) AND EMPTY(con5) INTO ARRAY laResultadoCta
+		IF !VARTYPE(laResultadoCta)="U"
+			lcMsgBox="Ya existe una cuenta base para PROVEEDORES EXTERIORES : "+laResultadoCta+CHR(13)+"Desea actualizarla"
+			IF MESSAGEBOX(lcMsgBox,36,"Aviso") =6
+				DO FORM fccatal2 TO lcCodigo 
+				IF !EMPTY(lcCodigo)
+					lcMsgBox="La cuenta seleccionada es la siguiente: "+lcCodigo+CHR(13)+" desea continuar?"
+					IF MESSAGEBOX(lcMsgBox,36,"Pregunta")=6
+						UPDATE cataconfig SET resultado=lccodigo WHERE con1=lcIddoc AND con2="02" AND EMPTY(con3) AND EMPTY(con4) AND EMPTY(con5)
+					ELSE 
+						MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")						
+					ENDIF 
+				ELSE
+					MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+				ENDIF 
+			ELSE 
+				MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+			ENDIF 
+		ELSE			
+			DO FORM fccatal2 TO lcCodigo 
+			IF !EMPTY(lcCodigo)
+				lcMsgBox="La cuenta seleccionada es la siguiente: "+lcCodigo+CHR(13)+" desea continuar?"
+				IF MESSAGEBOX(lcMsgBox,36,"Pregunta")=6
+					INSERT INTO cataconfig (con1,con2,resultado,precedencia) VALUES (lcIddoc,"02",lcCodigo,"1")
+				ELSE
+					MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+				ENDIF 
+			ELSE
+				MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")
+			ENDIF 
+		ENDIF 
+	ELSE 
+		MESSAGEBOX(lcMsgBoxAbort,16,"Aviso")			
+	ENDIF 
+ENDPROC 
+
+
+
+PROCEDURE addParamsDefault
+	DO inserparam with "DEPTODEFAULT","01","01","GENERAL" 
+
+**Proyectos
+	DO inserparam with "PROYDEFAULT","01","00000000","GENERAL" 
+	
+	SELECT idproyectos FROM proyectos WHERE ALLTRIM(idproyectos)="00000000" INTO ARRAY laProyDefault 
+	lcIdProyectos="00000000"
+	lcNombre="Proyecto General"
+	lcCliente="000-000"
+	ldFecha=DATE()
+	lcDepto="01"
+	IF VARTYPE(laProyDefault)="U"
+		INSERT INTO proyectos (idproyectos,nombre,idcliente,inicia,depto) VALUES (lcIdProyectos,lcNombre,lcCliente,ldFecha,lcDepto)
+	ELSE 
+		UPDATE proyectos SET nombre=lcNombre,idcliente=lcCliente,inicia=ldFecha,depto=lcDepto WHERE idproyectos=lcIdProyectos
+	ENDIF 	
+**Fin Proyectos
+
+**Clientes 
+	DO inserparam with "CLIENTEDEFAULT","01","000-000","GENERAL" 
+	
+	lcIdcliente="000-000"
+	lcNombre="Cliente General"	
+	lcIdDepartamento="06"
+	lcIdMunicipio="0601"
+	lcRegistro="0000000"
+	lcNit="00000000000000"
+	lcDireccion="San Salvador"
+	lcDepto="01"
+	lbAlta=DATE()
+	lcFpago="TP00000001"
+	lbAfiliada=.f.
+	lbActivo=.t.
+	ldAcreadoFec=DATE()
+	lcAcreadoUsr="YEC"
+	ldAmod_fec=DATE()
+	lcAmod_Usr="YEC"
+	SELECT idcliente FROM clientes WHERE ALLTRIM(idcliente)="000-000" INTO ARRAY laClieDefault 
+	IF VARTYPE(laClieDefault)="U"
+		INSERT INTO clientes(idcliente,	nombre,		IDDEPARTAMENTO,	IDMUNICIPIO,	REGISTRO,	NIT,	DIRECCION	,DEPARTAMENTO,	ALTA,	FPAGO,	AFILIADA,	ACTIVO	,ACREADO_FEC,ACREADO_USR); 
+		VALUES ;
+							(lcIdCliente,lcNombre,	lcIdDepartamento,lcIdMunicipio,	lcRegistro,	lcNit,	lcDireccion,lcDepto,		lbAlta,	lcFpago,lbAfiliada	,lbActivo,ldAcreadoFec	,lcAcreadoUsr)
+	ELSE 
+		UPDATE CLIENTES;
+		SET;
+			IDCLIENTE=lcIdcliente,;
+			NOMBRE=lcNombre,;
+			IDDEPARTAMENTO=lcIdDepartamento,;
+			IDMUNICIPIO=lcIdMunicipio,;
+			REGISTRO=lcRegistro,;
+			NIT=lcNit,;
+			DIRECCION=lcDireccion,;
+			DEPARTAMENTO=lcDepto,;
+			ALTA=lbAlta,;
+			FPAGO=lcFpago,;
+			AFILIADA=lbAfiliada,;
+			ACTIVO=lbActivo,;
+			AMOD_FEC=ldAmod_fec,;
+			AMOD_USR=lcAmod_Usr;
+		WHERE ;
+			IDCLIENTE='000-000'
+	ENDIF 	
+**Fin Clientes 
+
+**Proveedores 
+	DO inserparam with "PROVDEFAULT","01","000-000","GENERAL" 
+	
+	lcIDPROV="000-000"
+	lcNOMBRE="Proveedore General"
+	lcDIRECCION="San Salvador"
+	lcIDDEPARTAMENTO="06"
+	lcIDMUNI="0601"
+	lcRegistro="0000000"
+	lcNit="00000000000000"
+	ldALTA=DATE()&&08/08/15
+	lcDEPARTAMENTO="01"
+	lbACTIVO=.f.
+	lcIMPORT=""
+	lcFPAGO="TP00000001"
+	lbAFILIADA=.f.
+	liPERSONERIA=1
+	lbEXTERIOR=.f.
+
+	
+	SELECT idprov FROM proveedores WHERE ALLTRIM(idprov)="000-000" INTO ARRAY laProvDefault 
+	
+	IF VARTYPE(laProvDefault)="U"
+		INSERt INTO PROVEEDORES(;
+			IDPROV,;
+			NOMBRE,;
+			DIRECCION,;
+			IDDEPARTAMENTO,;
+			IDMUNI,;
+			REGISTRO,;
+			NIT,;
+			ALTA,;
+			DEPARTAMENTO,;
+			ACTIVO,;
+			IMPORT,;
+			FPAGO,;
+			AFILIADA,;
+			PERSONERIA,;
+			EXTERIOR);
+		VALUES (;
+			lcIDPROV,;
+			lcNOMBRE,;
+			lcDIRECCION,;
+			lcIDDEPARTAMENTO,;
+			lcIDMUNI,;
+			lcREGISTRO,;
+			lcNIT,;
+			ldALTA,;
+			lcDEPARTAMENTO,;
+			lbACTIVO,;
+			lcIMPORT,;
+			lcFPAGO,;
+			lbAFILIADA,;
+			liPERSONERIA,;
+			lbEXTERIOR;
+		)
+
+	ELSE 
+		UPDATE PROVEEDORES;
+		SET;
+			IDPROV=lcIDPROV,;
+			NOMBRE=lcNOMBRE,;
+			DIRECCION=lcDIRECCION,;
+			IDDEPARTAMENTO=lcIDDEPARTAMENTO,;
+			IDMUNI=lcIDMUNI,;
+			REGISTRO=lcREGISTRO,;
+			NIT=lcNIT,;
+			ALTA=ldALTA,;
+			DEPARTAMENTO=lcDEPARTAMENTO,;
+			ACTIVO=lbACTIVO,;
+			IMPORT=lcIMPORT,;
+			FPAGO=lcFPAGO,;
+			AFILIADA=lbAFILIADA,;
+			PERSONERIA=liPERSONERIA,;
+			EXTERIOR=lbEXTERIOR;
+		WHERE ;
+			IDPROV='000-000'
+	ENDIF 	
+**Proveedores 
+
+**Inicio Registro 
+	DO inserparam with "REGISTRODEFAULT","01","0000000","GENERAL" 
+	
+	lcREGISTRO="0000000"
+	lcNOMBRE="Registro Default "
+	lcGIRO="Otras Actividades no clasificadas previamente"
+	lcIDCLASIFICACION="01"
+	lbEXENTO=.f.
+	lbCALCOPC1POR=.f.
+	
+	SELECT registro FROM contribuyentes WHERE ALLTRIM(registro)="0000000" INTO ARRAY laRegIvaDefault
+	
+	IF VARTYPE(laRegIvaDefault)="U"
+		INSER INTO CONTRIBUYENTES(;
+			REGISTRO,;
+			NOMBRE,;
+			GIRO,;
+			IDCLASIFICACION,;
+			EXENTO,;
+			CALCOPC1POR);
+		VALUES (;
+			lcREGISTRO,;
+			lcNOMBRE,;
+			lcGIRO,;
+			lcIDCLASIFICACION,;
+			lbEXENTO,;
+			lbCALCOPC1POR;
+		)
+	ELSE 
+		UPDATE CONTRIBUYENTES;
+		SET;
+			REGISTRO=lcREGISTRO,;
+			NOMBRE=lcNOMBRE,;
+			GIRO=lcGIRO,;
+			IDCLASIFICACION=lcIDCLASIFICACION,;
+			EXENTO=lbEXENTO,;
+			CALCOPC1POR=lbCALCOPC1POR;
+		WHERE ;
+			REGISTRO='0000000'
+	ENDIF 	
+**Fin Registro
+
+	DO inserparam with "NITDEFAULT","01","00000000000000","GENERAL" 
+	
+	lcNIT="00000000000000"
+	lcNOMBRE="Nit default"
+	lcAPELLIDOS=""
+	lbEXENTO=.f.
+	lcIDCLASIFICACION="01"
+
+	SELECT NIT  FROM PERSONNATURALES WHERE ALLTRIM(NIT)="00000000000000" INTO ARRAY laNitDefault
+	
+	IF VARTYPE(laNitDefault)="U"
+		INSER INTO PERSONNATURALES(;
+			NIT,;
+			NOMBRE,;
+			APELLIDOS,;
+			EXENTO,;
+			IDCLASIFICACION);
+		VALUES (;
+			lcNIT,;
+			lcNOMBRE,;
+			lcAPELLIDOS,;
+			lbEXENTO,;
+			lcIDCLASIFICACION;
+		)	
+	ELSE 
+		UPDATE PERSONNATURALES;
+		SET;
+			NIT=lcNIT,;
+			NOMBRE=lcNOMBRE,;
+			APELLIDOS=lcAPELLIDOS,;
+			EXENTO=lbEXENTO,;
+			IDCLASIFICACION=lcIDCLASIFICACION;
+		WHERE ;
+			IDCLASIFICACION='00000000000000'
+			
+	ENDIF 	
+ENDPROC 
+
+
+PROCEDURE AGO2015ADDREPORTSCLI
+**AGREGANDO REPORTES POR COSTO PROMEDIO 3
+	lcidreport="CLI4"
+	lcdescrip="ANTIGUEDAD DE SALDOS POR FACTURA"
+	lcdescrip2="Reportes que detallan la antiguedad de saldos por factura, incluyen la fecha de vencimiento y numero de factura"
+	lcimage="FolderYellow_48.bmp"
+	lctp="cli"
+	lctpllama="cli4"
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+**AGREGANDO REPORTES POR COSTO PROMEDIO 3
+	lcidreport="CLI41"
+	lcdescrip="Antiguedad de saldos por factura hasta 60 dias"
+	lcdescrip2="Muestra el saldo por factura agrupados por 30 45 y 60 dias"
+	lcimage="REPORT_48.bmp"
+	lctp="cli4"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+ENDPROC 
+
+
+PROCEDURE AGO2015ADDDIASFORMAPAGO
+ 	lcIdDocumento="36"
+	lcNombre="Formas de Pago "
+	lcIdTrans="01"
+	lcPrefijo="FP"
+	llLegal=.f.
+	lcDescrip="Formas de pagos para presupuestos y facturas"
+	lcImage="tag_red.png"
+	lcCategoria="INFO"
+	lcSkipper="1010601"
+	lcTablaM="FORMAPAGOPRESUP"
+	lcTablaD=""
+	lcCampoID="IDFPAGO"
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper,lcTablaM,lcTablaD,lcCampoID
+
+	
+	CLOSE TABLES ALL 
+	LCTB="FORMAPAGOPRESUP"
+	LCFLD="DIAS"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	DO INSERTDOCNUM WITH "36"
+	
+	SELECT;
+		IDFPAGO, DESCRIPCION ;
+	FROM ;
+		FORMAPAGOPRESUP ;
+	WHERE ;
+		INLIST(IDFPAGO,"FP00000003","FP00000004","FP00000005","FP00000006","FP00000007");
+	INTO ARRAY ;
+		laFormasPago
+	IF !VARTYPE(laFormasPago)="U"
+		FOR lnFpago=1 TO ALEN(laFormasPago,1)
+			lcAcumuladorNumerico=""
+			lcAcumuladorTextual=""
+			lcIdFpago=laFormasPago(lnFpago,1)
+			lcDescripcion=laFormasPago(lnFpago,2)
+			**sacar el valor numerico
+			FOR lnLetter=1 TO LEN(lcDescripcion)
+				lcLetter=SUBSTR(lcDescripcion,lnLetter,1)
+
+				IF ISDIGIT(lcLetter) 
+					*MESSAGEBOX(lcAcumuladorNumerico )
+					lcAcumuladorNumerico = lcAcumuladorNumerico + lcLetter
+				ELSE
+					IF !EMPTY(lcLetter)
+						lcAcumuladorTextual = lcAcumuladorTextual + lcLetter
+					ENDIF 
+				ENDIF 
+			ENDFOR 
+
+			IF 	lcAcumuladorTextual="días"
+				IF !EMPTY(lcAcumuladorNumerico)
+					lnDias=VAL(lcAcumuladorNumerico)
+					UPDATE formapagopresup SET dias=lnDias WHERE idfpago=lcIdFpago 
+				ENDIF 
+			ENDIF 
+				
+		ENDFOR 
+	ENDIF 
+	CLOSE TABLES ALL 
+ENDPROC 
+
+
+PROCEDURE ADDPARAMINVLEN
+	DO inserparam with "LENCODINV","01","3","Largo de Codigo de Inventario " 	
+ENDPROC 
+
+PROCEDURE JUL2015EXTENDFIELDCOD
+
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="CODIGO"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="NOMBRE"
+	LNPRECISION="C(90)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="MODELO"
+	LNPRECISION="C(90)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="MARCA"
+	LNPRECISION="C(90)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+ENDPROC 
+
+PROCEDURE JUN2015C1CONTA
+	&&Procedimiento conta 
+
+	SET PATH TO "CONTA\DATA\" ADDITIVE 
+	DO AddDetLine WITH "C1"
+	
+ENDPROC 
+
+PROCEDURE JUN2015C2CONTA
+	&&Procedimiento conta 
+
+	**problema con el largo de numero=6, debe de ser 8, hay que cambiarlo pero debe averiguarse cual será el efecto de e
+	**este cambio:
+	**archivos afectados 
+	**1)altertable2.prg
+	**2)gridcnpdassel.scx
+	**3)_conta.vcx
+	**4)CNPDAS.SCX 
+	**5)GRIDCNDAS.VCX AUMENTAR CAMPO
+
+	SET PATH TO "CONTA\DATA\" ADDITIVE 
+	DO AddDetLine WITH "C2"
+
+	CLOSE TABLES ALL 
+	LCTB="C2"
+	LCFLD="ID"
+	LNPRECISION="C(17)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	**se agrego este por que en algunos habia quedado el id en c(15), por lo que era necesario asegurarse 
+	**de que el tamaño del id fuera 17 para que no diera problema de duplicacion de clave 
+	CLOSE TABLES ALL 
+	LCTB="C2"
+	LCFLD="ID"
+	LNPRECISION="C(17)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	
+	**1 sep se cambio que generar de 8 el largo de numero 
+	USE C2 IN 0 
+	SELECT C2 
+	SCAN 
+		lcId=TRANSFORM(YEAR(FECHA))+;
+				PADL(TRANSFORM(MONTH(FECHA)),2,"0")+;
+					PADL(TRANSFORM(DAY(FECHA)),2,"0")+;
+						TRANSFORM(TP)+;
+							PADL(TRANSFORM(NUMERO),8,"0") &&PADL(TRANSFORM(NUMERO),8,"0")
+							
+		REPLACE ID WITH lcId
+	ENDSCAN
+	**fin 1 sep se cambio que generar de 8 el largo de numero 
+	CLOSE TABLES ALL 
+	
+	DELETE FROM c2_M &&EN TEORIA VOLVERIA A RECREAR EL MAESTRO A PARTIR DEL DETALLE, ASI SEA ORIGINAL O CREADA A MANO A TRAVÉS DEL EDITOR DE PARTIDAS 
+	
+	lnEdo=1
+	**1 SEP 2015 FALLABA CUANDO SE HACIA CON UN SOLO INSERT 
+		**CREAR EL CURSOR PRIMERO, Y LUEGO METER UNO POR UNO 
+		SELECT ;
+			ID,;
+			lnEdo as estado,;
+			"YEC" as user ,;
+			FECHA as fecha ,;
+			NUMERO as numero,;
+			TP as tp ,;
+			MAX(DESCRIP) as descrip,;
+			MAX(DESCRIP2) as descrip2,;
+			SUM(DEBE) as debe ,;
+			SUM(HABER) as haber;
+		FROM ;
+			C2;
+		GROUP BY;
+			1,2,3,4,5,6;
+		INTO CURSOR ;
+			curInsert2C2
+		
+		IF used("curInsert2C2")
+			SELECT curInsert2C2
+			SCAN 
+				lcID=id
+				lnESTADO=ESTADO
+				lcUSER=USER
+				ldFECHA=FECHA
+				lnNUMERO=NUMERO
+				lnTP=TP
+				lcDESCRIP=DESCRIP
+				lcDESCRIP2=DESCRIP2
+				lnDEBE=DEBE
+				lnHABER=HABER
+				lcACREA_FEC=DATETIME()
+				lcACREA_USR="YEC"
+				WAIT "Generando"+lcID WINDOW NOWAIT 
+				
+				INSERT INTO C2_M(ID, ESTADO, USER, FECHA, NUMERO, TP, DESCRIP, DESCRIP2,SDEBE,SHABER, ACREA_FEC, ACREA_USR);
+				VALUES (;
+					lcID,;
+					lnESTADO,;
+					lcUSER,;
+					ldFECHA,;
+					lnNUMERO,;
+					lnTP,;
+					lcDESCRIP,;
+					lcDESCRIP2,;
+					lnDEBE,;
+					lnHABER,;
+					lcACREA_FEC,;
+					lcACREA_USR;
+				)
+				SELECT curInsert2C2
+			ENDSCAN
+		ENDIF &&used("curInsert2C2")
+		
+
+		
+	**FIN 1 SEP 2015 FALLABA CUANDO SE HACIA CON UN SOLO INSERT 
+		
+ENDPROC 
+
+PROCEDURE JUN2015C2_M
+	&&Procedimiento conta 
+	LPARAMETERS tbShowDialogues
+ 	lbSeguirBuscando=.t.
+ 	lnNivelDirectory=0
+ 	
+	IF DIRECTORY("CONTA\DATA")
+		lbSeguirBuscando=.f.
+		CD "CONTA\DATA"
+		lnNivelDirectory=2
+	ENDIF
+	
+	IF lbSeguirBuscando
+		IF DIRECTORY("DATA")
+			CD "DATA"
+			lnNivelDirectory=1
+		ENDIF 
+	ENDIF 
+
+
+	lcTablaM="C2_M"
+**Maestro de RETACEOS 
+	lcTable=lcTablaM
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			ID 		C(17),;
+			ESTADO 	I,;
+			USER 	C(10),;
+			FECHA 	D,;
+			NUMERO 	N(10),;
+			TP 		I, ;
+			DESCRIP C(80),;
+			DESCRIP2 C(80),;
+			SDEBE 	N(12,2),;
+			SHABER N(12,2),;
+			ADEL_FEC 	T,;
+			ADEL_USR	C(10),;
+			ACREA_FEC	T,;
+			ACREA_USR	C(10),;
+			AUPD_FEC	T,;
+			AUPD_USR	C(10);
+			)
+		
+		INDEX ON ESTADO  TAG ESTADO
+		INDEX ON ID TAG ID FOR !DELETED()	CANDIDATE  
+		INDEX ON USER TAG USER 
+		INDEX ON FECHA TAG FECHA 
+		INDEX ON NUMERO TAG NUMERO
+		INDEX ON TP TAG TP
+		INDEX ON DESCRIP TAG DESCRIP 
+		INDEX ON DESCRIP2 TAG DESCRIP2
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+			lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+	
+	DO CASE
+	CASE 	lnNivelDirectory=1
+		CD ..
+	CASE 	lnNivelDirectory=2
+		CD ..
+		CD ..
+
+	OTHERWISE
+
+	ENDCASE
+
+ENDPROC 
+
+PROCEDURE JUN2015MODPROVCLIE
+
+	CLOSE TABLES ALL 
+	LCTB="CLIENTES"
+	LCFLD="EXTERIOR"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PROVEEDORES"
+	LCFLD="EXTERIOR"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL
+	
+ENDPROC
+
+PROCEDURE JUN2015ADDPARAMTPMONTOLETRASCH
+	DO inserparam with "TPMONTOLETRASCH","01","1","CHEQUES" 	
+ENDPROC 
+
+PROCEDURE JUN2015ADDPAISESANDLOCALS
+**SE AGREGARON ALGUNOS PAISES QUE NO ESTABAN CON SUS RESPECTIVAS LOCALIDADES 
+**PARA EFECTO DE LOS PROVEEDORES DEL EXTERIOR	
+	DO PrepararEntorno
+	TRY 
+		
+		DO InsertUbicacion IN altertable2 WITH "MEXICO","MEXICO DF"
+		DO InsertUbicacion IN altertable2 WITH "US","US"
+		DO InsertUbicacion IN altertable2 WITH "CANADA","CANADA"
+		DO InsertUbicacion IN altertable2 WITH "COLOMBIA","BOGOTA"
+		gbVentanaComandosExecuteSuccesful=.t.
+		gcVentanaComandosExecuteResult="Se crearon todos los paises y sus localidades"
+		
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+
+	FINALLY
+
+	ENDTRY
+	
+		
+	
+ENDPROC 
+
+PROCEDURE MAY2015ADDPROVSTOGENC1
+**01 DE JUNIO DE 2015, AGREGA LAS CTAS DE PROVEEDORES QUE YA ESTAN Y LES PONES EL CODPROY
+**ESTE CAMBIO SE HIZO POR QUE SE AGREGO LA CREACION AUTOMATICA DE LOS PROVEEDORES
+**SE PENSO QUE LAS CTAS DE PROVEEDORES Y CLIENTES SE GENEREN AUTOMATICAMENTE CUANDO SE CREAN LOS PROVEEDORES Y CLIENTES 
+**PERO NO SIEMPRE EL QUE SE CREE UN PROVEEDOR O UN CLIENTE SIGNIFICA QUE TENDRA VENTA O COMPRA, SIN EMBARGO SI SE PUEDE AGREGARA EL 
+**PROCEDIMIENTO PARA QUE BUSQUE CUAL ES LA CUENTA ASIGNADA A LA HORA DE MODIFICARLO 
+**LAS CONDICIONES PARA QUE LO AGREGUE SON : 
+**			CON1="06"
+**			CON3= DEBE EXISTIR EN TABLA PROVEEDORES 
+	DO PrepararEntorno
+
+	IF !USED("CATACONFIG")
+		USE CATACONFIG
+	ENDIF
+	
+	GO TOP IN CATACONFIG 
+	DO WHILE !EOF("CATACONFIG")
+
+		lcCon1=ALLTRIM(CATACONFIG.con1)
+		lcCon3=ALLTRIM(CATACONFIG.con3)
+		lcResultado=ALLTRIM(CATACONFIG.Resultado)
+		WAIT "Validando "+ lcResultado WINDOW NOWAIT 
+		lbInsert=.f.
+**		Ingresar solo si cumple dos condiciones
+*		El primer parametro es igual a 06
+		IF lcCon1="06"
+			lbInsert=.t.
+		ELSE 
+			lbInsert=.f.
+		ENDIF 
+
+**		El segundo parametro debe ser un proveedor valido
+		IF !EMPTY(lcCon3)
+			RELEASE laProvNomb
+			SELECT nombre  FROM proveedores WHERE ALLTRIM(idprov)==ALLTRIM(lcCon3) INTO ARRAY laProvNomb
+			IF !VARTYPE(laProvNomb)="U"
+				lbInsert=.t.
+			ELSE 
+				lbInsert=.f.
+			ENDIF 
+		ELSE 
+			lbInsert=.f.
+		ENDIF 
+		
+		IF lbInsert
+**		ingresar al c1 
+			IF VARTYPE(gcRuta2ContaPortable)="U"
+				DO configapp
+			ENDIF 
+			WAIT "Ingresando el resultado: "+lcResultado WINDOW NOWAIT 
+			lcRuteC1=gcRuta2ContaPortable+"C1.DBF"
+			UPDATE (lcRuteC1) SET codproy=lcCon3 WHERE ALLTRIM(codigo)==ALLTRIM(lcResultado)
+		ENDIF 			
+		SKIP 1 IN cataconfig 
+		
+	ENDDO 
+	WAIT "Fin de migracion de ctas de proveedores " WINDOW NOWAIT 
+	WAIT "Empenzando ingreso de cta base para proveedores" WINDOW NOWAIT 
+	lcMsgbox=	"A continuacion se le preguntara sobre la cuenta de proveedores base "+;
+				"para generar los proveedores en el catalogo de cuentas de contabilidad"+;
+				"Desea continuar y elegir dicha cuenta"
+				
+	IF 	MESSAGEBOX(lcMsgbox,36,"Seleccione cta")=6
+		lcCodigo=""
+		lcIddoc="06"
+		DO FORM fccatal2 TO lcCodigo 
+		IF !EMPTY(lcCodigo)
+			lcMsgBox="La cuenta seleccionada es la siguiente: "+lcCodigo+CHR(13)+" desea continuar?"
+			IF MESSAGEBOX(lcMsgBox,36,"Pregunta")=6
+				SELECT resultado FROM cataconfig WHERE con1=lcIddoc AND EMPTY(con2) AND EMPTY(con3) AND EMPTY(con4) AND EMPTY(con5) INTO ARRAY laResultadoCta
+				IF !VARTYPE(laResultadoCta)="U"
+					lcMsgBox="Ya existe una cuenta base para los proveedores desea actualizarla con la siguiente cuenta: "+lcCodigo
+					IF MESSAGEBOX(lcMsgBox,36,"Aviso") =6
+						UPDATE cataconfig SET resultado=lccodigo WHERE con1=lcIddoc AND EMPTY(con2) AND EMPTY(con3) AND EMPTY(con4) AND EMPTY(con5)
+					ELSE 
+						lcMsgBox="Operación abortada"
+						MESSAGEBOX(lcMsgBox,16,"Aviso")
+					ENDIF 
+				ELSE
+					INSERT INTO cataconfig (con1,resultado,precedencia) VALUES (lcIddoc,lcCodigo,"1")
+				ENDIF 
+			ELSE
+				lcMsgBox="Operación abortada"
+				MESSAGEBOX(lcMsgBox,16,"Aviso")
+			ENDIF 
+		ELSE
+			lcMsgBox="Operación abortada"
+			MESSAGEBOX(lcMsgBox,16,"Aviso")
+		ENDIF 
+	ELSE 
+		lcMsgBox="Operación abortada"
+		MESSAGEBOX(lcMsgBox,16,"Aviso")			
+	ENDIF 
+ENDPROC 
+
+PROCEDURE JUN01ADDINDEXCATACONFIG 
+	DO PrepararEntorno
+	LOCAL err as Exception
+	
+	TRY 
+		WAIT "Generando indices para la tabla cataconfig" WINDOW NOWAIT 
+		USE CATACONFIG EXCLUSIVE 
+		INDEX ON CON1 TAG CON1 
+		INDEX ON CON2 TAG CON2
+		INDEX ON CON3 TAG CON3
+		INDEX ON CON4 TAG CON4
+		INDEX ON CON5 TAG CON5
+		INDEX ON RESULTADO TAG RESULTADO
+		INDEX ON DESC_DOC TAG DESC_DOC
+		INDEX ON DESC_SIS TAG DESC_SIS
+		INDEX ON DESC_CONTA TAG DESC_CONTA
+		WAIT "Fin de generación de indices" WINDOW NOWAIT 
+		
+		gbVentanaComandosExecuteSuccesful=.t.
+	CATCH TO err 
+		lcErrorMessage=	"Error No: "+TRANSFORM(err.ErrorNo)+CHR(13)+;
+						" Detalle: "+TRANSFORM(err.details)+CHR(13)+;
+						" Procedimiento: "+TRANSFORM(err.Procedure)+CHR(13)+;
+						" Llamado de pila: "+TRANSFORM(err.StackLevel)+CHR(13)+;
+						" Mensaje: "+TRANSFORM(err.Message)
+						
+		MESSAGEBOX(lcErrorMessage,16,"Error")
+		
+		gbVentanaComandosExecuteSuccesful=.f.
+		gcVentanaComandosExecuteResult=lcErrorMessage
+	FINALLY 
+	
+	ENDTRY
+
+ENDPROC 
+
+PROCEDURE MAY2015EDITRTC2
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="FECREC"
+	LNPRECISION="D"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="FECPOL"
+	LNPRECISION="D"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="FECFEX"
+	LNPRECISION="D"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="POLIZA"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="FEX"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	DO INSERPARAMREPORT WITH "REPORTFIR1","02","",	"REPORTES","","RTC"
+	DO INSERPARAMREPORT WITH "REPORTFIR2","02","",	"REPORTES","","RTC"
+
+	
+ENDPROC
+
+PROCEDURE MAY2015PERMISOSFECHA
+	LOCAL LADOCS 
+	ArrayFromList2(@LADOCS,"0203,0204,26,51,52,53,541,542,543,55,56,5501,5502,02")
+	FOR LN=1 TO ALEN(LADOCS ,1)
+		DO ADDACCESOFEC WITH LADOCS(LN),"A-01"
+	ENDFOR 
+ENDPROC 
+
+PROCEDURE MAY2015EDITRTC
+ 	LPARAMETERS tbShowDialogues 	
+	CLOSE TABLES ALL 
+	LCTB="RTC_D"
+	LCFLD="CANTIDAD"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="RTC_D"
+	LCFLD="FOB"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_D"
+	LCFLD="GASTO"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_D"
+	LCFLD="COSTO"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_D"
+	LCFLD="PARCIAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="RTC_D"
+	LCFLD="TPGAS"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	CLOSE TABLES ALL 
+	
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="FLETE"
+	LNPRECISION=""
+	LCTYPEOPERATION="DROP"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="SEGURO"
+	LNPRECISION=""
+	LCTYPEOPERATION="DROP"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="GASTOSA"
+	LNPRECISION=""
+	LCTYPEOPERATION="DROP"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="OTROS"
+	LNPRECISION=""
+	LCTYPEOPERATION="DROP"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="DAI"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	CLOSE TABLES ALL 
+	
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="GASTOS"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="TOTALRET"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="TOTALINV"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_M"
+	LCFLD="DOCS"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	CLOSE TABLES ALL 
+
+	IF DIRECTORY("DATA")
+		CD DATA
+	ENDIF
+
+**Maestro de RETACEOS 
+
+	lcTable="RTC_R"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			IDRTC C(10),;
+			CODIGO C(15),;
+			NOMBRE C(60),;
+			CANTIDAD N(12,4),;
+			COSTO  N(12,4),;
+			PORCDAI N(12,4),;
+			CDAI L,;
+			DAI N(12,4),;
+			PORCGAS N(12,4),;
+			CGASTO L,;
+			GASTO N(12,4),;
+			COSTOUNIT N(12,4),;
+			LINE I AUTOINC)
+		
+		INDEX ON LINE TAG LINE
+		INDEX ON IDRTC TAG IDRTC 
+		INDEX ON CODIGO TAG CODIGO 
+		INDEX ON NOMBRE TAG NOMBRE
+
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+	CLOSE TABLES ALL 
+ENDPROC 
+
+
+PROCEDURE ADDPARAMRVIEJOPLNA
+	DO inserparam with "RVIEJOPLNA","01","","GENERAL"
+	SELECT PARAMETROS 
+	BROWSE FOR IDPARAMETRO="RVIEJOPLNA"
+	CLOSE TABLES ALL 
+ENDPROC 
+
+
+PROCEDURE MODTBDTUPFIELDPROC
+	**23 04 2015 
+	**SE ENSANCHA EL TAMAÑO DE PROC EN TBSRCDTUP 
+
+	CLOSE TABLES ALL 
+	LCTB="TBDTUP"
+	LCFLD="PROC"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+ENDPROC 
+
+PROCEDURE ABR_20_2015_ADD_PARAM_INVFACTINCLUDE
+	DO inserparam with "INVFACTINCLUDE","01","SI","INVETARIO"
+ENDPROC 
+
+
+PROCEDURE ABR_23_2015_ADDTPCODFACTURASLINES
+	DO modtbdtupfieldproc IN altertable2
+	**se agrega idcata a detallerequisicion
+	CLOSE TABLES ALL 
+	LCTB="FACTURASLINES"
+	LCFLD="TP"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+ENDPROC 
+
+PROCEDURE MODTBSRCDTUPFIELDPROC
+	**23 04 2015 
+	**SE ENSANCHA EL TAMAÑO DE PROC EN TBSRCDTUP 
+
+	CLOSE TABLES ALL 
+	LCTB="TBSRCDTUP"
+	LCFLD="PROC"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+ENDPROC 
+
+
+PROCEDURE ABR_20_2015_ADD_PARAM_URL
+	DO inserparam with "URLDEFAULT","01","","GENERAL"
+ENDPROC 
+
+PROCEDURE ABR_14_2015_MODS_CLIENTE
+
+**SE APROVECHARA CREAR LOS INDICES CORRESPONDIENTES 
+	**CREADNO INDICES PARA LAS ORDENES DE COMPRA 
+	LOCAL ERR AS Exception 
+	TRY 	
+		USE CLIENTES EXCLUSIVE
+		SELECT CLIENTES
+		INDEX ON IDCLIENTE TAG IDCLIENTE FOR !DELETED() CANDIDATE 
+		INDEX ON FPAGO TAG FPAGO
+		INDEX ON LINE TAG LINE
+		REINDEX 
+	CATCH TO ERR 
+		MESSAGEBOX(;
+			"Error creando indice clientes "+CHR(13)+;
+			"Detalles:"+TRANSFORM(ERR.Details )+CHR(13)+;
+			"Linea de código:"+TRANSFORM(ERR.LineContents)+CHR(13)+;
+			"Mensaje:"+TRANSFORM(ERR.Message)+CHR(13)+;
+			"Procedure:"+TRANSFORM(ERR.Procedure )+CHR(13)+;
+			"No Linea:"+TRANSFORM(ERR.LineNo)+CHR(13)+;
+			"No error:"+TRANSFORM(ERR.ErrorNo))
+
+	FINALLY
+
+	ENDTRY	
+ENDPROC 
+
+
+PROCEDURE ABR_07_2015_ADD_OCRC_D_PORC
+	**se agrega idcata a detallerequisicion
+	CLOSE TABLES ALL 
+	LCTB="OCRC_D"
+	LCFLD="PORC"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+	CLOSE TABLES ALL 
+	LCTB="OCRC_D"
+	LCFLD="PORC"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+	CLOSE TABLES ALL 
+	LCTB="OCRC_M"
+	LCFLD="CODIGO"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+
+	CLOSE TABLES ALL 
+	LCTB="OCRC_D"
+	LCFLD="CODIGO"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+	CLOSE TABLES ALL 
+	LCTB="RTC_D"
+	LCFLD="CODIGO"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+
+ENDPROC 
+
+
+PROCEDURE INSERTFORMASPAGO
+	DO configapp 
+	
+	IF 	gConFigNombre="D'Quimcol, S.A. de C.V."
+		SELECT idfpago  FROM FORMAPAGOPRESUP WHERE idfpago="FP00000002" INTO ARRAY laFpagoExist
+		IF VARTYPE(laFpagoExist)="U"
+		
+			INSERT INTO FORMAPAGOPRESUP(idfpago,descripcion) VALUES ("FP00000002","Contado")
+			INSERT INTO FORMAPAGOPRESUP(idfpago,descripcion) VALUES ("FP00000003","5 días")
+			INSERT INTO FORMAPAGOPRESUP(idfpago,descripcion) VALUES ("FP00000004","15 días")
+			INSERT INTO FORMAPAGOPRESUP(idfpago,descripcion) VALUES ("FP00000005","30 días")
+			INSERT INTO FORMAPAGOPRESUP(idfpago,descripcion) VALUES ("FP00000006","60 días")
+			INSERT INTO FORMAPAGOPRESUP(idfpago,descripcion) VALUES ("FP00000007","90 días")
+			
+			IF !USED("CLIENTES")
+				USE clientes 
+			ENDIF 
+			replace ALL fpago WITH "FP00000002" FOR ALLTRIM(fpago)="0" IN clientes 
+			replace ALL fpago WITH "FP00000003" FOR ALLTRIM(fpago)="5" IN clientes 
+			replace ALL fpago WITH "FP00000004" FOR ALLTRIM(fpago)="15"	IN clientes 
+			replace ALL fpago WITH "FP00000005" FOR ALLTRIM(fpago)="30"	IN clientes 		
+			replace ALL fpago WITH "FP00000006" FOR ALLTRIM(fpago)="60" IN clientes 
+			replace ALL fpago WITH "FP00000007" FOR ALLTRIM(fpago)="90"	IN clientes 
+		ELSE
+			MESSAGEBOX("YA se ingresaron las formas de pago ")
+		ENDIF 		
+	ELSE 
+		MESSAGEBOX("Actualizacion valida, solo para quimcol ")
+	ENDIF 	
+ENDPROC 
+
+
+PROCEDURE ABR012015INSERPARAMFORMPAGO
+
+	DO inserparam with "FORMAPAGODEFAULT","01","TP00000001","GENERAL" 
+	SELECT IDFPAGO FROM FORMAPAGOPRESUP WHERE ALLTRIM(IDFPAGO)="TP00000001" INTO ARRAY laFormaPagoDefault
+	IF VARTYPE(laFormaPagoDefault)="U"
+		INSERT INTO FORMAPAGOPRESUP(idfpago,desccripcion) VALUES ("TP00000001","Contado")
+	ENDIF 	
+
+ENDPROC 
+
+
+
+PROCEDURE MAR201527_ADD_RTC_TABLES
+ 	LPARAMETERS tbShowDialogues
+ 	lcIdDocumento="0203"
+	lcNombre="Retaceos"
+	lcIdTrans="01"
+	lcPrefijo="RTC"
+	llLegal=.f.
+	lcDescrip="Retaceos de gastos entre importacion de productos"
+	lcImage="layout_link.png"
+	lcCategoria="MATERIALES"
+	lcSkipper="5010506"
+	lcTablaM="RTC_M"
+	lcTablaD="RTC_D"
+	lcCampoID="IDRTC"
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper,lcTablaM,lcTablaD,lcCampoID
+	DO INSERTDOCNUMNEW WITH lcIdDocumento
+
+	IF DIRECTORY("DATA")
+		CD DATA
+	ENDIF
+
+
+
+**Maestro de RETACEOS 
+
+	lcTable=lcTablaM
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			IDRTC 			C(10),;
+			ESTADO 			I,;
+			USER 			C(10),;
+			FECHA 			D,;
+			DESCRIP 		C(80),;
+			IDPROV 			C(10),;
+			FOB 			N(10,2),;
+			SEGURO 			N(10,2),;
+			FLETE 			N(10,2),;
+			GASTOSA 		N(10,2),;
+			OTROS 			N(10,2),;
+			ADEL_FEC 		T,;
+			ADEL_USR		C(10),;
+			ACREA_FEC		T,;
+			ACREA_USR		C(10),;
+			AUPD_FEC		T,;
+			AUPD_USR		C(10);
+			)
+		
+		INDEX ON ESTADO  TAG ESTADO
+		INDEX ON IDRTC TAG IDRTC FOR !DELETED()	CANDIDATE  
+		INDEX ON USER TAG USER 
+		INDEX ON FECHA TAG FECHA 
+		INDEX ON DESCRIP TAG DESCRIP 
+		INDEX ON IDPROV TAG IDPROV
+		
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				DO DropDoc WITH lcIdDocumento,lcSkipper
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+
+**Detalle de Recetas 
+
+	lcTable=lcTablaD
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			LINE I AUTOINC,;
+			TP I,;
+			IDRTC C(10),;
+			CODIGO C(10),;
+			REFERENCIA C(10),;
+			DESCRIP C(80),;
+			CANTIDAD N(10,2),;
+			FOB N(10,2),;
+			GASTO N(10,2),;
+			COSTO N(10,2),;
+			PARCIAL N(10,2);
+			)
+		
+		INDEX ON IDRTC  TAG IDRTC
+		INDEX ON CODIGO TAG CODIGO  
+		INDEX ON REFERENCIA TAG REFERENCIA
+		INDEX ON TP TAG TP
+		
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				DO DropDoc WITH lcIdDocumento,lcSkipper
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+ENDPROC 
+
+
+
+
+
+PROCEDURE UPDATETABLES_ALL
+	**ANTES ESTABAN SUELTOS ESTOS COMANDOS, PERO EN MAR 27 SE DEDICIDIO PASARLOS A UN PROC 
+	DO UpdateTableFromServer WITH "MGRUPO"
+	DO UpdateTableFromServer WITH "MCONTRATO_EQ"
+	DO UpdateTableFromServer WITH "MSUCURSAL"
+	DO UpdateTableFromServer WITH "MHOJA_D"
+	DO UpdateTableFromServer WITH "MCONTRATO"
+	DO UpdateTableFromServer WITH "MHOJA"
+	DO UpdateTableFromServer WITH "MMECA"
+	DO UpdateTableFromServer WITH "MPROGRA_S"
+	DO UpdateTableFromServer WITH "EQUIPOS"
+	DO UpdateTableFromServer WITH "MNOTA"
+	DO UpdateTableFromServer WITH "MRUTAS"
+	DO UpdateTableFromServer WITH "MPROGRA"
+	DO UpdateTableFromServer WITH "MFECHAS"
+	DO UpdateTableFromServer WITH "MGRUPO_MECA"
+	DO UpdateTableFromServer WITH "MPROGRA_CLD"
+	DO UpdateTableFromServer WITH "CLIENTES"
+	DO UpdateTableFromServer WITH "CONTACCLIEN"
+
+	DO UpdateTableFromServer WITH "ordenesdegastos","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "ordencompra","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "detallegasto","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "detalleorden","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+
+	DO UpdateTableFromServer WITH "REQUISICIONES","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "DETALLEREQUISICION","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "TBCOSTOS","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "INVENTARIO","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "PROVEEDORES","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "PROYECTOS","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+
+	DO UpdateTableFromServer WITH "cargosbanco","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "detallecargosbanco","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "facturas","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "facturaslines","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "detallefacturas","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "clientes","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "contribuyentes","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "personnaturales","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+	DO UpdateTableFromServer WITH "MOVINV","\\132.2.1.101\data\Gama GA Sistemas\SGAA\DATA\", "c:\users\yec\documents\fox\gaa\data\"
+
+	DO UpdateTableFromServer WITH "cvales"
+	DO UpdateTableFromServer WITH "cvales_det"
+
+	DO UpdateTableFromServer WITH "cfacturas"
+	DO UpdateTableFromServer WITH "cfacturas_det"
+
+
+
+	*DO UpdateTableFromServer WITH "PROYECTOS","\\servidor\GAMA\SGT\DATA\", "c:\users\yec\documents\fox\gtv2\data\"
+ENDPROC 
+PROCEDURE mar2015_20removetable
+	LOCAL err as Exception 
+	TRY 
+		OPEN DATABASE cliprov
+		REMOVE TABLE grdcols 
+		
+	CATCH TO err
+		MESSAGEBOX(	TRANSFORM(err.Message)+CHR(13)+" "+;
+					TRANSFORM(err.LineContents)+CHR(13)+" "+;
+					" Es posible que el archivo ya haya sido sacado de la base")
+	ENDTRY
+	
+	IF FILE("DATA\GRDCOLS.DBF")
+		COPY FILE "DATA\GRDCOLS.DBF" TO GRDCOLS.DBF
+		DELETE FILE "DATA\GRDCOLS.DBF" RECYCLE 
+	ELSE 
+		MESSAGEBOX("TABLA GRDCOLS YA HA SIDO MOVIDA AL DIRECTORIO RAIZ")
+	ENDIF 
+
+
+ENDPROC 
+
+PROCEDURE MAR2015ADITIONAL_OCRC_LP
+	**se agrega idcata a detallerequisicion
+	CLOSE TABLES ALL 
+	LCTB="DETALLEREQUISICION"
+	LCFLD="IDCATA"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+	
+	**SE APROVECHARA CREAR LOS INDICES CORRESPONDIENTES 
+	**CREADNO INDICES PARA LAS ORDENES DE COMPRA 
+	LOCAL ERR AS Exception 
+	TRY 
+	
+		USE DETALLEORDEN EXCLUSIVE
+		SELECT DETALLEORDEN 
+		INDEX ON IDCATALOGO TAG IDCATA
+		INDEX ON LINE TAG LINE
+		INDEX ON FEC_VENC TAG FEC_VENC
+		INDEX ON LOTE TAG LOTE
+		INDEX ON IMEI TAG IMEI
+		INDEX ON PROYECTO TAG PROYECTO
+		INDEX ON DEPTO TAG DEPTO 
+		REINDEX 
+
+		USE ORDENCOMPRA EXCLUSIVE
+		SELECT ORDENCOMPRA 
+		INDEX ON NORDEN TAG NORDEN FOR !DELETED()	CANDIDATE  
+		INDEX ON IDDOC TAG IDDOC 
+		INDEX ON ESTADO TAG ESTADO
+		INDEX ON CCF TAG CCF
+		INDEX ON FEC_CCF TAG FEC_CCF
+		INDEX ON MES TAG MES
+		INDEX ON AÑO TAG AÑO
+		INDEX ON REGISTRO TAG REGISTRO
+		REINDEX 
+
+		
+	CATCH TO ERR 
+		MESSAGEBOX(;
+			"Error creando indice ordenes de compra"+CHR(13)+;
+			"Detalles:"+TRANSFORM(ERR.Details )+CHR(13)+;
+			"Linea de código:"+TRANSFORM(ERR.LineContents)+CHR(13)+;
+			"Mensaje:"+TRANSFORM(ERR.Message)+CHR(13)+;
+			"Procedure:"+TRANSFORM(ERR.Procedure )+CHR(13)+;
+			"No Linea:"+TRANSFORM(ERR.LineNo)+CHR(13)+;
+			"No error:"+TRANSFORM(ERR.ErrorNo))
+
+	FINALLY
+
+	ENDTRY
+	
+	**CREADNO INDICES PARA LAS ORDENES DE PRODUCCION 
+	LOCAL ERR AS Exception 
+	TRY 
+	
+		USE OCRC_D EXCLUSIVE
+		SELECT OCRC_D
+		INDEX ON IDOCRC TAG IDOCRC
+		INDEX ON CODIGO TAG CODIGO
+		INDEX ON DESCRIP TAG DESCRIP
+		INDEX ON LINE TAG LINE 
+		REINDEX 
+		
+		USE OCRC_M EXCLUSIVE
+		SELECT OCRC_M
+		
+		INDEX ON IDOCRC TAG IDOCRC FOR !DELETED() CANDIDATE  
+		INDEX ON ESTADO TAG ESTADO
+		INDEX ON USER TAG USER
+		INDEX ON FECHA TAG FECHA
+		INDEX ON DESCRIP TAG DESCRIP
+		INDEX ON LOTEFAB TAG LOTEFAB
+		INDEX ON IDCLIENTE TAG IDCLIENTE
+		REINDEX 
+
+
+
+		
+	CATCH TO ERR 
+		MESSAGEBOX(;
+			"Error creando indice de  ordenes de produccion"+CHR(13)+;
+			"Detalles:"+TRANSFORM(ERR.Details )+CHR(13)+;
+			"Linea de código:"+TRANSFORM(ERR.LineContents)+CHR(13)+;
+			"Mensaje:"+TRANSFORM(ERR.Message)+CHR(13)+;
+			"Procedure:"+TRANSFORM(ERR.Procedure )+CHR(13)+;
+			"No Linea:"+TRANSFORM(ERR.LineNo)+CHR(13)+;
+			"No error:"+TRANSFORM(ERR.ErrorNo))
+
+	FINALLY
+
+	ENDTRY
+
+
+	**CREADNO INDICES PARA LAS REQUISICIONES 
+	LOCAL ERR AS Exception 
+	TRY 
+	
+		USE REQUISICIONES EXCLUSIVE
+		SELECT REQUISICIONES
+		INDEX ON FECHA TAG FECHA
+		INDEX ON IDDOC TAG IDDOC
+		INDEX ON BODEGA TAG BODEGA
+		INDEX ON NREQUISICION TAG NREQUISIC FOR !DELETED() CANDIDATE  
+		INDEX ON SOLICITANTE TAG SOLICITAN
+		INDEX ON ESTADO TAG ESTADO
+		INDEX ON DEPTO TAG DEPTO
+		INDEX ON TIPO TAG TIPO
+		INDEX ON PROYECTO TAG PROYECTO
+		REINDEX 
+		
+		USE DETALLEREQUISICION EXCLUSIVE
+		SELECT DETALLEREQUISICION
+		
+		INDEX ON NREQUISICION TAG NREQUISIC
+		INDEX ON CODIGO TAG CODIGO
+		INDEX ON LINE TAG LINE
+		INDEX ON FEC_VENC TAG FEC_VENC
+		INDEX ON LOTE TAG LOTE
+		INDEX ON IMEI TAG IMEI
+		INDEX ON PROYECTO TAG PROYECTO
+		INDEX ON DEPTO TAG DEPTO
+		INDEX ON IDCATA TAG IDCATA 
+		REINDEX 
+		
+	CATCH TO ERR 
+		MESSAGEBOX(;
+			"Error creando indice de  Requisicones"+CHR(13)+;
+			"Detalles:"+TRANSFORM(ERR.Details )+CHR(13)+;
+			"Linea de código:"+TRANSFORM(ERR.LineContents)+CHR(13)+;
+			"Mensaje:"+TRANSFORM(ERR.Message)+CHR(13)+;
+			"Procedure:"+TRANSFORM(ERR.Procedure )+CHR(13)+;
+			"No Linea:"+TRANSFORM(ERR.LineNo)+CHR(13)+;
+			"No error:"+TRANSFORM(ERR.ErrorNo))
+
+	FINALLY
+
+	ENDTRY
+
+
+	**CREADNO INDICES PARA LAS LISTAS DE PRECIOS 
+	LOCAL ERR AS Exception 
+	TRY 
+	
+		USE LP_M EXCLUSIVE
+		SELECT LP_M
+		INDEX ON IDLP TAG IDLP FOR !DELETED() CANDIDATE  
+		INDEX ON ESTADO TAG ESTADO
+		INDEX ON USER TAG USER
+		INDEX ON FECHA TAG FECHA
+		INDEX ON IDCLIENTE TAG IDCLIENTE
+		REINDEX 
+
+		USE LP_D EXCLUSIVE
+		SELECT LP_D
+		INDEX ON LINE TAG LINE
+		INDEX ON TP TAG TP
+		INDEX ON IDLP TAG IDLP  
+		INDEX ON CODIGO TAG CODIGO
+		INDEX ON DESCRIP TAG DESCRIP
+		INDEX ON IDCLIENTE TAG IDCLIENTE
+		REINDEX 
+	CATCH TO ERR 
+		MESSAGEBOX(;
+			"Error creando indice de  lista de precios "+CHR(13)+;
+			"Detalles:"+TRANSFORM(ERR.Details )+CHR(13)+;
+			"Linea de código:"+TRANSFORM(ERR.LineContents)+CHR(13)+;
+			"Mensaje:"+TRANSFORM(ERR.Message)+CHR(13)+;
+			"Procedure:"+TRANSFORM(ERR.Procedure )+CHR(13)+;
+			"No Linea:"+TRANSFORM(ERR.LineNo)+CHR(13)+;
+			"No error:"+TRANSFORM(ERR.ErrorNo))
+
+	FINALLY
+
+	ENDTRY
+
+
+	
+ENDPROC 
+
+PROCEDURE INSERPARAMNUMPATRONAL
+	LPARAMETERS tbShowDialogues
+	DO 	MAY2014ADDFIELDSCLITB
+	CLOSE TABLES ALL 
+	
+	
+	DO inserparam with "NUMPATRONAL","01","123456789","GENERAL" 
+	DO inserparam with "DEPTODEFAULT","01","01","GENERAL" 
+	
+	DO inserparam with "PROYDEFAULT","01","00000000","GENERAL" 
+	SELECT idproyectos FROM proyectos WHERE ALLTRIM(idproyectos)="00000000" INTO ARRAY laProyDefault 
+	IF VARTYPE(laProyDefault)="U"
+		INSERT INTO proyectos (idproyectos,nombre,idcliente,inicia,depto) VALUES ("00000000","Proyecto General","000-000",DATE(),"01")
+	ENDIF 	
+			
+	DO inserparam with "CLIENTEDEFAULT","01","000-000","GENERAL" 
+	SELECT idcliente FROM clientes WHERE ALLTRIM(idcliente)="000-000" INTO ARRAY laClieDefault 
+	IF VARTYPE(laClieDefault)="U"
+		INSERT INTO clientes(idcliente,nombre				,IDDEPARTAMENTO	,IDMUNICIPIO,REGISTRO	,NIT			,DIRECCION		,DEPARTAMENTO	,ALTA	,FPAGO			,AFILIADA	,ACTIVO	,ACREADO_FEC,ACREADO_USR) VALUES ;
+							("000-000","Cliente General"	,"06"			,"0601"		,"0000000"	,"00000000000000","San Salvador","01"			,DATE()	,"TP00000001"	,.f.		,.t.	,DATETIME()	,"YEC")
+	ENDIF 	
+
+	DO inserparam with "PROVDEFAULT","01","000-000","GENERAL" 
+
+	SELECT idprov FROM proveedores WHERE ALLTRIM(idprov)="000-000" INTO ARRAY laProvDefault 
+	IF VARTYPE(laProvDefault)="U"
+		INSERT INTO proveedores(idprov,nombre,					direccion,		IDDEPARTAMENTO,	IDMUNI,	REGISTRO,	NIT,				ALTA,	DEPARTAMENTO,	ACTIVO,	FPAGO,			AFILIADA) VALUES ;
+								("000-000","Proveedor General",	"San Salvador",	"06",			"0601",	"0000000",	"00000000000000"	,DATE(),"01",			.f.,	"TP00000001",	.t.)
+	ENDIF 	
+
+	IF DIRECTORY("DATA")
+		CD DATA
+	ENDIF
+
+	**sera necesario cambiarle el estado 
+	lcTable="PLSENDISSS"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			NUMPATRON 	C(9),;
+			PERIODO 	C(6),;
+			CORREL 		i,;
+			NUMISSS		C(9),;
+			NOMBRE 		C(40),;
+			SALARIO 	N(10,2),;
+			PAGOADIC 	N(10,2),;
+			MONTOVAC 	N(10,2),;			
+			DIAS 		I,;
+			HORAS 		I,;
+			DIASVAC 	I,;
+			CODOBS 		C(2);
+		)
+		
+		INDEX ON NUMPATRON TAG NUMPATRON
+		INDEX ON PERIODO TAG PERIODO 
+		INDEX ON CORREL TAG CORREL 
+		INDEX ON NUMISSS TAG NUMISSS
+		INDEX ON NOMBRE TAG NOMBRE 
+		INDEX ON SALARIO TAG SALARIO 
+		INDEX ON PAGOADIC TAG PAGOADIC 
+		INDEX ON MONTOVAC TAG MONTOVAC
+		INDEX ON DIAS TAG DIAS 
+		INDEX ON HORAS TAG HORAS 
+		INDEX ON DIASVAC TAG DIASVAC 
+		INDEX ON CODOBS TAG CODOBS 
+				
+
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				*DO DropDoc WITH lcIdDocumento,lcSkipper
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+ENDPROC 
+
+ PROCEDURE FEB2015ADDLP
+ 	LPARAMETERS tbShowDialogues
+ 	lcIdDocumento="39"
+	lcNombre="Lista de Precios"
+	lcIdTrans="01"
+	lcPrefijo="LP"
+	llLegal=.f.
+	lcDescrip="Lista de Precios"
+	lcImage="layout.png"
+	lcCategoria="VALORES"
+	lcSkipper="50505"
+	lcTablaM="LP_M"
+	lcTablaD="LP_D"
+	lcCampoID="IDLP"
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper,lcTablaM,lcTablaD,lcCampoID
+	DO INSERTDOCNUMNEW WITH lcIdDocumento
+
+	IF DIRECTORY("DATA")
+		CD DATA
+	ENDIF
+
+**iNDEXANDO 
+
+**Maestro de Recetas 
+
+	lcTable="LP_M"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			IDLP C(10),;
+			ESTADO I,;
+			USER C(10),;
+			FECHA D,;
+			DESCRIP C(80),;
+			IDCLIENTE C(10);
+			)
+		
+		INDEX ON FECHA TAG FECHA
+		INDEX ON IDLP TAG IDLP FOR !DELETED()	CANDIDATE  
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				DO DropDoc WITH lcIdDocumento,lcSkipper
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+
+**Detalle de Recetas 
+
+	lcTable="LP_D"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			LINE I AUTOINC,;
+			TP I,;
+			IDLP C(10),;
+			CODIGO C(10),;
+			DESCRIP C(80),;
+			PRECIO1 N(10,2),;
+			PRECIO2 N(10,2),;
+			PRECIO3 N(10,2),;
+			IDCLIENTE C(10);
+			)
+		
+		INDEX ON IDLP  TAG IDOCRC
+		INDEX ON CODIGO TAG CODIGO  
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				DO DropDoc WITH lcIdDocumento,lcSkipper
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+ ENDPROC 
+ 
+ PROCEDURE ENE2015ADDOCRC
+	LPARAMETERS tbShowDialogues
+	**CERRAR TABLAS SI ESTAN EN USO 
+	lcIdDocumento="0204"
+	lcNombre="Kits de productos"
+	lcIdTrans="01"
+	lcPrefijo="OCRC"
+	llLegal=.f.
+	lcDescrip="Elaboración de produtos a partir de varios códigos"
+	lcImage="OrdenCompra.png"
+	lcCategoria="MATERIALES"
+	lcSkipper="5010505"
+	lcTablaM="OCRC"
+	lcTablaD="OCRC_D"
+	lcCampoID="IDOCRC"
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper,lcTablaM,lcTablaD,lcCampoID
+	DO INSERTDOCNUMNEW WITH lcIdDocumento
+	
+	IF DIRECTORY("DATA")
+		CD DATA
+	ENDIF
+	
+	
+	
+**Maestro de Recetas 
+
+	lcTable="OCRC_M"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			IDOCRC C(10),;
+			ESTADO I,;
+			USER C(10),;
+			FECHA D,;
+			DESCRIP C(80),;
+			CANT N(10,2),;
+			STOTAL N(10,2),;
+			LOTEFAB C(20),;
+			IDCLIENTE C(10);
+			)
+		
+		INDEX ON FECHA TAG FECHA
+		INDEX ON IDOCRC TAG IDOCRC FOR !DELETED()	CANDIDATE  
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				DO DropDoc WITH lcIdDocumento,lcSkipper
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+
+**Detalle de Recetas 
+
+	lcTable="OCRC_D"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(; 
+			IDOCRC C(10),;
+			CODIGO C(10),;
+			DESCRIP C(80),;
+			CANTIDAD N(10,2),;
+			COSTO N(10,2),;
+			TP I ,;
+			LINE I AUTOINC;
+			)
+		
+		INDEX ON IDOCRC TAG IDOCRC
+		INDEX ON CODIGO TAG CODIGO  
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				DO DropDoc WITH lcIdDocumento,lcSkipper
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+ENDPROC
+
+PROCEDURE ENE2015ADDFLDSAUDIT
+	**CAMPO PARA CODIGO CONTABLE 
+	CLOSE TABLES ALL 
+	LCTB="CLIENTES"
+	LCFLD="CLICODS"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="CLIENTES"
+	LCFLD="ABORRADO_FEC"
+	LNPRECISION="T"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="CLIENTES"
+	LCFLD="ABORRADO_USR"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="CLIENTES"
+	LCFLD="ACREADO_FEC"
+	LNPRECISION="T"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="CLIENTES"
+	LCFLD="ACREADO_USR"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="CLIENTES"
+	LCFLD="AMOD_FEC"
+	LNPRECISION="T"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="CLIENTES"
+	LCFLD="AMOD_USR"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+ENDPROC 
+
+PROCEDURE ENE2015ADDLINECLIETB
+**6 ENE 2014
+	lcTable="CLIENTES"
+	
+	SET DELETED ON 
+	
+	IF !USED(lcTable)
+		USE (lcTable) EXCLUSIVE  IN 0 
+	ELSE
+		SELECT (lcTable)
+		USE 
+		USE (lcTable) EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table (lcTable ) ADD COLUMN LINE I 
+	CATCH
+		WAIT "Ya Existe el Campo Line en: "+lctable WINDOW TIMEOUT 1
+		WAIT "Modificando el campo line" WINDOW TIMEOUT 1
+		ALTER table (lcTable ) ALTER COLUMN LINE I 
+	ENDTRY 
+	
+	SELECT (lcTable)
+	ln=1
+	SCAN 
+		WAIT "Numerando:"+TRANSFORM(ln) WINDOW  NOWAIT 
+		replace line WITH ln  IN (lcTable)
+		ln = ln + 1 
+
+	ENDSCAN
+	
+	ALTER table (lcTable) alter  COLUMN LINE I AUTOINC NEXTVALUE ln
+	PACK IN (lcTable)
+	USE IN (lcTable )	
+	
+	
+	lcTable="CONTACCLIEN"
+	
+	SET DELETED ON 
+	
+	IF !USED(lcTable)
+		USE (lcTable) EXCLUSIVE  IN 0 
+	ELSE
+		SELECT (lcTable)
+		USE 
+		USE (lcTable) EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table (lcTable ) ADD COLUMN LINE I 
+	CATCH
+		WAIT "Ya Existe el Campo Line en: "+lctable WINDOW TIMEOUT 1
+		WAIT "Modificando el campo line" WINDOW TIMEOUT 1
+		ALTER table (lcTable ) ALTER COLUMN LINE I 
+	ENDTRY 
+	
+	SELECT (lcTable)
+	ln=1
+	SCAN 
+		WAIT "Numerando:"+TRANSFORM(ln) WINDOW  NOWAIT 
+		replace line WITH ln  IN (lcTable)
+		ln = ln + 1 
+
+	ENDSCAN
+	
+	ALTER table (lcTable) alter  COLUMN LINE I AUTOINC NEXTVALUE ln
+	PACK IN (lcTable)
+	USE IN (lcTable )		
+	
+	
+ENDPROC 
+
+
+PROCEDURE INSERPARAMCHNEGOCIABLE
+**6 ENE 2014
+	DO inserparam with "CHNEGOCIABLE","01","SI","BANCOS" 
+	**sera necesario cambiarle el estado 
+ENDPROC 
+
+
+PROCEDURE INSERPARAMCONTACLIENTECTA
+	DO inserparam with "CONTACLIENTECTADEFAULT","01","110201","CONTA" 
+	**sera necesario cambiarle el estado 
+ENDPROC 
+
+
+PROCEDURE OCT2014APLICARDOCSINV
+	IF 	gConFigNombre="Gama Auto Aire, S.A. DE C.V."
+
+		IF !USED("ORDENCOMPRA")
+			USE ORDENCOMPRA IN 0 
+		ENDIF 
+		
+		SELECT ORDENCOMPRA 
+		REPLACE ALL  ENVIARAUTORIZA WITH .T. FOR FECHA<=CTOD("30/09/2014")
+		IF !USED("REQUISICIONES")
+			USE REQUISICIONES IN 0 
+		ENDIF 
+
+		SELECT REQUISICIONES
+		REPLACE ALL ENVIARAUTORIZA WITH .T. FOR  FECHA<=CTOD("30/09/2014")		
+
+	ELSE 
+		MESSAGEBOX("Actualizacion no disponible para:"+CHR(13)+gConFigNombre)
+	ENDIF 
+	
+ENDPROC 
+
+PROCEDURE OCT2014ADDESTADOMECA
+	CLOSE TABLES ALL 
+	LCTB="MGRUPO_MECA"
+	LCFLD="ESTADO"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+	CLOSE TABLES ALL 
+	USE ORDENCOMPRA EXCLUSIVE
+	INDEX ON BODEGA TAG BODEGA 
+	WAIT "Creando indice de bodega " windows NOWAIT 
+	USE REQUISICIONES EXCLUSIVE
+	INDEX ON BODEGA TAG BODEGA 
+	CLOSE TABLES ALL 
+	
+	
+ENDPROC 
+
+PROCEDURE OCT2014MODDESCRIPCARGOS
+	CLOSE TABLES ALL 
+	LCTB="CARGOS"
+	LCFLD="DESCRIPCIO"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	
+ENDPROC 
+PROCEDURE INSERPARAMRDROPBOX
+	DO inserparam with "RDROPBOX","01","","DROPBOX" 
+	DO inserparam with "APLICADEFAULT","01","SI","INVENTARIO" 
+	DO inserparam with "BODEGADEFAULT","01","0000000001","INVENTARIO"
+	**sera necesario cambiarle el estado 
+	
+ENDPROC 
+
+
+PROCEDURE SEP2014MODPROYMODULE
+	
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="ENCARGA"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="FINALIZAEST"
+	LNPRECISION="D"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="COSTOPRES"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+
+	
+	
+ENDPROC 
+
+
+
+PROCEDURE AGO2014ADDRETACEO
+	LPARAMETERS tbShowDialogues
+	**CERRAR TABLAS SI ESTAN EN USO 
+	
+	
+	lcIdDocumento="5501"
+	lcNombre="Calculo de Gastos"
+	lcIdTrans="01"
+	lcPrefijo="OEC"
+	llLegal=.f.
+	lcDescrip="Orden del Exterior Cálculo de Flete Seguro y otros"
+	lcImage="OrdenCompra.png"
+	lcCategoria="MATERIALES"
+	lcSkipper="5010503"
+	lcTablaM="OEC_M"
+	lcTablaD="OEC_D"
+	lcCampoID="IDOEC"
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper,lcTablaM,lcTablaD,lcCampoID
+
+	IF DIRECTORY("DATA")
+		CD DATA 
+	ENDIF
+
+	lcTable="OEC_M"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (; 
+			IDOEC c(10) ,;
+			ESTADO I,;
+			USER C(10),;
+			FECHA D,;
+			DESCRIP C(80),;
+			PREAL N(10,2),;
+			PDIM N(10,2),;
+			PIES N(10,2),;
+			FOB  N(10,2),;
+			STOTAL N(10,2),;
+			SPORC N(10,2),;
+			TP I,;
+			MARCA C(80),;
+			MODELO C(80),;
+			IDCLIENTE C(10) ,;
+			CLIENTE C(80),;
+			ATN C(80);
+			)
+		
+		INDEX ON FECHA TAG FECHA
+		INDEX ON TP TAG TP 
+		INDEX ON IDOEC  TAG IDOEC   FOR !DELETED()	CANDIDATE  
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				DO DropDoc WITH lcIdDocumento,lcSkipper
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+	lcTable="OEC_D"
+	IF FILE(lcTable+".dbf")=.f.
+	
+		CREATE TABLE (lcTable) (;
+			LINE I AUTOINC ,;
+			IDOEC C(10),;
+			REF C(10),;
+			DESCRIP C(80),;
+			TP I ,;
+			CANTIDAD N(10,2),;
+			TARIFA N(10,2),;
+			MONTO N(10,2),;
+			MONTO2 N(10,2),;
+			TARIFA2 N(10,2))
+		
+		INDEX ON IDOEC  TAG IDOEC 
+		INDEX ON REF   TAG REF 
+		INDEX ON TP   TAG TP
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+
+
+
+
+	lcIdDocumento="5502"
+	lcNombre="Elementos para cálculos de gastos"
+	lcIdTrans="01"
+	lcPrefijo="OECR"
+	llLegal=.f.
+	lcDescrip="Elementos para calculo de gastos de retaceos "
+	lcImage="cog_add.png"
+	lcCategoria="MATERIALES"
+	lcSkipper="5010504"
+	lcTablaM="OEC_R"
+	lcTablaD=""
+	lcCampoID="IDOECREF"
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper,lcTablaM,lcTablaD,lcCampoID
+
+
+
+	lcTable="OEC_R"
+	IF FILE(lcTable+".dbf")=.f.
+
+		CREATE TABLE (lcTable) (;
+			LINE I AUTOINC ,;
+			IDOECREF C(10)  ,;
+			DESCRIP C(80),;
+			TP I ,;
+			TPUNIDAD I,;
+			TPBASE I,;
+			MONTO N(10,2),;
+			PORC I,;
+			MAX N(10,2),;
+			TARIFA n(10,2))
+		
+		INDEX ON TP TAG TP 
+		INDEX ON IDOECREF TAG IDOECREF FOR !DELETED()		
+
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				DO DropDoc WITH lcIdDocumento,lcSkipper
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+
+	lcTable="OEC_P"
+	IF FILE(lcTable+".dbf")=.f.
+
+		CREATE TABLE (lcTable) (;
+			LINE I AUTOINC ,;
+			IDOEC 	C(10)  ,;
+			REF 	C(10),;
+			DESCRIP C(80),;
+			CANT 	N(10,2) ,;
+			COSTO 	N(10,4),;
+			PERCENT N(10,4),;
+			MONTO   N(10,4),;
+			PRECIO  N(10,4))
+		
+		
+		INDEX ON idoec TAG idoec 
+		INDEX ON ref TAG ref 
+
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				DO DropDoc WITH lcIdDocumento,lcSkipper
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+	IF !DIRECTORY("DATA")
+		CD ..
+	ENDIF
+
+**INSERTAR PLANTILLA EN OEC_R
+IF FILE("DATA\OEC_R.dbf")
+	SELECT COUNT(*) FROM OEC_R INTO ARRAY laPlantillaOec_r
+*	MESSAGEBOX("laPlantillaOec_r"+TRANSFORM(laPlantillaOec_r))
+	IF laPlantillaOec_r=0
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000001' , 'FLETE' , 1 , 1 , 1 , 0 , 0 , 15,3.05 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000002' , 'TRAMITE' , 1 , 0 , 0 , 40 , 0 , 0,3.05   )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000003' , 'SEGURO' , 1 , 0 , 2 , 0 , 1 , 0,3.05   )
+
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000004' , 'FLETE' , 2 , 1 , 1 , 0 , 0 , 70,1.05 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000005' , 'DOCUMENTOS' , 2 , 0 , 0 , 25 , 0 , 0 ,1.05)
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000006' , 'SEGURO' , 2 , 0 , 2 , 0 , 1 , 0 ,1.05)
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000007' , 'TRAMITE' , 2 , 0 , 0 , 55 , 0 , 0  ,1.05)
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000008' , 'ENTREGA' , 2 , 0 , 3 , 0 , 3 , 50  ,1.05)
+
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000009' , 'FLETE' , 3 , 1 , 1 , 0 , 0 , 130 ,2.05 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000010' , 'SEGURO ' , 3 , 0 , 2 , 0 , 1 , 0 ,2.05 )
+
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000011' , 'FLETE LBS' , 4 , 1 , 1 , 0 , 0 , 100 ,0.06 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000012' , 'FLETE PIES' , 4 , 2 , 1 , 0 , 0 , 100,1.6  )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000013' , 'BUNKER LBS' , 4 , 0 , 0 , 30 , 0 , 0 ,0.06 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000014' , 'BUNKER PIES' , 4 , 0 , 0 , 30 , 0 , 0 ,1.6)
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000015' , 'DOCS LBS' , 4 , 0 , 0 , 75 , 0 , 0 ,0.06 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000016' , 'DOCS PIES' , 4 , 0 , 0 , 75 , 0 , 0 ,1.6 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000017' , 'SEGURO LBS' , 4 , 0 , 2 , 0 , 1 , 0 ,0.06 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000018' , 'SEGURO PIES' , 4 , 0 , 2 , 0 , 1 , 0 ,1.6 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000019' , 'TRAMITE LBS' , 4 , 0 , 0 , 70 , 0 , 0 ,0.06 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000020' , 'TRAMITE PIES' , 4 , 0 , 0 , 70 , 0 , 0 ,1.6 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000021' , 'ENTREGA LBS' , 4 , 0 , 3 , 0 , 3 , 50 ,0.06 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000022' , 'ENTREGA PIES' , 4 , 0 , 4 , 0 , 3 , 50 ,1.6 )
+
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000023' , 'FLETE LBS' , 5 , 1 , 1 , 0 , 0 , 250,0.06  )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000024' , 'FLETE PIES' , 5 , 2 , 1 , 0 , 0 , 250,1.6  )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000025' , 'SEGURO LBS' , 5 , 0 , 2 , 0 , 1 , 0 ,0.06 )
+		INSERT INTO OEC_R(IDOECREF,DESCRIP,tp,tpunidad,tpbase,MONTO, PORC, MAX,TARIFA)  VALUES('OECR000026' , 'SEGURO PIES' , 5 , 0 , 2 , 0 , 1 , 0 ,1.6 )
+		
+		WAIT "Insertando datos a oecr.dbf" WINDOW NOWAIT 
+	ELSE
+		IF MESSAGEBOX(	"Ya existen los elementos en OECR_R.dbf"+CHR(13)+;
+						"desea eliminarlos",20,"Existen datos")=6
+
+			WAIT "Eliminando datos a oecr.dbf" WINDOW NOWAIT 						
+			
+			DELETE FROM OEC_R 
+			
+		ENDIF 
+	ENDIF 
+ENDIF 
+
+
+IF FILE("DATA\OEC_D.dbf")	
+	SELECT IDOEC FROM OEC_D WHERE IDOEC="OEC0000000" INTO ARRAY laPlantillaOec_d 
+	IF VARTYPE(laPlantillaOec_d)="U"
+		WAIT "Insertando datos a oec_d.dbf" WINDOW NOWAIT 
+	**DETALLE1 AEREO 
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD, TARIFA, MONTO	,MONTO2);
+		values("OEC0000000","OECR000001","FLETE",1,1		,3.05	,0.00	,0.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD, TARIFA, MONTO	,MONTO2);
+		values("OEC0000000","OECR000002","TRAMITE",1,1		,3.05	,40		,0.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD, TARIFA, MONTO	,MONTO2);
+		values("OEC0000000","OECR000003","SEGURO",1,1		,3.05	,0.00	,0.00)
+	**DETALLE2 AEREO
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD, TARIFA, MONTO	,MONTO2);
+		values("OEC0000000","OECR000004","FLETE",2,1		,1.05	,0.00	,0.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD, TARIFA, MONTO	,MONTO2);
+		values("OEC0000000","OECR000005","DOCUMENTOS",2,1	,1.05	,25		,0.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD, TARIFA, MONTO	,MONTO2);
+		values("OEC0000000","OECR000006","SEGURO",2,1		,1.05	,0.00	,0.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD, TARIFA, MONTO	,MONTO2);
+		values("OEC0000000","OECR000007","TRAMITE",2,1		,1.05	,55		,0.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD, TARIFA, MONTO	,MONTO2);
+		values("OEC0000000","OECR000008","ENTREGA",2,1		,1.05	,100	,0.00)
+	**DETALLE3 AEREO
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD, TARIFA, MONTO	,MONTO2);
+		values("OEC0000000","OECR000009","FLETE",3,1		,2.05	,97.60	,0.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD, TARIFA, MONTO	,MONTO2);
+		values("OEC0000000","OECR000010","SEGURO",3,1		,2.05	,10		,0.00)
+
+	**DETALLE4 MARITIMO 
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD,TARIFA	,TARIFA2,MONTO	,MONTO2);
+		values("OEC0000000","OECR000011","FLETE",4,1		,0.06	,1.60	,0.00	,0.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD,TARIFA	,TARIFA2,MONTO	,MONTO2);
+		values("OEC0000000","OECR000013","BUNKER",4,1		,0.06	,1.60	,30		,30.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD,TARIFA	,TARIFA2,MONTO	,MONTO2);
+		values("OEC0000000","OECR000015","DOCUMENTOS",4,1	,0.06	,1.60	,75		,75.00)	
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD,TARIFA	,TARIFA2,MONTO	,MONTO2);
+		values("OEC0000000","OECR000017","SEGURO",4,1		,0.06	,1.60	,0.00	,0.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD,TARIFA	,TARIFA2,MONTO	,MONTO2);
+		values("OEC0000000","OECR000019","TRAMITE",4,1		,0.06	,1.60	,70		,70.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP, CANTIDAD,TARIFA	,TARIFA2,MONTO	,MONTO2);
+		values("OEC0000000","OECR000021","ENTREGA",4,1		,0.06	,1.60	,0.00	,0.00)
+
+	**DETALLE5 MARITIMO 
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP,CANTIDAD	,TARIFA	,TARIFA2,MONTO	,MONTO2);
+		values("OEC0000000","OECR000023","FLETE",5,1		,0.06	,1.60	,0.00	,0.00)
+		INSERT INTO OEC_D( IDOEC, REF, DESCRIP, TP,CANTIDAD	,TARIFA	,TARIFA2,MONTO	,MONTO2);
+		values("OEC0000000","OECR000025","SEGURO",5,1		,0.06	,1.60	,0.00	,0.00)
+	ELSE
+	
+		IF MESSAGEBOX("Ya existen los elementos en OEC_D.dbf"+CHR(13)+;
+						"desea eliminarlos",20,"Existen datos")=6
+			WAIT "Eliminando datos a oecd.dbf" WINDOW NOWAIT 	
+					
+			DELETE FROM OEC_D WHERE IDOEC="OEC0000000"
+		ENDIF 
+	ENDIF 
+ENDIF 
+
+ENDPROC 
+
+PROCEDURE AGO2014MODDOCUMENTOS
+	CLOSE TABLES ALL 
+	LCTB="DOCUMENTOS"
+	LCFLD="TABLA_M"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="DOCUMENTOS"
+	LCFLD="TABLA_D"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="DOCUMENTOS"
+	LCFLD="IDCAMPO"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+	
+ENDPROC 
+
+
+PROCEDURE JUL2014REPORTSNUEVOS
+	**AGREGANDO REPORTE DE CLIENTES 
+	lcidreport="CLI33"
+	lcdescrip="Ventas por cliente"
+	lcdescrip2="Ventas por cliente"
+	lcimage="REPORT_48.bmp"
+	lctp="cli3"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	**AGREGANDO REPORTE DE CLIENTES 
+	lcidreport="INV24"
+	lcdescrip="Salidas por cliente"
+	lcdescrip2="Salidas por cliente"
+	lcimage="REPORT_48.bmp"
+	lctp="inv1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama	
+	
+ENDPROC 
+
+
+PROCEDURE JUN2014INACTIVARPRODUCTOS
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="ESTADO"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+
+ENDPROC 
+
+PROCEDURE JUN2014ALTERGRDCCOLS
+	CLOSE TABLES ALL 
+	LCTB="GRDCOLS"
+	LCFLD="CAMPO"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+	CLOSE TABLES ALL 
+	LCTB="GRDCOLS"
+	LCFLD="CURSOR"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+ENDPROC 
+
+PROCEDURE JUN2014ADDLINEINVTB
+	lcTable="INVENTARIO"
+	
+	SET DELETED ON 
+	
+	IF !USED(lcTable)
+		USE (lcTable) EXCLUSIVE  IN 0 
+	ELSE
+		SELECT (lcTable)
+		USE 
+		USE (lcTable) EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table (lcTable ) ADD COLUMN LINE I 
+	CATCH
+		WAIT "Ya Existe el Campo Line en: "+lctable WINDOW TIMEOUT 1
+		WAIT "Modificando el campo line" WINDOW TIMEOUT 1
+		ALTER table (lcTable ) ALTER COLUMN LINE I 
+	ENDTRY 
+	
+	SELECT (lcTable)
+	ln=1
+	SCAN 
+		WAIT "Numerando:"+TRANSFORM(ln) WINDOW  NOWAIT 
+		replace line WITH ln  IN (lcTable)
+		ln = ln + 1 
+
+	ENDSCAN
+	
+	ALTER table (lcTable) alter  COLUMN LINE I AUTOINC NEXTVALUE ln
+	PACK IN (lcTable)
+	
+ENDPROC 
+
+
+
+PROCEDURE JUN2014MODTBDTUP
+	CLOSE TABLES ALL 
+	LCTB="TBDTUP"
+	LCFLD="DESCRIP"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+	CLOSE TABLES ALL 
+	LCTB="TBDTUP"
+	LCFLD="PROC"
+	LNPRECISION="C(30)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+ENDPROC 
+
+
+PROCEDURE JUN2014ADDFIELDSINC
+	CLOSE TABLES ALL 
+	LCTB="ORDENCOMPRA"
+	LCFLD="SINC"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="REQUISICIONES"
+	LCFLD="SINC"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="SINC"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="FAMILIAINVENTARIO"
+	LCFLD="SINC"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+ENDPROC 
+
+PROCEDURE MAY2014FIXINVTYPES
+	DO 	ADDFIELDSINVUBIQUITY 
+	DO 	ENE2014ADDUCOSTINV
+	IF USED("INVENTARIO")
+		SELECT INVENTARIO 
+	ELSE
+		USE inventario 
+	ENDIF 
+	
+	SELECT INVENTARIO 
+	REPLACE ALL ;
+			ubicacion_A WITH "",;
+			ubicacion_B WITH "",;
+			ubicacion_C WITH "",;
+			ubicacion_D WITH ""
+
+	REPLACE ALL ;
+		pcant WITH 0.000 ;		
+		Pcost WITH 0.000 ,;
+		Saldoi  WITH 0.00 ,;
+		Cantent WITH 0.00 ,;
+		Entradas WITH 0.00,;
+		Cantsal WITH 0.00,;
+		Salidas WITH 0.00,;
+		Ucant WITH 0.00 ,;
+		Ucost  WITH 0.00,;
+		Saldof WITH 0.00 
+
+	
+ENDPROC 
+
+
+PROCEDURE MAY2014ADDFIELDSCLITB
+
+	CLOSE TABLES ALL 
+	LCTB="CLIENTES"
+	LCFLD="PERSONERIA"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+
+
+
+	CLOSE TABLES ALL 
+	LCTB="PROVEEDORES"
+	LCFLD="IMPORT"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+
+	CLOSE TABLES ALL 
+	LCTB="PROVEEDORES"
+	LCFLD="FPAGO"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+
+	CLOSE TABLES ALL 
+	LCTB="PROVEEDORES"
+	LCFLD="AFILIADA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROVEEDORES"
+	LCFLD="ACTIVO"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROVEEDORES"
+	LCFLD="PERSONERIA"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+
+ENDPROC 
+
+
+PROCEDURE MAY2014INSREPORTCLI26
+	lcidreport="CLI26"
+	lcdescrip="Antiguedad de saldo en formato infored"
+	lcdescrip2="Reporte para enviar estadisticas de cliente a infored"
+	lcimage="REPORT_48.bmp"
+	lctp="cli2"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama	
+ENDPROC
+
+
+PROCEDURE ABR2014ADDLINEPROYTB
+	lcTable="PROYECTOS"
+	
+	SET DELETED ON 
+	
+	IF !USED(lcTable)
+		USE (lcTable) EXCLUSIVE  IN 0 
+	ELSE
+		SELECT (lcTable)
+		USE 
+		USE (lcTable) EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table (lcTable ) ADD COLUMN LINE I 
+	CATCH
+		WAIT "Ya Existe el Campo Line en: "+lctable WINDOW TIMEOUT 1
+		WAIT "Modificando el campo line" WINDOW TIMEOUT 1
+		ALTER table (lcTable ) ALTER COLUMN LINE I 
+	ENDTRY 
+	
+	SELECT (lcTable)
+	ln=1
+	SCAN 
+		WAIT "Numerando:"+TRANSFORM(ln) WINDOW  NOWAIT 
+		replace line WITH ln  IN (lcTable)
+		ln = ln + 1 
+
+	ENDSCAN
+	
+	ALTER table (lcTable) alter  COLUMN LINE I AUTOINC NEXTVALUE ln
+	PACK IN (lcTable)
+	
+ENDPROC 
+
+
+PROCEDURE MAR2014INSREPORT35
+	lcidreport="INV35"
+	lcdescrip="Analisis de Inventario"
+	lcdescrip2="Resumen de Entradas y salidas por código "
+	lcimage="REPORT_48.bmp"
+	lctp="inv3"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama	
+ENDPROC
+
+PROCEDURE MAR2014CREATETBMANAHEMOVINV
+
+	IF DIRECTORY("DATA")
+		CD DATA 
+	ENDIF
+
+	lcTable="TBMOVINV"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			LINE  I AUTOINC ,;
+			PERIODO C(4) ,;
+			FECHA T ,;
+			TABLA C(254),;
+			USUARIO C(10),;
+			ESTADO I;
+			)
+		SELECT (lcTable)
+		INDEX ON FECHA TAG FECHA 
+		INDEX ON PERIODO  TAG PERIODO
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+
+	IF !DIRECTORY("DATA")
+		CD .. 
+	ENDIF 
+	
+	**borrar tabla movinv si existe 
+	IF FILE("data\movinv.dbf")
+		DROP TABLE data\movinv
+	ENDIF 
+	
+ENDPROC 
+
+
+PROCEDURE MAR2014FIXTBSINV
+	**BORAR DATOS HUERFANOS EN TABLAS 
+	DELETE FROM DETALLEORDEN WHERE NORDEN NOT IN (SELECT NORDEN FROM ORDENCOMPRA )
+	**BORAR DATOS HUERFANOS EN TABLAS 
+	DELETE FROM DETALLEREQUISICION WHERE NREQUISICION NOT IN (SELECT NREQUISICION FROM REQUISICIONES )
+	 
+ENDPROC 
+
+
+PROCEDURE ENE2014ADDUCOSTINV
+	lcTypeOper="ADD"
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="PCANT"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="PCOST"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="SALDOI"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="CANTENT"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="ENTRADAS"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="CANTSAL"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="SALIDAS"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="UCANT"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="UCOST"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="SALDOF"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+ENDPROC 
+
+PROCEDURE ENE2014CLOSEPROYSLESSTHAN2012
+	IF 	gConFigNombre="Gama Auto Aire, S.A. DE C.V."	
+	UPDATE proyectos SET finaliza=CTOD("31/12/2012"),estado=6 WHERE SUBSTR(idproyectos,5,2)=="12"
+	UPDATE proyectos SET finaliza=CTOD("31/12/2011"),estado=6 WHERE SUBSTR(idproyectos,5,2)=="11"
+	UPDATE proyectos SET finaliza=CTOD("31/12/2010"),estado=6 WHERE SUBSTR(idproyectos,5,2)=="10"
+	UPDATE proyectos SET finaliza=CTOD("31/12/2009"),estado=6 WHERE SUBSTR(idproyectos,5,2)=="09"
+	UPDATE proyectos SET finaliza=CTOD("31/12/2008"),estado=6 WHERE SUBSTR(idproyectos,5,2)=="08"
+	UPDATE proyectos SET finaliza=CTOD("31/12/2007"),estado=6 WHERE SUBSTR(idproyectos,5,2)=="07"
+	UPDATE proyectos SET finaliza=CTOD("31/12/2006"),estado=6 WHERE SUBSTR(idproyectos,5,2)=="06"
+	UPDATE proyectos SET finaliza=CTOD("31/12/2005"),estado=6 WHERE SUBSTR(idproyectos,5,2)=="05"
+	UPDATE proyectos SET finaliza=CTOD("31/12/2004"),estado=6 WHERE SUBSTR(idproyectos,5,2)=="04"
+	UPDATE proyectos SET finaliza=CTOD("31/12/2003"),estado=6 WHERE SUBSTR(idproyectos,5,2)=="03"
+	UPDATE proyectos SET finaliza=CTOD("31/12/2002"),estado=6 WHERE SUBSTR(idproyectos,5,2)=="02"
+	ENDIF 
+ENDPROC 
+
+
+PROCEDURE ADDFIELDSPLNAENE2014
+	CLOSE TABLES ALL 
+	LCTB="PLVOUCH"
+	LCFLD="IDVOUCHER"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+	CLOSE TABLES ALL 
+	LCTB="PLVOUCH_D"
+	LCFLD="IDVOUCHER"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+
+	CLOSE TABLES ALL 
+	LCTB="PLPER"
+	LCFLD="NIT"
+	LNPRECISION="C(17)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+
+ENDPROC 
+
+PROCEDURE ADDFIELDSPROYENE2014
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="PROYCODS"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="PROYCODSINV"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="PROYCODSCOS"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="PROYCODSING"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="ABORRADO_FEC"
+	LNPRECISION="T"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="ABORRADO_USR"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="ACREADO_FEC"
+	LNPRECISION="T"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="ACREADO_USR"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="AMOD_FEC"
+	LNPRECISION="T"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="AMOD_USR"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+ENDPROC 
+
+PROCEDURE ADDFIELDSINVUBIQUITY
+	
+	lcTypeOper="ALTER"
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="ABORRADO_FEC"
+	LNPRECISION="T"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="ABORRADO_USR"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="ACREADO_FEC"
+	LNPRECISION="T"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="ACREADO_USR"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="AMOD_FEC"
+	LNPRECISION="T"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="AMOD_USR"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="UBICACION_A"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="UBICACION_B"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="UBICACION_C"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="UBICACION_D"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION=lcTypeOper
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+ENDPROC 
+
+
+PROCEDURE ADDFIELDSCATACONFIGENE2014
+	CLOSE TABLES ALL 
+	LCTB="CATACONFIG"
+	LCFLD="DESC_DOC"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+
+	CLOSE TABLES ALL 
+	LCTB="CATACONFIG"
+	LCFLD="DESC_SIS"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+	CLOSE TABLES ALL 
+	LCTB="CATACONFIG"
+	LCFLD="DESC_CONTA"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION			
+ENDPROC 
+
+PROCEDURE FIXFAMILIASINV
+	IF 	gConFigNombre="Gama Auto Aire, S.A. DE C.V."
+		USE FAMILIAINVENTARIO
+		REPLACE familia WITH "HIDRAULICA" FOR SUBSTR(codigofamilia,1,2)="02"
+		REPLACE familia WITH "AUTOS" FOR SUBSTR(codigofamilia,1,2)="01"
+		REPLACE familia WITH "MECANICA" FOR SUBSTR(codigofamilia,1,2)="03"
+		REPLACE familia WITH "ELECTRICO" FOR SUBSTR(codigofamilia,1,2)="04"
+		REPLACE familia WITH "EQUIPO" FOR SUBSTR(codigofamilia,1,2)="06"
+		REPLACE familia WITH "FERRETERIA" FOR SUBSTR(codigofamilia,1,2)="08"
+		REPLACE DESCRIPCION  WITH "A/C" FOR SUBSTR(codigofamilia,1,4)="0101"
+		REPLACE DESCRIPCION  WITH "PVC" FOR SUBSTR(codigofamilia,1,4)="0201"
+		REPLACE DESCRIPCION  WITH "GALVANIZADO" FOR SUBSTR(codigofamilia,1,4)="0202"
+		REPLACE DESCRIPCION  WITH "ACERO AL CARBONO" FOR SUBSTR(codigofamilia,1,4)="0205"
+		REPLACE DESCRIPCION  WITH "COBRE" FOR SUBSTR(codigofamilia,1,4)="0301"
+		REPLACE DESCRIPCION  WITH "ACR" FOR SUBSTR(codigofamilia,1,4)="0307"
+		REPLACE DESCRIPCION  WITH "CABLE" FOR SUBSTR(codigofamilia,1,4)="0401"
+		REPLACE DESCRIPCION  WITH "LIQUIDOS" FOR SUBSTR(codigofamilia,1,4)="0501"
+		REPLACE DESCRIPCION  WITH "EQUIPOS" FOR SUBSTR(codigofamilia,1,4)="0601"
+		REPLACE DESCRIPCION  WITH "HERRAMIENTAS" FOR SUBSTR(codigofamilia,1,4)="0602"
+		REPLACE DESCRIPCION  WITH "SOPORTERIA" FOR SUBSTR(codigofamilia,1,4)="0801"
+		REPLACE DESCRIPCION  WITH "CLAVO" FOR SUBSTR(codigofamilia,1,4)="0824"
+		
+		REPLACE ALL FAMILIA WITH UPPER(FAMILIA)
+		REPLACE ALL DESCRIPCION WITH UPPER(DESCRIPCION)
+		REPLACE ALL CLASIFICACION WITH UPPER(CLASIFICACION )
+	ELSE 
+		MESSAGEBOX("cambio solo valido para auto",48,"Aviso")
+	ENDIF 
+ENDPROC 
+
+PROCEDURE ENE2014_ADDREPORTS_NEW_INV
+	lcidreport="INV15"
+	lcdescrip="Listado por categorias"
+	lcdescrip2="Listado de compras por Imei "
+	lcimage="REPORT_48.bmp"
+	lctp="inv1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+ENDPROC 
+
+
+
+PROCEDURE DIC2013ADDMANAGECODS
+	CLOSE TABLES ALL 
+	LCTB="DETALLEORDEN"
+	LCFLD="FEC_VENC"
+	LNPRECISION="D"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEORDEN"
+	LCFLD="LOTE"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEORDEN"
+	LCFLD="IMEI"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEORDEN"
+	LCFLD="PROYECTO"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEORDEN"
+	LCFLD="DEPTO"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEORDEN"
+	LCFLD="CPERSON"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEORDEN"
+	LCFLD="CIVA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEORDEN"
+	LCFLD="CRIVA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEORDEN"
+	LCFLD="CRENTA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENCOMPRA"
+	LCFLD="SRENTA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="CIVA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="CRIVA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="CRENTA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+	ALTER TABLE DETALLEORDEN  ALTER COLUMN CIVA L DEFAULT .T.
+	ALTER TABLE DETALLEORDEN  ALTER COLUMN CRIVA L DEFAULT .T.
+	ALTER TABLE DETALLEORDEN  ALTER COLUMN CRENTA L DEFAULT .F.
+
+	IF MESSAGEBOX("si es la segunda vez podria alterar LOS CALCULO GUARDADOS PREVIAMENTE en detalleorden por los campos civa y criva , DESEA CONTINUAR",36,"Advertencia")=6
+		REPLACE ALL CIVA WITH .T. IN DETALLEORDEN 
+		REPLACE ALL CRIVA WITH .T. IN DETALLEORDEN  
+	ELSE
+		
+	ENDIF 
+	IF USED("DETALLEORDEN")
+		SELECT DETALLEORDEN  
+		USE 
+	ENDIF 
+
+
+	ALTER TABLE INVENTARIO ALTER COLUMN CIVA L DEFAULT .T.
+	ALTER TABLE INVENTARIO ALTER COLUMN CRIVA L DEFAULT .T.
+	ALTER TABLE INVENTARIO ALTER COLUMN CRENTA L DEFAULT .F.
+
+	IF USED("INVENTARIO")
+		SELECT INVENTARIO
+		USE 
+	ENDIF 
+
+	IF MESSAGEBOX("si es la segunda vez podria alterar la informacion de los campos depto y proyecto, ¡DESEA CONTINUAR!",36,"Advertencia de modificacion de orden de compra")=6
+		CLOSE TABLES ALL 
+		USE DETALLEORDEN 
+		
+		SCAN 	
+			RELEASE laproy
+			RELEASE ladepto
+			RELEASE laidveh
+			
+			lcnorden=DETALLEORDEN.NORDEN
+			lcproy=DETALLEORDEN.proyecto
+			lcdepto=DETALLEORDEN.depto
+
+			
+			IF EMPTY(lcproy)
+				SELECT proyecto FROM ORDENCOMPRA WHERE NORDEN=lcnorden INTO ARRAY laproy
+				IF !VARTYPE(laproy)="U"
+					WAIT "Reemplazando proyecto con "+laproy+" en orden "+lcnorden  WINDOW NOWAIT 
+					replace proyecto WITH laproy IN DETALLEORDEN 
+				ENDIF 
+			ENDIF 
+			
+			IF EMPTY(lcdepto)
+				SELECT depto FROM ORDENCOMPRA WHERE NORDEN=lcnorden INTO ARRAY ladepto
+				IF !VARTYPE(ladepto)="U"
+					WAIT "Reemplazando depto con "+ladepto+" en orden "+lcnorden  WINDOW NOWAIT 			
+					replace depto WITH ladepto IN DETALLEORDEN 
+				ENDIF 
+			ENDIF 		
+		ENDSCAN
+	ENDIF 
+	
+	CLOSE TABLES ALL 
+	LCTB="DETALLEREQUISICION"
+	LCFLD="FEC_VENC"
+	LNPRECISION="D"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEREQUISICION"
+	LCFLD="LOTE"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEREQUISICION"
+	LCFLD="IMEI"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEREQUISICION"
+	LCFLD="PROYECTO"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEREQUISICION"
+	LCFLD="DEPTO"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	IF MESSAGEBOX("si es la segunda vez podria alterar la informacion de los campos depto y proyecto, ¡DESEA CONTINUAR!",36,"Advertencia de modificacion tabla requisiciones")=6
+		USE detallerequisicion 
+		SCAN 	
+			RELEASE laproy
+			RELEASE ladepto
+			RELEASE laidveh
+			
+			lcnorden=detallerequisicion.nrequisicion
+			lcproy=detallerequisicion.proyecto
+			lcdepto=detallerequisicion.depto
+
+			
+			IF EMPTY(lcproy)
+				SELECT proyecto FROM requisiciones  WHERE nrequisicion=lcnorden INTO ARRAY laproy
+				IF !VARTYPE(laproy)="U"
+					WAIT "Reemplazando proyecto con "+laproy+" en orden "+lcnorden  WINDOW NOWAIT 
+					replace proyecto WITH laproy IN detallerequisicion
+				ENDIF 
+			ENDIF 
+			
+			IF EMPTY(lcdepto)
+				SELECT depto FROM requisiciones  WHERE nrequisicion=lcnorden INTO ARRAY ladepto
+				IF !VARTYPE(ladepto)="U"
+					WAIT "Reemplazando depto con "+ladepto+" en orden "+lcnorden  WINDOW NOWAIT 			
+					replace depto WITH ladepto IN detallerequisicion
+				ENDIF 
+			ENDIF 		
+		ENDSCAN
+	ENDIF 
+ENDPROC 
+
+
+
+
+
+
+
+
+PROCEDURE DIC2013ADDTBTBS
+LPARAMETERS tbShowDialogues
+	IF DIRECTORY("DATA")
+		CD DATA 
+	ENDIF
+	
+	lcTable="TBTBS"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (; 
+			LINE  I AUTOINC  ,;
+			NOMBRE c(254) ,;
+			PESO n(10,0),;
+			FEC_CREATE t,;
+			FEC_MOD t,;
+			ACTUALIZA T,;
+			DESCRIP C(80);
+			)
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+		lbContinue=.t.
+	ELSE
+		IF !tbShowDialogues
+			IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6	
+				DROP TABLE (lcTable) recycle
+				lbContinue=.f.
+			ELSE 
+				lbContinue=.T.
+			ENDIF 
+		ELSE 
+			lbContinue=.T.
+		ENDIF 
+	ENDIF
+
+	IF !DIRECTORY("DATA")
+		CD ..
+	ENDIF
+	
+	**Limpiando tabla para ingresar solo las que estan 
+	DELETE FROM TBTBS
+	**Limpiando tabla para ingresar solo las que estan 
+	IF 	lbContinue
+		lcFolderName="DATA"
+		fso=createobject("scripting.filesystemobject")
+		fld=fso.getfolder(lcFolderName)
+		FOR EACH fil in fld.files
+			RELEASE laLineTbTbs
+			
+		   	lcNombre=ALLTRIM(fil.name)
+		   	lnPeso=fil.size
+		   	ltFec_Create=fil.DateCreated
+		   	ltFec_Mod=fil.DateLastModified
+		   	ltActualiza=DATETIME()
+			lcType=fso.getextensionname(fil)
+			
+			
+			
+			IF lcType="DBF"
+				SELECT line FROM tbtbs WHERE ALLTRIM(UPPER(nombre))==ALLTRIM(UPPER(lcNombre ))INTO ARRAY laLineTbTbs
+				IF VARTYPE(laLineTbTbs)="U"
+					WAIT "Ingresando tabla: "+PADR(SUBSTR(lcNombre,1,40),40," ") WINDOWS  NOWAIT 
+					INSERT INTO tbtbs (NOMBRE,PESO,FEC_CREATE,FEC_MOD,ACTUALIZA) VALUES (lcNombre,lnPEso,ltFec_Create,ltFec_Mod,ltActualiza)
+				ELSE 					
+					WAIT "Actualizanco tabla: "+PADl(SUBSTR(lcNombre,1,40),40," ") WINDOWS  NOWAIT 
+					UPDATE tbtbs SET nombre=lcNombre,peso=lnPEso,Fec_create=ltFec_create,Fec_Mod=ltFec_Mod,Actualiza=ltActualiza WHERE LINE=laLineTbTbs
+				ENDIF 
+			ENDIF 
+		NEXT
+	ENDIF 
+	&&borrando tablas que estan de más	
+	IF FILE("DATA\1CATACONFIG.DBF")=.T.
+		TRY 
+			DROP TABLE "DATA\1CATACONFIG.DBF"  RECYCLE
+		CATCH TO err 
+
+		FINALLY
+
+		ENDTRY 
+				
+	ENDIF 
+	IF FILE("data\00003TW9002Z.DBF") 
+	
+		TRY 
+			DROP TABLE "data\00003TW9002Z.DBF" RECYCLE
+		CATCH TO err 
+
+		FINALLY
+
+		ENDTRY 
+
+	ENDIF 
+	IF FILE("data\09_07_13 02_02_47 PM_MCONTRATO.DBF") 
+	
+		TRY 
+			DROP TABLE "data\09_07_13 02_02_47 PM_MCONTRATO.DBF" RECYCLE
+		CATCH TO err 
+
+		FINALLY
+
+		ENDTRY 
+
+		
+	ENDIF 
+	IF FILE("data\09_07_13 02_03_57 PM_MSUCURSAL.DBF") 
+		TRY 
+			DROP TABLE "data\09_07_13 02_03_57 PM_MSUCURSAL.DBF" RECYCLE
+		CATCH TO err 
+
+		FINALLY
+
+		ENDTRY 
+	
+		
+	ENDIF 
+	IF FILE("data\importar2.DBF") 
+		
+		TRY 
+			DROP TABLE "data\importar2.DBF" RECYCLE
+		CATCH TO err 
+
+		FINALLY
+
+		ENDTRY 
+	
+		
+	ENDIF 
+	IF FILE("data\C1.DBF") 
+	
+		TRY 
+			DROP TABLE "data\C1.DBF" RECYCLE
+		CATCH TO err 
+
+		FINALLY
+
+		ENDTRY 
+
+	
+		
+	ENDIF 
+	IF FILE("data\DETALLEMOVBANCOS.DBF") 
+	
+		TRY 
+			DROP TABLE "data\DETALLEMOVBANCOS.DBF" RECYCLE
+		CATCH TO err 
+
+		FINALLY
+
+		ENDTRY 
+
+		
+	ENDIF 
+		
+	IF FILE("data\MOVBANCOS.DBF") 
+	
+		TRY 
+			DROP TABLE "data\MOVBANCOS.DBF" RECYCLE
+		CATCH TO err 
+		
+		FINALLY
+
+		ENDTRY 
+
+		
+	ENDIF 
+	
+ENDPROC 
+
+PROCEDURE NOV2013ADDTBCOSTOSV2
+	IF DIRECTORY("DATA")
+		CD DATA 
+	ENDIF
+	
+	lcTable="MOVINV"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (; 
+			LINE  I AUTOINC  ,;
+			LINEINDOC I ,;
+			FECHA D,;
+			CODIGO C(8),;
+			DOC C(10),;
+			DESCDOC C(40),;
+			DESCDET C(40),;
+			CANT N(12,4),;
+			COSTO N(12,4),;		
+			SALDO N(12,4),;		
+			CALC  N(12,4),;
+			COSTOPROM N(12,4),;
+			ACUM_NEG N(12,4),;
+			SALDO_POS N(12,4);
+			)
+		INDEX ON LINEINDOC  TAG LINEINDOC FOR !DELETED() 
+		INDEX on line TAG line 
+		INDEX ON DTOS(IIF(EMPTY(FECHA),DATE(9999,12,31),FECHA)) TAG FECHA
+		INDEX ON CODIGO + DTOS(IIF(EMPTY(FECHA),DATE(9999,12,31),FECHA)) TAG CODIGO_FEC
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+	ELSE
+	
+		IF MESSAGEBOX("Tabla ya "+lcTable+" existe "+CHR(13)+"Desea borrarla",4,"Ya existe la tabla")=6
+			
+			DROP TABLE (lcTable) recycle
+		ENDIF 
+		
+	ENDIF
+
+	IF !DIRECTORY("DATA")
+		CD ..
+	ENDIF
+**AGREGANDO REPORTES POR COSTO PROMEDIO 3
+	lcidreport="INV3"
+	lcdescrip="REPORTES DE INVENTARIO POR COSTO PROMEDIO REAL"
+	lcdescrip2="Costo promedio real, es necesario actualizar tabla de movimientos"
+	lcimage="FolderYellow_48.bmp"
+	lctp="inv"
+	lctpllama="inv3"
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+**AGREGANDO REPORTES POR COSTO PROMEDIO 3
+	lcidreport="INV31"
+	lcdescrip="Existencia"
+	lcdescrip2="Existencia valuada al costo promedio real "
+	lcimage="REPORT_48.bmp"
+	lctp="inv3"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	lcidreport="INV32"
+	lcdescrip="Movimientos"
+	lcdescrip2="Movimientos de codigos de inventario"
+	lcimage="REPORT_48.bmp"
+	lctp="inv3"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	lcidreport="INV33"
+	lcdescrip="Entradas"
+	lcdescrip2="Compras, devoluciones, compras al exterior y toda entrada a inventario"
+	lcimage="REPORT_48.bmp"
+	lctp="inv3"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	lcidreport="INV34"
+	lcdescrip="Salidas"
+	lcdescrip2="Salidas de mercaderia, requisiciones y otros ajustes"
+	lcimage="REPORT_48.bmp"
+	lctp="inv3"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	 
+ENDPROC 
+
+PROCEDURE NOV2013ADDACTUALIZAPROYS
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="UPDATE2VIEJO"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+ENDPROC 
+
+PROCEDURE OCT2013ADDPERMIFECHAOI
+	DIMENSION EDOS(1,3) 
+	lcstatus="A-01"
+	lcPrek="FEC"
+	
+	SELECT;
+		lcPrek+TRANSFORM(PREFIJO),lcstatus,NOMBRE ;
+	FROM ;
+		DOCUMENTOS  ;
+	WHERE ;
+		INLIST(IDDOC,"20") ;
+	INTO ARRAY ;
+		EDOS
+		
+	FOR N=1 TO  ALEN(EDOS,1)
+		DO AddAcceso2 WITH EDOS(n,1),EDOS(n,2),EDOS(n,3),.t.
+	ENDFOR 
+ENDPROC 
+
+**pendiente de pasar a tabla tbsrcdtup
+PROCEDURE SEP2013FIXFACTWITH3DECIMAL
+	SELECT SUM(sneto) as neto,SUM(siva) as iva,SUM(sriva) as riva,SUM(srenta) as renta, SUM(stotal) as total FROM facturas INTO CURSOR curTotalesFact
+	SELECT curTotalesFact
+	GO top
+	_vfp.DataToClip(,,3)
+	MESSAGEBOX("COPIE AL A EXCEL ")
+	WAIT "Mostrando como esta en este momento " WINDOW TIMEOUT 1
+	SELECT ;
+		IDVENTA,;
+		numero,;
+		sneto,;
+		siva,;
+		sriva,;
+		srenta,;
+		stotal;
+	FROM ;
+		FACTURAS ;
+	WHERE ;
+		INLIST(NUMERO,;
+		"FF00013033",;
+		"FF00013034",;
+		"FF00013035",;
+		"FF00013036",;
+		"FF00013038",;
+		"FF00013039",;
+		"FF00013040",;
+		"FF00013041",;
+		"FF00013042",;
+		"FF00013043",;
+		"FF00013044",;
+		"FF00013045",;
+		"FF00013046",;
+		"FF00013047",;
+		"FF00013048",;
+		"FF00013049",;
+		"CF00048190")
+		
+	WAIT "ACTUALIZANDO LISTADO DE FACTURAS:" WINDOWS NOWAIT 
+	WAIT "FF00013033" WINDOWS NOWAIT 
+	WAIT "FF00013034" WINDOWS NOWAIT 
+	WAIT "FF00013035" WINDOWS NOWAIT 
+	WAIT "FF00013036" WINDOWS NOWAIT 
+	WAIT "FF00013038" WINDOWS NOWAIT 
+	WAIT "FF00013039" WINDOWS NOWAIT 
+	WAIT "FF00013040" WINDOWS NOWAIT 
+	WAIT "FF00013041" WINDOWS NOWAIT 
+	WAIT "FF00013042" WINDOWS NOWAIT 
+	WAIT "FF00013043" WINDOWS NOWAIT 
+	WAIT "FF00013044" WINDOWS NOWAIT 
+	WAIT "FF00013045" WINDOWS NOWAIT 
+	WAIT "FF00013046" WINDOWS NOWAIT 
+	WAIT "FF00013047" WINDOWS NOWAIT 
+	WAIT "FF00013048" WINDOWS NOWAIT 
+	WAIT "FF00013049" WINDOWS NOWAIT 
+	WAIT "CF00048190" WINDOWS NOWAIT 
+	
+	UPDATE  ;
+		FACTURAS;  
+	SET ;
+		SNETO=ROUND(SNETO,2),;
+		SIVA=ROUND(SIVA,2),;
+		SRIVA=ROUND(SRIVA,2),;
+		STOTAL=ROUND(SNETO,2)+ROUND(SIVA,2)-ROUND(SRIVA,2);
+	WHERE ;
+		IDVENTA IN (SELECT ;
+							IDVENTA ;
+						FROM ;
+							FACTURAS ;
+						WHERE ;
+							INLIST(NUMERO,;
+							"FF00013033",;
+							"FF00013034",;
+							"FF00013035",;
+							"FF00013036",;
+							"FF00013038",;
+							"FF00013039",;
+							"FF00013040",;
+							"FF00013041",;
+							"FF00013042",;
+							"FF00013043",;
+							"FF00013044",;
+							"FF00013045",;
+							"FF00013046",;
+							"FF00013047",;
+							"FF00013048",;
+							"FF00013049",;
+							"CF00048190";
+							);
+						)
+	WAIT "Mostrando el resultado" WINDOW TIMEOUT 2						
+	SELECT ;
+		IDVENTA,;
+		numero,;
+		sneto,;
+		siva,;
+		sriva,;
+		srenta,;
+		stotal;
+	FROM ;
+		FACTURAS ;
+	WHERE ;
+		INLIST(NUMERO,;
+		"FF00013033",;
+		"FF00013034",;
+		"FF00013035",;
+		"FF00013036",;
+		"FF00013038",;
+		"FF00013039",;
+		"FF00013040",;
+		"FF00013041",;
+		"FF00013042",;
+		"FF00013043",;
+		"FF00013044",;
+		"FF00013045",;
+		"FF00013046",;
+		"FF00013047",;
+		"FF00013048",;
+		"FF00013049",;
+		"CF00048190")
+		
+		
+	SELECT SUM(sneto) as neto,SUM(siva) as iva,SUM(sriva) as riva,SUM(srenta) as renta, SUM(stotal) as total FROM facturas INTO CURSOR curTotalesFact
+	SELECT curTotalesFact
+	GO top
+	_vfp.DataToClip(,,3)
+	MESSAGEBOX("VUELVA A COPIAR AL PORTAPAPELES PARA COMPARAR")
+		
+ENDPROC 
+
+
+PROCEDURE AGO_2013_ADD_STOTAL_OTRING
+
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="RETENCIONIVA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="IVA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="RETENCIONRENTA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="TIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="TRIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="TRENTA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="MRIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="SNETO"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="SIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="SRIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="SRENTA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="STOTAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="OTRING"
+	LCFLD="CRETENCION"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	UPDATE OTRING  SET CRETENCION=gSymbol
+	CLOSE TABLES ALL 
+*!*		SET DELETED ON 
+*!*		IF VARTYPE(_SCREEN.DOC1)="U"
+*!*			_screen.NewObject("Doc1","Doc","c:\users\yec\documents\fox\GAA\lib1.0\_vars.vcx")
+*!*		ENDIF 
+*!*		
+*!*		DIMENSION ADOCS(1,2)
+*!*		ADOCS(1,1)="IDOTRING"
+*!*		ADOCS(1,2)="OTRING"
+*!*		
+
+*!*		FOR LNDOC=1 TO ALEN(ADOCS,1)
+*!*		
+*!*			LCCAMPO=ADOCS(LNDOC,1)
+*!*			LCTABLE=ADOCS(LNDOC,2)
+*!*			
+*!*			SELECT &LCCAMPO FROM (LCTABLE) INTO ARRAY LA
+*!*	*		SELECT &LCCAMPO FROM (LCTABLE) 
+*!*			FOR N=1 TO ALEN(LA)
+*!*				LCID=LA(N)
+*!*				IF !EMPTY(LCID)
+*!*					_SCREEN.DOC1.Ctotal(LCID)
+*!*					
+*!*					LNNETO=_SCREEN.DOC1.Neto 
+*!*					LNIVA=_SCREEN.DOC1.Iva 
+*!*					LNRIVA=_SCREEN.DOC1.Riva 
+*!*					LNRENTA=_SCREEN.DOC1.Renta 
+*!*					LNTOTAL=_SCREEN.DOC1.Total 
+*!*					
+*!*					UPDATE;
+*!*						(LCTABLE)  ;
+*!*					SET;
+*!*						STOTAL=LNTOTAL;
+*!*					WHERE ;
+*!*						&LCCAMPO==LCID
+*!*						
+*!*				ENDIF 
+*!*			ENDFOR
+*!*		ENDFOR 
+
+ENDPROC 
+
+
+PROCEDURE Ago2013_CREATEDWMYSQL
+	lcMsgErrorConexion="No se pudo conectar a la Base de Datos"
+	lcMsgTitleErrorConn="Error de conexion, Servidor no encontrado"
+	lcMsgErrorCreateDb="Error al crear la Base de Datos"
+	lcMsgTitleErrorCreateDb="Error al crear Base"
+	lcMsgExito="Exito al crear Bd"
+	lcMsgtitleExito="Exito"
+	lcDbDw="ydw"
+	
+	lcServer="localhost"
+	lcUser="root"
+	lcPwd="yecyec"
+	
+	lcDb="ydb"
+	lcStringCnxLocal = 	"DRIVER=MySQL ODBC 5.1 Driver;" + ;
+                   		"SERVER="+lcServer+";" + ;
+                   		"UID="+lcUser+";" + ;
+                   		"PWD="+lcPwd+";" + ;               		
+                   		"DATABASE="+lcDb+";" + ;
+                   		"PORT=3306;"
+	&&conectando 
+	lnHandle = SQLSTRINGCONNECT(lcStringCnxLocal)
+	IF lnHandle > 0
+		&&comprobando si existe la bd
+		lcSqlVerDbExist="SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='"+lcDbDw+"'"
+		lnResultExist=SQLEXEC(lnHandle,"CREATE DATABASE IF NOT EXISTS "+LCDBDW)
+		lnResult = SQLEXEC(lnHandle,"CREATE DATABASE IF NOT EXISTS "+LCDBDW)
+		IF lnResult>0
+			MESSAGEBOX(lcMsgExito,16,lcMsgtitleExito)
+		ELSE 
+			MESSAGEBOX(lcMsgErrorCreateDb,16,"CReada")
+		ENDIF 
+	ELSE 
+		MESSAGEBOX(lcMsgErrorConexion,16,lcMsgTitleErrorConn)
+	ENDIF 
+
+ENDPROC 
+
+
+PROCEDURE AGO2013_LOOK_WITHOUT
+	CREATE CURSOR DOCS (FECHA D, IDDOC C(4), DOC C(10), DESCRIP C(80), STOTAL N(10,2) )
+	CREATE CURSOR COMPUESTOS (FECHA D, IDDOC C(4), DOC C(10), DESCRIP C(80), PARCIAL N(10,2) )
+	
+*	OGS
+	INSERT INTO DOCS (FECHA,IDDOC,DOC,DESCRIP,STOTAL);
+	SELECT ;
+		FECHA,;
+		IDDOC,;
+		NOGASTO,;
+		OBSERVACIONES,;
+		STOTAL;
+	FROM ;
+		ORDENESDEGASTOS 
+		
+*	OCS
+	INSERT INTO DOCS (FECHA,IDDOC,DOC,DESCRIP,STOTAL);
+	SELECT ;
+		FECHA,;
+		IDDOC,;
+		NORDEN,;
+		OBSERVACIONES,;
+		STOTAL;
+	FROM ;
+		ORDENCOMPRA
+
+*	FACTURAS 
+	INSERT INTO DOCS (FECHA,IDDOC,DOC,DESCRIP,STOTAL);
+	SELECT ;
+		FECHA,;
+		IDDOC,;
+		IDVENTA,;
+		DESCRIPCION,;
+		STOTAL;
+	FROM ;
+		FACTURAS
+
+*	OTRING
+	INSERT INTO DOCS (FECHA,IDDOC,DOC,DESCRIP,STOTAL);
+	SELECT ;
+		FECHA,;
+		IDDOC,;
+		IDOTRING,;
+		DESCRIP,;
+		STOTAL;
+	FROM ;
+		FACTURAS
+
+*	CC
+	INSERT INTO DOCS (FECHA,IDDOC,DOC,DESCRIP,STOTAL);
+	SELECT ;
+		FECHA,;
+		IDDOC,;
+		IDCC,;
+		DESCRIPCION,;
+		STOTAL;
+	FROM ;
+		CC
+		
+	
+
+ENDPROC 
+**fin pendiente de pasar a tabla tbsrcdtup
+
+PROCEDURE AGO2013_MOD_ESTADO_OG
+	**GUARDAR ESTADO DE ORDENES DE GASTOS 
+	SELECT NOGASTO,ESTADO FROM ORDENESDEGASTOS  INTO ARRAY  LAEDOSGASTOS
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENESDEGASTOS"
+	LCFLD="ESTADO"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	IF !VARTYPE(LAEDOSGASTOS)="U"
+		FOR lnEdoGasto=1 TO ALEN(LAEDOSGASTOS,1)
+			lnEdoGasto2Put=IIF(LAEDOSGASTOS(lnEdoGasto,2),2,1)
+			lcEdoGastoNogasto=LAEDOSGASTOS(lnEdoGasto,1)
+			UPDATE ORDENESDEGASTOS SET estado=lnEdoGasto2Put WHERE NOGASTO=lcEdoGastoNogasto
+		ENDFOR 
+	ENDIF 
+	CLOSE TABLES ALL 
+ENDPROC 
+
+PROCEDURE AGO2013_MOD_ANCHO_DET_FACT
+	DO configapp
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="DESCRIPCION"
+	LNPRECISION="c("+TRANSFORM(gnAnchoDetFacts)+")"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="FACTURASLINES"
+	LCFLD="DESCRIPCION"
+	LNPRECISION="c("+TRANSFORM(gnAnchoDetFacts)+")"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="VNDEPOT"
+	LCFLD="DESCRIPCION"
+	LNPRECISION="c("+TRANSFORM(gnAnchoDetFacts)+")"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+ENDPROC
+
+PROCEDURE JUL2013_ADDREPORTS
+	lcidreport="MNT23"
+	lcdescrip="Contratos de clientes por Depto"
+	lcdescrip2="Contratos clasificados por departamento y municipio"
+	lcimage="REPORT_48.bmp"
+	lctp="mnt2"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+
+*!*		lcidreport="MNT3"
+*!*		lcdescrip="Valor de contratos"
+*!*		lcdescrip2="Para conocer el valor de los contratos"
+*!*		lcimage="FolderYellow_48.bmp"
+*!*		lctp="mnt"
+*!*		lctpllama="mnt3"
+*!*		DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+*!*			lcidreport="MNT31"
+*!*			lcdescrip="Valor de Contratos por Departamento"
+*!*			lcdescrip2="Suma total de contratos resumidos por Departamento, (según info. cliente)"
+*!*			lcimage="REPORT_48.bmp"
+*!*			lctp="mnt3"
+*!*			lctpllama=""
+*!*			DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+*!*			lcidreport="MNT32"
+*!*			lcdescrip="Valor de Contratos por Municipio"
+*!*			lcdescrip2="Suma total de contratos resumidos por Municipio, (según  info. cliente)"
+*!*			lcimage="REPORT_48.bmp"
+*!*			lctp="mnt3"
+*!*			lctpllama=""
+*!*			DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+*!*			lcidreport="MNT33"
+*!*			lcdescrip="Valor de Contratos por Cliente"
+*!*			lcdescrip2="Suma total de contratos resumidos por Cliente, (según info contratos)"
+*!*			lcimage="REPORT_48.bmp"
+*!*			lctp="mnt3"
+*!*			lctpllama=""
+*!*			DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+
+*!*			lcidreport="MNT34"
+*!*			lcdescrip="Valor de Contratos "
+*!*			lcdescrip2="Suma total de contratos , (según info contrato)"
+*!*			lcimage="REPORT_48.bmp"
+*!*			lctp="mnt3"
+*!*			lctpllama=""
+*!*			DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+
+
+*!*			lcidreport="MNT35"
+*!*			lcdescrip="Valor de Contratos por Sucursal"
+*!*			lcdescrip2="Suma total de contratos resumidos por Sucursal, (según info contrato)"
+*!*			lcimage="REPORT_48.bmp"
+*!*			lctp="mnt3"
+*!*			lctpllama=""
+*!*			DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+*!*			lcidreport="MNT36"
+*!*			lcdescrip="Valor de Contratos por equipo"
+*!*			lcdescrip2="Suma total de contratos resumidos por equipo, (según info contrato)"
+*!*			lcimage="REPORT_48.bmp"
+*!*			lctp="mnt3"
+*!*			lctpllama=""
+*!*			DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+
+	
+ENDPROC 
+
+
+PROCEDURE JUL2013_ADD_TP_PR
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="TP"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="IDVENTA"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="NUMEROFACT"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="IDDOC"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	IF MESSAGEBOX("desea actualizar informacion de Iddoc y Tp ",292)=6
+		USE PRESUPUESTOS 
+		COPY TO FULLPATH("")+STRTRAN(STRTRAN(ttoc(DATEtime())+"_"+ALIAS(),"/","_"),":","_")
+		UPDATE presupuestos SET iddoc=ICASE(SUBSTR(idpresup,1,2)="PM","31",;
+											SUBSTR(idpresup,1,2)="PR","32",;
+											SUBSTR(idpresup,1,2)="PA","33",;
+											SUBSTR(idpresup,1,2)="PA","34","32") ,tp=1
+		CLOSE TABLES ALL 
+
+	ENDIF 
+
+
+	DO AddDetLine WITH "DETALLEPRESUPUESTO"
+	
+ENDPROC 
+
+PROCEDURE JUN2013_MOD_FACTURAS
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="SNETO"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="SIVA"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="SRIVA"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="STOTAL"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="SRENTA"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEFACTURAS"
+	LCFLD="PARCIAL"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+	**modificando presupuestos 
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="SNETO"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="SIVA"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="SRIVA"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="SRENTA"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="STOTAL"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+ENDPROC 
+
+PROCEDURE JUN_MOD_OT_D_CANT
+	CLOSE TABLES ALL 
+	LCTB="OT_D"
+	LCFLD="COSTO"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="OT_D"
+	LCFLD="PRECIO"
+	LNPRECISION="N(10,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+ENDPROC 
+
+
+PROCEDURE MAY13_MOD_TB_PARAM
+	CLOSE TABLES ALL 
+	LCTB="PARAMETROS"
+	LCFLD="USUARIO"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	LCTB="PARAMETROS"
+	LCFLD="FRXFILE"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	LCTB="PARAMETROS"
+	LCFLD="CLASIF"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION		
+	
+	**ACTUALIZANDO PARA QUE PUEDAN IMPRMIR EN OC
+	DO inserparamReport WITH "REPORTBEHAVIOR","02","80","REPORTES","MAURICIO","OC"
+	DO inserparamReport WITH "REPORTBEHAVIOR","02","80","REPORTES","RAUL","OC"
+
+	**ACTUALIZANDO PARA QUE PUEDAN IMPRMIR EN OG
+	DO inserparamReport WITH "REPORTBEHAVIOR","02","80","REPORTES","MAURICIO","OG"
+	DO inserparamReport WITH "REPORTBEHAVIOR","02","80","REPORTES","RAUL","OG"
+
+	**ACTUALIZANDO PARA QUE PUEDAN IMPRMIR EN RQ
+	DO inserparamReport WITH "REPORTBEHAVIOR","02","80","REPORTES","MAURICIO","RQ"
+	DO inserparamReport WITH "REPORTBEHAVIOR","02","80","REPORTES","MAURICIO","DV"
+
+
+	
+ENDPROC 
+
+PROCEDURE may13_del_OpenStartup
+	UPDATE sgaadd1  SET open_start=.F. WHERE ALLTRIM(file_name)=="PARAMETROS.DBF"
+ENDPROC 
+
+PROCEDURE abr13_add_PROV33
+	lcidreport="PROV33"
+	lcdescrip="Proveedores por Depto."
+	lcdescrip2="Cuentas por pagar detalladas por Departamento"
+	lcimage="REPORT_48.bmp"
+	lctp="prov3"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+ENDPROC 
+
+
+
+
+PROCEDURE abr13_MOD_sgaa
+	MESSAGEBOX("esta actualizacion debe realizarse en modo exclusivo")
+	CLOSE TABLES ALL 
+	USE ("sgaafapd.apd") exclusive
+	ALTER table ("sgaafapd.apd") alter COLUMN version c(15)
+	MESSAGEBOX("cambio realizado con exito")
+
+ENDPROC 
+
+
+PROCEDURE MAR13_MOD_OT
+	CLOSE TABLES ALL 
+	LCTB="OT"
+	LCFLD="DESCRIP"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+	
+ENDPROC 
+
+PROCEDURE FEB13_MOD_CLCALL_D
+	CLOSE TABLES ALL 
+	LCTB="CLCALL_D"
+	LCFLD="UPDATE"
+	LNPRECISION="T"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="CLCALL"
+	LCFLD="TEL"
+	LNPRECISION="C(45)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="CLCALL"
+	LCFLD="DESCRIP"
+	LNPRECISION="M"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	
+ENDPROC 
+
+
+PROCEDURE DIC2012_ADD_CHANGES_OTS
+	CLOSE TABLES ALL 
+	LCTB="OT"
+	LCFLD="TPLETRA"
+	LNPRECISION="C(25)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="OT"
+	LCFLD="PLIEGOS"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OT"
+	LCFLD="NHOJAS"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OT"
+	LCFLD="TPLIEG"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+	CLOSE TABLES ALL 
+	LCTB="OT"
+	LCFLD="THOJA"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+	CLOSE TABLES ALL 
+	LCTB="OT"
+	LCFLD="RETIRO"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="OT"
+	LCFLD="MONTAJE"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+ENDPROC 
+
+
+PROCEDURE DIC2012_ADD_PLIES
+	DIMENSION laPlie2Insert(19)
+	&&tp=1 solo para sueldo 
+	laPlie2Insert(1)="'SUELDO',  .t.,  1, 0, .f., 1, '', 1, {}, 1, 2"
+	&&tp=2 Renta
+	laPlie2Insert(2)="'RENTA'		,  .t.,  1, 0, .f., 1, '', 1, {}, 2, 2"
+	laPlie2Insert(3)="'RENTAPORC'	,  .t.,  1, 0, .f., 1, '', 1, {}, 2, 2"
+	
+	&&tp=3 pensiones
+	laPlie2Insert(4)="'AFP Confia'	,  .t.,  1, 6.75, .f., 1, '', 1, {}, 3, 2"
+	laPlie2Insert(5)="'AFP Crecer'	,  .t.,  1, 6.25, .f., 1, '', 1, {}, 3, 2"
+	laPlie2Insert(6)="'IPSFA'		,  .t.,  1, 6.00, .f., 1, '', 1, {}, 3, 2"	
+	laPlie2Insert(7)="'INPEP'		,  .t.,  1, 6.00, .f., 1, '', 1, {}, 3, 2"
+	laPlie2Insert(8)="'OTRAS PENSIONES',  .t.,  1, 0	, .f., 1, '', 1, {}, 3, 2"
+	&&tp=4 seguro social 
+	laPlie2Insert(9)="'ISSS'			, .t., 	1,	3.5, .f., 1, '', 1, {}, 4, 2"
+	laPlie2Insert(10)="'SEGURO PRIVADO'	, .t.,	2, 0.00, .f., 1, '', 1, {}, 4, 2"  &&SE USA ESTE POR SI FUERA UN MONTO FIJO Y NO UNA TASA POR ESO TERCER PARAMETRO ES 2
+	laPlie2Insert(11)="'OTROS SEGUROS'	, .t.,	1, 0.00, .f., 1, '', 1, {}, 4, 2"
+	
+	&&tp=5 Ingresos
+	laPlie2Insert(12)="'BONO'			,  .t.,  2, 0, .f., 3, '', 1, {}, 5, 1"
+	laPlie2Insert(13)="'COMISION'		,  .t.,  2, 0, .f., 3, '', 1, {}, 5, 1"
+	laPlie2Insert(14)="'HORAS EXTRAS'	,  .t.,  2, 0, .f., 3, '', 1, {}, 5, 1"
+
+	&&tp=6 Descuentos
+	laPlie2Insert(15)="'FSV'			,  .t.,  2, 0, .f., 3, '', 1, {}, 6, 2"
+	laPlie2Insert(16)="'PROCURADURIA'	,  .t.,  2, 0, .f., 3, '', 1, {}, 6, 2"
+	laPlie2Insert(17)="'PTMOS BANCARIOS',  .t.,  2, 0, .f., 3, '', 1, {}, 6, 2"
+	laPlie2Insert(18)="'PTMOS PERSONALES', .t.,  2, 0, .f., 3, '', 1, {}, 6, 2"
+	laPlie2Insert(19)="'ANTICIPOS'		,  .t.,  2, 0, .f., 3, '', 1, {}, 6, 2"
+
+	FOR lnPlie2Insert=1 TO ALEN(laPlie2Insert,1)
+	
+		lcParameters=laPlie2Insert(lnPlie2Insert)
+		DO AddPlie  WITH &lcParameters
+	ENDFOR 
+	
+ENDPROC 
+
+PROCEDURE DIC2012_ADD_ADDSITEMS
+	DIMENSION laElements(40,3)
+	laElements(1,1)="Numero de DUI"
+	laElements(1,2)="1"
+	laElements(1,3)="2"
+	laElements(2,1)="Numero de Afp"
+	laElements(2,2)="1"
+	laElements(2,3)="2"
+	laElements(3,1)="Numero de Isss"
+	laElements(3,2)="1"
+	laElements(3,3)="2"
+	laElements(4,1)="Numero de Nit"
+	laElements(4,2)="1"
+	laElements(4,3)="2"
+	laElements(5,1)="Numero de Licencia"
+	laElements(5,2)="1"
+	laElements(5,3)="2"
+	laElements(6,1)="Nacionalidad"
+	laElements(6,2)="1"
+	laElements(6,3)="1"
+	laElements(7,1)="Lugar de Nacimiento"
+	laElements(7,2)="1"
+	laElements(7,3)="1"
+
+	laElements(8,1)="Padre"
+	laElements(8,2)="2"
+	laElements(8,3)="1"
+	laElements(9,1)="Madre"
+	laElements(9,2)="2"
+	laElements(9,3)="1"
+	laElements(10,1)="Hijo:"
+	laElements(10,2)="2"
+	laElements(10,3)="1"
+	laElements(11,1)="Conyuge:"
+	laElements(11,2)="2"
+	laElements(11,3)="1"
+	laElements(12,1)="Direccion:"
+	laElements(12,2)="2"
+	laElements(12,3)="1"
+	laElements(13,1)="Telefono :"
+	laElements(13,2)="2"
+	laElements(13,3)="2"
+	laElements(14,1)="Celular"
+	laElements(14,2)="2"
+	laElements(14,3)="2"
+	laElements(15,1)="Email"
+	laElements(15,2)="2"
+	laElements(15,3)="1"
+
+	laElements(16,1)="Primaria"
+	laElements(16,2)="3"
+	laElements(16,3)="1"
+	laElements(17,1)="Secundaria"
+	laElements(17,2)="3"
+	laElements(17,3)="1"
+	laElements(18,1)="Educacion Basica"
+	laElements(18,2)="3"
+	laElements(18,3)="1"
+	laElements(19,1)="Bachilleraro"
+	laElements(19,2)="3"
+	laElements(19,3)="1"
+	laElements(20,1)="Universidad"
+	laElements(20,2)="3"
+	laElements(20,3)="1"
+	laElements(21,1)="Postgrado"
+	laElements(21,2)="3"
+	laElements(21,3)="1"
+	laElements(22,1)="Diplomados"
+	laElements(22,2)="3"
+	laElements(22,3)="1"
+	laElements(23,1)="Seminarios"
+	laElements(23,2)="3"
+	laElements(23,3)="1"
+
+	laElements(24,1)="Hora de Entrada"
+	laElements(24,2)="4"
+	laElements(24,3)="1"
+	laElements(25,1)="Hora de Salida"
+	laElements(25,2)="4"
+	laElements(25,3)="1"
+	laElements(26,1)="Fecha de Ingreso"
+	laElements(26,2)="4"
+	laElements(26,3)="3"
+	laElements(27,1)="Fecha de Salida"
+	laElements(27,2)="4"
+	laElements(27,3)="3"
+	laElements(28,1)="Fecha de Reingreso"
+	laElements(28,2)="4"
+	laElements(28,3)="3"
+	laElements(29,1)="Fecha de Ascenso"
+	laElements(29,2)="4"
+	laElements(29,3)="3"
+
+	laElements(30,1)="Permisos"
+	laElements(30,2)="5"
+	laElements(30,3)="3"
+	laElements(31,1)="Licencias por enfermedad"
+	laElements(31,2)="5"
+	laElements(31,3)="3"
+	laElements(32,1)="Vacaciones tomadas"
+	laElements(32,2)="5"
+	laElements(32,3)="3"
+	laElements(33,1)="Multas"
+	laElements(33,2)="5"
+	laElements(33,3)="3"
+
+	laElements(34,1)="Mecanico"
+	laElements(34,2)="6"
+	laElements(34,3)="1"
+	laElements(35,1)="Secretaria"
+	laElements(35,2)="6"
+	laElements(35,3)="1"
+	laElements(36,1)="Recepcionista"
+	laElements(36,2)="6"
+	laElements(36,3)="1"
+	laElements(37,1)="Gerente General"
+	laElements(37,2)="6"
+	laElements(37,3)="1"
+	laElements(38,1)="Operario"
+	laElements(38,2)="6"
+	laElements(38,3)="1"
+	laElements(39,1)="Gerente Mantenimiento1"
+	laElements(39,2)="6"
+	laElements(39,3)="1"
+	laElements(40,1)="Gerente Reparaciones"
+	laElements(40,2)="6"
+	laElements(40,3)="1"
+
+
+	FOR lnElement=1 TO ALEN(laElements,1)
+		
+		lcName=laElements(lnElement,1)
+		lnTp=laElements(lnElement,2)
+		lnNaturalize=laElements(lnElement,3)
+		DO AddPlper_Elem WITH "PlPer_Elem",lcName,INT(VAL(lnTp)),INT(VAL(lnNaturalize))
+	ENDFOR 
+
+ENDPROC 
+
+PROCEDURE DIC2012_ADD_CHANGES_PLNA
+	CLOSE TABLES ALL 
+	LCTB="PLPER"
+	LCFLD="SOLICITA"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="PLPER"
+	LCFLD="DEPTO"
+	LNPRECISION="C(2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="PLPER"
+	LCFLD="CARGO"
+	LNPRECISION="C(40)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="PLPER"
+	LCFLD="FING"
+	LNPRECISION="D"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="PLPER_D"
+	LCFLD="VALORN"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA"
+	LCFLD="FECI"
+	LNPRECISION="D"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA"
+	LCFLD="FECF"
+	LNPRECISION="D"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA"
+	LCFLD="DIAS"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA"
+	LCFLD="IDPROY"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA"
+	LCFLD="SOLICITA"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_d"
+	LCFLD="IDVOUCHER"
+	LNPRECISION=""
+	LCTYPEOPERATION="DROP"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="PLPLNA_d"
+	LCFLD="REFERENCIA"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="PLVOUCH"
+	LCFLD="FECHA"
+	LNPRECISION="D"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+ENDPROC 
+
+
+
+PROCEDURE NOV2012_DOCNUM
+	IF VARTYPE(_screen.doc1)="U"
+		_screen.NewObject("Doc1","Doc","c:\users\yec\documents\fox\gaa\lib1.0\_vars.vcx")
+	ENDIF 
+	IF DIRECTORY("DATA")
+		CD DATA 
+	ENDIF
+
+	lcTable="DOCNUM"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDDOC C(4),;
+			PREFIJO C(4),;
+			ID I,;
+			ESTADO I;
+			)
+		SELECT (lcTable)
+		INDEX ON ALLTRIM(IDDOC) TAG IDDOC 
+		INDEX ON id   TAG ID 
+		
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+
+	IF !DIRECTORY("DATA")
+		CD .. 
+	ENDIF 
+*	SELECT IDDOC,PREFIJO,VAL("0"),VAL("1") FROM DOCUMENTOS WHERE INLIST(IDDOC,"5","02","4","3") 
+	SELECT IDDOC FROM DOCUMENTOS WHERE INLIST(IDDOC,"5","02","4","3") INTO ARRAY ladocPrepare2send
+	
+	IF !VARTYPE(ladocPrepare2send)="U"
+		FOR lnIddo2send=1 TO ALEN(ladocPrepare2send,1)
+			INSERTDOCNUM(ladocPrepare2send(lnIddo2send))
+		ENDFOR 
+	ENDIF 
+ENDPROC 
+
+
+PROCEDURE OCTADDPERMIFILTERUSR
+	DIMENSION EDOS(1,3) 
+	lcstatus="A-01"
+	lcPrek="FLTUSR"
+	
+	SELECT;
+		lcPrek+TRANSFORM(PREFIJO),lcstatus,NOMBRE ;
+	FROM ;
+		DOCUMENTOS  ;
+	WHERE ;
+		INLIST(IDDOC,"01","02","03","05","06","07","08","16","4","52","53","88","55","25","26","56","3901") ;
+	INTO ARRAY ;
+		edos
+		
+	FOR N=1 TO  ALEN(EDOS,1)
+		DO AddAcceso2 WITH EDOS(n,1),EDOS(n,2),EDOS(n,3),.t.
+	ENDFOR 
+ENDPROC 
+
+PROCEDURE Oct12AddInvVenta
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="PRECVTA"
+	LNPRECISION="N(10,2) "
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="CBARRAS"
+	LNPRECISION="C(60) "
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+ENDPROC 
+
+PROCEDURE OctaddOT
+	IF DIRECTORY("DATA")
+		CD DATA 
+	ENDIF
+	
+	lcTable="OT"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDOT C(10),;
+			IDCLIENTE c(20),;
+			DESCRIP c(40),;
+			FECHA D,;
+			CANTIDAD C(25),;
+			PAPEL L,;
+			CARTU L,;
+			PAPELTP C(30),;
+			COLOR C(30),;
+			TAMAÑO C(30),;
+			NUM1 I,;
+			NUM2 I,;
+			TINTAT C(30),;
+			TINTAR C(30),;
+			FECHAIN D,;
+			VALOR N(10,5),;
+			ACTIVA L,;
+			FECHAO D,;
+			FACT L,;
+			SOLICITA C(10),;
+			OBS M ,;
+			ESTADO I,;
+			IVA L,;
+			RETIVA L,;
+			RETRENTA L,;
+			TIVA N(10,2),;
+			TRIVA N(10,2),;
+			TRENTA N(10,2),;
+			MRIVA N(10,2),;
+			SCANTIDAD N(10,2),;
+			SNETO N(10,2),;
+			SIVA N(10,2),;
+			SRIVA N(10,2),;
+			SRENTA N(10,2),;
+			STOTAL N(10,2),;
+			CRETENCION C(1);
+			)
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+
+	lcTable="OT_D"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDOT C(10),;
+			CODIGO C(10),;
+			DESCRIP c(40),;
+			CANT N(10,2),;
+			COSTO N(10,2),;
+			PRECIO N(10,2),;
+			TP I,;
+			LINE I AUTOINC ;			
+			)
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+
+
+	IF !DIRECTORY("DATA")
+		CD .. 
+	ENDIF 
+
+**insertar documentos
+	lcIdDocumento="3901"
+	lcNombre="Orden de Trabajo"
+	lcIdTrans="01"
+	lcPrefijo="OT"
+	llLegal=.f.
+	lcDescrip="Ordenes de trabajo "
+	lcImage="OT_32.png"
+	lcCategoria="VALORES"
+	lcSkipper="51301"
+	
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper
+
+ENDPROC 
+
+PROCEDURE OctAddFieldsVehiculos
+	CLOSE TABLES ALL 
+	LCTB="CVEHICULOS"
+	LCFLD="PLACA"
+	LNPRECISION="C(25) "
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="OBS"
+	LNPRECISION="C(40) "
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="IDPROY"
+	LNPRECISION="C(10) "
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	
+ENDPROC
+
+PROCEDURE RESTRICTACCES2APLICATED
+	DO AddAcceso2 WITH "APLICAOG","A-01","Ordenes de gastos aplicadas",.t.
+	DO AddAcceso2 WITH "APLICAOC","A-01","Ordenes de compra aplicadas",.t.
+	DO AddAcceso2 WITH "APLICARA","A-01","Requisiones aplicadas",.t.
+	
+ENDPROC 
+
+
+
+PROCEDURE addDetLines 
+	DO AddDetLine WITH "facturaslines"
+	DO AddDetLine WITH "detallefacturas"
+	DO AddDetLine WITH "detalledocprov"
+	DO AddDetLine WITH "detallecc"
+	DO AddDetLine WITH "detallecargosbanco"
+	DO AddDetLine WITH "detalleabonosbanco"
+ENDPROC 
+
+
+
+PROCEDURE OCTNULLADDTBCOSTOS
+	CLOSE TABLES ALL 
+	LCTB="TBCOSTOS"
+	LCFLD="COSTO3"
+	LNPRECISION="N(10,4) NULL "
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+ENDPROC 	
+
+PROCEDURE OCT_ADDGRIDFORMAT
+	IF DIRECTORY("DATA")
+		CD DATA 
+	ENDIF
+	
+	lcTable="GRDCOLS"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			form c(20),;
+			CURSOR c(12),;
+			CAMPO C(12),;
+			VISIBLE L,;
+			WIDTH I,;
+			ORDEN I,;
+			CAPTION C(20),;
+			LINE I AUTOINC,;
+			SOMBREAR L)
+		MESSAGEBOX("Tabla "+lcTable +" Creada Con exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+
+	
+	IF !DIRECTORY("DATA")
+		CD .. 
+	ENDIF 
+
+ENDPROC 
+
+PROCEDURE OCTREPORTinv23
+
+	lcidreport="INV23"
+	lcdescrip="Ordenes de compra por proyecto"
+	lcdescrip2="Listado de ordenes de compra por proyectos"
+	lcimage="REPORT_48.bmp"
+	lctp="inv2"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+	
+ENDPROC 
+
+
+PROCEDURE OCT_ADDMINISTERIO
+	IF DIRECTORY("DATA")
+		CD DATA 
+	ENDIF 
+	*Inicio de: Creando tabla CNCONTROL para llamadas 
+	lcTable="MNPER"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDMNPER C(10),;
+			FECHA T,;
+			NOMBRES c(40),;
+			APE1 C(30),;
+			APE2 C(30),;
+			DIREC C(30),;
+			MUNI C(4),;
+			DEPART C(2),;
+			ZONA C(30),;
+			FECNAC D,;
+			LNAC C(4),;
+			NOHIJOS I,;
+			NACADEMI I,;
+			CONYUGE C(40),;
+			AVISAR C(40),;
+			IDPRO C(10),; &&PROFESION ID 
+			ESTCIVIL I,;
+			IDIGLE C(40),;
+			BAUAGUA L,;
+			FECBAU D,;
+			LUGARBAU C(40),;
+			FECINGRE D,;
+			BAUES L,;
+			CCDL L,;
+			NCCDL I,;
+			IDGRUPO C(10),;	
+			ACRE_FEC T,;
+			ACRE_USR C(10),;
+			AMOD_FEC T,;
+			AMOD_USR C(10),;			
+			ADEL_FEC T,;
+			ADEL_USR C(10),;
+			ESTADO I,;
+			IGLEPROV I;
+		)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	
+	
+	lcTable="MNPER_D"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			REFERENCIA C(10),;  	&&IGLESIA			|TELEFONOS		|EMAILS			|PROFESIONES	|PARENTESCOS  	|MINISTERIOS	|GRUPOS FAMI	|CARGOS MINISTERIALES
+			TP I,;				&&1:NOMBRE IGLESIA	|2:TELEFONO		|3:EMAIL 		|4:PROFESIONES 	|5:PARENTESCO	|
+			DESCRIP C(40),; 	&&NOMBRE IGLESIA	|TELEFONO		|EMAIL			|PROFESION		|NOMBRE PARIENTE|
+			TP2 I,;  			&&SI TP=1 AD BAUTIS	|CEL TRAB AVISAR|PERSONAL TRAB 	|OFIC PROFE		|TIO PADRE MADRE|		
+			IDMNPER C(10),;
+			DESCRIP2 C(20),;
+			LINE I AUTOINC)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+
+	lcTable="MNPER_E"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			TP I,;				&&1:NOMBRE IGLESIA	|2:TELEFONO		|3:EMAIL 		|4:PROFESIONES 	|5:PARENTESCO	|
+			DESCRIP C(40),; 	&&NOMBRE IGLESIA	|TELEFONO		|EMAIL			|PROFESION		|NOMBRE PARIENTE|
+			LINE I AUTOINC,;
+			info c(30),;
+			tp2 i )
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+		
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(10,"Albañil","Profesiones",0)
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(10,"Medico","Profesiones",0)
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(10,"Profesor","Profesiones",0)
+		
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(1,"Iglesia Central Josue","Iglesias",0)
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(1,"Iglesia Josue Filial Apopa","Iglesias",0)
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(1,"Iglesia Josue Filial Aguilares","Iglesias",0)
+		
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(2,"Grupo 1","Grupos Familiares",0)
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(2,"Grupo 2","Grupos Familiares",0)
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(2,"Grupo 3","Grupos Familiares",0)
+
+
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(3,"Ministerio Grupos Familiares","Ministerios",1)
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(3,"Ministerio Hombres con Proposito","Ministerios",2)
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(3,"Ministerio de mujeres","Ministerios",3)
+
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(4,"Lider de Zona","Cargos",1)
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(4,"Supervisor","Cargos",1)
+		INSERT INTO mnper_e(tp,descrip,info ,tp2 ) ;
+		values(4,"Lider de Zona","Cargos",1)
+		
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+
+	
+	IF !DIRECTORY("DATA")
+		CD .. 
+	ENDIF 
+	**insertar documentos
+	lcIdDocumento="4911"
+	lcNombre="Personas de Ministerios"
+	lcIdTrans="01"
+	lcPrefijo="MNP"
+	llLegal=.f.
+	lcDescrip="Control de personas ministeriales"
+	lcImage="A-01_32.png"
+	lcCategoria="VALORES"
+	lcSkipper="51411"
+	
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper
+ENDPROC 
+
+
+
+PROCEDURE OCTREPORTCLI
+
+	lcidreport="CLI19"
+	lcdescrip="Facturas pendientes de cobro"
+	lcdescrip2="Listado compacto de facturas pendientes"
+	lcimage="REPORT_48.bmp"
+	lctp="cli1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+	
+ENDPROC 
+	
+PROCEDURE OCTSEPVNDEPOT
+	IF DIRECTORY("DATA")
+		CD DATA 
+	ENDIF 	
+	OPEN DATABASE CLIPROV EXCLUSIVE 
+	SET DATABASE TO CLIPROV
+	LCTABLE="VNDEPOT"
+	*ADD TABLE LCTABLE
+	IF !FILE(LCTABLE+".DBF")
+		**CREAR TABLA VNDEPOT 
+		Create TABLE VNDEPOT(;
+		IDVENTA C(10),		NUMERO 	C (8 ),		ANUMERO C (10 ),	ANUMERO2 	C (10 ),	TIVA 	N (10 ,2 ),	TRIVA 	N (10 ,2 ),;
+		MRIVA 	N (10 ,2 ),	LBIVA 	L ,			LBRIVA 	L ,			IDDOC 	C (2 ),			EXENTO 	L ,			PROYECTO 	C (10 ),;
+		CLIENTE C (80 ),	DIRECCION C (60 ),	MUNICIPIO C (30 ),	DEPARTAMENTO 	C (30 ),NIT 	C (14 ),	DUI 	C (6 ),;
+		FECHA 	D ,			FORMAPAGO 	C (20 ),REGISTRO 	C (7 ),	GIRO 	C (40 ),		MONTOLETRAS C (90 ),DOCUMENTO 	C (40 ),;
+		IDAUTOCORREL2 C (10 ),NUMERO2 	C (8 ),	SOLICITANTE C (10 ),DEPTO 	C (10 ),		EXENTAS N (12 ,2 ),	SUMAS 	N (12 ,2 ),;
+		IVA N (12 ,2 ),		SUBTOTAL N (12 ,2 ),IVARET 	N (12 ,2 ),	MONTO 	N (12 ,2 ),		PROYNOMB 	C (40 ),ENCARGA 	C (60 ),;
+		REFERENCIA C (10 ),	CANTIDAD N (10 ,2 ),DESCRIPCION C (50 ),PRECIO 	N (10 ,2 ),		VENTASEXENTAS N (10 ,2 ),VENTASAFECTAS 	N (10 ,2 );
+		)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	
+	IF !DIRECTORY("DATA")
+		CD .. 
+	ENDIF 
+	
+ENDPROC 
+
+
+
+PROCEDURE SEPCLASIF2
+	CLOSE TABLES ALL 
+	LCTB="CLCLASIF"
+	LCFLD="TELEFONICA"
+	LNPRECISION="C(30)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+	CLOSE TABLES ALL 
+	LCTB="CLCLASIF_D"
+	LCFLD="TELEFONICA"
+	LNPRECISION="C(30)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+	CLOSE TABLES ALL 
+	LCTB="CLCLASIF"
+	LCFLD="BRG"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CLCLASIF"
+	LCFLD="PUBLICADO"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CLCLASIF_E"
+	LCFLD="TP2"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+ENDPROC 
+
+PROCEDURE SEPADDPARAMETROS 
+	CLOSE TABLES ALL 
+	LCTB="PARAMETROS"
+	LCFLD="IDPARAMETRO"
+	LNPRECISION="C(30)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	LCTB="PARAMETROS"
+	LCFLD="CLASIF"
+	LNPRECISION="C(30)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	DO inserparam WITH "gCategoria",	"02",	"Pequeño",	"IMPUESTOS"
+	DO inserparam WITH "gRETIVA",		"01",	"0.01",		"IMPUESTOS"
+	DO inserparam WITH "gIVA",			"01",	"0.13",		"IMPUESTOS"
+	DO inserparam WITH "gRENTA",		"01",	"0.10",		"IMPUESTOS"
+	DO inserparam WITH "gRETIVA13",	"01",	"0.13",		"IMPUESTOS"
+	DO inserparam WITH "gPERCEPIVA",	"01",	"0.02",		"IMPUESTOS"
+	DO inserparam WITH "gMonto",		"01",	"100",		"IMPUESTOS"
+	
+ENDPROC 
+
+PROCEDURE SEPADDTOTAL
+	SET DELETED ON 
+	IF VARTYPE(_SCREEN.DOC1)="U"
+		_screen.NewObject("Doc1","Doc","c:\users\yec\documents\fox\GAA\lib1.0\_vars.vcx")
+	ENDIF 
+	
+	DIMENSION ADOCS(4,2)
+	ADOCS(1,1)="IDABONO"
+	ADOCS(1,2)="ABONOSBANCO"
+	
+	ADOCS(2,1)="IDCARGO"
+	ADOCS(2,2)="CARGOSBANCO"
+
+	ADOCS(3,1)="IDDOCPROV"
+	ADOCS(3,2)="DOCPROV"
+
+	ADOCS(4,1)="IDCC"
+	ADOCS(4,2)="CC"
+
+	FOR LNDOC=1 TO ALEN(ADOCS,1)
+	
+		LCCAMPO=ADOCS(LNDOC,1)
+		LCTABLE=ADOCS(LNDOC,2)
+		
+		SELECT &LCCAMPO FROM (LCTABLE) INTO ARRAY LA
+SELECT &LCCAMPO FROM (LCTABLE) 
+		FOR N=1 TO ALEN(LA)
+			LCID=LA(N)
+			IF !EMPTY(LCID)
+				_SCREEN.DOC1.Ctotal(LCID)
+				
+				LNNETO=_SCREEN.DOC1.Neto 
+				LNIVA=_SCREEN.DOC1.Iva 
+				LNRIVA=_SCREEN.DOC1.Riva 
+				LNRENTA=_SCREEN.DOC1.Renta 
+				LNTOTAL=_SCREEN.DOC1.Total 
+				
+				UPDATE;
+					(LCTABLE)  ;
+				SET;
+					STOTAL=LNTOTAL;
+				WHERE ;
+					&LCCAMPO==LCID
+					
+			ENDIF 
+		ENDFOR
+	ENDFOR 
+ENDPROC 
+
+PROCEDURE SEPADDPERMIFECHAS
+	DIMENSION EDOS(1,3) 
+	lcstatus="A-01"
+	lcPrek="FEC"
+	
+	SELECT;
+		lcPrek+TRANSFORM(PREFIJO),lcstatus,NOMBRE ;
+	FROM ;
+		DOCUMENTOS  ;
+	WHERE ;
+		INLIST(IDDOC,"01","02","03","05","06","07","08","16","4","52","53","88","55","25","26","56") ;
+	INTO ARRAY ;
+		edos
+		
+	FOR N=1 TO  ALEN(EDOS,1)
+		DO AddAcceso2 WITH EDOS(n,1),EDOS(n,2),EDOS(n,3),.t.
+	ENDFOR 
+ENDPROC 
+
+PROCEDURE SEPMODFACTCONTRATO3
+	CLOSE TABLES ALL 
+	LCTB="MCONTRATO"
+	LCFLD="FXSC"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+ENDPROC 
+
+PROCEDURE SEPMODTBCNCTR
+	
+	CLOSE TABLES ALL 
+	LCTB="CNCTR"
+	LCFLD="SCANTIDAD"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CNCTR"
+	LCFLD="SCONTRATO"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CNCTR"
+	LCFLD="SNETO"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CNCTR"
+	LCFLD="SIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CNCTR"
+	LCFLD="SRIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="CNCTR"
+	LCFLD="SRENTA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CNCTR"
+	LCFLD="STOTAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CNCTR_D"
+	LCFLD="NETO"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CNCTR_D"
+	LCFLD="IVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CNCTR_D"
+	LCFLD="RIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CNCTR_D"
+	LCFLD="RENTA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CNCTR_D"
+	LCFLD="TOTAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="CNCTR_D"
+	LCFLD="CONTRATO"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+ENDPROC 
+
+PROCEDURE SEPFACTURASDIRECCION
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="DIRECCION"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+ENDPROC 
+
+PROCEDURE SEPADDTBCONTRATOCONTROL
+	IF DIRECTORY("DATA")
+		CD DATA 
+	ENDIF 
+	*Inicio de: Creando tabla CNCONTROL para llamadas 
+	lcTable="CNCTR"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDCNC C(10),;
+			FECHA D,;
+			MES I,;
+			AÑO I,;
+			CONCEPTO C(50),;
+			OBS C(80),;
+			ACRE_FEC T,;
+			ACRE_USR C(10),;
+			AMOD_FEC T,;
+			AMOD_USR C(10),;			
+			ADEL_FEC T,;
+			ADEL_USR C(10),;
+			ESTADO I;
+		)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	
+	**Fin de: Creando tabla CNCONTROL_D para llamadas 
+	lcTable="CNCTR_D"
+		IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDCNC C(10),;
+			REFERENCIA C(10),;
+			IDVENTA C(10),;
+			FACTURA C(10),;
+			DESCRIP C(60),;
+			ESTADO I,;
+			TP I,;
+			LINE I AUTOINC;
+		)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+
+	
+	
+	IF !DIRECTORY("DATA")
+		CD .. 
+	ENDIF 
+	
+	**insertar documentos
+	lcIdDocumento="8101"
+	lcNombre="Control de Contratos "
+	lcIdTrans="01"
+	lcPrefijo="CNC"
+	llLegal=.f.
+	lcDescrip="Control de facturacion en contratos"
+	lcImage="contrato_16.jpg"
+	lcCategoria="VALORES"
+	lcSkipper="50504"
+	
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper
+ENDPROC 
+
+
+PROCEDURE SEPMODFACTCONTRATO2
+	CLOSE TABLES ALL 
+	LCTB="MSUCURSAL"
+	LCFLD="MONTO"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="MCONTRATO_EQ"
+	LCFLD="REFERENCIA"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="REFERENCIA"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+ENDPROC 
+
+PROCEDURE SEPCLASIF
+	IF FILE("DATA\CALLCLASIF.DBF")
+		DROP TABLE DATA\CALLCLASIF.DBF
+	ENDIF 
+	CD DATA 
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+	lcTable="CLCLASIF" &&Clasificacion
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDCALL C(10),;
+			FECHAC T,;
+			FECHAI T,;
+			DESCRIP M,;
+			COMENTS M,;
+			NOMBRE C(80),;
+			TP I,;
+			TELEFONO C(8),;
+			CELULAR C(8),;
+			FAX C(8),;
+			CORREO C(60),;
+			WWW C(60),;
+			DIRECCION C(80),;
+			ESTADO I;
+		)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+
+	CD DATA 
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+	lcTable="CLCLASIF_D" &&Detalles
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDCALL C(10),;
+			NOMBRE C(80),;
+			TELEFONO C(8),;
+			CELULAR C(8),;
+			FAX C(8),;
+			CORREO C(60),;
+			WWW C(60),;
+			TP I,;
+			LINE I AUTOINC;
+		)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+
+	CD DATA 
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+	lcTable="CLCLASIF_E" &&Elementos
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDCALL C(10),;
+			PRECIO N(10,2),;
+			MODELO C(40),;
+			MARCA C(40),;
+			COLOR C(20),;
+			AÑO C(4),;
+			UBICA C(30),;
+			INMUEB_TP I,;
+			NOCUART C(20),;
+			NOBANIO C(20),;
+			TP I,;
+			LINE I AUTOINC;
+		)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+	
+	CD DATA 
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+	lcTable="CLCLASIF_H" &&Historial
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDCALL C(10),;
+			FECHA T,;
+			DESCRIP C(80),;
+			TP I,;
+			LINE I AUTOINC;
+		)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+
+	CD DATA 
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+	lcTable="CLCLASIF_C" &&Celulares
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			num1 c(8),;
+			num2 c(8),;
+			TELEFONICA c(30),;
+			LINE I AUTOINC;
+		)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+
+	
+	**insertar documentos
+	lcIdDocumento="2702"
+	lcNombre="Clasificados"
+	lcIdTrans="01"
+	lcPrefijo="CLS"
+	llLegal=.f.
+	lcDescrip="Control de facturacion en contratos"
+	lcImage="application_tile_vertical.jpg"
+	lcCategoria="VALORECS"
+	lcSkipper="50702"
+		
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper
+	
+ENDPROC 
+
+PROCEDURE SEPMODFACTCONTRATO
+	CLOSE TABLES ALL 
+	LCTB="MCONTRATO"
+	LCFLD="MODFACT"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="MCONTRATO"
+	LCFLD="TPFACT"
+	LNPRECISION="C(2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="MCONTRATO"
+	LCFLD="MONTO"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+ENDPROC 
+
+PROCEDURE AGO_ADDREPORTS
+	lcidreport="CLI18"
+	lcdescrip="Facturas con retencion"
+	lcdescrip2="Muestra solo facturas con retencion de iva"
+	lcimage="REPORT_48.bmp"
+	lctp="cli1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+ENDPROC 
+
+PROCEDURE AGO_WIDTHOCSOGS
+	CLOSE TABLES ALL 
+	LCTB="ORDENESDEGASTOS"
+	LCFLD="REGISTRO"
+	LNPRECISION="C(14)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+ENDPROC 
+
+PROCEDURE AGO_ADD_IVA_REPORT
+	lcidreport="IVA"
+	lcdescrip="Reportes de Iva"
+	lcdescrip2="Solo reportes de Iva"
+	lcimage="FolderYellow_48.bmp"
+	lctp="main"
+	lctpllama="iva"
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	lcidreport="IVA1"
+	lcdescrip="Libros de Iva"
+	lcdescrip2="Libros de Iva"
+	lcimage="FolderYellow_48.bmp"
+	lctp="iva"
+	lctpllama="iva1"
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	lcidreport="IVA11"
+	lcdescrip="Libro de Ventas Consumidor"
+	lcdescrip2="Ventas a consumidores finales y facturas de exportacion"
+	lcimage="REPORT_48.bmp"
+	lctp="iva1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	lcidreport="IVA12"
+	lcdescrip="Libros de Ventas a Contribuyentes"
+	lcdescrip2="Ventas a contribuyentes de iva, Creditos fiscales y notas de Credito"
+	lcimage="REPORT_48.bmp"
+	lctp="iva1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	lcidreport="IVA13"
+	lcdescrip="Libros de Compras"
+	lcdescrip2="Compras con credito fiscal"
+	lcimage="REPORT_48.bmp"
+	lctp="iva1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	lcidreport="IVA2"
+	lcdescrip="Otros Reportes de Iva"
+	lcdescrip2="Otros Reportes de iva"
+	lcimage="FolderYellow_48.bmp"
+	lctp="iva"
+	lctpllama="iva2"
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	lcidreport="IVA21"
+	lcdescrip="Otros Reportes de Iva"
+	lcdescrip2="Otros Reportes de Iva"
+	lcimage="REPORT_48.bmp"
+	lctp="iva2"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+ENDPROC 
+
+
+
+PROCEDURE AGO_ADDSTOTALES
+	&&ordensdegastos 
+	CLOSE TABLES ALL 
+	LCTB="DOCPROV"
+	LCFLD="STOTAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CARGOSBANCO"
+	LCFLD="STOTAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+	CLOSE TABLES ALL 
+	LCTB="ABONOSBANCO"
+	LCFLD="STOTAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CC"
+	LCFLD="STOTAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+ENDPROC 
+
+
+PROCEDURE AGO_ADDCRNUM  
+	&&ordensdegastos 
+	CLOSE TABLES ALL 
+	LCTB="RFACT_D"
+	LCFLD="CR_NUM"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="RFACT_D"
+	LCFLD="CR_TP"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+ENDPROC 
+
+
+PROCEDURE AGO_ADD_EXENTOS               
+&&ordensdegastos 
+	CLOSE TABLES ALL 
+	LCTB="ORDENESDEGASTOS"
+	LCFLD="TIPO"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENESDEGASTOS"
+	LCFLD="EXTERIOR"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENESDEGASTOS"
+	LCFLD="EXENTO"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+&&ordenes de compra 
+	CLOSE TABLES ALL 
+	LCTB="ORDENCOMPRA"
+	LCFLD="EXENTO"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+ENDPROC 
+
+
+PROCEDURE addtbDataUpdates 
+LPARAMETERS lbSilenceMode
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+	lcTable="tbSrcDtUp"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			line i,;
+			proc  c(25),;
+			descrip c(60),;
+			creado t;
+			)
+		IF lbSilenceMode=.f.
+			MESSAGEBOX("Tabla "+lcTable +"Creada con exito")
+		ENDIF 
+	ELSE
+		IF lbSilenceMode=.f.
+			MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+		ENDIF 
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+
+
+
+	CD DATA
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+	lcTable="tbDtUp"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			line i,;
+			proc  c(25),;
+			descrip c(60),;
+			creado t,;
+			update t;
+			)
+		IF lbSilenceMode=.f.
+			MESSAGEBOX("Tabla "+lcTable +"Creada con exito")
+		ENDIF 
+	ELSE
+		IF lbSilenceMode=.f.	
+			MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+		ENDIF 
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..	
+ENDPROC 
+
+
+PROCEDURE JulModWidthPrecioLine
+	CLOSE TABLES ALL 
+	LCTB="FACTURASLINES"
+	LCFLD="PRECIO"
+	LNPRECISION="N(12,4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+ENDPROC 
+
+PROCEDURE CREATETBCOST
+	CD DATA
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+	lcTable="tbCOSTOS"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			periodo c(6),;
+			codigo c(15),;
+			nombre c(60),;
+			entrada n(10,4),;
+			entrada2 n(10,4),;
+			salida n(10,4),;
+			saldo n(10,4),;
+			calc n(10,4),;
+			costo n(10,4),;
+			costo2 n(10,4),;
+			cambio l,;
+			tpcosto c(30),;
+			costo3 n(10,4),;
+			costoref n(10,4);
+			)
+		MESSAGEBOX("Tabla "+lcTable +"Creada con exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+ENDPROC 
+
+
+*DO JUNADDTBFACTFAST
+*DO julmodwidthcodinv
+*enviado a gt 09/07/2012 11:00 am  falta gaa y omni 
+PROCEDURE julmodwidthcodinv
+	CLOSE TABLES ALL 
+	LCTB="INVENTARIO"
+	LCFLD="CODIGO"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEORDEN"
+	LCFLD="CODIGO"
+	LNPRECISION="c(15)"
+	LCTYPEOPERATION="alter"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEREQUISICION"
+	LCFLD="CODIGO"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="ENCARGA"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+ENDPROC 
+
+
+
+PROCEDURE JUNADDTBFACTFAST
+	CD DATA 
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+	lcTable="FACTFAST"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDDOC C(10),;
+			NUMERO C(10) ,;
+			IDCLIENTE 	C (10 ),;
+			NOMBRE c(80),;
+			REGISTRO c(7),;
+			NIT c(14),;
+			IDCLASIF c(2),;
+			FECHA 	D,;
+			EXENTO L,;
+			IVA L,;
+			RIVA L,;
+			DEPTO C(10),;
+			SNETO N(10,2),;
+			SIVA N(10,2),;
+			SRIVA N(10,2),;
+			STOTAL N(10,2),;
+			TIVA N (5,2),;
+			TRIVA N(5,2),;
+			MRIVA N(5,2),;
+			IDPROY C(10);
+		)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+ENDPROC 
+
+
+*DO JUNADDTBOAGENERATOR
+*DO JUNADDPROYECGT
+**Enviado a GTv2 OMNISERVICE GAA 
+PROCEDURE JUNADDPROYECGT
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="CONTACTO"
+	LNPRECISION="C(45)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="ENCARGA"
+	LNPRECISION="C(6)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+	CLOSE TABLES ALL 
+	LCTB="PROYECTOS"
+	LCFLD="ESTADO"
+	LNPRECISION="N"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+ENDPROC 
+
+*DO JUL2012_ADD_SRENTAFACT
+*DO JULUPDATEOG
+*DO JUNADDTBOAGENERATOR
+
+PROCEDURE JUNADDTBOAGENERATOR
+	CD DATA 
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+
+	lcTable="OAGEN"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDOAGEN C(10),;
+			FECHA 	D ,;
+			BODEGA 	C (10 ),;
+			NORDEN 	C (10 ),;
+			COMPRADOR 	C (10 ),;
+			ESTADO 	I ,;
+			DEPTO 	C (2 ),;
+			OBSERVA 	C (90 ),;
+			STOTAL 	N (10 ,2 );
+		)
+
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+
+	CD DATA 
+	*Inicio de: Creando tabla CLESTADOS para manejo de estadosde las llamadas 
+	lcTable="OAGEN_D"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDOAGEN	C (10 ),;
+			DESCRIP 	C (90 ),;
+			CODIGO 	C (8 ),;
+			CANTIDAD 	N (10 ,2 ),;
+			COSTO 	N (10 ,4 ),;
+			FISICO n(10,4),;
+			LINE 	I AUTOINC  	)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+
+	*************************************************************
+	**insertar documentos
+	lcIdDocumento="56"
+	lcNombre="Ajustes de inventario"
+	lcIdTrans="01"
+	lcPrefijo="OF"
+	llLegal=.f.
+	lcDescrip="Ajuste de inventario fisico"
+	lcImage="OrdenCompra.png"
+	lcCategoria="VALORES"
+	lcSkipper="5010502"
+	
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper
+
+
+ENDPROC 
+**ENVIADO OMNISERVICE Y GTv2
+PROCEDURE JUL2012_ADD_SRENTAFACT
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="SRENTA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+ENDPROC 
+
+
+
+**ENVIADO A GAA EN 04/07/2012
+PROCEDURE JULUPDATEOG
+	LCTABLE="ORDENESDEGASTOS"
+	LCCAMPO="NOGASTO"
+	LCFORM="OG"
+	IF !VARTYPE(_SCREEN.DOc1)="O"
+		_screen.NewObject("Doc1","Doc","c:\users\yec\documents\fox\GAA\lib1.0\_vars.vcx")
+	ENDIF 
+	
+	*SELECT &LCCAMPO FROM &LCTABLE 
+	SELECT &LCCAMPO FROM &LCTABLE  WHERE FECHA>CTOD("31/01/2012") INTO ARRAY LADOCS
+*SELECT &LCCAMPO FROM &LCTABLE WHERE NOGASTO="OG00000001" OR NOGASTO="VT00000010" 
+	FOR NM=1 TO ALEN(LADOCS)	
+		*MESSAGEBOX(LADOCS(N))
+		DO FORM OG WITH "",2,LADOCS(NM),.F. 
+		OG.TOTALIZAR
+		OG.GUARDAR(.F.)
+		OG.functions1.TasarImpuestos("MAESTRO") 
+		*&LCFORM..TOTALIZAR
+*		&LCFORM..TOTALIZAR
+		OG.RELEASE
+		*&LCFORM..RELEASE 
+		
+	ENDFOR 
+ENDPROC 
+
+
+
+
+*DO ABR2012_ADD_FormatCta
+**ENVIADO A GAA OMNI SLT Y GT EN 04/07/2012
+PROCEDURE ABR2012_ADD_FormatCta
+	CLOSE TABLES ALL 
+	LCTB="chequeras"
+	LCFLD="ChFormatFec"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="chequeras"
+	LCFLD="ChReport"
+	LNPRECISION="c(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+ENDPROC 
+
+
+
+**DO junaddaccesos2
+**enviado GTv2 Y OMNISERVICE Y GAA
+PROCEDURE junaddaccesos2
+
+***************************************************************************************************************************************
+	**contar numero decomas en la expresion
+	lcCargo="A-01"
+	tcTitle="6,61,62,63"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+
+	lcCargo="A-02"
+	tcTitle="6,61,62,63"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+
+	lcCargo="C-01"
+	tcTitle="6,61,62,63"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+
+
+ENDPROC 
+
+*SET DELETED ON 
+*SET EXCLUSIVE OFF 
+*DO delaccs
+*DO JunAddAccesos
+*DO JunAddCargos 
+*DO JunAddAccesos
+**enviados en fecha desconocida 
+PROCEDURE JunAddAccesos
+***************************************************************************************************************************************
+	**contar numero de comas en la expresion
+	lcCargo="O-01"
+	tcTitle="1,10201,10202,106,10601,502,50201,50202,50203,50204,50205,50206,"
+	tcTitle = tcTitle +"50207,50208,50209,50210,50211,50214,5021401,5021402,5021403,5021404,5021405,5021406,5021407,5021408,50215,50216,503,504,50401,"
+	tcTitle = tcTitle +"50402,50403,50404,51002,6"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+
+********************************************************************************
+	lcCargo="O-02"
+	
+	tcTitle="1,109,10901,10902,110,11001,516,51601,51602,51603,51604"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+	
+********************************************************************************
+	lcCargo="O-03"
+	
+	tcTitle="1,10201,103,10301,104,10401,106,10601,110,11001,502,50201,50202,50204,50205,50206,50208,50210,50211,50212,50213,50214,"
+	tcTitle = tcTitle + "5021401,5021402,5021403,5021404,5021405,5021406,5021407,5021408,50215,50216,506,50601,50602,507,50701,50702,"
+	tcTitle = tcTitle + "509,50901,516,51601,51602,51603,51604"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+
+********************************************************************************
+	lcCargo="O-04"
+	
+	tcTitle="1,10501,10502,109,10901,10902,509,50901"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+
+********************************************************************************
+	lcCargo="O-05"
+	
+	tcTitle="1,516,51601,51602,51603,51604,10902,509,50901"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+********************************************************************************
+	lcCargo="O-06"
+	
+	tcTitle="1,105,10501,10502,109,10901,10902,10903,10904,10905,10906,502,50201,50201,50213,517,51701,51702,51703"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+
+********************************************************************************
+	lcCargo="O-07"
+	
+	tcTitle="50302,50503"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+********************************************************************************
+	lcCargo="O-08"
+	
+	tcTitle="1,501,50101,50102,50103"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+
+********************************************************************************
+	lcCargo="O-09"
+	
+	tcTitle="1,502,50209,50211"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+
+********************************************************************************
+	lcCargo="O-10"
+	
+	tcTitle="1,103,10301,104,10401"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+
+********************************************************************************
+	lcCargo="C-01"
+	
+	tcTitle="1,102,10201,10202,10203,111,11101,11102,11103,501,50101,50102,50103,50208,504,50404,506,50601,50602,51001,51002,51003,511,51101,512,517,51701,51702,51703"
+	N=1
+	DO WHILE !ATC(",",tcTitle,N)=0
+		N = N + 1 
+	ENDDO 
+	**Separar expresiones para los titulos
+	DIMENSION acTitle(N)
+	lnStartPosition=1
+	lnEndPosition=0
+	lnCharReturn=0
+	FOR N=1 TO ALEN(acTitle)
+		lnEndPosition=IIF(ATC(",",tcTitle,N)=0,LEN(tcTitle)+1,ATC(",",tcTitle,N))
+		lnCharReturn=lnEndPosition-lnStartPosition
+		acTitle(N)=SUBSTR(tcTitle,lnStartPosition,lnCharReturn)
+		lnStartPosition=lnEndPosition+1
+		DO 	AddAcceso WITH acTitle(N),lcCargo,.t.
+	ENDFOR
+
+	
+ENDPROC 
+PROCEDURE delaccs
+	DELETE FROM menus WHERE idcargo<>"A-01"
+ENDPROC 
+
+*DO JunAddCargos 
+*enviado 11 06 de 2012 6:16 pm 
+PROCEDURE JunAddCargos
+	lbActualizar=.t.
+	DO AddCargos WITH "A-01","Super Administrador",lbActualizar
+	DO AddCargos WITH "A-02","Administrador General",lbActualizar
+	DO AddCargos WITH "A-03","Administrador Delegado",lbActualizar
+	DO AddCargos WITH "O-01","Planillas ",lbActualizar
+	DO AddCargos WITH "O-02","Gte Mantto",lbActualizar
+	DO AddCargos WITH "O-03","Asistente mantto",lbActualizar
+	DO AddCargos WITH "O-04","Instalaciones ",lbActualizar
+	DO AddCargos WITH "O-05","Auxiliar Manttos",lbActualizar
+	DO AddCargos WITH "O-06","Operador 6, Benjamin",lbActualizar
+	DO AddCargos WITH "O-07","Cobrador , Darwin",lbActualizar				
+	DO AddCargos WITH "O-08","Encargado de Bodega Materiales",lbActualizar
+	DO AddCargos WITH "O-09","Encargado Bodega Herramientas",lbActualizar
+	DO AddCargos WITH "O-10","Vendedora, Lissette",lbActualizar
+	DO AddCargos WITH "C-01","Contador, paty",lbActualizar	
+ENDPROC 
+
+
+*DO MAY2012_ADD_CAMPO_UNIDO
+**enviado 11 06 2012 10:21
+PROCEDURE MAY2012_ADD_CAMPO_UNIDO
+	CLOSE TABLES ALL 
+	LCTB="MHOJA"
+	LCFLD="UNIDO"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+ENDPROC 
+
+
+**DO MAY2012_MOD_CAMPOS_EQ
+**enviado 11 06 2012 10:50 
+PROCEDURE MAY2012_MOD_CAMPOS_EQ
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="SERIE"
+	LNPRECISION="C(40)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="MODELO"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="MARCA"
+	LNPRECISION="C(40)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="CAPACIDAD"
+	LNPRECISION="C(40)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="MODELO2"
+	LNPRECISION="C(90)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="MARCA2"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="CAPACIDAD2"
+	LNPRECISION="C(40)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="UBICACION2"
+	LNPRECISION="C(40)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+ENDPROC
+
+*DO JUN2012ADDREPORTMNT22
+**enviado 11 06 2012 10:21
+PROCEDURE JUN2012ADDREPORTMNT22
+	lcidreport="MNT22"
+	lcdescrip="Estructura de Contratos de Mantto"
+	lcdescrip2="Informacion que detalle las sucursales y equipos de cada contrato"
+	lcimage="REPORT_48.bmp"
+	lctp="mnt2"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+ENDPROC 
+
+*DO JUN2012Actualizarproys 
+**enviado 11 06 2012 10:56 am 
+*DO JUN2012Actualizarproys 
+PROCEDURE JUN2012Actualizarproys 
+	CLOSE TABLES ALL 
+	USE detallegasto 
+	
+	SCAN 	
+		RELEASE laproy
+		RELEASE ladepto
+		RELEASE laidveh
+		
+		lcnogasto=detallegasto.nogasto
+		lcproy=detallegasto.proyecto
+		lcdepto=detallegasto.depto
+		lcidvehiculo=detallegasto.idvehiculo
+		
+		IF EMPTY(lcproy)
+			SELECT proyecto FROM ordenesdegastos WHERE nogasto=lcnogasto INTO ARRAY laproy
+			IF !VARTYPE(laproy)="U"
+				WAIT "Reemplazando proyecto con "+laproy+" en orden "+lcnogasto  WINDOW NOWAIT 
+				replace proyecto WITH laproy IN detallegasto
+			ENDIF 
+		ENDIF 
+		
+		IF EMPTY(lcdepto)
+			SELECT depto FROM ordenesdegastos WHERE nogasto=lcnogasto INTO ARRAY ladepto
+			IF !VARTYPE(ladepto)="U"
+				WAIT "Reemplazando depto con "+ladepto+" en orden "+lcnogasto  WINDOW NOWAIT 			
+				replace depto WITH ladepto IN detallegasto
+			ENDIF 
+		ENDIF 		
+
+		IF EMPTY(lcidvehiculo)
+			SELECT idvehiculo FROM ordenesdegastos WHERE nogasto=lcnogasto INTO ARRAY laidveh
+			IF !VARTYPE(laidveh)="U"
+				WAIT "Reemplazando vehiculo con "+laidveh+" en orden "+lcnogasto  WINDOW NOWAIT 			
+				replace idvehiculo WITH laidveh IN detallegasto
+			ENDIF 
+		ENDIF 		
+
+	ENDSCAN
+
+ENDPROC 
+
+*DO JUN2012EXPANEMAILCLIENTES
+**enviado 05/06/2012 12:38 pm 
+PROCEDURE JUN2012EXPANEMAILCLIENTES
+	CLOSE TABLES ALL 
+	LCTB="CONTACCLIEN"
+	LCFLD="NOMBRE"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CONTACCLIEN"
+	LCFLD="EMAIL"
+	LNPRECISION="C(40)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CONTACCLIEN"
+	LCFLD="WEB"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CONTACCLIEN"
+	LCFLD="CARGO"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CONTACCLIEN"
+	LCFLD="DUI"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CONTACCLIEN"
+	LCFLD="NIT"
+	LNPRECISION="C(14)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CONTACCLIEN"
+	LCFLD="NIT"
+	LNPRECISION="C(14)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+ENDPROC 
+**DO JUNADDCALLCENTER
+*enviado 11/06/2012 para actualizar 
+
+*DO JUNADDCALLCENTER
+*UpdateDocValidVista("452","11101111011","VALID") &&para actualizar este documento cuando se ponga nuevo gastos
+*UpdateDocValidVista("452","11111111111","VISTA") &&para actualizar este documento cuando se pongan nuevo gastos
+*enviado 5 de junio 10:00 am 
+PROCEDURE JUNADDCALLCENTER
+	CD DATA 
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+	lcTable="CLCALL"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDCALL C(10),;
+			IDUSER C(10),;
+			IDREMI C(10),;
+			DESCRIP C(60),;
+			ESTADO I,;
+			IDDEPTO C(10),;
+			IDPROYECTO C(10),;
+			PRIORIDAD I,;
+			TP_RUBRO I,;
+			FECHA D,;
+			FEC_H T,;
+			CLI_TP I,;
+			IDCLIENTE C(10),;
+			NOMBRE C(60),;
+			ESTADO2 i,;
+			DESCRIP2 c(60),;
+			TEL c(8),;
+			REPORTA c(25),;
+			AVANCE  N(10,2),;
+			IDSUCURSAL C(10),;
+			IDEQUIPO C(10);
+			)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+
+	CD DATA 
+	*Inicio de: Creando tabla CLESTADOS para manejo de estadosde las llamadas 
+	lcTable="CLEDOS"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDESTADO i,;
+			DESCRIP C(60),;
+			TIPO C(10),;
+			EDOMAYOR i;
+			)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+	
+	CD DATA 
+	*Inicio de: Creando tabla CLCALLS para llamadas 
+	lcTable="CLCALL_D"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDCALL C(10),;
+			REFERENCIA c(10),;
+			DESCRIP C(60),;
+			PARCIAL n(10,2),;
+			TP I,;
+			LINE  I AUTOINC ;
+			)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: Creando tabla CLCALLS para llamadas 
+	CD..
+	CD data 
+	SET EXCLUSIVE OFF 
+	gbIngresar=.f.
+	IF gbIngresar=.t.
+		**Estados generales 
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(1,"Sin Clasificar","general",0)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(2,"Remitidas","general",0)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(3,"En Proceso","general",0)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(4,"Finalizada","general",0)
+		**Estados generales 
+		
+		**Estados de prioridad
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(1,"Baja","priori",0)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(2,"Media","priori",0)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(3,"Alta","priori",0)
+		**Estados prioridad
+
+		**Estados de clientes
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(1,"Registrado","cliente",0)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(2,"Potencial","cliente",0)
+		**Estados clientes
+
+		**Estados de rubros
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(1,"Ventas","rubro",0)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(2,"Reparacion","rubro",0)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(3,"Reclamo","rubro",0)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(3,"Otros ","rubro",0)	
+		**Estados rubros
+
+
+		**Estados de rubros
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(1,"En Cola","estado2",1)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(2,"Programada ","estado2",2)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(3,"Visitada","estado2",3)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(4,"Presupuestada","estado2",3)	
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(5,"Presupuesto enviado","estado2",3)	
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(6,"Aprobado","estado2",3)		
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(7,"Anticipo Facturado","estado2",3)		
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(8,"Ejecutando","estado2",3)				
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(9,"Entregado","estado2",3)					
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(10,"Complemento Facturado","estado2",4)						
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(11,"Cobrado","estado2",4)							
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(12,"Calificado","estado2",4)
+		
+		
+		**Estados rubros
+		**Ingresando combouser
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(1,"YEC","combouser",1)
+		INSERT INTO cledos(idestado,descrip,tipo,edomayor)values(2,"AMMENDEZ","combouser",2)
+		**Ingresando combouser		
+		gbIngresar=.f.
+		
+		
+	ENDIF 
+
+	
+	DIMENSION EDOS(1,3) 
+	lcstatus="A-01"
+	lcPrek="CLEDOS"
+	SELECT lcPrek+TRANSFORM(idestado),descrip,lcstatus FROM cledos WHERE tipo="general" INTO ARRAY edos
+	FOR N=1 TO ALEN(EDOS,1)
+		RELEASE laEdo
+		&&Capturar indice 
+		lcEdo=EDOS(n,1)
+
+		&&Buscar codigo 
+		SELECT;
+			codigo;
+		FROM ;
+			menus;
+		WHERE ;
+			codigo=lcEdo;
+		INTO ARRAY ;
+			laEdo
+
+			
+		IF VARTYPE(laEdo)="U"
+			&&Insertar 
+			INSERT INTO menus (codigo,nombre,idcargo )VALUES (EDOS(n,1),EDOS(n,2),EDOS(n,3))
+			MESSAGEBOX("Codigo"+lcEdo+"ingresado con exito")
+		ELSE
+			&&ya Existe 
+			MESSAGEBOX("Codigo"+lcEdo+"ya fue ingresado con anterioridad")
+		ENDIF 
+		
+	ENDFOR 
+	
+	*************************************************************
+	**insertar documentos
+	lcIdDocumento="2701"
+	lcNombre="Llamadas"
+	lcIdTrans="01"
+	lcPrefijo="CLL"
+	llLegal=.f.
+	lcDescrip="Llamadas"
+	lcImage="PER_16.png"
+	lcCategoria="VALORES"
+	lcSkipper="51501"
+	
+	DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper
+
+
+ENDPROC 
+
+
+
+*DO MAr_AddValidsVistas &&para actualizar ultimos cambios cuando se pongan nuevos gastos 
+**enviado 05 de junio de 2012 
+*DO ABR2012_ADD_VC_OG
+**enviado 05 de junio de 2012 
+*DO MAY_ADD_MANT_REPORT 
+**enviado 21 de mayo de 12
+*DO MAY2012_ADD_veheq_enblanco
+**enviado 21 de mayo 12
+
+*PENDIENTES: 
+*do ABR2012_ADD_Formats_ch &&si se ponen los formatos de cheque para impresion 
+*addDataPL  &&cuando se ponga la planilla 
+*DO ABR2012_MOD_ANCHO_DOCS &&cuando se ponga planilla 
+*UpdateDocValidVista("452","11101111011","VALID") &&para actualizar este documento cuando se ponga nuevo gastos
+*UpdateDocValidVista("452","11111111111","VISTA") &&para actualizar este documento cuando se pongan nuevo gastos
+*DO MAr_AddValidsVistas &&para actualizar ultimos cambios cuando se pongan nuevos gastos 
+*ABR2012_ADD_VC_OG &&cuando se ponga nuevo form de gastos 
+*ABR_PACKERRORS &&solo para disminuir tamaño de data
+
+*********************************************************************************************************************************************
+**FORMS QUE ESTAN PENDIENTES DE ACTUALIZAR TAMBIEN :																						*
+**prov.scx 07/05/2012<---> de SLT 05/05/2012  al parecer ya se actualizo REVISAR (05/06/2012 ACTUALIZADO)									*
+**provs.scx 07/04/2012<---> de SLT 28/04/2012 	(05/06/2012 ACTUALIZADO)																	*
+**fcmenu.scx 09/11/2011<---> de SLT 28/04/2012 	(05/06/2012 ACTUALIZADO)																	*
+**contribuyentes.scx 07/02/2012<---> de SLT 30/04/2012 (05/06/2012 ACTUALIZADO) 															*
+**cvehiculos.scx 04/10/2011<---> de SLT 30/04/2012		(05/06/2012 ACTUALIZADO) 															*																	*
+**og.scx 07/05/2012<---> de SLT 30/04/2012  al parecer ya se actualizo REVISAR 																*
+**fcreg.scx 10/02/2012<---> de SLT 30/04/2012  revisar cual es el cambio (05/06/2012 ACTUALIZADO) 											*																	*													*
+**fcdepto.scx 10/02/2012<---> de SLT 30/04/2012  al parecer ya se actualizo (05/06/2012 ACTUALIZADO) 										*																	*													*												*
+**proyectos.scx 07/02/2012<---> de SLT 05/05/2012  al parecer solo se cambio el entorno de datos privado REVISAR (05/06/2012 ACTUALIZADO)	*
+**proveedores.scx 07/02/2012<---> de SLT 05/05/2012  al parecer solo se cambio el entorno de datos privado REVISAR (05/06/2012 ACTUALIZADO)	*
+**clientes.scx 07/02/2012<---> de SLT 05/05/2012  al parecer solo se cambio el entorno de datos privado REVISAR	(05/06/2012 ACTUALIZADO)	*
+*********************************************************************************************************************************************
+**enviado fecha desconocidad 
+PROCEDURE MAY_ADD_MANT_REPORT 
+	lcidreport="MNT"
+	lcdescrip="Reportes de Mantto"
+	lcdescrip2="Solo reportes de Mantenimiento"
+	lcimage="MANTENIMIENTO.bmp"
+	lctp="main"
+	lctpllama="mnt"
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+	
+		lcidreport="MNT1"
+		lcdescrip="Listados de Mantto"
+		lcdescrip2="Listado  de licitacion, Vencidos y otros "
+		lcimage="FolderYellow_48.bmp"
+		lctp="mnt"
+		lctpllama="mnt1"
+		DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+			lcidreport="MNT11"
+			lcdescrip="Todos los Manttos"
+			lcdescrip2="Listado de manttos por vencer en un periodo"
+			lcimage="REPORT_48.bmp"
+			lctp="mnt1"
+			lctpllama=""
+			DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+			lcidreport="MNT12"
+			lcdescrip="Manttos para licitacion"
+			lcdescrip2="Listado para licitaciones se imprimen mensuales bimensuales etc. "
+			lcimage="REPORT_48.bmp"
+			lctp="mnt1"
+			lctpllama=""
+			DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+			lcidreport="MNT13"
+			lcdescrip="Manttos X vencer"
+			lcdescrip2="Listado de manttos por vencerse en un mes determinado"
+			lcimage="REPORT_48.bmp"
+			lctp="mnt1"
+			lctpllama=""
+			DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+		lcidreport="MNT2"
+		lcdescrip="Contratos de Mantto"
+		lcdescrip2="Informacion relacionada a la estructura de los contratos "
+		lcimage="FolderYellow_48.bmp"
+		lctp="mnt"
+		lctpllama="mnt2"
+		DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+			lcidreport="MNT21"
+			lcdescrip="Contratos de Mantto"
+			lcdescrip2="Informacion que detalle las sucursales y equipos de cada contrato"
+			lcimage="REPORT_48.bmp"
+			lctp="mnt2"
+			lctpllama=""
+			DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+
+
+ENDPROC 
+**enviado 
+**desconocidad 
+PROCEDURE MAY2012_ADD_veheq_enblanco
+	CLOSE TABLES ALL 
+	LCTB="VEHICULOSPRESUP"
+	LCFLD="PLACA"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="VEHICULOSPRESUP"
+	LCFLD="MARCA"
+	LNPRECISION="C(40)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="VEHICULOSPRESUP"
+	LCFLD="AÑO"
+	LNPRECISION="C(4)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="VEHICULOSPRESUP"
+	LCFLD="MODELO"
+	LNPRECISION="C(40)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="VEHICULOSPRESUP"
+	LCFLD="KILOMETRAJE"
+	LNPRECISION="N(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOSPRESUP"
+	LCFLD="MARCA"
+	LNPRECISION="C(25)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOSPRESUP"
+	LCFLD="MODELO"
+	LNPRECISION="C(25)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOSPRESUP"
+	LCFLD="SERIE"
+	LNPRECISION="C(25)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOSPRESUP"
+	LCFLD="CAPACIDAD"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOSPRESUP"
+	LCFLD="UBICACION"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	USE equipospresup   IN 0 
+	SELECT equipospresup   
+	ln=0
+	SCAN
+	 	ln = ln + 1 
+		lcIdEq=equipospresup.idequipo
+		SELECT marca, modelo, serie, capacidad, ubicacion FROM equipos WHERE idequipo=lcIdEq INTO ARRAY laEqInfo
+		IF !VARTYPE(laEqInfo)="U"
+			replace marca WITH laEqInfo(1,1) IN equipospresup
+			replace modelo WITH laEqInfo(1,2) IN equipospresup
+			replace serie WITH laEqInfo(1,3) IN equipospresup
+			replace capacidad WITH laEqInfo(1,4) IN equipospresup
+			replace ubicacion  WITH laEqInfo(1,5) IN equipospresup
+			WAIT TRANSFORM(ln)+"Copiando datos Equipo:"+lcIdEq WINDOW NOWAIT 
+		ELSE 
+			WAIT TRANSFORM(ln)+"Equipo:"+lcIdEq +"No encontrado" WINDOW NOWAIT 		
+		ENDIF 
+	ENDSCAN
+	MESSAGEBOX(TRANSFORM(ln)+"Equipos copiados ")
+
+	
+	
+	CLOSE TABLES ALL 
+	USE vehiculospresup   IN 0 
+	SELECT vehiculospresup   
+	ln=0
+	SCAN
+	 	ln = ln + 1 
+		lcIdVh=vehiculospresup.idvehiculo
+		SELECT placa, marca, año, modelo, kilometraje FROM vehiculos WHERE idvehiculo=lcIdvh INTO ARRAY laVhInfo
+		IF !VARTYPE(laVhInfo)="U"
+			replace placa WITH laVhInfo(1,1) IN vehiculospresup   
+			replace marca WITH laVhInfo(1,2) IN vehiculospresup   
+			replace año WITH laVhInfo(1,3) IN vehiculospresup   
+			replace modelo WITH laVhInfo(1,4) IN vehiculospresup   
+			replace kilometraje  WITH laVhInfo(1,5) IN vehiculospresup   
+			WAIT TRANSFORM(ln)+"Copiando datos Vehiculo:"+lcIdVh WINDOW NOWAIT 
+		ELSE 
+			WAIT TRANSFORM(ln)+"Vehiculo:"+lcIdVh +"No encontrado" WINDOW NOWAIT 		
+		ENDIF 
+	ENDSCAN
+	MESSAGEBOX(TRANSFORM(ln)+"Vehoculos copiados ")
+	
+	
+
+ENDPROC 
+
+PROCEDURE ABR2012_ADD_Formats_ch
+	CLOSE TABLES ALL 
+	LCTB="CHEQUERAS"
+	LCFLD="chformatfec"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CHEQUERAS"
+	LCFLD="chreport"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+ENDPROC 
+
+
+PROCEDURE addDataPL
+**Fecha:22/4/2012
+**Origen:GAMA AUTO  
+**Descripcion:planilla
+**planilla
+	CD DATA 
+	*
+	*Inicio de:Creando tabla planilla 
+	lcTable="PlPer"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDPERSON C(10),;
+			NOMB1 C(60),;
+			NOMB2 C(60),;
+			NOMB3 C(60),;
+			APE1 C(60),;
+			APE2 C(60),;
+			APE3 C(60),;
+			SEX C(1),;
+			FNAC D,;
+			ESTADO I,;
+			Dui c(20),;
+			Afp c(20),;
+			Isss c(20),;
+			Nit c(10),;
+			NAC c(40),;
+			SNOMINAL N(10,2);
+			)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de:Creando tabla planilla 
+	
+	
+	
+	
+	**Inicio de: PlPer_D
+	lcTable="PlPer_D"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(;
+			IDPERSON C(10),;
+			ID C(10),;
+			DESCRIP C(60),;
+			VALOR C(30),;
+			VALORD D,;
+			TP I,;
+			ACTIVO L,;
+			line i AUTOINC ;
+			)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya +"+lcTable +"existe ")
+	ENDIF 
+	**Fin de: PlPer_D
+
+	
+	**Inicio de: PlPlna
+	lcTable="PlPlna"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDPLNA C(10),;
+			IDDEPTO C(2),;
+			ESTADO I,;
+			IDPERIODO C(10),;
+			STOTAL N(10,2),;
+			SEMPS I,;
+			descrip c(60),;
+			TP I;
+			)
+		MESSAGEBOX("Tabla Creada on exito")
+		*ADD TABLE EVENT 
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: PlPlna
+
+	**Inicio de: PlPlna_D
+	lcTable="PlPlna_D"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDPLNA C(10),;
+			IDVOUCHER C(10),;
+			DESCRIP c(30),;
+			PARCIAL n(10,2),;
+			TP I,;
+			LINE I AUTOINC ;
+			)
+		MESSAGEBOX("Tabla "+lcTable+" Creada on exito")
+		*ADD TABLE EVENT 
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: PlPlna
+
+
+
+	**Inicio de: PlVouch
+	lcTable="PlVouch"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDVOUCHER C(10),;
+			IDPERSON C(10),;
+			IDPLNA  C(10),;
+			SSAL n(10,2) ,;
+			SHEX n(10,2) ,;
+			SINCAP	n(10,2),;
+			SEXT  n(10,2),;
+			SAFP	n(10,2),;
+			SISSS	n(10,2),;
+			SRENTA N(10,2),;
+			SINGS N(10,2),;
+			SDESC N(10,2),;
+			SDTRAB I,;
+			SDINCAP I,;
+			SDLIC I,;
+			SDSG I,;
+			SDVAC I,;
+			STOTAL N(10,2),;
+			ESTADO I;
+			)
+		MESSAGEBOX("Tabla Creada on exito")
+		*ADD TABLE EVENT 
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: PlPlna	
+
+	**Inicio de: PlVouch_D
+	lcTable="PLVOUCH_D"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDVOUCHER C(10),;
+			REFERENCIA C(10),;
+			DESCRIP C(30),;
+			PARCIAL N(10,2),;
+			LINE i AUTOINC ,;
+			CPERSON L,;
+			CRENTA 	L,;
+			CISSS 	L,;
+			CAFP 	L,;
+			ESSAL	L,;
+			ESRENTA L,;			
+			ESISSS L,;	
+			ESAFP	L,;
+			IDPROYECTO C(10),;
+			IDDEPTO C(2)	,;
+			tp I;
+			)
+		MESSAGEBOX("Tabla Creada on exito")
+		*ADD TABLE EVENT 
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: PlVouch_d
+
+	*Inicio de:Creando tabla ingresos y egresos 
+	lcTable="PLIE"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDIE C(10),;
+			DESCRIP C(60),; &&DESCRIPCION 
+			ACTIVO L,;  	&&ACTIVO O INACTIVO 
+			CBASE I,;   	&&CALCULAR EN BASE A 1-SUELDO 2-MONTO FIJO 3-LISTADO EXTERNO 
+			MONTO N(10,2),;	&&SE USA CUAN CBASE=2 
+			MSALDO L,;  	&&.T.: MANEJO DE SALDO 
+			APLICA I,;		&&1-TODOS 2-UN EMPLEADO 3-UN LISTADO
+			IDPERSON C(10),;	&&SE USA CUANDO APLICA = 2
+			PERIODI I,;		&&1-EN TODAS 2-SOLO EN LA PROXIMA 3-EN PLANILLA FECHA FEC_PL
+			FEC_PL D,;		&&FECHA QUE SE USA CUANDO PERIODI=3
+			TIPO I,;		&&1-SUELDO 2-RENTA 3-AFP 4-ISSS 
+			ESTADO I,;    	&&Estado
+			SR I;			&&Suma y Resta 
+			)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de:Creando tabla planilla 
+
+	**Inicio de: PlPer_Elem
+	lcTable="PlPer_Elem"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable) (;
+			IDELEMENT C(10),;
+			DESCRIP C(60),;
+			TP I,;
+			categoria c(40),;
+			icono c(40),;
+			skipper c(10),;
+			CanUpdate l,;
+			naturalize i;
+			)
+		MESSAGEBOX("Tabla Creada on exito")
+		*ADD TABLE EVENT 
+	ELSE
+		MESSAGEBOX("Tabla ya "+lcTable+" existe ")
+	ENDIF 
+	**Fin de: PlPer_Elem
+	
+	
+	**Inicio de: PlPer_D
+	lcTable="PlIE_D"
+	IF FILE(lcTable+".dbf")=.f.
+		CREATE TABLE (lcTable)(;
+			IDIE C(10),;
+			IDPER C(10),;
+			DESCRIP C(60),;
+			ACTIVO L,;
+			valor n(10,2),;
+			TP i	,;
+			SR I	,;
+			line i AUTOINC ;
+			)
+		MESSAGEBOX("Tabla "+lcTable +" Creada on exito")
+	ELSE
+		MESSAGEBOX("Tabla ya +"+lcTable +"existe ")
+	ENDIF 
+	**Fin de: PlPer_D
+
+	CD..
+	
+*************************************************************
+**insertar documentos 
+	lcIdDocumento="4901"
+	lcNombre="Personas"
+	lcIdTrans="01"
+	lcPrefijo="PER"
+	llLegal=.f.
+	lcDescrip="Empleados que trabajan para la empresa"
+	lcImage="PER_16.png"
+	lcCategoria="VALORES"
+	lcSkipper="51401"
+	
+ DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper
+*************************************************************
+
+*************************************************************
+**insertar documentos 
+	lcIdDocumento="4902"
+	lcNombre="Voucher de Planilla"
+	lcIdTrans="01"
+	lcPrefijo="PVO"
+	llLegal=.f.
+	lcDescrip="Voucher de PLanilla"
+	lcImage="PER_16.png"
+	lcCategoria="VALORES"
+	lcSkipper="51403"
+	
+ DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper
+*************************************************************
+**insertar documentos 
+	lcIdDocumento="4903"
+	lcNombre="Planilla"
+	lcIdTrans="01"
+	lcPrefijo="PLN"
+	llLegal=.f.
+	lcDescrip="Planilla  de sueldos de empleados"
+	lcImage="PER_16.png"
+	lcCategoria="VALORES"
+	lcSkipper="51402"
+	
+ DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper
+*************************************************************
+**insertar documentos 
+	lcIdDocumento="4904"
+	lcNombre="Ingreso y Descuento"
+	lcIdTrans="01"
+	lcPrefijo="PIE"
+	llLegal=.f.
+	lcDescrip="Ingreso y Descuento de planillas "
+	lcImage="PER2_16"
+	lcCategoria="VALORES"
+	lcSkipper="51404"
+	
+ DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper
+*************************************************************
+
+*************************************************************
+**insertar documentos 
+	lcIdDocumento="4905"
+	lcNombre="Elementos de planilla "
+	lcIdTrans="01"
+	lcPrefijo="PLE"
+	llLegal=.f.
+	lcDescrip="Elementos de planilla como Documentos y otros "
+	lcImage="PER2_16"
+	lcCategoria="VALORES"
+	lcSkipper="51405"
+	
+ DO addDoc WITH lcIdDocumento, lcNombre, lcIdTrans, lcPrefijo, llLegal, lcDescrip, lcImage, lcCategoria, lcSkipper
+*************************************************************
+
+ENDPROC 
+**ABR2012_MOD_ANCHO_DOCS
+*enviado 11 06 2012 11:12 am 
+PROCEDURE ABR2012_MOD_ANCHO_DOCS
+	CLOSE TABLES ALL 
+	LCTB="DOCUMENTOS"
+	LCFLD="IDDOC"
+	LNPRECISION="C(4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="DOCUMENTOS"
+	LCFLD="PREFIJO"
+	LNPRECISION="C(4)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+ENDPROC 
+
+
+*DO UpdateTableFromServer WITH "cvales"
+*DO UpdateTableFromServer WITH "cvales_DET"
+*DO UpdateTableFromServer WITH "CFACTURAS"
+*DO UpdateTableFromServer WITH "CFACTURAS_dET"
+*DO UpdateTableFromServer WITH "CLIQUIDACIONES"
+*DO UpdateTableFromServer WITH "CLIQUIDACIONES_DET"
+
+
+
+
+
+**do ABR2012_ADD_VC_OG
+**enviado en fecha desconocida 
+PROCEDURE ABR2012_ADD_VC_OG
+	CLOSE TABLES ALL 
+	LCTB="ORDENESDEGASTOS"
+	LCFLD="IDVEHICULO"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEGASTO"
+	LCFLD="IDVEHICULO"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+ENDPROC 
+
+**DO ABR_PACKERRORS
+**enviado 11/06/2012 11:14 am 
+PROCEDURE ABR_PACKERRORS
+	USE sgaaelog exclusive 
+	DELETE ALL 
+	PACK 
+	PACK MEMO  
+	
+
+ENDPROC 
+
+
+
+
+**DO ABR2012_ADD_EXIS_RA
+**ENVIADO 12/04/2012
+PROCEDURE ABR2012_ADD_EXIS_RA
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEREQUISICION"
+	LCFLD="EXIST"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+ENDPROC 
+
+
+*DO MAr_AddValidsVistas
+*DO ABR_ADDPROVISIONES
+***************
+**ENVIADO 11/04/12
+*DO ABR_ADD_MANT_REPORT
+**ENVIADO 11/04/12
+
+PROCEDURE ABR_ADD_MANT_REPORT 
+	lcidreport="VN12"
+	lcdescrip="LISTADO DE MANTTO "
+	lcdescrip2="Listado de mantenimientos con fechas de vencimiento"
+	lcimage="REPORT_48.bmp"
+	lctp="vn1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+ENDPROC 
+
+
+PROCEDURE ABR_ADDPROVISIONES
+	CD DATA 
+	OPEN DATABASE CLIPROV EXCLUSIVE 
+	SET DATABASE TO CLIPROV
+	LCTABLE="PROV"
+	*ADD TABLE LCTABLE
+	IF !FILE(LCTABLE+".DBF")
+		CREATE TABLE (LCTABLE)(;
+			IDPV		C (10),;
+			IDPROV 		C (10 ),;
+			IDDOC 		C (10 ),;
+			FECHA  		D ,;
+			SOLICITA	C (10 ),;
+			DESCRIP C(80),;
+			VENCIMIENTO D,;
+			DIAS 		I,;
+			DEPTO 		C(10),;
+			ESTADO		I,;
+			AUTORIZA	C(10),;
+			STOTAL		N (10,2 );
+		)
+		MESSAGEBOX("TABLA "+LCTABLE+" CREADA CON EXITO ")
+	ELSE
+		MESSAGEBOX("TABLA "+LCTABLE+" YA EXISTE ")
+	ENDIF 
+	
+	LCTABLE="PROV_D"
+	IF !FILE(LCTABLE+".DBF")
+		CREATE TABLE (LCTABLE)(;
+			IDPV		C (10 ),;
+			REFERENCIA  C(10) ,;
+			DESCRIP 	C(60),;
+			PARCIAL 	N(10,2),;
+			TP 			I,;
+			LINE 		I AUTOINC ;
+		)
+		MESSAGEBOX("TABLA "+LCTABLE+"CREADA CON EXITO ")
+	ELSE
+		MESSAGEBOX("TABLA"+LCTABLE+" YA EXISTE ")
+
+	ENDIF 
+
+	**buscar documento si ya fue metido 
+	lcIdDocumento="26"
+	lcSkipper="50404"
+	lcDescrip="Provision de Documentos"
+	
+	SELECT iddoc FROM documentos  WHERE ALLTRIM(iddoc)==lcIdDocumento INTO ARRAY ladoc
+	IF VARTYPE(ladoc)="U"
+		INSERT INTO DOCUMENTOS(;
+			IDDOC,;
+			NOMBRE,;
+			IDTRANS,;
+			PREFIJO,;
+			LEGAL,;
+			DESCRIPCION,;
+			ICONO,;
+			CATEGORIA,;
+			SKIPPER);
+		VALUES ; 
+			(lcIdDocumento,lcDescrip,"","PV",.F.,;
+			"Provision de Documentos para pagos en fechas futuras","PROV_16.png","VALORES",VAL(lcSkipper))
+
+		INSERT INTO MENUSTRU(Idmenu, Descripcion);
+			values(;
+			lcSkipper,;
+			lcDescrip)
+
+
+		INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+			values(;
+			lcSkipper,;
+			lcDescrip,;
+			"O-01")
+
+		INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+			values(;
+			lcSkipper,;
+			lcDescrip,;
+			"A-01")
+
+		INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+			values(;
+			lcSkipper,;
+			lcDescrip,;
+			"A-02")
+			
+		MESSAGEBOX("Documento "+lcIdDocumento+" ingresado exitosamente ")
+	ELSE	
+		MESSAGEBOX("Documento "+lcIdDocumento+" ya fue ingresado a tabla documentos y estructura del menu ")
+	ENDIF 
+	CD ..
+	CLOSE TABLES ALL 
+	CLOSE DATABASES ALL 
+ENDPROC 
+
+PROCEDURE MAr_AddValidsVistas
+	UpdateDocValidVista("41","10100101010","VALID")
+	UpdateDocValidVista("41","10111111110","VISTA")
+
+	UpdateDocValidVista("42","11100101010","VALID")
+	UpdateDocValidVista("42","11111111110","VISTA")
+
+	UpdateDocValidVista("43","11011111000","VALID")
+	UpdateDocValidVista("43","11011111000","VISTA")
+
+	UpdateDocValidVista("44","11010000000","VALID")
+	UpdateDocValidVista("44","11010000000","VISTA")
+
+	UpdateDocValidVista("451","11000101000","VALID")
+	UpdateDocValidVista("451","11111111000","VISTA")
+	
+	UpdateDocValidVista("452","11001111011","VALID")
+	UpdateDocValidVista("452","11001111111","VISTA")
+
+	UpdateDocValidVista("453","11001111110","VALID")
+	UpdateDocValidVista("453","11011111110","VISTA")
+	
+
+	UpdateDocValidVista("454","10000000000","VALID")
+	UpdateDocValidVista("454","10010000000","VISTA")
+	
+
+	UpdateDocValidVista("455","11000101010","VALID")
+	UpdateDocValidVista("455","11111111110","VISTA")
+	
+
+	UpdateDocValidVista("456","11001111000","VALID")
+	UpdateDocValidVista("456","11111111000","VISTA")
+
+	UpdateDocValidVista("461","11100101110","VALID")
+	UpdateDocValidVista("461","11100101110","VISTA")
+	
+	UpdateDocValidVista("462","11100101110","VALID")
+	UpdateDocValidVista("462","11111111110","VISTA")
+	
+	UpdateDocValidVista("463","11010000000","VALID")
+	UpdateDocValidVista("463","11010000000","VISTA")
+	
+	UpdateDocValidVista("464","11000000000","VALID")
+	UpdateDocValidVista("464","11010000000","VISTA")
+	
+	UpdateDocValidVista("465","10000000010","VALID")
+	UpdateDocValidVista("465","10010000110","VISTA")
+	
+	UpdateDocValidVista("466","10100000010","VALID")
+	UpdateDocValidVista("466","10110000110","VISTA")
+	
+	UpdateDocValidVista("467","11000000000","VALID")
+	UpdateDocValidVista("467","11010000000","VISTA")
+	
+	UpdateDocValidVista("468","11000000000","VALID")
+	UpdateDocValidVista("468","11010000000","VISTA")
+	
+	UpdateDocValidVista("469","11000000110","VALID")
+	UpdateDocValidVista("469","11110000110","VISTA")
+	
+	UpdateDocValidVista("471","11001111000","VALID")
+	UpdateDocValidVista("471","11111111000","VISTA")
+	
+	UpdateDocValidVista("472","11001111010","VALID")
+	UpdateDocValidVista("472","11111111110","VISTA")
+	
+	UpdateDocValidVista("473","11000101000","VALID")
+	UpdateDocValidVista("473","11111111000","VISTA")
+	
+	UpdateDocValidVista("48","11001111000","VALID")
+	UpdateDocValidVista("48","11111111000","VISTA")
+	
+	UpdateDocValidVista("26","11010000000","VALID")
+	UpdateDocValidVista("26","11010000000","VISTA")
+
+	
+ENDPROC 
+
+PROCEDURE UpdateDocValidVista
+LPARAMETERS lciddoc,lcValue,lcCampo
+	UPDATE documentos SET &lcCampo =lcValue WHERE iddoc=lciddoc
+
+ENDPROC 
+*DO ADDAJUSTEINV
+***************************************
+**enviado 30 de marzo de 2012
+PROCEDURE ADDAJUSTEINV
+	LCREQUISCION="RA00000001"
+	LCNORDEN="OA00000051"
+	SELECT NREQUISICION FROM REQUISICIONES WHERE NREQUISICION=LCREQUISCION INTO ARRAY LAREQUISICION
+	IF VARTYPE(LAREQUISICION)="U"
+		INSERT INTO REQUISICIONES (;
+			FECHA,;
+			IDDOC,;
+			BODEGA,;
+			NREQUISICION,;
+			SOLICITANTE ,;
+			ESTADO,;
+			DEPTO,;
+			OBSERVACIONES,;
+			TIPO,;
+			PROYECTO );
+		VALUES (;
+			CTOD("29/09/2011"),;
+			"52",;
+			"0000000001",;
+			"RA00000001",;
+			"YE",;
+			1,;
+			"04",;
+			"AJUSTE DE INVENTARIO ",;
+			"1",;
+			"ADMINISTRA")
+		ELSE 
+			MESSAGEBOX("LA REQUISICION "+LAREQUISICION+"YA EXISTE ")
+		ENDIF 
+		
+	SELECT NORDEN FROM ORDENCOMPRA WHERE NORDEN=LCNORDEN INTO ARRAY LANORDEN
+	IF VARTYPE(LANORDEN)="U"
+		INSERT INTO ORDENCOMPRA(;
+			FECHA,;
+			IDDOC,;
+			BODEGA,;
+			NORDEN,;
+			COMPRADOR,;
+			ESTADO,;
+			DEPTO,;
+			OBSERVACIONES,;
+			TIPO,;
+			PROYECTO,;
+			TIVA,;
+			TRIVA,;
+			TRENTA,;
+			MRIVA,;
+			CRETENCION );
+		VALUES (;
+			CTOD("29/09/2011"),;
+			"52",;
+			"0000000001",;
+			"OA00000051",;
+			"YEC",;
+			1,;
+			"04",;
+			"AJUSTE DE INVENTARIO ",;
+			"1",;
+			"ADMINISTRA",;
+			0.13,;
+			0.01,;
+			0.10,;
+			100.00,;
+			"-")
+		ELSE
+			MESSAGEBOX("LA ORDEN DE COMPRA "+LANORDEN+"YA EXISTE")
+		ENDIF 
+		
+		
+ENDPROC 
+
+
+
+
+*DO MAR_ADD_KMS_VAL
+*DO MAR_ADD_SRENTA_GASTOS
+*CAMBIOS ENVIADOS EL 28 DE MARZO DE 2012 A LAS 1:41 PM 
+PROCEDURE MAR_ADD_KMS_VAL
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="KMS"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="KMS_ANT"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+ENDPROC 
+
+*******************************
+***enviado 30 de marzo de 2012
+PROCEDURE MAR_ADD_SRENTA_GASTOS
+	CLOSE TABLES ALL 
+	LCTB="ORDENESDEGASTOS"
+	LCFLD="SRENTA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENESDEGASTOS"
+	LCFLD="MANUALTOT"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENCOMPRA"
+	LCFLD="MANUALTOT"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENCOMPRA"
+	LCFLD="SRENTA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEGASTO"
+	LCFLD="PROYECTO"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="DETALLEGASTO"
+	LCFLD="DEPTO"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	**TABLA DE VALIDACION Y VISTA
+	*1) Depto
+	*2) Proveedor
+	*3) Proyecto
+	*4) Observaciones
+	*5) RetIva
+	*6) RetIvaOpcional
+	*7) Iva
+	*8) IvaOpcional
+	*9) Renta
+	*10)RentaOpcional
+	
+	LCTB="DOCUMENTOS"
+	LCFLD="VALID"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	LCTB="DOCUMENTOS"
+	LCFLD="VISTA"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+	USE clientes exclusive 
+	ALTER table clientes alter COLUMN activo l DEFAULT .t. 
+ENDPROC 
+
+
+
+*DO MAR_ADD_FACT_IDPROV
+**enviado 19 de marzo de 2012  11:45 pm 
+PROCEDURE MAR_ADD_FACT_IDPROV
+	
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="IDPROV"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS_DET"
+	LCFLD="SFOVIAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS_DET"
+	LCFLD="SCOTRANS"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS_DET"
+	LCFLD="DESCRIP"
+	LNPRECISION="C(30)"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="FACTURADO"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CLIQUIDACIONES_DET"
+	LCFLD="PARCIAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENCOMPRA"
+	LCFLD="CR_TP"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+ENDPROC 
+
+*DO MAR_ADD_FACT_DET
+*ENVIADO 16 DE MARZO DE 2012 10:30 PM 
+PROCEDURE MAR_ADD_FACT_DET
+	
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS_DET"
+	LCFLD="PRECGAL"
+	LNPRECISION="N(4,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS_DET"
+	LCFLD="CANTIDAD"
+	LNPRECISION="N(4,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CLIENTES"
+	LCFLD="ACTIVO"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	UPDATE CLIENTES SET ACTIVO=.T. WHERE !INLIST(IDCLIENTE,"CEN-017","SEG-001") 
+
+	CLOSE TABLES ALL 
+	LCTB="PROVEEDORES"
+	LCFLD="ACTIVO"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	UPDATE PROVEEDORES SET ACTIVO=.T. 
+
+ENDPROC 
+
+
+
+*DO MAR_ADD_EQS_INFO
+*DO MAR_ADD_COMB
+*enviados 9 /3 /2012 a las 2:55 pm  
+PROCEDURE MAR_ADD_EQS_INFO
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="IDCLIENTE"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="IDSUCURSAL"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="IDCONTRATO"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="EQUIPOS"
+	LCFLD="ENCONTRATO"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	
+ENDPROC
+
+
+
+PROCEDURE MAR_ADD_COMB
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="SNETO"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="SIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="SRIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="STOTAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="RETENCIONIVA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="IVA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="RETENCIONRENTA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="TIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="TRIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="TRENTA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="MRIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="CRETENCION"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="FOVIAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CFACTURAS"
+	LCFLD="COTRANS"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+*********************************************
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="SNETO"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="SIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="SRIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="STOTAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="RETENCIONIVA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="IVA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="RETENCIONRENTA"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="TIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="TRIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="TRENTA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="MRIVA"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="CRETENCION"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="FOVIAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="COTRANS"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CVALES"
+	LCFLD="IDPROV"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CINSUMOS"
+	LCFLD="VCOTRANS"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	CLOSE TABLES ALL 
+	LCTB="CINSUMOS"
+	LCFLD="VFOVIAL"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+
+ENDPROC 
+
+
+
+
+*DO FEB_ADD_PROY_REPORT 
+**enviado 16 de feb 2012 a las 11:11 am 
+PROCEDURE FEB_ADD_PROY_REPORT 
+	lcidreport="CLI17"
+	lcdescrip="LISTADO DE FACTURAS"
+	lcdescrip2="Listado de facturas emitidas "
+	lcimage="REPORT_48.bmp"
+	lctp="cli1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+ENDPROC 
+
+
+
+**DO FEB_ADD_CRETEN_HOJAS
+**enviado 16 de feb 2012 a las 11:11 am 
+PROCEDURE FEB_ADD_CRETEN_HOJAS
+	CLOSE TABLES ALL 
+	LCTB="MHOJA"
+	LCFLD="CRETENCION"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	USE (LCTB) IN 0 
+	SELECT (LCTB)
+	REPLACE ALL &LCFLD WITH "-"
+	CLOSE TABLES ALL 
+ENDPROC 
+
+
+*DO FEB_ADD_TOTALS
+**ENVIADOS 10 DE FEBRERO DE 2012 9:00 AM 
+PROCEDURE FEB_ADD_TOTALS
+	SET DELETED ON 
+	IF VARTYPE(_SCREEN.DOC1)="U"
+		_screen.NewObject("Doc1","Doc","c:\users\yec\documents\fox\GAA\lib1.0\_vars.vcx")
+	ENDIF 
+	
+	SELECT IDVENTA FROM FACTURAS INTO ARRAY LAFACT
+	FOR N=1 TO ALEN(LAFACT)
+		LCIDVENTA=LAFACT(N)
+		IF !EMPTY(LCIDVENTA)
+			_SCREEN.DOC1.Ctotal(LCIDVENTA)
+			
+			LNNETO=_SCREEN.DOC1.Neto 
+			LNIVA=_SCREEN.DOC1.Iva 
+			LNRIVA=_SCREEN.DOC1.Riva 
+			LNRENTA=_SCREEN.DOC1.Renta 
+			LNTOTAL=_SCREEN.DOC1.Total 
+
+			UPDATE;
+				FACTURAS;
+			SET;
+				SNETO=LNNETO,;
+				SIVA=LNIVA,;
+				SRIVA=LNRIVA,;
+				STOTAL=LNTOTAL;
+			WHERE ;
+				IDVENTA==LCIDVENTA
+		ENDIF 
+	ENDFOR
+ENDPROC 
+
+
+*DO FEB_ADD_CATACONFIG
+**ENVIADOS 09 DE FEBRERO DE 2012 7:00 PM 
+PROCEDURE FEB_ADD_CRETEN_TASAIMPUESTOS
+
+	CLOSE TABLES ALL 
+	LCTB="TASAIMPUESTOS"
+	LCFLD="CRETENCION"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+	
+	USE TASAIMPUESTOS IN 0 
+	SELECT TASAIMPUESTOS 
+	REPLACE ALL CRETENCION WITH "-"
+	
+	CLOSE TABLES ALL 
+	LCTB="TASAIMPUESTOS"
+	LCFLD="CRETENCION2"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+	
+	USE TASAIMPUESTOS IN 0 
+	SELECT TASAIMPUESTOS 
+	REPLACE ALL CRETENCION2 WITH "-"
+
+
+
+ENDPROC 
+
+
+*DO FEB_ADD_CRETEN
+*DO FEB_ADD_CATACONFIG
+**Enviado 09 de feb de 2012 
+PROCEDURE FEB_ADD_CATACONFIG
+	INSERT INTO CATACONFIG ;
+	SELECT "03",CON2,CON3,CON4,CON5,RESULTADO,PRECEDENCIA FROM CATACONFIG WHERE ALLTRIM(CON1)=="04"
+INSERT INTO CATACONFIG ;
+	SELECT "05",CON2,CON3,CON4,CON5,RESULTADO,PRECEDENCIA FROM CATACONFIG WHERE ALLTRIM(CON1)=="04"
+ENDPROC 
+
+
+PROCEDURE FEB_ADD_CRETEN
+
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="CRETENCION"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="CR_NUM"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="CR_TP"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	USE facturas IN 0
+	SELECT FACTURAS 
+	REPLACE ALL CRETENCION WITH "-"
+	
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENESDEGASTOS"
+	LCFLD="CRETENCION"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENESDEGASTOS"
+	LCFLD="CR_NUM"
+	LNPRECISION="C(20)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENESDEGASTOS"
+	LCFLD="CR_TP"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	USE ORDENESDEGASTOS IN 0	
+	SELECT ORDENESDEGASTOS 
+	REPLACE ALL CRETENCION WITH "-"
+	
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENCOMPRA"
+	LCFLD="CRETENCION"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENCOMPRA"
+	LCFLD="CR_NUM"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="ORDENCOMPRA"
+	LCFLD="CR_TP"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	USE ORDENCOMPRA IN 0
+	SELECT ORDENCOMPRA
+	REPLACE ALL CRETENCION WITH "-"
+
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="CRETENCION"
+	LNPRECISION="C(1)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	USE PRESUPUESTOS IN 0 
+	SELECT PRESUPUESTOS 
+	REPLACE ALL CRETENCION WITH "-"
+	CLOSE TABLES ALL 
+
+ENDPROC 
+
+*DO FEB_ADD_REPORT_CLI17
+*ENVIADOS MIERCOLES 08_FEB2012 5:00PM
+PROCEDURE FEB_ADD_REPORT_CLI17
+	lcidreport="CLI17"
+	lcdescrip="LISTADO DE FACTURAS"
+	lcdescrip2="Listado de facturas emitidas "
+	lcimage="REPORT_48.bmp"
+	lctp="cli1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+ENDPROC 
+
+*Enviados  martes  07/02/2012 11:45pm 
+***************************************************************************************************************************
+*DO FEB_ADD_SUCUR_PR
+PROCEDURE FEB_ADD_SUCUR_PR
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="IDSUCURSAL"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="SUCURSAL"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+ENDPROC 
+
+
+*DO ENE_ADD_FACTS_DOCTP
+*Enviados   31/01/2012 6:01pm 
+***************************************************************************************************************************
+PROCEDURE ENE_ADD_FACTS_DOCTP
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="DOC_TP"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+ENDPROC 
+
+
+
+
+*DO ENE_ADD_FIELDS_RFACT
+*Enviados JUEVES  19/01/2012 6:01pm 
+***************************************************************************************************************************
+PROCEDURE ENE_ADD_FIELDS_RFACT
+	CLOSE TABLES ALL 
+	LCTB="RFACT"
+	LCFLD="SQUEDAN"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	LCTB="RFACT"
+	LCFLD="SDEVO"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	LCTB="RFACT"
+	LCFLD="SCOBRO"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	LCTB="RFACT"
+	LCFLD="SFACT"
+	LNPRECISION="N(10,2)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	LCTB="RFACT"
+	LCFLD="RFACTS"
+	LNPRECISION="C(80)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	LCTB="FACTURAS"
+	LCFLD="DOC_NUM"
+	LNPRECISION="C(15)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+ENDPROC 
+
+*DO ENE_ADDREPORTS_2
+*Enviados JUEVES 19/01/2012 10:57pm 
+***************************************************************************************************************************
+PROCEDURE ENE_ADDREPORTS_2
+	CLOSE TABLES ALL 
+		LCTB="CLIENTES"
+		LCFLD="AFILIADA"
+		LNPRECISION="L"
+		LCTYPEOPERATION="ADD"
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+		UPDATE CLIENTES SET AFILIADA=.T. WHERE ALLTRIM(IDCLIENTE)=="GAM-000"
+	CLOSE TABLES ALL 
+		USE reports  IN 0 
+		USE documentos IN 0 
+		USE facturas IN 0 
+		SELECT reports 
+		REPLACE ALL IMAGE WITH "CLIENTES_48.BMP" FOR IMAGE="CLIENTES.BMP" IN reports
+		REPLACE ALL IMAGE WITH "INVENTARIO_48.bmp" FOR IMAGE="Inventario.bmp" IN reports
+		REPLACE ALL IMAGE WITH "PROVEEDORES_48.bmp" FOR IMAGE="PROVEEDOR.bmp" IN reports
+		REPLACE ALL IMAGE WITH "REPORT_48.bmp" FOR IMAGE="Report.bmp" IN reports
+		REPLACE ALL IMAGE WITH "BANCOS_48.bmp" FOR IMAGE="banco.bmp" IN reports
+		REPLACE ALL IMAGE WITH "STATS_48.bmp" FOR IMAGE="chart_bar.bmp" IN reports
+		REPLACE ALL IMAGE WITH "FolderYellow_48.bmp" FOR IMAGE="folderReport.bmp" IN reports
+		REPLACE ALL IMAGE WITH "FolderYellow_48.bmp" FOR IMAGE="folderReport.bmp" IN reports
+		REPLACE ALL IMAGE WITH "PROY_64.bmp" FOR ALLTRIM(idreport)=="PRO" IN reports
+		REPLACE ALL IMAGE WITH "Factura_48.bmp" FOR ALLTRIM(idreport)=="VN" IN reports
+		REPLACE ALL IMAGE WITH "GASTOS_48.bmp" FOR ALLTRIM(idreport)=="GAS" IN reports
+		SELECT documentos 
+		REPLACE ALL nombre WITH "Credito Fiscal" FOR iddoc=="10" IN documentos 
+		SELECT facturas 
+		replace ALL scantidad 	WITH 0.00 FOR facturas.anulado=.t. IN facturas
+		replace ALL sneto 		WITH 0.00 FOR facturas.anulado=.t. IN facturas
+		replace ALL siva 		WITH 0.00 FOR facturas.anulado=.t. IN facturas
+		replace ALL sriva 		WITH 0.00 FOR facturas.anulado=.t. IN facturas
+		replace ALL stotal 		WITH 0.00 FOR facturas.anulado=.t. IN facturas
+	CLOSE TABLES ALL 
+ENDPROC 
+
+*DO ENE_ADD_REPORTS
+**copiar iconos nuevos a carpeta ico 
+**cambiar imagenes de icos a tabla reports 
+*Enviados VIERNES 13/01/2012 5:00pm 
+***************************************************************************************************************************
+PROCEDURE ENE_ADD_REPORTS
+	lcidreport="CLI16"
+	lcdescrip="COBROS POR DEPARTAMENTO"
+	lcdescrip2="Cobros por depto "
+	lcimage="REPORT_48.bmp"
+	lctp="cli1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	lcidreport="VN1"
+	lcdescrip="Estadisticas de Venta"
+	lcdescrip2="Estadisticas en graficas de ventas "
+	lcimage="STATS_48.bmp"
+	lctp="vn"
+	lctpllama="vn1"
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	lcidreport="VN11"
+	lcdescrip="VENTAS POR DEPTO"
+	lcdescrip2="Ventas en comparativo por depto "
+	lcimage="REPORT_48.bmp"
+	lctp="vn1"
+	lctpllama=""
+	DO addreport WITH lcidreport,lcdescrip,lcdescrip2,lcimage,lctp,lctpllama
+
+	
+	CLOSE TABLES ALL 
+	LCTB="FACTURAS"
+	LCFLD="FECHAQ"
+	LNPRECISION="D"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+
+	LCTB="PRESUPUESTOS"
+	LCFLD="IDMECA"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+	LCTB="PRESUPUESTOS"
+	LCFLD="MECADESCRIP"
+	LNPRECISION="C(60)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	CLOSE TABLES ALL 
+
+
+
+	
+ENDPROC 
+
+	
+
+
+*Enviados VIERNES 13/01/2012 5:00pm 
+***************************************************************************************************************************
+*DO ENE_ADD_STAT
+*DO ENE_CREATE_BITACORA
+*DO ENE_ADD_ESTADO_PRESUP
+PROCEDURE ENE_CREATE_BITACORA
+	CD DATA 
+	OPEN DATABASE GAMADATA EXCLUSIVE 
+	SET DATABASE TO GAMADATA
+	LCTABLE="BITACORA"
+	*ADD TABLE LCTABLE
+	IF !FILE(LCTABLE+".DBF")
+		CREATE TABLE (LCTABLE)(;
+			FECHA 		T,;
+			OPE  		C(30) ,;
+			USUARIO		C(10 ),;
+			REFERENCIA	C(10),;
+			PANTALLA	C(40),;
+			FUNCION 	C(40),;
+			LINE I AUTOINC ,;
+			obs c(40);
+		)
+		MESSAGEBOX("TABLA "+LCTABLE+" CREADA CON EXITO ")
+	ELSE
+		MESSAGEBOX("TABLA "+LCTABLE+" YA EXISTE ")
+	ENDIF 
+
+ENDPROC 
+
+
+PROCEDURE ENE_ADD_ESTADO_PRESUP
+	CLOSE TABLES ALL 
+	LCTB="PRESUPUESTOS"
+	LCFLD="ESTADO"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ALTER"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	UPDATE PRESUPUESTOS SET ESTADO=1 
+	CLOSE TABLES ALL 
+ENDPROC 
+
+PROCEDURE ENE_ADD_STAT
+	LCTB="MHOJA"
+	LCFLD="SNFACT"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	
+	LCTB="MHOJA"
+	LCFLD="SNEXEC"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	LCTB="MHOJA"
+	LCFLD="SNPROGRA"
+	LNPRECISION="I"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	LCTB="MHOJA"
+	LCFLD="STODOS"
+	LNPRECISION="N"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	LCTB="MHOJA"
+	LCFLD="VN"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	LCTB="MHOJA"
+	LCFLD="FACT"
+	LNPRECISION="C(10)"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+
+	LCTB="CLASIFICACIONCONTRIBUYENTES"
+	LCFLD="RIVA2"
+	LNPRECISION="L"
+	LCTYPEOPERATION="ADD"
+	DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION
+	UPDATE CLASIFICACIONCONTRIBUYENTES SET riva2=.t. WHERE idclasificacion="04" 
+ 	MESSAGEBOX("RIVA2 ACTUALIZADO CON EXITO PARA IDCLASIFICACION=04")
+ 	
+	CLOSE TABLES ALL 
+	USE MHOJA
+	SCAN 
+		DO FORM HOJA WITH 2,MHOJA.IDHOJA 
+		HOJA.GUARDAR 
+		HOJA.RELEASE 
+	ENDSCAN
+ 	
+ 	
+ENDPROC 
+
+
+
+*Enviados miercoles  11/01/2012 1:00pm 
+***************************************************************************************************************************
+*DO ENE_MOD_RFACT_D_REF
+PROCEDURE ENE_MOD_RFACT_D_REF
+	LCTB="RFACT_D"
+	LCFLD="REFERENCIA"
+	LNPRECISION="C(10)"
+	TYPEOPERATION="ALTER"
+	DO OPENTABLE WITH LCTB
+	IF TYPEOPERATION="ADD"
+		IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+			ALTER TABLE (LCTB) &TYPEOPERATION COLUMN &LCFLD &LNPRECISION 
+			MESSAGEBOX("CAMPO: "+LCFLD+" AGREGADO CON EXITO EN "+LCTB)
+		ELSE
+			MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+		ENDIF 
+	ELSE 
+		IF VERIFIELDEXIS(LCTB,LCFLD)=.T.
+			ALTER TABLE (LCTB) &TYPEOPERATION COLUMN &LCFLD &LNPRECISION 
+			MESSAGEBOX("CAMPO: "+LCFLD+" MODIFICADO  CON EXITO EN "+LCTB)
+		ELSE
+			MESSAGEBOX("CAMPO: "+LCFLD+" NO EXISTE EN LA TABLA "+LCTB)
+		ENDIF 
+	ENDIF 
+	
+	CLOSE TABLES ALL 
+ENDPROC 
+
+*Enviados miercoles  11/01/2012 1:00pm 
+***************************************************************************************************************************
+*DO ENE_DEL_VEH_SCLIEN
+PROCEDURE ENE_DEL_VEH_SCLIEN
+	DELETE FROM VEHICULOS WHERE IDCLIENTE NOT IN (SELE IDCLIENTE FROM CLIENTES )
+	MESSAGEBOX("vehiculos sin cliente borrados con exito")
+	LCTB="VEHICULOS"
+	LCFLD="ESTADO"
+	LNPRECISION="I"
+	TYPEOPERATION="ADD"
+	DO OPENTABLE WITH LCTB
+	IF TYPEOPERATION="ADD"
+		IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+			ALTER TABLE (LCTB) &TYPEOPERATION COLUMN &LCFLD &LNPRECISION 
+			MESSAGEBOX("CAMPO: "+LCFLD+" AGREGADO CON EXITO EN "+LCTB)
+		ELSE
+			MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+		ENDIF 
+	ELSE 
+		IF VERIFIELDEXIS(LCTB,LCFLD)=.T.
+			ALTER TABLE (LCTB) &TYPEOPERATION COLUMN &LCFLD &LNPRECISION 
+			MESSAGEBOX("CAMPO: "+LCFLD+" MODIFICADO  CON EXITO EN "+LCTB)
+		ELSE
+			MESSAGEBOX("CAMPO: "+LCFLD+" NO EXISTE EN LA TABLA "+LCTB)
+		ENDIF 
+	ENDIF 
+	UPDATE vehiculos SET estado=1 
+	MESSAGEBOX("estado actualizado con exito")
+ENDPROC 
+
+*Enviados martes 10/01/2012 1:00pm 
+***************************************************************************************************************************
+*DO ENE_ADD_ENE_ESTADO
+PROCEDURE ENE_ADD_ENE_ESTADO
+	LCTB="MHOJA_D"
+	LCFLD="ESTADO"
+	LNPRECISION="I"
+	TYPEOPERATION="ADD"
+	DO OPENTABLE WITH LCTB
+	IF TYPEOPERATION="ADD"
+		IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+			ALTER TABLE (LCTB) &TYPEOPERATION COLUMN &LCFLD &LNPRECISION 
+			MESSAGEBOX("CAMPO: "+LCFLD+" AGREGADO CON EXITO EN "+LCTB)
+		ELSE
+			MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+		ENDIF 
+	ELSE 
+		IF VERIFIELDEXIS(LCTB,LCFLD)=.T.
+			ALTER TABLE (LCTB) &TYPEOPERATION COLUMN &LCFLD &LNPRECISION 
+			MESSAGEBOX("CAMPO: "+LCFLD+" MODIFICADO  CON EXITO EN "+LCTB)
+		ELSE
+			MESSAGEBOX("CAMPO: "+LCFLD+" NO EXISTE EN LA TABLA "+LCTB)
+		ENDIF 
+	ENDIF 
+
+	LCTB="EQUIPOS"
+	LCFLD="UBICACION"
+	LNPRECISION="C(60)"
+	TYPEOPERATION="ALTER"
+	DO OPENTABLE WITH LCTB
+	IF TYPEOPERATION="ADD"
+		IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+			ALTER TABLE (LCTB) &TYPEOPERATION COLUMN &LCFLD &LNPRECISION 
+			MESSAGEBOX("CAMPO: "+LCFLD+" AGREGADO CON EXITO EN "+LCTB)
+		ELSE
+			MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+		ENDIF 
+	ELSE 
+		IF VERIFIELDEXIS(LCTB,LCFLD)=.T.
+			ALTER TABLE (LCTB) &TYPEOPERATION COLUMN &LCFLD &LNPRECISION 
+			MESSAGEBOX("CAMPO: "+LCFLD+" MODIFICADO  CON EXITO EN "+LCTB)
+		ELSE
+			MESSAGEBOX("CAMPO: "+LCFLD+" NO EXISTE EN LA TABLA "+LCTB)
+		ENDIF 
+	ENDIF 
+	
+	UPDATE MHOJA_D SET ESTADO=1
+	MESSAGEBOX("ACTUALIZACIONES SE HAN REALIZADO CON EXITO")		
+	
+ENDPROC 
+
+
+
+
+*Enviados LUNES 09/01/2012 2:30pm 
+***************************************************************************************************************************
+*DO ENE_ADD_REPORT_BAN14
+*DO ENE_ADD_PROY_FACTS
+PROCEDURE ENE_ADD_REPORT_BAN14
+
+	SELECT IDREPORT FROM REPORTS WHERE IDREPORT="BAN14" INTO ARRAY LAban14
+	
+	
+	IF VARTYPE(LAban14)="U"
+		INSERT INTO REPORTS(IDREPORT, DESCRIP, DESCRIP2, IMAGE, TP, TPLLAMA);
+		values(;
+		"BAN14",;
+		"REGISTRO DE DOCUMENTOS DE BANCOS",;
+		"Cheques, Remesas , Notas de Cargo y Notas de abonos registradas en sistema",;
+		"Report.bmp",;
+		"ban1",;
+		"")
+		MESSAGEBOX("Reporte ban14 ingresado con exito ")
+	ELSE
+		MESSAGEBOX("Ya existe el reporte ban14")
+	ENDIF 
+		
+	UPDATE cargosbanco SET iddoc="03" WHERE SUBSTR(alltrim(referencia),1,2)="CH"
+	UPDATE cargosbanco SET iddoc="05" WHERE SUBSTR(alltrim(referencia),1,2)="NC"	
+	MESSAGEBOX("tipos de documentos se han actualizado ")
+ENDPROC 
+
+
+PROCEDURE ENE_ADD_PROY_FACTS
+	LCTB="FACTURAS"
+	LCFLD="IDPROY"
+	LNPRECISION="C(10)"
+	
+	DO OPENTABLE WITH LCTB
+	IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+		ALTER TABLE (LCTB) ADD COLUMN &LCFLD &LNPRECISION 
+	ELSE
+		MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+	ENDIF 
+
+	LCTB="CLIENTES"
+	LCFLD="FPAGO"
+	LNPRECISION="C(10)"
+	
+	DO OPENTABLE WITH LCTB
+	IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+		ALTER TABLE (LCTB) ADD COLUMN &LCFLD &LNPRECISION 
+	ELSE
+		MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+	ENDIF 
+ENDPROC 
+
+*Enviados lunes  09/01/2012 1:56pm 
+***************************************************************************************************************************
+*DO ENE_ADD_TP_BANCOS
+PROCEDURE ENE_ADD_TP_BANCOS
+	LCTB="BANCOS"
+	LCFLD="TP"
+	LNPRECISION="I"
+	
+	DO OPENTABLE WITH LCTB
+	IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+		ALTER TABLE (LCTB) ADD COLUMN &LCFLD &LNPRECISION 
+	ELSE
+		MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+	ENDIF 
+
+	LCTB="CUENTASBANCARIAS"
+	LCFLD="TP"
+	LNPRECISION="I"
+	
+	DO OPENTABLE WITH LCTB
+	IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+		ALTER TABLE (LCTB) ADD COLUMN &LCFLD &LNPRECISION 
+	ELSE
+		MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+	ENDIF 
+ENDPROC 
+
+
+
+*Enviados martes  04/01/2012 1:56pm 
+***************************************************************************************************************************
+*DO INSCCF
+*DO ENE_ADD_LIQUIFACTS
+PROCEDURE ENE_ADD_LIQUIFACTS
+	**Fecha:02/1/2012 11:26pm 
+	**Origen:GAMA AUTO  
+	**Descripcion:	se agregara un listado de facturas para sacar quedan de facturas de ventas,
+	**1)Se agregara la tabla llamada RFACT y RFACT_D
+	**2)Se agregara el documento a la tabla documentos 
+	**3)Habra que agregar la especificacion al gennumdoc
+	**4)Copiar el ico de este documento a la carpeta ico del servidor y local 
+	**5)Crear formulario Detalle
+	**6)Crear formulario Resumen 
+	**7)Agregar a menu 
+	**8)Agregar a estructura de menu 
+
+	CD DATA 
+	OPEN DATABASE CLIPROV EXCLUSIVE 
+	SET DATABASE TO CLIPROV
+	LCTABLE="RFACT"
+	*ADD TABLE LCTABLE
+	IF !FILE(LCTABLE+".DBF")
+		CREATE TABLE (LCTABLE)(;
+			IDRF 		C (10 ),;
+			FECHA  		D ,;
+			SOLICITA	C (10 ),;
+			STOTAL		N (10,2 ),;
+			FEC_LIQUID	D ,;
+			ESTADO I;
+		)
+		MESSAGEBOX("TABLA "+LCTABLE+" CREADA CON EXITO ")
+	ELSE
+		MESSAGEBOX("TABLA "+LCTABLE+" YA EXISTE ")
+	ENDIF 
+	LCTABLE="RFACT_D"
+	IF !FILE(LCTABLE+".DBF")
+		CREATE TABLE (LCTABLE)(;
+			IDRF 		C (10 ),;
+			REFERENCIA  		D ,;
+			DOC_TP	I,;
+			DOC_NUM C(15),;
+			DOC_FEC D,;
+			PARCIAL N(10,2),;
+			LINE I;
+		)
+		MESSAGEBOX("TABLA "+LCTABLE+"CREADA CON EXITO ")
+	ELSE
+		MESSAGEBOX("TABLA"+LCTABLE+" YA EXISTE ")
+
+	ENDIF 
+
+	**buscar documento si ya fue metido 
+	lcIdDocumento="23"
+	SELECT iddoc FROM documentos  WHERE ALLTRIM(iddoc)==lcIdDocumento INTO ARRAY ladoc
+	IF VARTYPE(ladoc)="U"
+		INSERT INTO DOCUMENTOS(;
+			IDDOC,;
+			NOMBRE,;
+			IDTRANS,;
+			PREFIJO,;
+			LEGAL,;
+			DESCRIPCION,;
+			ICONO,;
+			CATEGORIA,;
+			SKIPPER);
+		VALUES ; 
+			(lcIdDocumento,"Remision de Facturas","","RF",.F.,;
+			"Remision de facturas a clientes ","LQFACT_16.png","INGRESOS",50503)
+
+
+		INSERT INTO MENUSTRU(Idmenu, Descripcion);
+			values(;
+			"50503",;
+			"Remision de Facturas")
+
+
+		INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+			values(;
+			"50503",;
+			"Remision de Facturas",;
+			"O-01")
+
+		INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+			values(;
+			"50503",;
+			"Remision de Facturas",;
+			"A-01")
+
+		INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+			values(;
+			"50503",;
+			"Remision de Facturas",;
+			"A-02")
+			
+		MESSAGEBOX("Documento "+lcIdDocumento+" ingresado exitosamente ")
+	ELSE	
+		MESSAGEBOX("Documento "+lcIdDocumento+" ya fue ingresado a tabla documentos y estructura del menu ")
+	ENDIF 
+	CD ..
+	CLOSE TABLES ALL 
+	CLOSE DATABASES ALL 
+ENDPROC 
+
+
+*Enviados martes  30/12/2011 12:30pm 
+***************************************************************************************************************************
+*DO DIC_MOD_DESCRIP_EQS
+PROCEDURE DIC_MOD_DESCRIP_EQS
+	SELECT;
+		NVL(MCONTRATO_EQ.IDEQUIPO,"") AS IDEQUIPO,;
+		NVL(EQUIPOS.UBICACION,"") AS UBICA,;
+		MCONTRATO_EQ.DESCRIP ;
+	FROM ;
+		MCONTRATO_EQ LEFT JOIN EQUIPOS ON MCONTRATO_EQ.IDEQUIPO=EQUIPOS.IDEQUIPO;
+	INTO CURSOR ;
+		DESCRIPNUEVA
+
+	SELECT DESCRIPNUEVA
+
+	SCAN 
+		LCDESCRIP=ALLTRIM(DESCRIPNUEVA.DESCRIP)+" "+ALLTRIM(DESCRIPNUEVA.UBICA)
+		LCIDEQUIPO=DESCRIPNUEVA.IDEQUIPO
+		
+		UPDATE;
+			MCONTRATO_EQ;
+		SET;
+			DESCRIP=LCDESCRIP;
+		WHERE ;
+			IDEQUIPO=LCIDEQUIPO
+	ENDSCAN	
+	
+	LCTB="MPROGRA_S"
+	DO OPENTABLE WITH LCTB
+	SELECT (LCTB)
+	PACK  
+
+	LCTB="MPROGRA"
+	DO OPENTABLE WITH LCTB
+	SELECT (LCTB)
+	PACK  
+
+	LCTB="MPROGRA_CLD"
+	DO OPENTABLE WITH LCTB
+	SELECT (LCTB)
+	PACK  
+
+	LCTB="MHOJA"
+	DO OPENTABLE WITH LCTB
+	SELECT (LCTB)
+	PACK  
+
+	LCTB="MHOJA_D"
+	DO OPENTABLE WITH LCTB
+	SELECT (LCTB)
+	PACK  
+
+
+	
+ENDPROC 
+
+
+
+
+*Enviados martes  27/12/2011 6:48pm 
+***************************************************************************************************************************
+*DO DIC_ADD_PARCIAL_CFACTURAS_DET
+*DO DIC_ADD_TOTALS_VALES
+PROCEDURE DIC_ADD_PARCIAL_CFACTURAS_DET
+	LCTB="CFACTURAS_DET"
+	LCFLD="PARCIAL"
+	LNPRECISION="N(10,2)"
+	
+	DO OPENTABLE WITH LCTB
+	IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+		ALTER TABLE (LCTB) ADD COLUMN &LCFLD &LNPRECISION 
+	ELSE
+		MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+	ENDIF 
+	
+	LCTB="CVALES"
+	LCFLD="TOTAL"
+	LNPRECISION="N(10,2)"
+	
+	DO OPENTABLE WITH LCTB
+	IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+		ALTER TABLE (LCTB) ADD COLUMN &LCFLD &LNPRECISION 
+	ELSE
+		MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+	ENDIF 
+
+	LCTB="CFACTURAS"
+	LCFLD="TOTAL"
+	LNPRECISION="N(10,2)"
+	
+	DO OPENTABLE WITH LCTB
+	IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+		ALTER TABLE (LCTB) ADD COLUMN &LCFLD &LNPRECISION 
+	ELSE
+		MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+	ENDIF 
+
+	LCTB="CLIQUIDACIONES"
+	LCFLD="TOTAL"
+	LNPRECISION="N(10,2)"
+	
+	DO OPENTABLE WITH LCTB
+	IF VERIFIELDEXIS(LCTB,LCFLD)=.F.
+		ALTER TABLE (LCTB) ADD COLUMN &LCFLD &LNPRECISION 
+	ELSE
+		MESSAGEBOX("YA EXISTE EL CAMPO: "+LCFLD+" EN LA TABLA "+LCTB)
+	ENDIF 
+
+	LCTB="MPROGRA_S"
+	LCFLD="FECHAS"
+	LNPRECISION="C(83)"
+	
+	DO OPENTABLE WITH LCTB
+	ALTER TABLE (LCTB) ALTER COLUMN &LCFLD &LNPRECISION 
+
+
+
+ENDPROC 
+
+PROCEDURE DIC_ADD_TOTALS_VALES
+	SELECT;
+		CVALES_DET.IDVALE,;
+		SUM(CVALES_DET.VALOR) AS MONTO;
+	FROM ;
+		CVALES_DET;
+	GROUP BY ;
+		1;
+	INTO CURSOR ;
+		TOTALESVAL
+
+	SELECT TOTALESVAL
+
+	SCAN 
+		LNMONTO=TOTALESVAL.MONTO
+		LCIDVALE=TOTALESVAL.IDVALE
+
+		UPDATE;
+			CVALES;
+		SET;
+			TOTAL=LNMONTO;
+		WHERE ;
+			IDVALE=LCIDVALE
+			
+	ENDSCAN	
+ENDPROC 
+
+*Enviados Viernes  23/12/2011 2:26:pm 
+***************************************************************************************************************************
+**DO DIC_MOD_ANCHOS_TBS
+PROCEDURE DIC_MOD_ANCHOS_TBS
+
+	IF !USED("FACTURASLINES")
+		USE FACTURASLINES EXCLUSIVE  IN 0 
+	ELSE
+		SELECT FACTURASLINES
+		USE 
+		USE FACTURASLINES EXCLUSIVE IN 0 
+	ENDIF 
+
+	**haciendo respaldo de datos 
+	SELECT FACTURASLINES 
+	COPY TO "C:\Users\YEC\Documents\RESPALDOS\CopiaFox\"+ALIAS()+"_"+TTOC(datetime(),1)
+	
+	ALTER TABLE FACTURASLINES ALTER COLUMN DESCRIPCION 	C(50)
+
+	IF !USED("DETALLEPRESUPUESTO")
+		USE DETALLEPRESUPUESTO EXCLUSIVE  IN 0 
+	ELSE
+		SELECT DETALLEPRESUPUESTO
+		USE 
+		USE DETALLEPRESUPUESTO EXCLUSIVE IN 0 
+	ENDIF 
+
+	**haciendo respaldo de datos 
+	SELECT DETALLEPRESUPUESTO 
+	COPY TO "C:\Users\YEC\Documents\RESPALDOS\CopiaFox\"+ALIAS()+"_"+TTOC(datetime(),1)
+	
+	ALTER TABLE DETALLEPRESUPUESTO ALTER COLUMN DESCRIPCION 	C(50)
+ENDPROC 
+
+*Enviados Viernes  29/11/2011 7:pm 
+***************************************************************************************************************************
+*DO NOV_ADD_SALDOS_PR
+PROCEDURE NOV_ADD_SALDOS_PR
+	**Fecha:29/11/2011
+	**Origen:GAMA AUTO  
+	**Descripcion:	agregar totales a presupuestos y facturas y tasas de ivas a presupuestos 
+	**				es necesario actualizar exe para esta modificacion ya que se modificara el formulario hoja
+	**NOV_ADD_SALDOS_PR solventa problema de diferecnai entre presupuestos y facturas al momento de facturar 
+
+	IF !USED("PRESUPUESTOS")
+		USE PRESUPUESTOS EXCLUSIVE  IN 0 
+	ELSE
+		SELECT PRESUPUESTOS
+		USE 
+		USE PRESUPUESTOS EXCLUSIVE IN 0 
+	ENDIF 
+	
+	ALTER TABLE PRESUPUESTOS ADD COLUMN RETENCIONRENTA 	L 
+	ALTER TABLE PRESUPUESTOS ADD COLUMN TIVA 	N (10 ,2 ) NULL
+	ALTER TABLE PRESUPUESTOS ADD COLUMN TRIVA 	N (10 ,2 ) NULL
+	ALTER TABLE PRESUPUESTOS ADD COLUMN TRENTA 	N (10 ,2 ) NULL
+	ALTER TABLE PRESUPUESTOS ADD COLUMN MRIVA 	N (10 ,2 ) NULL
+	ALTER TABLE PRESUPUESTOS ADD COLUMN SCANTIDAD N(10,2) NULL
+	ALTER TABLE PRESUPUESTOS ADD COLUMN SNETO N(10,2) NULL
+	ALTER TABLE PRESUPUESTOS ADD COLUMN SIVA N(10,2) NULL
+	ALTER TABLE PRESUPUESTOS ADD COLUMN SRIVA N(10,2) NULL
+	ALTER TABLE PRESUPUESTOS ADD COLUMN SRENTA N(10,2) NULL
+	ALTER TABLE PRESUPUESTOS ADD COLUMN STOTAL N(10,2) NULL
+
+	IF !USED("FACTURAS")
+		USE FACTURAS EXCLUSIVE  IN 0 
+	ELSE
+		SELECT FACTURAS
+		USE 
+		USE FACTURAS EXCLUSIVE IN 0 
+	ENDIF 
+	ALTER TABLE FACTURAS ADD COLUMN SCANTIDAD N(10,2) NULL
+	ALTER TABLE FACTURAS ADD COLUMN SNETO N(10,2) NULL
+	ALTER TABLE FACTURAS ADD COLUMN SIVA N(10,2) NULL
+	ALTER TABLE FACTURAS ADD COLUMN SRIVA N(10,2) NULL
+	ALTER TABLE FACTURAS ADD COLUMN STOTAL N(10,2) NULL	
+
+	IF !USED("DETALLEFACTURAS")
+		USE DETALLEFACTURAS EXCLUSIVE  IN 0 
+	ELSE
+		SELECT DETALLEFACTURAS
+		USE 
+		USE DETALLEFACTURAS EXCLUSIVE IN 0 
+	ENDIF 
+	ALTER TABLE DETALLEFACTURAS ADD COLUMN TP I
+
+ENDPROC 
+
+
+*Enviados Viernes  25/11/2011 7:pm 
+***************************************************************************************************************************
+*DO NOV_ADD_AUTOINC_PROGRA
+*DO NOV_ADD_FECHAS_MHOJA
+PROCEDURE NOV_ADD_FECHAS_MHOJA
+	**Fecha:24/11/2011
+	**Origen:GAMA AUTO  
+	**Descripcion:	agregar fecha mes y año a la table mhoja se debera guardar el mes del programa y el año 
+	**				es necesario actualizar exe para esta modificacion ya que se modificara el formulario hoja
+	**NOV_ADD_FECHAS_MHOJA agrega fecha mes y año ya que sino no se podria saber a que mes pertenecesn las hojas 
+
+	IF !USED("MHOJA")
+		USE MHOJA EXCLUSIVE  IN 0 
+	ELSE
+		SELECT MHOJA
+		USE 
+		USE MHOJA EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table MHOJA ADD COLUMN FECHA D 
+		ALTER table MHOJA ADD COLUMN MES I 
+		ALTER table MHOJA ADD COLUMN AÑO I
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	ENDTRY 
+ENDPROC 
+
+
+
+
+PROCEDURE NOV_ADD_AUTOINC_PROGRA
+	**Fecha:22/11/2011
+	**Origen:GAMA AUTO  
+	**Descripcion:	Agrega AutoIncremento a Campo Line de mprogra 
+	**				no es necesario actualizar exe para esta modificacion 
+	**NOV_ADD_AUTOINC_PROGRA agrega autoincremento a line para que maneje bien el guardado y getcot()
+
+	IF !USED("MPROGRA")
+		USE MPROGRA EXCLUSIVE  IN 0 
+	ELSE
+		SELECT MPROGRA
+		USE 
+		USE MPROGRA EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table MPROGRA ALTER COLUMN line i AUTOINC 
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	ENDTRY 
+ENDPROC 
+
+
+*Enviados Viernes  21/11/2011 7:pm 
+***************************************************************************************************************************
+*DO NOV_ADD_ORDENES_EXT
+PROCEDURE NOV_ADD_ORDENES_EXT
+	**Fecha:21/11/2011 7:00pm 
+	**Origen:GAMA AUTO  
+	**Descripcion:	Se agregaron ordenes de ajustes y del exterior al formulario ocs
+	**				
+	**ADD_ORDENES_EXT agrega tablas de ordenes del exterior
+
+
+	CD \\servidor\data\sgaa\data
+
+	INSERT INTO DOCUMENTOS(;
+		IDDOC,;
+		NOMBRE,;
+		IDTRANS,;
+		PREFIJO,;
+		LEGAL,;
+		DESCRIPCION,;
+		ICONO,;
+		CATEGORIA);
+	VALUES ; 
+		("55","Ordenes del Exterior","02","OE",.F.,;
+		"Ordenes de Compra del Exterior, Reteaceos u Otros","OrdenCompra.png","MATERIALES")
+
+
+	INSERT INTO MENUSTRU(Idmenu, Descripcion);
+		values(;
+		"50106",;
+		"Ordenes del Exterior")
+
+
+	INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+		values(;
+		"50106",;
+		"Ordenes del Exterior",;
+		"O-01")
+
+	INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+		values(;
+		"50106",;
+		"Ordenes del Exterior",;
+		"A-01")
+
+	INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+		values(;
+		"50106",;
+		"Ordenes del Exterior",;
+		"A-02")
+
+	UPDATE;
+		DOCUMENTOS;
+	SET;
+		NOMBRE="Ajustes de Inventario",;
+		DESCRIPCION="Ordenes de Ajustes por conteo de inventario u otros",;
+		ICONO="OrdenCompra.png",;
+		CATEGORIA="MATERIALES";
+	WHERE  ;
+		iddoc=="51"
+
+ENDPROC 
+
+
+
+
+*Enviados Viernes  18/11/2011 5:pm 
+***************************************************************************************************************************
+
+*DO ADD_TABLES_HOJAS
+*DO NOV_ADD_mmecas
+*DO NOV_ADD_TOTAL_PROGRA
+
+PROCEDURE ADD_TABLES_HOJAS
+	**Fecha:14/11/2011 4:27pm 
+	**Origen:GAMA AUTO  
+	**Descripcion:	Se crearan tablas para ingresar las hojas individuales e imprimirlas individuales 
+	**				al envia Exe se debe enviar aunque podria funcionar sin esto 
+	**ADD_TABLES_HOJAS agrega tablas de hojas a mantto 
+	CD DATA 
+	OPEN DATABASE MANTTO EXCLUSIVE 
+	SET DATABASE TO MANTTO 
+	CREATE TABLE MHOJA(;
+		IDHOJA 	C (10 ),;
+		IDCONTRATO 	C (10 ),;
+		IDSUCURSAL C(10),;
+		IDCLIENTE	c(10),;
+		IDPROGRA 	C (10 ),;
+		DESCRIP 	C (60 ),;
+		EXENTO 	L ,;
+		IVA 	L ,;
+		RETENCIONIVA 	L ,;
+		RETENCIONRENTA 	L ,;
+		SOLICITANTE 	C (10 ),;
+		ESTADO 	I ,;
+		ANULADO 	L ,;
+		TIVA 	N (10 ,2 ),;
+		TRIVA 	N (10 ,2 ),;
+		TRENTA 	N (10 ,2 ),;
+		MRIVA 	N (10 ,2 ),;
+		SCANTIDAD 	N (10 ,2 ),;
+		STOTAL 	N (10 ,2 ),;
+		SABONOS 	N (10 ,2 ),;
+		SCARGOS 	N (10 ,2 ),;
+		SIVA 	N (10 ,2 ),;
+		SRIVA 	N (10 ,2 ),;
+		SRENTA 	N (10 ,2 ),;
+		SNETO 	N (10 ,2 );
+	)
+	*ADD TABLE EVENT 
+	CREATE TABLE MHOJA_D(;
+		IDHOJA 	C (10 ),;
+		IDEQUIPO 	C (10 ),;
+		DESCRIP 	C (60 ),;
+		PRECIO N(10,2),;
+		IDGRUPO C(10),;
+		LINE I AUTOINC ;
+	)
+
+	CREATE TABLE MPROGRA_S(;
+		IDPROGRA 	C (10 ),;
+		IDSUCURSAL 	C (10 ),;
+		DESCRIP 	C (60 ),;
+		NOEQS	N(10,2 ),;
+		NODIAS 	N(10,2 ),;
+		FECHAS C(20),;
+		OBS C(40),;
+		ESTADO I,;
+		LINE I AUTOINC ;
+	)
+
+	CD..
+
+	INSERT INTO DOCUMENTOS(;
+		IDDOC,;
+		NOMBRE,;
+		IDTRANS,;
+		PREFIJO,;
+		LEGAL,;
+		DESCRIPCION,;
+		ICONO,;
+		CATEGORIA);
+	VALUES ; 
+		("88","Hojas de Mantto","02","HM",.F.,;
+		"Hojas de Mantto","MHOJA_32.png","VALORES")
+	
+ENDPROC 
+
+
+PROCEDURE NOV_ADD_mmecas
+	**Fecha:14/11/2011
+	**Origen:GAMA AUTO  
+	**Descripcion:	los mecanicos solo fueron agregados a MGRUPO_MECA y no a MMECA donde deben estar como base para crear el grupo
+	**				se debe hacer al actualizar este exe 
+	**NOV_ADD_mmecas agrega mecanicos a tabla mmeca 
+	INSERT INTO MMECA (;
+		IDMECA,;
+		DESCRIP,;
+		IDTPMECA);
+	SELECT;
+		IDMECA,;
+		DESCRIP,;
+		IIF("JEFE"$DESCRIP,"0000000001","0000000002");
+	FROM;
+		MGRUPO_MECA
+		
+ENDPROC 
+		
+
+
+
+*DO NOV_ADD_TOTAL_PROGRA
+PROCEDURE NOV_ADD_TOTAL_PROGRA
+	**Fecha:14/11/2011
+	**Origen:GAMA AUTO  
+	**Descripcion:	se agrega los totales para resumir el programa 
+	**				se debe hacer al actualizar este exe 
+	**NOV_ADD_TOTAL_PROGRA agrega totales para manejar totales a nivel maestro
+
+	IF !USED("MPROGRA_CLD")
+		USE MPROGRA_CLD EXCLUSIVE  IN 0 
+	ELSE
+		SELECT MPROGRA_CLD
+		USE 
+		USE MPROGRA_CLD EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table MPROGRA_CLD ADD COLUMN SCANTIDAD N(10,2)
+		ALTER table MPROGRA_CLD ADD COLUMN STOTAL N(10,2)
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	ENDTRY 
+ENDPROC 
+
+*Enviados 10/11/2011 8:am 
+***************************************************************************************************************************
+
+*DO linedetordenes
+*DO ADDESTADOPROGRA
+*DO ADDLINEMTTO
+*DO addMenuDevolucion 
+
+PROCEDURE NOV_ESTADO_OG
+	**Fecha:10/11/2011
+	**Origen:GAMA AUTO  
+	**Descripcion:	SE AGREGARA EL ESTADO NUMERICO PARA INCLUIR UN MAYOR RANGO DE ESTADO EN LAS ORDENES DE GASTOS 
+	**				SE DEBERA HACER HASTA QUE YA SE TENGA LISTO EL FORMULARIO NUEVO 
+	**NOV_ESTADO_OG AGREGA ESTADO A ORDENES DE GASTOS NUMERICO 
+
+	IF !USED("ORDENESDEGASTOS")
+		USE ORDENESDEGASTOS EXCLUSIVE  IN 0 
+	ELSE
+		SELECT ORDENESDEGASTOS
+		USE 
+		USE ORDENESDEGASTOS EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER TABLE ORDENESDEGASTOS alter COLUMN estado I
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	ENDTRY 
+ENDPROC 
+
+
+
+PROCEDURE addMenuDevolucion 
+
+	INSERT INTO MENUSTRU(IDMENU, DESCRIPCION);
+		values(;
+		"50106",;
+		"Devoluciones")
+	INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+		values(;
+		"50106",;
+		"Devoluciones",;
+		"A-01")
+	UPDATE DOCUMENTOS SET CATEGORIA="MATERIALES",ICONO="Devoluciones_16x16.png",SKIPPER=50106 WHERE ALLTRIM(IDDOC)=="53"
+		
+	
+		
+ENDPROC 
+
+PROCEDURE linedetordenes
+	IF !USED("DETALLEORDEN")
+		USE DETALLEORDEN EXCLUSIVE  IN 0 
+	ELSE
+		SELECT DETALLEORDEN
+		USE 
+		USE DETALLEORDEN EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table DETALLEORDEN ADD COLUMN LINE I AUTOINC  
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	ENDTRY 
+	
+	SELECT detalleorden 
+	ln=1
+	SCAN 
+		replace line WITH ln  IN detalleorden 
+		ln = ln + 1 
+	ENDSCAN
+
+	ALTER table DETALLEORDEN alter  COLUMN LINE I AUTOINC NEXTVALUE ln
+	PACK IN DETALLEORDEN 	
+	
+	
+	IF !USED("DETALLEGASTO")
+		USE DETALLEGASTO EXCLUSIVE  IN 0 
+	ELSE
+		SELECT DETALLEGASTO
+		USE 
+		USE DETALLEGASTO EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table DETALLEGASTO ADD COLUMN LINE I 
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	ENDTRY 
+	
+	SELECT detallegasto
+	ln=1
+	SCAN 
+		replace line WITH ln  IN detallegasto
+		ln = ln + 1 
+	ENDSCAN
+	
+	ALTER table detallegasto alter  COLUMN LINE I AUTOINC NEXTVALUE ln
+	PACK IN detallegasto
+
+	IF !USED("DETALLEREQUISICION")
+		USE DETALLEREQUISICION EXCLUSIVE  IN 0 
+	ELSE
+		SELECT DETALLEREQUISICION
+		USE 
+		USE DETALLEREQUISICION EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table DETALLEREQUISICION ADD COLUMN LINE I 
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	ENDTRY 
+	
+	SELECT DETALLEREQUISICION 
+	ln=1
+	SCAN 
+		replace line WITH ln  IN DETALLEREQUISICION
+		ln = ln + 1 
+	ENDSCAN
+	
+	ALTER table DETALLEREQUISICION alter  COLUMN LINE I AUTOINC NEXTVALUE ln
+	PACK IN DETALLEREQUISICION
+
+
+	
+	IF !USED("ORDENCOMPRA")
+		USE ORDENCOMPRA EXCLUSIVE  IN 0 
+	ELSE
+		SELECT ORDENCOMPRA
+		USE 
+		USE ORDENCOMPRA EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER TABLE ordencompra alter COLUMN estado I
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	ENDTRY 
+	
+	***SE MODIFICO 10/11/2011 11:02 AM POR QUE NO SE HAIA CAMBIADO EL FORMULARIO DE GASTOS SOLO DE ORDEN DE COMPRA 
+	***POR LO QUE DABA ERROR SE DEJARA EN UN PROCEDIMIENTO APARTE LLAMADO NOV_ESTADO_OG
+	*IF !USED("ORDENESDEGASTOS")
+	*	USE ORDENESDEGASTOS EXCLUSIVE  IN 0 
+	*ELSE
+	*	SELECT ORDENESDEGASTOS
+	*	USE 
+	*	USE ORDENESDEGASTOS EXCLUSIVE IN 0 
+	*ENDIF 
+	*TRY 
+	*	ALTER TABLE ORDENESDEGASTOS alter COLUMN estado I
+	*CATCH
+	*	MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	*ENDTRY 
+	
+	IF !USED("REQUISICIONES")
+		USE REQUISICIONES EXCLUSIVE  IN 0 
+	ELSE
+		SELECT REQUISICIONES
+		USE 
+		USE REQUISICIONES EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER TABLE REQUISICIONES alter COLUMN estado I
+		ALTER TABLE REQUISICIONES ADD COLUMN STOTAL N(10,2)
+		ALTER TABLE REQUISICIONES ADD COLUMN SCANTIDAD N(10,2)
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	ENDTRY 
+ENDPROC 
+
+
+*DO rviejo 
+PROCEDURE ADDESTADOPROGRA
+	IF !USED("MPROGRA_CLD")
+		USE MPROGRA_CLD EXCLUSIVE  IN 0 
+	ELSE
+		SELECT MPROGRA_CLD
+		USE 
+		USE MPROGRA_CLD EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table MPROGRA_CLD ADD COLUMN ESTADO I
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	ENDTRY 
+ENDPROC 
+
+
+PROCEDURE ADDLINEMTTO
+	IF !USED("MPROGRA")
+		USE MPROGRA EXCLUSIVE  IN 0 
+	ELSE
+		SELECT MPROGRA
+		USE 
+		USE MPROGRA EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table MPROGRA ADD COLUMN LINE I AUTOINC 
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS")
+	ENDTRY 
+ENDPROC 
+
+
+
+PROCEDURE AlterMantto 
+	Create table MANT(;
+		IDCLIENTE 	C (7 ),;
+		NUMERO 	C (8 ),;
+		INICIA 	D ,;
+		FINALIZA 	D ,;
+		CONTRATO 	N (1 ,0 ),;
+		PRECIO 	N (12 ,2 ),;
+		OBSER 	M ,;
+		ATENCION 	C (45 ),;
+		ESTADO 	N (1 ,0 );
+	)
+
+	Create table EQUIMAN(;
+		CODIGO 	C (15 ),;
+		TIPO 	C (20 ),;
+		MARCA 	C (15 ),;
+		MODELO 	C (20 ),;
+		SERIE 	C (20 ),;
+		CAPACIDAD 	C (10 ),;
+		IDSUC 	C (3 ),;
+		SUCURSAL 	C (45 ),;
+		UBICACION 	C (45 ),;
+		OBSER 	M ,;
+		MARCA2 	C (15 ),;
+		MODELO2 	C (20 ),;
+		SERIE2 	C (20 ),;
+		UBICACION2 	C (45 ),;
+		PRECIO 	N (12 ,2 ),;
+		NUMERO 	C (8 ),;
+		ELIMINA 	L ,;
+		EQUIPO 	N (1 ,0 ),;
+		TEQUIPO 	N (1 ,0 );
+	)
+	Create TABLE MANTSUC(;
+		IDSUC 	C (3 ),;
+		SUCURSAL 	C (50 ),;
+		PRECIO 	N (12 ,2 ),;
+		ULTIMA 	D ,;
+		ESTADO 	N (1 ,0 ),;
+		PROXIMA 	D ,;
+		IDGRUPO 	C (10 ),;
+		GRUPO 	M ,;
+		ENCARGADO 	C (50 ),;
+		NUMERO 	C (8 );
+	)
+
+ENDPROC 
+
+
+
+
+PROCEDURE rviejo 
+
+	INSERT INTO parametros (idparametro,tipo,valor);
+		VALUES("RVIEJO","CARACTER","C:\Users\YEC\Documents\FOX\gamat")
+		
+ENDPROC 
+
+PROCEDURE addTbRivas
+**Fecha:22/8/2011
+**Origen:GAMA AUTO  
+**Descripcion:ACTIVO FIJO 
+**afActivos
+	CD DATA 
+	OPEN DATABASE IVA EXCLUSIVE 
+	SET DATABASE TO IVA
+	Create table RIVA(;
+		IDRIVA 	C (10 ),;
+		IDPROV 	C (10 ),;
+		FECHA 	D ,;
+		REGISTRO 	C (15 ),;
+		NIT 	C (14 ),;
+		DESCRIP 	C (60 ),;
+		NUMERO 	C (10 ),;
+		NUMERO2 	C (10 ),;
+		IDAUTOCORREL 	C (10 ),;
+		IDAUTOCORREL2 	C (10 ),;
+		EXENTO 	L ,;
+		IVA 	L ,;
+		RETENCIONIVA 	L ,;
+		RETENCIONRENTA 	L ,;
+		SOLICITANTE 	C (10 ),;
+		APRINT_FEC 	C (10 ),;
+		APRINT_USR 	C (10 ),;
+		ESTADO 	I ,;
+		ANULADO 	L ,;
+		TIVA 	N (10 ,2 ),;
+		TRIVA 	N (10 ,2 ),;
+		TRENTA 	N (10 ,2 ),;
+		MRIVA 	N (10 ,2 ),;
+		STOTAL 	N (10 ,2 ),;
+		SABONOS 	N (10 ,2 ),;
+		SCARGOS 	N (10 ,2 ),;
+		SIVA 	N (10 ,2 ),;
+		SRIVA 	N (10 ,2 ),;
+		SRENTA 	N (10 ,2 ),;
+		CRETENCION 	C (10 ),;
+		SNETO 	N (10 ,2 );
+	)
+	*ADD TABLE EVENT 
+	CD..
+**afClasif
+	CD DATA 
+	OPEN DATABASE IVA EXCLUSIVE 
+	SET DATABASE TO IVA
+	CREATE TABLE RIVA_D(;
+		IDRIVA C(10),;
+		REFERENCIA C(10),;
+		DESCRIP C(80),;
+		PARCIAL N(10,2),;
+		TP I,;
+		line i ;
+		)
+	*ADD TABLE EVENT 
+	CD..
+	CD DATA 
+	OPEN DATABASE IVA EXCLUSIVE 
+	SET DATABASE TO IVA
+	CREATE TABLE RIVA_LINES(;
+		IDRIVA C(10),;
+		ORDEN I,;
+		REFERENCIA C(10),;
+		DESCRIP C(80),;
+		CANTIDAD N(10,4),;
+		PRECIO N(10,2),;
+		TP I,;
+		line i ;
+		)
+	*ADD TABLE EVENT 
+	CD..
+
+	*INSERT INTO DOCUMENTOS(;
+		IDDOC,;
+		NOMBRE,;
+		IDTRANS,;
+		PREFIJO,;
+		LEGAL,;
+		DESCRIPCION,;
+		ICONO,;
+		CATEGORIA);
+	VALUES ; 
+		("543","Ubicacion de Activos","02","AU",.F.,;
+		"Ubicacion  de Activos","AF_32.png","VALORES")
+
+ENDPROC 
+
+
+PROCEDURE addDataAF
+**Fecha:22/8/2011
+**Origen:GAMA AUTO  
+**Descripcion:ACTIVO FIJO 
+**afActivos
+	CD DATA 
+	OPEN DATABASE CONTABILIDAD EXCLUSIVE 
+	SET DATABASE TO CONTABILIDAD
+	CREATE TABLE afActivos(;
+		IDAF C(10),;
+		REF C(25),;
+		FEC_ALTA D,;
+		FEC_BAJA D,;
+		IDUBICA C(10),;
+		IDCLASIF C(10),;
+		DESCRIP C(80),;
+		VALOR  n(10,2),;
+		OBS M,;
+		ESTADO I;
+		)
+	*ADD TABLE EVENT 
+	CD..
+**afClasif
+	CD DATA 
+	OPEN DATABASE CONTABILIDAD EXCLUSIVE 
+	SET DATABASE TO CONTABILIDAD
+	CREATE TABLE afClasif(;
+		IDCLASIF C(10),;
+		DESCRIP C(80),;
+		ESTADO I;
+		)
+	*ADD TABLE EVENT 
+	CD..
+
+**afUbicas
+	CD DATA 
+	OPEN DATABASE CONTABILIDAD EXCLUSIVE 
+	SET DATABASE TO CONTABILIDAD
+	CREATE TABLE afUbicas(;
+		IDUBICA C(10),;
+		DESCRIP C(80),;
+		ESTADO I;
+		)
+	*ADD TABLE EVENT 
+	CD..
+**AFACTIVOS_D
+	CD DATA 
+	OPEN DATABASE CONTABILIDAD EXCLUSIVE 
+	SET DATABASE TO CONTABILIDAD
+	CREATE TABLE AFACTIVOS_D(;
+		IDAF C(10),;
+		REFERENCIA C(10),;
+		DESCRIP C(80),;
+		PARCIAL N(10,2),;
+		TP I,;
+		line i ;
+		)
+	*ADD TABLE EVENT 
+	CD..
+	INSERT INTO DOCUMENTOS(;
+		IDDOC,;
+		NOMBRE,;
+		IDTRANS,;
+		PREFIJO,;
+		LEGAL,;
+		DESCRIPCION,;
+		ICONO,;
+		CATEGORIA);
+	VALUES ; 
+		("541","Activo Fijo","02","AC",.F.,;
+		"Activo Fijo","AF_32.png","VALORES")
+
+	INSERT INTO DOCUMENTOS(;
+		IDDOC,;
+		NOMBRE,;
+		IDTRANS,;
+		PREFIJO,;
+		LEGAL,;
+		DESCRIPCION,;
+		ICONO,;
+		CATEGORIA);
+	VALUES ; 
+		("542","Clasificacion de Activos","02","CA",.F.,;
+		"Clasificacion de Activos","AF_32.png","VALORES")
+
+	INSERT INTO DOCUMENTOS(;
+		IDDOC,;
+		NOMBRE,;
+		IDTRANS,;
+		PREFIJO,;
+		LEGAL,;
+		DESCRIPCION,;
+		ICONO,;
+		CATEGORIA);
+	VALUES ; 
+		("543","Ubicacion de Activos","02","AU",.F.,;
+		"Ubicacion  de Activos","AF_32.png","VALORES")
+
+ENDPROC 
+
+
+
+PROCEDURE DropColumnCorrel
+	IF !USED("CVALES_DET")
+		USE CVALES_DET EXCLUSIVE  IN 0 
+	ELSE
+		SELECT CVALES_DET
+		USE 
+		USE CVALES_DET EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table CVALES_DET ADD COLUMN LINE I
+		ALTER table CVALES_DET DROP  COLUMN CORREL
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS ",64,"Resultado",1500)
+	ENDTRY 
+ENDPROC 
+
+
+
+PROCEDURE vales
+	IF !USED("CVALES")
+		USE CVALES EXCLUSIVE  IN 0 
+	ELSE
+		SELECT CVALES
+		USE 
+		USE CVALES EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table CVALES ADD COLUMN ESTADO I
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS ",64,"Resultado",1500)
+	ENDTRY 
+ENDPROC 
+
+
+
+PROCEDURE ADDTRENTA
+
+	IF !USED("RETENCIONESRENTA")
+		USE RETENCIONESRENTA EXCLUSIVE  IN 0 
+	ELSE
+		SELECT RETENCIONESRENTA
+		USE 
+		USE RETENCIONESRENTA EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+	ALTER table RETENCIONESRENTA ADD COLUMN TIVA N(10,2)
+	ALTER table RETENCIONESRENTA ADD COLUMN TRIVA N(10,2)
+	ALTER table RETENCIONESRENTA ADD COLUMN TRENTA N(10,2)
+	ALTER table RETENCIONESRENTA ADD COLUMN MRIVA N(10,2)
+	ALTER table RETENCIONESRENTA ADD COLUMN PROVEEDOR C(10)
+	ALTER table RETENCIONESRENTA ADD COLUMN baseriva n(10,4)
+
+	CATCH
+		MESSAGEBOX("YA EXISTEN LOS CAMPOS ",64,"Resultado",1500)
+	ENDTRY 
+ENDPROC 
+
+
+
+
+PROCEDURE MODESPACIOS
+	IF !USED("CC")
+		USE CC EXCLUSIVE  IN 0 
+	ELSE
+		SELECT CC
+		USE 
+		USE CC EXCLUSIVE IN 0 
+	ENDIF 
+	ALTER table CC alter COLUMN DESCRIPCION C(80)
+
+	IF !USED("DETALLECC")
+		USE DETALLECC EXCLUSIVE  IN 0 
+	ELSE
+		SELECT DETALLECC
+		USE 
+		USE DETALLECC EXCLUSIVE IN 0 
+	ENDIF 
+	ALTER table DETALLECC alter COLUMN DESCRIPCION C(60)
+	
+	IF !USED("DETALLECARGOSBANCO")
+		USE DETALLECARGOSBANCO EXCLUSIVE  IN 0 
+	ELSE
+		SELECT DETALLECARGOSBANCO
+		USE 
+		USE DETALLECARGOSBANCO EXCLUSIVE IN 0 
+	ENDIF 
+	ALTER table DETALLECARGOSBANCO alter COLUMN DESCRIPCION C(60)
+
+	IF !USED("CARGOSBANCO")
+		USE CARGOSBANCO EXCLUSIVE  IN 0 
+	ELSE
+		SELECT CARGOSBANCO
+		USE 
+		USE CARGOSBANCO EXCLUSIVE IN 0 
+	ENDIF 
+	ALTER table CARGOSBANCO alter COLUMN DESCRIPCION C(80)
+	ALTER table CARGOSBANCO alter COLUMN OBSERVACIONES  C(80)
+
+	IF !USED("DOCPROV")
+		USE DOCPROV EXCLUSIVE  IN 0 
+	ELSE
+		SELECT DOCPROV
+		USE 
+		USE DOCPROV EXCLUSIVE IN 0 
+	ENDIF 
+	ALTER table DOCPROV alter COLUMN DESCRIPCION C(80)
+
+ENDPROC 
+ 
+PROCEDURE addline
+	&&	&&Agregar linea para poder actualizar desde formulario de lcompra
+	SET DELETED OFF 
+	IF !USED("DETALLEGASTO")
+		USE DETALLEGASTO EXCLUSIVE  IN 0 
+	ELSE
+		SELECT DETALLEGASTO
+		USE 
+		USE DETALLEGASTO EXCLUSIVE IN 0 
+	ENDIF 
+	ALTER TABLE DETALLEGASTO  ADD  COLUMN line i
+	SELECT DETALLEGASTO
+
+	**Rellenar todas las lineas del columna 
+	n=1
+	SCAN 
+		REPLACE LINE WITH N IN DETALLEGASTO
+		n = n + 1 
+	ENDSCAN
+	ALTER TABLE DETALLEGASTO  ALTER  COLUMN line i AUTOINC NEXTVALUE N  
+	USE 	
+	**ORDENES DE GASTOS 
+	IF !USED("DETALLEORDEN")
+		USE DETALLEORDEN EXCLUSIVE  IN 0 
+	ELSE
+		SELECT DETALLEORDEN
+		USE 
+		USE DETALLEORDEN EXCLUSIVE IN 0 
+	ENDIF 
+	ALTER TABLE DETALLEORDEN  ADD  COLUMN line i
+	SELECT DETALLEORDEN
+
+	**Rellenar todas las lineas del columna 
+	n=1
+	SCAN 
+		REPLACE LINE WITH N IN DETALLEORDEN
+		n = n + 1 
+	ENDSCAN
+	ALTER TABLE DETALLEORDEN ALTER  COLUMN line i AUTOINC NEXTVALUE N  
+	USE 	
+ENDPROC 
+
+PROCEDURE ADDCRET
+	&&MODIFICAR ORDEN DE GASTOS PARA AGREGAR CRETENCION
+	IF !USED("ORDENESDEGASTOS")
+		USE ORDENESDEGASTOS EXCLUSIVE  IN 0 
+	ELSE
+		SELECT ORDENESDEGASTOS
+		USE 
+		USE ORDENESDEGASTOS EXCLUSIVE IN 0 
+	ENDIF 
+	ALTER TABLE ORDENESDEGASTOS  ADD  COLUMN CRETENCION C(10)  
+	SELECT ORDENESDEGASTOS
+	USE 
+	&&AGREGAR A ORDEN DE COMPRA 	
+	IF !USED("ORDENCOMPRA")
+		USE ORDENCOMPRA EXCLUSIVE 
+	ELSE
+		SELECT ORDENCOMPRA
+		USE 
+		USE ORDENCOMPRA EXCLUSIVE 
+	ENDIF 
+
+	ALTER TABLE ORDENCOMPRA ADD COLUMN CRETENCION C(25) 
+	SELECT ORDENCOMPRA
+	USE 	
+	
+ENDPROC 
+
+PROCEDURE INSCCF
+&&TAMBIEN HAY QUE AÑADIR EL PROCEDIMIENTO EN GENNUMDOC PARA QUE NO HAYA PROBLEMA 
+	lcIdDocumento="25"
+	SELECT iddoc FROM documentos  WHERE ALLTRIM(iddoc)==lcIdDocumento INTO ARRAY ladoc
+	IF VARTYPE(ladoc)="U"
+		INSERT INTO DOCUMENTOS(;
+			IDDOC,;
+			NOMBRE,;
+			IDTRANS,;
+			PREFIJO,;
+			LEGAL,;
+			DESCRIPCION,;
+			ICONO,;
+			CATEGORIA);
+		VALUES ; 
+			("25","Credito Fiscal Compras","02","CR",.F.,;
+			"Compobante de Credito Fiscal compras","CCF.png","GASTOS")
+		MESSAGEBOX("Documento ingresado "+lcIdDocumento+" exitosamente ",64,"Resultado",1500)
+	ELSE	
+		MESSAGEBOX("Documento "+lcIdDocumento+" ya fue ingresado a tabla documentos y estructura del menu ",64,"Resultado",1500)
+	ENDIF ENDPROC
+
+
+
+PROCEDURE MODCCF
+	IF !USED("ORDENESDEGASTOS")
+		USE ORDENESDEGASTOS EXCLUSIVE  IN 0 
+	ELSE
+		SELECT ORDENESDEGASTOS
+		USE 
+		USE ORDENESDEGASTOS EXCLUSIVE IN 0 
+	ENDIF 
+
+	ALTER TABLE ORDENESDEGASTOS  ADD  COLUMN CCF C(25) NULL  
+	ALTER TABLE ORDENESDEGASTOS ADD COLUMN FEC_CCF D NULL 
+	ALTER TABLE ORDENESDEGASTOS ADD COLUMN MES n(2) NULL 
+	ALTER TABLE ORDENESDEGASTOS ADD COLUMN AÑO n(4) NULL 
+	ALTER TABLE ORDENESDEGASTOS ADD COLUMN REGISTRO C(10) NULL
+	ALTER TABLE ORDENESDEGASTOS ADD COLUMN SNETO N(10,2) NULL
+	ALTER TABLE ORDENESDEGASTOS ADD COLUMN SIVA N(10,2) NULL
+	ALTER TABLE ORDENESDEGASTOS ADD COLUMN SRIVA N(10,2) NULL
+	ALTER TABLE ORDENESDEGASTOS ADD COLUMN STOTAL N(10,2) NULL
+
+	IF !USED("ORDENCOMPRA")
+		USE ORDENCOMPRA EXCLUSIVE 
+	ELSE
+		SELECT ORDENCOMPRA
+		USE 
+		USE ORDENCOMPRA EXCLUSIVE 
+	ENDIF 
+
+	ALTER TABLE ORDENCOMPRA ADD COLUMN CCF C(25) NULL 
+	ALTER TABLE ORDENCOMPRA ADD COLUMN FEC_CCF D NULL 
+	ALTER TABLE ORDENCOMPRA ADD COLUMN MES n(2) NULL 
+	ALTER TABLE ORDENCOMPRA ADD COLUMN AÑO n(4) NULL 
+	ALTER TABLE ORDENCOMPRA ADD COLUMN REGISTRO C(10) NULL
+	ALTER TABLE ORDENCOMPRA ADD COLUMN SNETO N(10,2) NULL
+	ALTER TABLE ORDENCOMPRA ADD COLUMN SIVA N(10,2) NULL
+	ALTER TABLE ORDENCOMPRA ADD COLUMN SRIVA N(10,2) NULL
+	ALTER TABLE ORDENCOMPRA ADD COLUMN STOTAL N(10,2) NULL
+
+	ALTER table ORDENESDEGASTOS alter COLUMN MES C(2)
+	ALTER table ORDENESDEGASTOS alter COLUMN AÑO C(4)
+
+	ALTER table ORDENCOMPRA alter COLUMN MES C(2)
+	ALTER table ORDENCOMPRA alter COLUMN AÑO C(4)
+ENDPROC 
+
+*******************************************************************************************************
+**PROCEDIMIENTOS GENERICOS 
+
+PROCEDURE MAKECHANGES
+	LPARAMETERS TCTB,TCFLD,TNPRECISION,TCTYPEOPERATION	
+	
+	IF FILE(TCTB+".DBF")=.F.
+		MESSAGEBOX("TABLA "+TCTB+"NO EXISTE ",64,"Resultado",1500)
+		CANCEL 
+	ENDIF 
+	DO OPENTABLE WITH TCTB
+	DO CASE
+	CASE 	TCTYPEOPERATION="ADD"
+		IF VERIFIELDEXIS(TCTB,TCFLD)=.F.
+			ALTER TABLE (TCTB) &TCTYPEOPERATION COLUMN &TCFLD &TNPRECISION 
+			MESSAGEBOX("CAMPO: "+TCFLD+" AGREGADO CON EXITO EN "+TCTB,64,"Resultado",1500)
+		ELSE
+			MESSAGEBOX("YA EXISTE EL CAMPO: "+TCFLD+" EN LA TABLA "+TCTB,64,"Resultado",1500)
+		ENDIF 
+	CASE 	TCTYPEOPERATION="ALTER"
+		IF VERIFIELDEXIS(TCTB,TCFLD)=.T.
+			ALTER TABLE (TCTB) &TCTYPEOPERATION COLUMN &TCFLD &TNPRECISION 
+			MESSAGEBOX("CAMPO: "+TCFLD+" MODIFICADO  CON EXITO EN "+TCTB,64,"Resultado",1500)
+		ELSE
+			MESSAGEBOX("CAMPO: "+TCFLD+" NO EXISTE EN LA TABLA "+TCTB,64,"Resultado",1500)
+		ENDIF 
+	CASE 	TCTYPEOPERATION="DROP"
+		IF VERIFIELDEXIS(TCTB,TCFLD)=.T.
+			ALTER TABLE (TCTB) &TCTYPEOPERATION COLUMN &TCFLD 
+			MESSAGEBOX("CAMPO: "+TCFLD+" ELIMINADO CON EXITO EN "+TCTB,64,"Resultado",1500)
+		ELSE
+			MESSAGEBOX("CAMPO: "+TCFLD+" NO EXISTE EN LA TABLA "+TCTB,64,"Resultado",1500)
+		ENDIF 
+	CASE 	TCTYPEOPERATION="UPD"
+		IF VERIFIELDEXIS(TCTB,TCFLD)=.F.
+			ALTER TABLE (TCTB) ADD COLUMN &TCFLD &TNPRECISION 
+			MESSAGEBOX("CAMPO: "+TCFLD+" AGREGADO CON EXITO EN "+TCTB,64,"Resultado",1500)
+		ELSE
+			ALTER TABLE (TCTB) ALTER COLUMN &TCFLD &TNPRECISION 
+			MESSAGEBOX("CAMPO: "+TCFLD+" MODIFICADO  CON EXITO EN "+TCTB,64,"Resultado",1500)
+		ENDIF 
+	OTHERWISE
+
+	ENDCASE
+	CLOSE TABLES ALL 	
+ENDPROC
+
+
+
+PROCEDURE OPENTABLE
+	PARAMETERS LCTABLE
+	IF !USED(LCTABLE)
+		USE (LCTABLE) EXCLUSIVE  IN 0 
+	ELSE
+		SELECT (LCTABLE)
+		USE 
+		USE (LCTABLE) EXCLUSIVE IN 0 
+	ENDIF 
+ENDPROC 
+
+PROCEDURE VERIFIELDEXIS
+	PARAMETERS LCTABLE,LCCAMPO
+	IF !USED(LCTABLE)
+		USE LCTABLE IN 0 
+	ENDIF 
+	SELECT (LCTABLE) 
+	AFIELDS(LACAMPOS,LCTABLE)
+	LCEXAC=SET("Exact")
+	SET EXACT ON 
+	LBRETURN=ASCAN(LACAMPOS,LCCAMPO)>=1
+	SET EXACT &LCEXAC
+	RETURN LBRETURN
+ENDPROC 
+
+PROCEDURE addreport 
+	LPARAMETERS tcidreport,tcdescrip, tcdescrip2, tcimage, tctp, tctpllama,tnSkipper
+	**Skipper se agrego el 4 de septiembre 
+	**22 OCTUBRE 2016 
+	**asegurando que si no se envia el tnSkipper se establezca a cero
+	IF VARTYPE(tnSkipper)="L"
+		lnSkipper=0
+		lcSkipperInsert="INSERT INTO REPORTS(IDREPORT,DESCRIP,DESCRIP2,IMAGE,TP,TPLLAMA) VALUES ( tcidreport,tcdescrip,tcdescrip2,tcimage,tctp,tctpllama)"
+		lcSkipperUpdate="UPDATE reports SET DESCRIP=tcdescrip,DESCRIP2=tcdescrip2,IMAGE=tcimage,TP=tctp,TPLLAMA=tctpllama WHERE IDREPORT==tcidreport"
+		
+	ELSE
+		lnSkipper=tnSkipper
+		lcSkipperInsert="INSERT INTO REPORTS(IDREPORT,DESCRIP,DESCRIP2,IMAGE,TP,TPLLAMA,SKIPPER) VALUES ( tcidreport,tcdescrip,tcdescrip2,tcimage,tctp,tctpllama,lnSkipper)"
+		lcSkipperUpdate="UPDATE reports SET DESCRIP=tcdescrip,DESCRIP2=tcdescrip2,IMAGE=tcimage,TP=tctp,TPLLAMA=tctpllama,SKIPPER=lnSkipper WHERE IDREPORT==tcidreport"
+	ENDIF 
+	
+	
+	**22 OCTUBRE 2016 
+	
+	IF !EMPTY(tcidreport) 
+		IF !EMPTY(tctp)
+			SELECT idreport FROM reports WHERE idreport==tcidreport INTO ARRAY lareportexist
+			IF VARTYPE(lareportexist)="U"
+
+				&lcSkipperInsert 
+
+				MESSAGEBOX("REPORTE:"+tcidreport+ " agregado con exito ",64,"Resultado",1500)
+			ELSE
+				MESSAGEBOX("REPORTE:"+tcidreport+ " ya existe se actualizará con nueva información: "+CHR(13)+" "+;
+							tcdescrip+" "+CHR(13)+" "+;
+							tcdescrip2,48,"Actualizando informacion "+tcidreport,1500)
+
+				&lcSkipperUpdate 
+				
+			ENDIF 
+		ELSE
+			MESSAGEBOX("tp esta vacio ",64,"Resultado",1500 )
+		ENDIF 
+	ELSE 
+		MESSAGEBOX("id del reporte esta vacio",64,"Resultado",1500)
+	ENDIF 
+ENDPROC 
+
+PROCEDURE UpdateTableFromServer
+	LPARAMETERS tcTable,tcRutaServer,tcRutaLocal
+	**Inicio de: Estableciendo el ambiente de operacion 
+		SET EXCLUSIVE OFF 
+		SET DATE FRENCH 
+		SET DELETED ON 
+		CLOSE TABLES ALL 
+	**Fin de :Estableciendo el ambiente de operacion 
+	
+	**Inicio de: Estableciendo variables 
+		IF PCOUNT()=1
+			lcServer="\\Servidor\data\Gama GA Sistemas\SGAA\DATA\"
+			lcLocal="c:\users\yec\documents\fox\gaa\data\"
+		ELSE 
+			lcServer=tcRutaServer
+			lcLocal=tcRutaLocal
+		ENDIF 
+		
+		lnRecCounts=0
+		lcFields=""
+		lnFieldsCount=0
+		lnFieldsLine=0
+		lbHaveLine=.f.
+	**Fin de: Estableciendo variables 
+	
+	**Inicio de: Verificando que exista la tabla en el servidor 
+		IF FILE(lcServer+tcTable+".dbf")
+			**Inicio de: Verificando que exista la tabla en el localmente
+				IF FILE(lcLocal+tcTable+".dbf")
+					**Inicio de: Borrando datos 
+						USE (lcLocal+tcTable+".dbf") ALIAS  Tblocal  IN 0 exclusive 
+						SELECT tblocal
+						IF MESSAGEBOX("Seguro de borrar: "+DBF(),4)=6
+							IF MESSAGEBOX("Seguro de borrar: "+DBF(),4)=6
+								ZAP  
+								**Inicio de: Quitando line de autoinc 
+									AFIELDS(laFields,"tblocal")
+									lnFieldsCount=ALEN(laFields,1)
+									*MESSAGEBOX("lnFieldsCount")
+									*MESSAGEBOX(lnFieldsCount)
+									FOR N=1 TO ALEN(laFields,1)
+										IF laFields(n,18)=0
+											lcfield=laFields(n,1)+","
+											
+											*IF n=lnFieldsCount
+											*	lcFields=lcFields+laFields(n,1)
+											*ELSE
+											*	lcFields=lcFields+laFields(n,1)+","
+											*ENDIF 
+										ELSE 
+											lcfield=""
+											lnFieldsLine = lnFieldsLine + 1 
+											*lnFieldsCount = lnFieldsCount - 1 
+											lbHaveLine=.t.
+										ENDIF 
+										
+										*IF n=(lnFieldsCount-lnFieldsLine)
+										*	lcTerminacion=""
+										*ELSE
+										*	lcTerminacion=","
+										*ENDIF 
+										
+										lcFields = lcFields +  lcField
+										
+									ENDFOR 
+									lcFields=SUBSTR(lcFields,1,LEN(lcFields)-1)
+								**Fin de: Quitando line de autoinc 
+								**Inicio de: Trayendo datos 
+									*IF lbHaveLine
+										*MESSAGEBOX("lcFields")
+										*MESSAGEBOX(lcFields)
+									*ELSE
+								
+										APPEND FROM  (lcServer+tcTable+".dbf") FIELDS  &lcFields
+										lnRecCounts=RECCOUNT("tblocal")
+										MESSAGEBOX(TRANSFORM(lnRecCounts)+" Registros Importados con exito",64,"Resultado",1500)
+										BROWSE 
+										CLOSE TABLES ALL 
+									*ENDIF 
+								**Fin de: trayendo  datos 						
+
+							ENDIF 
+						ENDIF 
+					**Fin de: Borrando datos 
+				ELSE
+					MESSAGEBOX("Tabla no existe localmente",64,"Resultado",1500)
+				ENDIF 
+			**Fin de: Verificando que exista la tabla en el localmente 
+			 
+			
+		ELSE
+			MESSAGEBOX("Tabla no existe en el servidor",64,"Resultado",1500)
+		ENDIF 
+	**Fin de: Verificando que exista la tabla en el servidor 
+	
+	**Inicio de: 
+	
+ENDPROC 
+
+PROCEDURE DropDoc
+	LPARAMETERS tcIdDoc,tcSkipper
+	DELETE FROM documentos WHERE UPPER(ALLTRIM(iddoc))==ALLTRIM(UPPER(tcIdDoc))
+	DELETE FROM menustru WHERE UPPER(ALLTRIM(idmenu))==ALLTRIM(UPPER(tcSkipper))
+	DELETE FROM menus  WHERE UPPER(ALLTRIM(codigo))==ALLTRIM(UPPER(tcSkipper))
+	
+ENDPROC 
+
+PROCEDURE addDoc
+LPARAMETERS tcIdDoc, tcNombre,TcIdTrans,tcPrefijo,tcLegal,tcDescrip,tcImage,tcCat,tcSkipper,tcTablaM,tcTablaD,tcIdCampo
+	IF PCOUNT()<=9
+		tcTablaM=""
+		tcTablaD=""
+		tcIdCampo=""
+	ENDIF 
+	SELECT iddoc FROM documentos  WHERE UPPER(ALLTRIM(iddoc))==UPPER(ALLTRIM(tcIdDoc)) INTO ARRAY ladoc
+	IF VARTYPE(ladoc)="U"
+		INSERT INTO DOCUMENTOS(;
+			IDDOC,;
+			NOMBRE,;
+			IDTRANS,;
+			PREFIJO,;
+			LEGAL,;
+			DESCRIPCION,;
+			ICONO,;
+			CATEGORIA,;
+			SKIPPER,;
+			TABLA_M,;
+			TABLA_D,;
+			IDCAMPO;
+			);
+		VALUES ; 
+			(tcIdDoc,tcNombre,TcIdTrans,tcPrefijo,tcLegal,;
+			tcDescrip,tcImage,tcCat,VAL(tcSkipper),;
+			tcTablaM,tcTablaD,tcIdCampo)
+
+
+
+		INSERT INTO MENUSTRU(Idmenu, Descripcion);
+			values(;
+			tcSkipper,;
+			tcDescrip)
+
+
+		INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+			values(;
+			tcSkipper,;
+			tcDescrip,;
+			"O-01")
+
+		INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+			values(;
+			tcSkipper,;
+			tcDescrip,;
+			"A-01")
+
+		INSERT INTO MENUS(CODIGO, NOMBRE, IDCARGO);
+			values(;
+			tcSkipper,;
+			tcDescrip,;
+			"A-02")
+			
+		MESSAGEBOX("Documento "+tcIdDoc+" ingresado exitosamente ",64,"Resultado",1500)
+	ELSE	
+		MESSAGEBOX("Documento "+tcIdDoc+" ya fue ingresado a tabla documentos y estructura del menu "+CHR(13)+"Se actualizaran los datos nada mas",64,"Resultado",1500)
+
+		UPDATE DOCUMENTOS SET ;
+			NOMBRE=tcNombre,;
+			IDTRANS=TcIdTrans,;
+			PREFIJO=tcPrefijo,;
+			LEGAL=tcLegal,;
+			DESCRIPCION=tcDescrip,;
+			ICONO=tcImage,;
+			CATEGORIA=tcCat,;
+			SKIPPER=VAL(tcSkipper),;
+			TABLA_M=tcTablaM,;
+			TABLA_D=tcTablaD,;
+			IDCAMPO=tcIdCampo;			
+		WHERE ; 
+			UPPER(ALLTRIM(IDDOC))==UPPER(ALLTRIM(tcIdDoc))
+
+
+		UPDATE MENUSTRU SET ;
+			Descripcion=tcDescrip;
+		WHERE ;
+			UPPER(ALLTRIM(Idmenu))==UPPER(ALLTRIM(tcSkipper))
+
+
+		UPDATE MENUS SET ;
+			NOMBRE=tcDescrip;
+		WHERE ;
+			UPPER(ALLTRIM(CODIGO))=UPPER(ALLTRIM(tcSkipper)) and ;
+			ALLTRIM(IDCARGO)="O-01"
+
+
+		UPDATE MENUS SET ;
+			NOMBRE=tcDescrip;
+		WHERE ;
+			UPPER(ALLTRIM(CODIGO))=UPPER(ALLTRIM(tcSkipper)) and ;
+			ALLTRIM(IDCARGO)="A-01"
+
+		UPDATE MENUS SET ;
+			NOMBRE=tcDescrip;
+		WHERE ;
+			UPPER(ALLTRIM(CODIGO))=UPPER(ALLTRIM(tcSkipper)) and ;
+			ALLTRIM(IDCARGO)="A-02"
+		
+	ENDIF 
+
+ENDPROC 
+
+
+**agrega cargos al sistema 
+PROCEDURE AddCargos
+	LPARAMETERS tcIdCargo,tcDescrip,tbActualizar
+	
+	SELECT idcargo FROM usuarios WHERE ALLTRIM(idcargo)=ALLTRIM(tcIdCargo) INTO ARRAY lacargoExist 
+	IF VARTYPE(lacargoExist)="U"
+		INSERT INTO usuarios (idcargo,descripcion) ;
+			VALUES (tcIdCargo,tcDescrip)
+			lcMsg="Cargo: "+tcIdCargo+tcDescrip +" Agregado con exito "
+		
+	ELSE
+		IF tbActualizar=.t.
+			UPDATE USUARIOS SET DESCRIPCION=tcDescrip WHERE ALLTRIM(idcargo)=ALLTRIM(tcIdCargo) 
+			lcMsg="Cargo: "+tcIdCargo+tcDescrip +" Actualizado con exito"
+		ELSE
+			lcMsg="Cargo: "+tcIdCargo+tcDescrip +" ya existe"
+		ENDIF 
+	ENDIF 
+	MESSAGEBOX(lcMsg,16,"Resultado",1500)
+ENDPROC 
+
+**agrega cargos al sistema 
+PROCEDURE AddAcceso
+	LPARAMETERS tcCodigo,tcIdCargo,tbActualizar
+		
+		
+	SELECT ;
+		idcargo ;
+	FROM ;
+		menus ;
+	WHERE ;
+		ALLTRIM(idcargo)==ALLTRIM(tcIdCargo) AND ;
+		ALLTRIM(codigo)==ALLTRIM(tcCodigo) ;
+	INTO ARRAY laAccExist 
+
+	SELECT descripcion FROM menustru WHERE ALLTRIM(idmenu)==ALLTRIM(tcCodigo) INTO ARRAY laMenuExist 
+	IF !VARTYPE(laMenuExist)="U"	
+		IF VARTYPE(laAccExist )="U"
+				INSERT INTO menus(codigo,nombre,idcargo) ;
+					VALUES (tcCodigo,laMenuExist,tcIdCargo)
+					lcMsg="Menu: "+tcCodigo+laMenuExist+" y cargo: "+tcIdCargo+" Agregado con exito "
+		ELSE
+			IF tbActualizar=.t.
+			
+				UPDATE menus SET nombre=laMenuExist WHERE ALLTRIM(idcargo)==ALLTRIM(tcIdCargo) AND ALLTRIM(codigo)==ALLTRIM(tcCodigo) 
+				lcMsg="Menu: "+tcCodigo+laMenuExist+" y cargo: "+tcIdCargo+" Actualizado con exito "
+			ELSE
+				lcMsg="Menu: "+tcCodigo+laMenuExist+" y cargo: "+tcIdCargo+" ya existe"
+			ENDIF 
+		ENDIF 
+	ELSE
+		lcMsg="Menu: "+tcCodigo+" No existe"
+	ENDIF 
+	
+	MESSAGEBOX(lcMsg,16,"Resultado",1500)
+ENDPROC 
+
+PROCEDURE AddAcceso2
+**crea el menustru y actualiza el acceso 
+	LPARAMETERS tcCodigo,tcIdCargo,tcdescrip,tbActualizar
+	SELECT idmenu FROM menustru WHERE idmenu==tcCodigo INTO ARRAY laMenuStruExist
+	IF VARTYPE(laMenuStruExist)="U"
+		INSERT INTO menustru (idmenu,descripcion) VALUES (tcCodigo,tcdescrip)
+		MESSAGEBOX("Menu creado con exito",16,"Ingresado",1500)
+		DO AddAcceso WITH tcCodigo,tcIdCargo,tbActualizar
+
+	ELSE
+		IF tbActualizar
+			UPDATE menustru SET descripcion=tcdescrip WHERE idmenu==tcCodigo
+			MESSAGEBOX("Menu actualizado con exito",16,"Actualizado",1500)
+			DO AddAcceso WITH tcCodigo,tcIdCargo,tbActualizar
+		ENDIF 
+	ENDIF 
+ENDPROC 
+
+**procedimientos para inserta parametros hay tres tipos de parametros 
+**1)solo se identifica por idparam --son los parametros globales 
+**2)se identifica por idparam y user --son parametros a nivel de usuario 
+**3)se identifican por idparam user y FRXfile --son parametros para manejo de reportbehavior con impresores matriciales 
+
+PROCEDURE inserparamUser
+	PARAMETERS tcidparam,tctipo,tcvalor,tcclasif,tcUser
+	
+	SELECT idparametro FROM parametros WHERE ;
+		UPPER(ALLTRIM(idparametro))==UPPER(ALLTRIM(tcidparam)) AND ;
+		UPPER(ALLTRIM(usuario))==UPPER(ALLTRIM(tcUser));
+	INTO ARRAY laParamExist
+
+	IF VARTYPE(laParamExist)="U"
+		INSERT INTO PARAMETROS(IDPARAMETRO,TIPO,VALOR,CLASIF,usuario) VALUES (tcidparam,tctipo,tcvalor,tcclasif,tcUser )
+		MESSAGEBOX("Parametro de Usuario "+tcidparam+": "+tcvalor+" Insertado ",16," Insercion",1500)
+	ELSE
+		UPDATE parametros SET TIPO=tctipo,VALOR=tcvalor,CLASIF=tcclasif,usuario=tcuser WHERE ;
+			ALLTRIM(UPPER(idparametro))==ALLTRIM(UPPER(tcidparam)) AND ; 
+			UPPER(ALLTRIM(usuario))==UPPER(ALLTRIM(tcUser))
+
+		MESSAGEBOX("Parametro de Usuario  "+tcidparam+": "+tcvalor+" Actualizado ",16," Actualizacion",1500)
+	ENDIF 
+	
+ENDPROC 
+
+
+PROCEDURE inserparamReport
+	
+	PARAMETERS tcidparam,tctipo,tcvalor,tcclasif,tcUser,tcFrxFile
+	
+	SELECT idparametro FROM parametros WHERE ;
+		UPPER(ALLTRIM(idparametro))==UPPER(ALLTRIM(tcidparam)) AND ;
+		UPPER(ALLTRIM(usuario))==UPPER(ALLTRIM(tcUser)) AND ;		
+		UPPER(ALLTRIM(frxfile))==UPPER(ALLTRIM(tcFrxFile));
+		INTO ARRAY laParamExist
+
+	IF VARTYPE(laParamExist)="U"
+		INSERT INTO PARAMETROS(IDPARAMETRO,TIPO,VALOR,CLASIF,USUARIO,FRXFILE) VALUES (tcidparam,tctipo,tcvalor,tcclasif,tcUser,tcFrxFile )
+		MESSAGEBOX("Parametro de Reporte "+tcidparam+": "+tcvalor+" Insertado ",16," Insercion",1500)
+	ELSE
+		UPDATE parametros SET TIPO=tctipo,VALOR=tcvalor,CLASIF=tcclasif,usuario=tcUser,frxfile=tcFrxFile  WHERE ;
+			ALLTRIM(UPPER(idparametro))==ALLTRIM(UPPER(tcidparam))  AND ; 
+			UPPER(ALLTRIM(usuario))==UPPER(ALLTRIM(tcUser)) AND ;		
+			UPPER(ALLTRIM(frxfile))==UPPER(ALLTRIM(tcFrxFile))
+			
+		MESSAGEBOX("Parametro de Reporte "+tcidparam+": "+tcvalor+" Actualizado ",16," Actualizacion",1500)
+	ENDIF 
+	
+ENDPROC 
+
+PROCEDURE inserparam 
+	PARAMETERS tcidparam,tctipo,tcvalor,tcclasif 
+	
+	SELECT idparametro FROM parametros WHERE UPPER(ALLTRIM(idparametro))==UPPER(ALLTRIM(tcidparam)) INTO ARRAY laParamExist
+
+	IF VARTYPE(laParamExist)="U"
+		INSERT INTO PARAMETROS(IDPARAMETRO,TIPO,VALOR,CLASIF) VALUES (tcidparam,tctipo,tcvalor,tcclasif )
+		MESSAGEBOX("Parametro Global"+tcidparam+": "+tcvalor+" Insertado ",16," Insercion",1500)
+	ELSE
+		UPDATE parametros SET TIPO=tctipo,VALOR=tcvalor,CLASIF=tcclasif  WHERE ALLTRIM(UPPER(idparametro))==ALLTRIM(UPPER(tcidparam)) 
+		MESSAGEBOX("Parametro Global"+tcidparam+": "+tcvalor+" Actualizado ",16," Actualizacion",1500)
+	ENDIF 
+	
+ENDPROC 
+
+
+PROCEDURE AddDetLine
+	LPARAMETERS tctabla
+	IF !USED(tctabla)
+		USE (tctabla) EXCLUSIVE  IN 0 
+	ELSE
+		SELECT (tctabla)
+		USE 
+		USE (tctabla) EXCLUSIVE IN 0 
+	ENDIF 
+	TRY 
+		ALTER table (tctabla) ADD COLUMN LINE I 
+		
+		SELECT (tctabla)
+		ln=1
+		SCAN 
+			replace line WITH ln  IN (tctabla)
+			ln = ln + 1 
+		ENDSCAN
+
+		ALTER table (tctabla) alter  COLUMN LINE I AUTOINC NEXTVALUE ln
+		PACK IN (tctabla)
+	CATCH
+		MESSAGEBOX("Ya existen los campos LINE ",64,"Información",1500)
+	ENDTRY 	
+	USE IN (tctabla)
+	CLOSE TABLES ALL 
+	CLOSE DATABASES ALL 
+	
+ENDPROC 
+
+PROCEDURE extractIntfromiddoc
+	LPARAMETERS tciddoc2int
+	LOCAL lnChar,lnReturn,lcChar,lnToReturnChar
+	lnchar=0
+	lnReturn=0
+	lcChar=""
+	lnToReturnChar=0
+	FOR n=1 TO LEN(tciddoc2int) 
+		lnChar=n
+		lcChar=SUBSTR(tciddoc2int,lnChar,1)
+		IF INLIST(lcChar,"0","1","2","3","4","5","6","7","8","9")
+			lnToReturnChar=lnChar
+			EXIT 
+		ELSE
+			lnToReturnChar=0
+		ENDIF 
+
+	ENDFOR 
+	
+	lnReturn=VAL(SUBSTR(tciddoc2int,lnToReturnChar,LEN(tciddoc2int)))
+	RETURN lnReturn
+ENDPROC 
+
+
+PROCEDURE INSERTDOCNUMNEW
+&&comentario 15 de octubre 2015, a diferencia de INSERTDOCNUM, este metodo solo se encarga de ingresar el docnum si no existe,
+LPARAMETERS TCIDDOC
+*SELECT IDDOC,PREFIJO,VAL("0"),VAL("1") FROM DOCUMENTOS WHERE (IDDOC,"5","02","4","3") INTO ARRAY ladoc2inserts
+*extraer la informacion del documento
+SELECT IDDOC,PREFIJO,VAL("0"),VAL("1") FROM DOCUMENTOS WHERE IDDOC=TCIDDOC INTO ARRAY ladoc2inserts
+**depositar en el ladoc2inserts
+	IF !VARTYPE(ladoc2inserts)="U"
+		
+		FOR lnIddoc=1 TO ALEN(ladoc2inserts,1)
+			
+			RELEASE ladoc2insert
+			lcIdDoc=ladoc2inserts(lnIddoc,1) &&calculando iddoc 
+			lcPrefijo=ladoc2inserts(lnIddoc,2) &&calculando prefijo 
+			
+			SELECT ID FROM docnum WHERE ALLTRIM(iddoc)==ALLTRIM(lcIdDoc) INTO ARRAY ladoc2insert
+			
+			IF !VARTYPE(ladoc2insert)="U" 
+				&&ver cual es mayor e insertar ese 
+				MESSAGEBOX("Ya existe este documento en la tabla docnum",64,"Información",1500)
+			ELSE 
+				&&insertar el que sigue SI NO SE HA AGREGADO 
+				INSERT INTO docnum(iddoc,prefijo,id, estado ) VALUES ;
+				(lcIdDoc,lcPrefijo,0,1)
+			ENDIF 
+
+		ENDFOR 
+	ENDIF 
+ENDPROC 
+
+PROCEDURE INSERTDOCNUM
+LPARAMETERS TCIDDOC
+
+*SELECT IDDOC,PREFIJO,VAL("0"),VAL("1") FROM DOCUMENTOS WHERE (IDDOC,"5","02","4","3") INTO ARRAY ladoc2inserts
+SELECT IDDOC,PREFIJO,VAL("0"),VAL("1") FROM DOCUMENTOS WHERE IDDOC=TCIDDOC INTO ARRAY ladoc2inserts
+
+
+
+	IF !VARTYPE(ladoc2inserts)="U"
+		FOR lnIddoc=1 TO ALEN(ladoc2inserts,1)
+			RELEASE ladoc2insert
+			lcIdDoc=ladoc2inserts(lnIddoc,1) &&calculando iddoc 
+			lcPrefijo=ladoc2inserts(lnIddoc,2) &&calculando prefijo 
+			
+			SELECT ID FROM docnum WHERE ALLTRIM(iddoc)==ALLTRIM(lcIdDoc) INTO ARRAY ladoc2insert
+			
+			
+			IF !VARTYPE(ladoc2insert)="U" 
+			
+				&&ver cual es mayor e insertar ese 
+				lnIdStored=gennumdoc(lcIdDoc) &&EL ALMACENADO EN LA TABLA DEL DOCUMENTO (GENNUMDOC())
+				lnIdDocNum=ladoc2insert &&EL ALMACENADO EN LA TABLA DOCNUM 
+				**15 OCT 2015 SE CAMBIO PARA QUE DEJE JUSTO EL QUE SIGUE, ASI SE USARA ESTE PROCEDURE PARA FIXEAR LOS CORRELATIVOS DE SER NECESARIO 
+				UPDATE docnum SET prefijo=lcPrefijo,id=extractIntfromiddoc(lnIdStored)-1,estado=2 WHERE iddoc=lcIdDoc &&PONER EL GENNUMDOC()
+*!*					IF lnIdDocNum>extractIntfromiddoc(lnIdStored) &&SI EL QUE TIENE DOCNUM ES MAYOR QUE EL GENNUMDOC
+*!*						UPDATE docnum SET prefijo=lcPrefijo,id=lnIdDocNum,estado=2 WHERE iddoc=lcIdDoc &&PONER EL DOCNUM 
+*!*					ELSE
+*!*						UPDATE docnum SET prefijo=lcPrefijo,id=extractIntfromiddoc(lnIdStored),estado=2 WHERE iddoc=lcIdDoc &&PONER EL GENNUMDOC()
+*!*					ENDIF 
+			ELSE 
+				&&insertar el que sigue SI NO SE HA AGREGADO 
+				IF 	!ALLTRIM(TCIDDOC)="08"
+					lnIdStored=gennumdoc(lcIdDoc)
+					lnRestar=1	
+				ELSE
+					**20 sep 2016 se agrego una excepcion para la generacion del docnum ya que en gennumdoc hace referencia a nuevoid, y entonces no devolvia el maximo sino -1
+					**cuando se generaba nuevoid() generaba un duplicado 
+					RELEASE laidventamaxInsertDocNum
+					SELECT MAX(idventa) FROM facturas INTO ARRAY laidventamaxInsertDocNum
+					lnIdStored=laidventamaxInsertDocNum
+					lnRestar=0	
+				ENDIF 
+				INSERT INTO docnum(iddoc,prefijo,id, estado ) VALUES (lcIdDoc,lcPrefijo,extractIntfromiddoc(lnIdStored)-lnRestar,1)
+				
+			ENDIF 
+		ENDFOR 
+	ENDIF 
+ENDPROC 
+
+PROCEDURE AddPlper_Elem 
+LPARAMETERS tcTable,tcName,tnTp,tnNaturalize
+IF UPPER(tcTable)="PLPER_ELEM"
+	IF !VARTYPE(_SCREEN.Function1)="O"
+		_screen.NewObject("Function1","Functions","lib1.0\_vars.vcx")
+	ENDIF 
+	
+	IF VARTYPE(gaPlPer_elem)="U"
+		_screen.Function1.Genplsmatrix()
+	ELSE
+		_screen.Function1.Genplsmatrix(.t.)
+		_screen.Function1.Genplsmatrix(.f.)
+	ENDIF 
+	
+	lcCategoria=gaPlPer_elem(IIF(tnTp=0,1,tnTp))
+	lcIcono=gaPlPer_elemImage(IIF(tnTp=0,1,tnTp))
+	
+*!*		MESSAGEBOX("tcName")
+*!*		MESSAGEBOX(tcName)
+*!*		MESSAGEBOX(vartype(tcName))
+*!*		MESSAGEBOX("tnTp")
+*!*		MESSAGEBOX(VARTYPE(tnTp))
+*!*		MESSAGEBOX("tnNaturalize")
+*!*		MESSAGEBOX(VARTYPE(tnNaturalize))
+
+	SELECT IDELEMENT FROM plper_elem WHERE UPPER(ALLTRIM(descrip))=UPPER(ALLTRIM(tcName)) INTO ARRAY laDescripPlper_Elem 
+	IF VARTYPE(laDescripPlper_Elem )="U"
+		lcDocnum=gennumdoc("4905")	
+
+		INSERT INTO plper_elem(IDELEMENT,DESCRIP,TP,CATEGORIA,ICONO,SKIPPER,CANUPDATE,NATURALIZE);
+		VALUES (lcDocnum,tcName,tnTp,lcCategoria,lcIcono,"51405",.F.,tnNaturalize)
+	ELSE 
+			
+		UPDATE plper_elem ;
+		SET DESCRIP=tcName,tp=tnTp,CATEGORIA=lcCategoria,ICONO=lcIcono,SKIPPER="51405",CANUPDATE=.f.,NATURALIZE=tnNaturalize;
+		WHERE IDELEMENT=laDescripPlper_Elem
+	ENDIF 
+ELSE 
+
+	
+ENDIF 
+ENDPROC 
+
+PROCEDURE AddPlie
+LPARAMETERS tcDescrip,tbActivo,tiCbase,tnmonto,tbMsaldo,tiAplica,tcIdperson,tiPeriodi,tdFecpl,tiTipo,tiSr
+	
+	IF !EMPTY(tcDescrip)
+		SELECT IDIE FROM PLIE WHERE UPPER(ALLTRIM(descrip))==UPPER(ALLTRIM(tcDescrip)) INTO ARRAY laIdPlie 
+
+		IF VARTYPE(laIdPlie )="U"
+			lcDocPlie=gennumdoc("4904")	
+			
+			INSERT INTO PLIE(IDIE,		DESCRIP,	ACTIVO,		CBASE,	MONTO,	MSALDO,		APLICA,		IDPERSON,	PERIODI,	FEC_PL,	TIPO,	ESTADO,	SR);
+			VALUES			(lcDocPlie,	tcDescrip,	tbActivo,	tiCbase,tnmonto,tbMsaldo,	tiAplica,	tcIdperson,	tiPeriodi,	tdFecpl,tiTipo,	1,		tiSr)
+		ELSE 
+
+			UPDATE PLIE;
+			SET ;
+				DESCRIP=tcDescrip,;
+				ACTIVO=tbActivo,;
+				CBASE=tiCbase,;
+				MONTO=tnmonto,;
+				MSALDO=tbMsaldo,;
+				APLICA=tiAplica,;
+				IDPERSON=tcIdperson,;
+				PERIODI=tiPeriodi,;
+				FEC_PL=tdFecpl,;
+				TIPO=tiTipo,;
+				ESTADO=1,;
+				SR=tiSr;
+			WHERE IDIE=laIdPlie 
+		ENDIF 
+
+	ENDIF 
+ENDPROC
+
+PROCEDURE ADDACCESOFEC
+	LPARAMETERS tcIdDoc,tcStatus
+	DIMENSION EDOS(1,3) 
+	lcstatus=tcStatus
+	lcPrek="FEC"
+	
+	SELECT;
+		lcPrek+TRANSFORM(PREFIJO),tcStatus,NOMBRE ;
+	FROM ;
+		DOCUMENTOS  ;
+	WHERE ;
+		IDDOC==tcIdDoc ;
+	INTO ARRAY ;
+		EDOS
+		
+	DO AddAcceso2 WITH EDOS(1,1),EDOS(1,2),EDOS(1,3),.t.
+
+ENDPROC 
+
+PROCEDURE PrepararEntorno
+	IF VARTYPE("gbVentanaComandosExecuteSuccesful")="U"
+		PUBLIC gbVentanaComandosExecuteSuccesful as Boolean
+
+	ENDIF 
+	IF VARTYPE("gcVentanaComandosExecuteResult")="U"
+		PUBLIC gcVentanaComandosExecuteResult as Character
+	ENDIF 
+ENDPROC 
+
+PROCEDURE InsertUbicacion
+	LPARAMETERS tcDepto,tcMunicipio 
+	IF !VARTYPE(tcDepto)="L"
+		lbInsertMuni=.f.
+		SELECT nombre FROM depart WHERE nombre==tcDepto INTO ARRAY laDepto 
+		IF VARTYPE(laDepto )="U"
+			
+			SELECT NVL(MAX(VAL(iddepart)),0) FROM depart INTO ARRAY laMaxIdDepart
+			IF laMaxIdDepart<99
+				lcIdDepart=PADL(TRANSFORM(laMaxIdDepart+1),2,"0")
+			ELSE
+				lcIdDepart=PADL(TRANSFORM(laMaxIdDepart+1),3,"0")
+			ENDIF
+			INSERT INTO depart (nombre, iddepart) values(UPPER(tcDepto),lcIdDepart)
+			
+			SELECT iddepart FROM depart WHERE nombre==tcDepto INTO ARRAY laIdDepto
+			IF !VARTYPE(laIdDepto)="U"
+				lbInsertMuni=.t.
+				lcIdDepto=laIdDepto
+			ENDIF 
+			
+		ELSE 
+			SELECT iddepart FROM depart WHERE nombre==tcDepto INTO ARRAY laIdDepto
+			IF !VARTYPE(laDepto)="U"
+				lbInsertMuni=.t.
+				lcIdDepto=laIdDepto
+			ENDIF 
+		ENDIF 	
+		
+		IF !VARTYPE(tcMunicipio)="L"
+			IF lbInsertMuni
+				SELECT DESCRIPCION FROM MUNICIPIOS WHERE DESCRIPCION==tcMunicipio AND depart=lcIdDepto INTO ARRAY laMunicipio
+				IF VARTYPE(laMunicipio)="U"
+					SELECT NVL(MAX(VAL(SUBSTR(ALLTRIM(IDMUNICIPIO),3,2))),0) FROM municipios WHERE depart=lcIdDepto INTO ARRAY laMaxIdMunicipio
+
+					IF laMaxIdMunicipio<99
+						lcMunicipio=PADL(TRANSFORM(laMaxIdMunicipio+1),2,"0")
+						lcIdMunicipio=ALLTRIM(lcIdDepto)+ALLTRIM(lcMunicipio)
+					ELSE
+						lcMunicipio=PADL(TRANSFORM(laMaxIdMunicipio+1),3,"0")
+						lcIdMunicipio=ALLTRIM(lcIdDepto)+ALLTRIM(lcMunicipio)
+					ENDIF
+					
+					INSERT INTO municipios (descripcion, idmunicipio,depart) values(tcMunicipio ,lcIdMunicipio,lcIdDepto)
+				ENDIF 
+			ENDIF 
+		ENDIF 	
+	
+	ENDIF 
+
+ENDPROC 
+
+PROCEDURE INSERPARAMCONTA
+	PARAMETERS tcidparam,tcdescrip,tntipo,tcvalor
+	
+	SELECT idinfo FROM infoapp WHERE UPPER(ALLTRIM(idinfo))==UPPER(ALLTRIM(tcidparam)) INTO ARRAY laParamExist
+
+	IF VARTYPE(laParamExist)="U"
+		INSERT INTO infoapp(idinfo,dsc,tp,valor) VALUES (tcidparam,tcDescrip,tntipo,tcvalor)
+		MESSAGEBOX("Parametro de Conta "+tcidparam+": "+tcvalor+" Insertado ",16," Inserción",1500)
+	ELSE
+		UPDATE infoapp SET dsc=tcdescrip,VALOR=tcvalor,tp=tntipo WHERE ALLTRIM(UPPER(idinfo))==ALLTRIM(UPPER(tcidparam)) 
+		MESSAGEBOX("Parametro Conta "+tcidparam+": "+tcvalor+" Actualizado ",16," Actualización",1500)
+	ENDIF 
+ENDPROC 
+
+PROCEDURE UPDATETBDOCUMENTOSWITHTB
+LPARAMETER TCIDDOC,TCTABLA_M,TCTABLA_D,TCIDCAMPO
+	UPDATE DOCUMENTOS SET TABLA_M=TCTABLA_M, TABLA_D=TCTABLA_D, IDCAMPO=TCIDCAMPO WHERE ALLTRIM(IDDOC)==ALLTRIM(TCIDDOC)
+
+ENDPROC 
+
+
+PROCEDURE INSERTPROCTBSRCDTUP
+LPARAMETERS tcProc, tcDescrip
+	SELECT PROC FROM tbsrcdtup WHERE ALLTRIM(UPPER(proc))==ALLTRIM(UPPER(tcProc)) INTO ARRAY laProc
+	IF VARTYPE(laProc)="U"
+		INSERT INTO tbsrcdtup  (PROC, DESCRIP,CREADO) VALUES (ALLTRIM(tcProc),ALLTRIM(tcDescrip),DATETIME())
+	ELSE 
+		UPDATE tbsrcdtup   SET DESCRIP=ALLTRIM(tcDescrip) WHERE ALLTRIM(UPPER(proc))==ALLTRIM(UPPER(tcProc)) 
+	ENDIF 
+ENDPROC  
+
+PROCEDURE INSERTCOLORS
+LPARAMETERS tcNombre,tcGrupo,tnValor
+
+SELECT 	NOMBRE FROM COLORS WHERE UPPER(ALLTRIM(NOMBRE))==ALLTRIM(UPPER(tcNombre)) INTO ARRAY laCOLORS
+IF VARTYPE(laCOLORS)="U"
+	INSERT INTO COLORS(NOMBRE,GRUPO,VALOR) VALUES (tcNombre,tcGrupo,tnValor)	
+ELSE
+	UPDATE COLORS SET VALOR=tnVALOR WHERE UPPER(ALLTRIM(NOMBRE))==UPPER(ALLTRIM(tcNOMBRE)) AND UPPER(ALLTRIM(GRUPO))==UPPER(ALLTRIM(tcgrupo))
+ENDIF 
+
+ENDPROC 
+
+PROCEDURE ensurec2havefields
+
+	DIMENSION laCommands(2)
+	laCommands(1)="ALTER"
+	laCommands(2)="ADD"
+	
+	FOR lnalter=1 TO ALEN(laCommands,1)
+		lcCommand=laCommands(lnalter)
+		
+		CLOSE TABLES ALL 
+		LCTB="C2"
+		LCFLD="IDPROY"
+		LNPRECISION="c(10)"
+		LCTYPEOPERATION=lcCommand
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+		CLOSE TABLES ALL 
+		LCTB="C2"
+		LCFLD="IDNUM"
+		LNPRECISION="c(10)"
+		LCTYPEOPERATION=lcCommand
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+
+		CLOSE TABLES ALL 
+		LCTB="C2"
+		LCFLD="IDDEPTO"
+		LNPRECISION="c(10)"
+		LCTYPEOPERATION=lcCommand
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+
+		CLOSE TABLES ALL 
+		LCTB="C2"
+		LCFLD="IDCLIPROV"
+		LNPRECISION="c(10)"
+		LCTYPEOPERATION=lcCommand
+		DO MAKECHANGES WITH LCTB,LCFLD,LNPRECISION,LCTYPEOPERATION	
+	ENDFOR 
+
+
+	
+ENDPROC 
+
+
+PROCEDURE QUITDUPLICATE
+LPARAMETERS tcIdCampo,tcTable 
+**solo funciona con campos de valor texto 
+
+	SELECT ;
+		&tcIdCampo 	FROM &tcTable ;
+	WHERE ;
+		&tcIdCampo IN (SELECT &tcIdCampo FROM &tcTable GROUP BY 1 HAVING COUNT( &tcIdCampo )>1)
+		
+	SELECT distinct ;
+		&tcIdCampo 	FROM &tcTable ;
+	WHERE ;
+		&tcIdCampo IN (SELECT &tcIdCampo FROM &tcTable GROUP BY 1 HAVING COUNT( &tcIdCampo )>1)
+
+
+	SELECT distinct ;
+		&tcIdCampo 	FROM &tcTable ;
+	WHERE ;
+		&tcIdCampo IN (SELECT &tcIdCampo FROM &tcTable GROUP BY 1 HAVING COUNT( &tcIdCampo )>1);
+	INTO ARRAY laDuplicate
+	
+	IF !VARTYPE(laDuplicate)="U"
+	
+		FOR lnDuplicate=1 TO ALEN(laDuplicate,1)
+			lcDuplicate=laDuplicate(lnDuplicate,1)
+			
+			
+			lcCriteria="ALLTRIM("+tcIdCampo+")=='"+ALLTRIM(lcDuplicate)+"'"
+			
+			SELECT COUNT(*) FROM &tcTable WHERE &lcCriteria INTO ARRAY laCountDuplicate
+			lnNumDuplicates=laCountDuplicate
+			
+			IF lnNumDuplicates>1
+				SELECT (tcTable )
+				GO TOP 
+				
+				LOCATE FOR &lcCriteria
+				lnCountFinded=0
+				DO WHILE FOUND() AND (lnNumDuplicates-lnCountFinded)>1
+					lnCountFinded = lnCountFinded + 1 
+					DELETE 
+					CONTINUE 
+				ENDDO 
+			ENDIF 				
+		ENDFOR
+		
+	ENDIF 
+ENDPROC 
